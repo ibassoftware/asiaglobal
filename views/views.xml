@@ -14,86 +14,132 @@
       </field>
     </record>
 
-     <record id="asiaglobal_leadform" model="ir.ui.view">
-      <field name="name">id.asialeadform</field>
-      <field name="model">crm.lead</field>
-      <field name="inherit_id" ref="crm.crm_case_form_view_leads"/>
+    <record model="ir.ui.view" id="asiaglobal_stages_form">
+      <field name="name">asiaglobal_stages.form</field>
+      <field name="model">asiaglobal.stages</field>
       <field name="arch" type="xml">
-        <!-- find field description and add the field
-        idea_ids after it -->
-        <xpath expr="//field[@name='partner_id']" position="before">
-          <field name="principal_id"/>
-        </xpath>
+        <form string="Stages">
+          <header>
+          </header>
+          <sheet>
+            <h1>
+              <label string="Stages"/>
+            </h1>
+            <group>
+              <field name="name"/>
+              <field name="probability"/>
+            </group>
+          </sheet>
+        </form>
       </field>
     </record>
 
-    <record id="asiaglobal_leadform" model="ir.ui.view">
-      <field name="name">id.asialeadform</field>
-      <field name="model">crm.lead</field>
-      <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
-      <field name="arch" type="xml">
-        <!-- find field description and add the field
-        idea_ids after it -->
-        <xpath expr="//field[@name='partner_id']" position="before">
+    <record model='ir.ui.view' id='asiaglobal_stages_tree'>
+      <field name='name'>Asia Global Stages</field>
+      <field name='model'>asiaglobal.stages</field>
+      <field name='arch' type='xml'>
+        <tree string='Asia Global Stages'>
+          <field name='name'/>
+          <field name='probability'/>
+        </tree>
+      </field>
+    </record>
+
+     <!-- actions opening views on models -->
+    
+    <record model="ir.actions.act_window" id="stages_action_window">
+      <field name="name">AsiaGlobal Sales Stages</field>
+      <field name="res_model">asiaglobal.stages</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="asiaglobal_stages_menu" name="Stages" parent="sale.menu_sale_config" action="stages_action_window"/>
+
+     <record model='ir.ui.view' id='projectlist_tree'>
+      <field name='name'>Project List</field>
+      <field name='model'>sale.order</field>
+      <field name='arch' type='xml'>
+        <tree string='Project List'>
+          <field name="project_description"/>
+          <field name='name' string="Reference Number"/>
           <field name="principal_id"/>
           <field name="opportunity_type"/>
           <field name="sale_type"/>
-          <field name="legacy_quote"/>
-
-        </xpath>
-
-        <xpath expr="//field[@name='name']" position="replace">
-          <field name="name" string="Project Name" placeholder = "Project Name"/>
-        </xpath>
-
-        <xpath expr="//field[@name='planned_revenue']" position="replace">
-          <field name="planned_revenue" string="Amount in PHP net of VAT"/>
-        </xpath>
-
-         <xpath expr="//field[@name='date_deadline']" position="after">
-          <field name="expected_gross_margin"/>
-          <field name="gross_margin_value"/>
-        </xpath>
-
-         <xpath expr="//button[@name='%(crm.crm_lead_lost_action)d']" position="attributes">
-          <attribute name="groups">base.group_erp_manager</attribute>
-        </xpath>
-
-
-
+          <field name="project_stage_id"/>
+          <field name="expected_gross_value"/>
+          <field name='state'/>
+        </tree>
       </field>
     </record>
+  
 
-
-     <record id="asiaglobal_leadform_simplified" model="ir.ui.view">
-      <field name="name">id.asialeadform_simplified</field>
-      <field name="model">crm.lead</field>
-      <field name="inherit_id" ref="crm.view_create_opportunity_simplified"/>
-      <field name="arch" type="xml">
-        <!-- find field description and add the field
-        idea_ids after it -->
-      <xpath expr="//field[@name='priority']" position="before">
-          <field name="legacy_quote"/>
-          <field name="principal_id"/>
-          <field name="opportunity_type"/>
-          <field name="expected_gross_margin"/>
-           <field name="sale_type"/>
-        </xpath>
-      </field>
+    <record id="action_project_list" model="ir.actions.act_window">
+      <field name="name">Project List</field>
+      <field name="res_model">sale.order</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_id" ref="projectlist_tree"/>
     </record>
+
+    
+
+   <record id="action_ag_prospects" model="ir.actions.act_window">
+     <field name="name">Prospects</field>
+     <field name="res_model">crm.lead</field>
+     <field name="view_mode">tree,form</field>
+     <field name="view_id" ref="crm.crm_case_form_view_leads"/>
+     <field name="view_id" ref="crm.crm_case_tree_view_leads"/>
+   </record>
+
+  <menuitem id="project_list_menu" name="Project List" parent="sale.sale_menu_root" action="action_project_list" sequence="1"/>
+   <menuitem id="prospects_ag_menu" name="Prospects" parent="sale.sale_menu_root" action="action_ag_prospects" sequence="1"/>
+
+
+    <record id="make_invisible" model="res.groups">
+            <field name="name">Invisible</field>
+        </record>
+        <record model="ir.ui.menu" id="crm.crm_menu_root">
+            <field name="groups_id" eval="[(6,0,[ref('make_invisible')])]"/>
+        </record>
 
     <record id="view_order_form" model="ir.ui.view">
       <field name="name">id.view_order_form</field>
       <field name="model">sale.order</field>
       <field name="inherit_id" ref="sale.view_order_form"/>
       <field name="arch" type="xml">
-        <!-- find field description and add the field
-        idea_ids after it -->
+  
       <xpath expr="//field[@name='state']" position="replace">
-         <field name="state" widget="statusbar" statusbar_visible="draft,manager_approval,admin_approval,approved,sale"/>
+       
+        <!-- <field name="state" widget="statusbar" statusbar_visible="draft,manager_approval,admin_approval,approved,sale"/> -->
         </xpath>
 
-        <xpath expr="//button[@name='action_confirm']" position="replace">
+        <xpath expr="//field[@name='partner_id']" position="before">
+          <field name="state" style="color:Red; font-size:large"/>
+          <field name="project_stage_id"/>
+          <field name="project_description"/>
+        </xpath>
+
+
+        <xpath expr="//field[@name='pricelist_id']" position="after">
+          <field name="current_currency"/> 
+        </xpath>
+
+         <xpath expr="//field[@name='team_id']" position="replace"/>
+
+
+
+      <xpath expr="//field[@name='partner_id']" position="after">
+        <field name="principal_id" attrs="{'readonly': [('state', '!=', 'draft')],'required': 1}"/>
+        <field name="opportunity_type" attrs="{'readonly': [('state', '!=', 'draft')],'required': 1}"/>
+        <field name="sale_type" attrs="{'readonly': [('state', '!=', 'draft')],'required': 1}"/>
+        <field name="expected_gross_margin" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+        <field name="team_id" attrs="{'required': 1}"/>
+        <field name="legacy_quote" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+        </xpath>
+
+
+       
+
+         <xpath expr="//button[@name='action_confirm']" position="replace">
           <button name="manager_approval" states="draft" string="Approve" type="object" groups="base.group_erp_manager,sales_team.group_sale_manager"/>
           <button name="admin_approval" states="admin_approval" string="Approve" type="object" groups="base.group_erp_manager"/>
         </xpath>
@@ -113,14 +159,16 @@
           <button name="action_quotation_send" string="Send by Email" type="object" states="sent,approved"/>
         </xpath>
 
-        <xpath expr="//field[@name='payment_term_id']" position="replace">
-         
+        <xpath expr="//field[@name='payment_term_id']" position="replace"> 
+          <!-- <field name="project_stage_id" options='{"no_open": True,"no_create": 1, "no_create_edit": 1}'/> -->
+           
+          <field name="project_probability"/>
+          <field name="exchange_rate"  attrs="{'invisible':[('current_currency', '==', 'PHP')], 'readonly': [('state', '!=', 'draft')]}"/>
+          <field name="expected_gross_value"/>
+          <field name="gross_margin_value"/>
         </xpath>
 
-
-        
-                    
-
+                  
       </field>
     </record>
 
@@ -128,7 +176,7 @@
      
     
 
-    <menuitem
+   <!--  <menuitem
             id="crm.menu_crm_opportunities"
             action="crm.action_your_pipeline"
             name="Project List"
@@ -206,7 +254,7 @@
         id="sale_crm.sale_order_menu_quotations_crm"
         action="sale.action_quotations"
         parent="crm.crm_menu_pipeline"
-        sequence="10" groups="-sales_team.group_sale_salesman,base.group_erp_manager"/>
+        sequence="10" groups="-sales_team.group_sale_salesman,base.group_erp_manager"/> -->
 
     <!-- explicit list view definition -->
     <!--

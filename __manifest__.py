@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','crm','sale_management', 'purchase','hr', 'helpdesk', 'sales_team', 'web_studio', 'r2d2',
+    'depends': ['base','crm','sale_management', 'purchase','hr', 'helpdesk', 'sales_team', 'r2d2',
     'sale','sale_crm'],
 
     # always loaded
