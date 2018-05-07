@@ -21,7 +21,7 @@
 
     # any module necessary for this one to work correctly
     'depends': ['base','crm','sale_management', 'purchase','hr', 'helpdesk', 'sales_team', 'r2d2',
-    'sale','sale_crm'],
+    'sale','sale_crm', 'mail'],
 
     # always loaded
     'data': [

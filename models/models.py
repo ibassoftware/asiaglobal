@@ -253,19 +253,19 @@ class AGSaleOrder(models.Model):
 	def admin_approval(self):
 		self.state = "approved"	
 
-	@api.multi
-	def write(self, vals):
-		res = super(AGSaleOrder, self).write(vals)
-		_logger.info('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
-		if (self.state == 'sale'):
-			won= self.env['asiaglobal.stages'].search([('name','=','Won')],limit=1).id
-			_logger.info(won)
-			vals['project_stage_id'] = won
+	# @api.multi
+	# def write(self, vals):
+	# 	res = super(AGSaleOrder, self).write(vals)
+	# 	_logger.info('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
+	# 	if (self.state == 'sale'):
+	# 		won= self.env['asiaglobal.stages'].search([('name','=','Won')],limit=1).id
+	# 		_logger.info(won)
+	# 		vals['project_stage_id'] = won
 
-		res = super(AGSaleOrder, self).write(vals)
-			# self.project_stage_id = won
+	# 	res = super(AGSaleOrder, self).write(vals)
+	# 		self.project_stage_id = won
 
-		return res
+	# 	return res
 
 
 # class asiaglobal(models.Model):
