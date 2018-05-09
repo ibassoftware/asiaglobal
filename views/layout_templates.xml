@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- START SERVICE QUOTE -->
+        <template id="external_layout_service_quotation">
+            <t t-if="not o and doc">
+                <t t-set="o" t-value="doc"/>
+            </t>
+
+            <t t-if="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id.sudo()"/>
+            </t>
+
+            <t t-if="not o or not 'company_id' in o">
+                <t t-set="company" t-value="res_company"/>
+            </t>
+
+            <t t-call="asiaglobal.external_layout_service_quotation_custom"><t t-raw="0"/></t>
+        </template>
+
+        <template id="external_layout_service_quotation_custom">
+            <div class="header">
+                <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % to_text(company.logo)" style="max-height: 100px;"/>
+            </div>
+
+            <div class="article o_report_layout_standard">
+                <t t-raw="0" />
+            </div>
+
+            <div class="footer">
+                <p style="font-size:12px">
+                    <span t-field="company.street"/> <span t-field="company.street2"/>, <span t-field="company.city"/> <span t-field="company.zip"/> Telephone: <span t-field="company.phone"/><br/>
+                    <span t-field="company.email"/>
+                </p>
+                <div class="row" style="font-size: 14px;color: red;">
+                    <div class="col-xs-12">
+                        <p> <b>Solution. Satisfaction.</b></p>
+                    </div>
+                    <!-- <div class="col-xs-4 text-muted text-right">
+                        Page <span class="page"/> of <span class="topage"/>
+                    </div> -->
+                </div>
+            </div>
+        </template>
+        <!-- END SERVICE QUOTE -->
+
+    </data>
+</odoo>

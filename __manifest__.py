@@ -26,9 +26,14 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'data/report_paperformat_data.xml',
         'views/views.xml',
         'views/templates.xml',
-        'views/data.xml'
+        'views/data.xml',
+        'views/layout_templates.xml',
+        'report/report_quotation_service.xml',
+        'report/report.xml',
+
     ],
     # only loaded in demonstration mode
     'demo': [
