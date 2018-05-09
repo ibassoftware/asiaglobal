@@ -178,7 +178,6 @@
         <xpath expr="//field[@name='opportunity_id']" position="after"> 
           <field name="notes"/>
         </xpath>
-
                   
       </field>
     </record>
