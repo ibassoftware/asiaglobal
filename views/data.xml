@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+
+        <record id="team_weqd_department" model="crm.team">
+            <field name="name">WEQD</field>
+            <field name="member_ids" eval="[(4, ref('base.user_root'))]"/>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="team_heqd_department" model="crm.team">
+            <field name="name">HEQD</field>
+            <field name="member_ids" eval="[(4, ref('base.user_root'))]"/>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="team_rentals_department" model="crm.team">
+            <field name="name">Rentals</field>
+            <field name="member_ids" eval="[(4, ref('base.user_root'))]"/>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <delete id="sales_team.team_sales_department" model="crm.team"/>
+
+        <delete id="crm.stage_lead1" model="crm.stage"/>
+        <delete id="crm.stage_lead2" model="crm.stage"/>
+        <delete id="crm.stage_lead3" model="crm.stage"/>
+        <delete id="crm.stage_lead4" model="crm.stage"/>
+
+
+       
+       
+
+        <!-- <delete id="sale.report_saleorder" model="sale.order"/>
+        <delete id="sale.report_saleorder_pro_forma" model="sale.order"/> -->
+
+        <report 
+            id="sale.action_report_saleorder"
+            string="Quotation / Order"
+            model="sale.order" 
+            report_type="qweb-pdf"
+            file="sale.report_saleorder" 
+            name="sale.report_saleorder"
+            print_report_name="(object.state in ('draft', 'sent') and 'Quotation - %s' % (object.name)) or 'Order - %s' % (object.name)"
+            menu = "False"
+        />
+
+        <record model="asiaglobal.stages" id="agstage_lead_1">
+            <field name="name">Budgetary</field>
+            <field name="probability">25</field>
+        </record>
+
+        <record model="asiaglobal.stages" id="agstage_lead_2">
+            <field name="name">Preferred Vendor</field>
+            <field name="probability">75</field>
+        </record>
+
+        <record model="asiaglobal.stages" id="agstage_lead_3">
+            <field name="name">Contract Negotiation</field>
+            <field name="probability">90</field>
+        </record>
+
+        <record model="asiaglobal.stages" id="agstage_lead_4">
+            <field name="name">Won</field>
+            <field name="probability">100</field>
+        </record>
+
+        <record model="asiaglobal.stages" id="agstage_lead_5">
+            <field name="name">Lost</field>
+            <field name="probability">0</field>
+        </record>
+
+
+     
+
+
+        <record id="list1" model="product.pricelist">
+            <field name="name">Public Pricelist USD</field>
+            <field name="currency_id" ref="base.USD"/>
+        </record>
+
+        <record id="list2" model="product.pricelist">
+            <field name="name">Public Pricelist EUR</field>
+            <field name="currency_id" ref = "base.EUR"/>
+        </record>
+
+
+        <record id="list2" model="product.pricelist">
+            <field name="name">Public Pricelist EUR</field>
+            <field name="currency_id" ref = "base.EUR"/>
+        </record>
+
+
+    </data>
+
+
+
+</odoo>

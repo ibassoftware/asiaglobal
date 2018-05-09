@@ -1,0 +1,327 @@
+<odoo>
+  <data>
+
+    <record id="asiaglobal_vendorform" model="ir.ui.view">
+      <field name="name">id.asiavendorform</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_partner_form"/>
+      <field name="arch" type="xml">
+        <!-- find field description and add the field
+        idea_ids after it -->
+        <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='sales_purchases']/group[@name='container_row_2']/group[@name='purchase']/field[@name='supplier']" position="after">
+          <field name="is_principal"/>
+        </xpath>
+        <xpath expr="//field[@name='name']" position="after">
+          <group>
+            <field name="first_name" />
+            <field name="last_name" />
+          </group>
+        </xpath>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="asiaglobal_stages_form">
+      <field name="name">asiaglobal_stages.form</field>
+      <field name="model">asiaglobal.stages</field>
+      <field name="arch" type="xml">
+        <form string="Stages">
+          <header>
+          </header>
+          <sheet>
+            <h1>
+              <label string="Stages"/>
+            </h1>
+            <group>
+              <field name="name"/>
+              <field name="probability"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model='ir.ui.view' id='asiaglobal_stages_tree'>
+      <field name='name'>Asia Global Stages</field>
+      <field name='model'>asiaglobal.stages</field>
+      <field name='arch' type='xml'>
+        <tree string='Asia Global Stages'>
+          <field name='name'/>
+          <field name='probability'/>
+        </tree>
+      </field>
+    </record>
+
+     <!-- actions opening views on models -->
+    
+    <record model="ir.actions.act_window" id="stages_action_window">
+      <field name="name">AsiaGlobal Sales Stages</field>
+      <field name="res_model">asiaglobal.stages</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="asiaglobal_stages_menu" name="Stages" parent="sale.menu_sale_config" action="stages_action_window"/>
+
+     <record model='ir.ui.view' id='projectlist_tree'>
+      <field name='name'>Project List</field>
+      <field name='model'>sale.order</field>
+      <field name='arch' type='xml'>
+        <tree string='Project List'>
+          <field name="project_description"/>
+          <field name='name' string="Reference Number"/>
+          <field name="principal_id"/>
+          <field name="opportunity_type"/>
+          <field name="sale_type"/>
+          <field name="project_stage_id"/>
+          <field name="expected_gross_value"/>
+          <field name='state'/>
+        </tree>
+      </field>
+    </record>
+  
+
+    <record id="action_project_list" model="ir.actions.act_window">
+      <field name="name">Project List</field>
+      <field name="res_model">sale.order</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_id" ref="projectlist_tree"/>
+    </record>
+
+    
+
+   <record id="action_ag_prospects" model="ir.actions.act_window">
+     <field name="name">Prospects</field>
+     <field name="res_model">crm.lead</field>
+     <field name="view_mode">tree,form</field>
+     <field name="view_id" ref="crm.crm_case_form_view_leads"/>
+     <field name="view_id" ref="crm.crm_case_tree_view_leads"/>
+   </record>
+
+  <menuitem id="project_list_menu" name="Project List" parent="sale.sale_menu_root" action="action_project_list" sequence="1"/>
+   <menuitem id="prospects_ag_menu" name="Prospects" parent="sale.sale_menu_root" action="action_ag_prospects" sequence="1"/>
+
+
+    <record id="make_invisible" model="res.groups">
+            <field name="name">Invisible</field>
+        </record>
+        <record model="ir.ui.menu" id="crm.crm_menu_root">
+            <field name="groups_id" eval="[(6,0,[ref('make_invisible')])]"/>
+        </record>
+
+    <record id="view_order_form" model="ir.ui.view">
+      <field name="name">id.view_order_form</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_form"/>
+      <field name="arch" type="xml">
+  
+      <xpath expr="//field[@name='state']" position="replace">
+       
+        <!-- <field name="state" widget="statusbar" statusbar_visible="draft,manager_approval,admin_approval,approved,sale"/> -->
+        </xpath>
+
+        <xpath expr="//field[@name='partner_id']" position="before">
+          <field name="state" style="color:Red; font-size:large"/>
+          <field name="project_stage_id"/>
+          <field name="project_description"/>
+        </xpath>
+
+
+        <xpath expr="//field[@name='pricelist_id']" position="after">
+          <field name="current_currency"/> 
+        </xpath>
+
+         <xpath expr="//field[@name='team_id']" position="replace"/>
+
+
+
+      <xpath expr="//field[@name='partner_id']" position="after">
+        <field name="principal_id" attrs="{'readonly': [('state', '!=', 'draft')],'required': 1}"/>
+        <field name="opportunity_type" attrs="{'readonly': [('state', '!=', 'draft')],'required': 1}"/>
+        <field name="sale_type" attrs="{'readonly': [('state', '!=', 'draft')],'required': 1}"/>
+        <field name="expected_gross_margin" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+        <field name="team_id" attrs="{'required': 1}"/>
+        <field name="legacy_quote" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+        </xpath>
+
+
+       
+
+         <xpath expr="//button[@name='action_confirm']" position="replace">
+          <button name="manager_approval" states="draft" string="Approve" type="object" groups="base.group_erp_manager,sales_team.group_sale_manager"/>
+          <button name="admin_approval" states="admin_approval" string="Approve" type="object" groups="base.group_erp_manager"/>
+        </xpath>
+
+        <xpath expr="//button[@name='action_confirm'][1]" position="replace">
+           <button name="action_confirm"
+                        string="Confirm Sale" type="object"
+                        attrs="{'invisible': [('state', 'not in', ['approved'])]}"
+                        groups="base.group_erp_manager,sales_team.group_sale_manager"/>
+        </xpath>
+
+        <xpath expr="//button[@name='print_quotation'][1]" position="replace">
+          <button name="print_quotation" string="Print" type="object" states="sent,approved" class="o_sale_print"/>
+        </xpath>
+
+        <xpath expr="//button[@name='action_quotation_send'][1]" position="replace">
+          <button name="action_quotation_send" string="Send by Email" type="object" states="sent,approved"/>
+        </xpath>
+
+        <xpath expr="//field[@name='payment_term_id']" position="replace"> 
+          <!-- <field name="project_stage_id" options='{"no_open": True,"no_create": 1, "no_create_edit": 1}'/> -->
+           
+          <field name="project_probability"/>
+          <field name="exchange_rate"  attrs="{'invisible':[('current_currency', '==', 'PHP')], 'readonly': [('state', '!=', 'draft')]}"/>
+          <field name="expected_gross_value"/>
+          <field name="gross_margin_value"/>
+          <field name="subject" attrs="{'invisible':[('sale_type', '!=', 'parts')]}"/>
+        </xpath>
+
+        <xpath expr="//field[@name='opportunity_id']" position="after"> 
+          <field name="notes"/>
+        </xpath>
+
+                  
+      </field>
+    </record>
+
+
+     
+    
+
+   <!--  <menuitem
+            id="crm.menu_crm_opportunities"
+            action="crm.action_your_pipeline"
+            name="Project List"
+            parent="crm.crm_menu_pipeline"
+            sequence="5"/>
+
+     <record model="ir.actions.act_window" id="crm.crm_lead_opportunities_tree_view">
+            <field name="name">Project List</field>
+            <field name="res_model">crm.lead</field>
+            <field name="view_mode">tree,kanban,graph,pivot,form,calendar</field>
+            <field name="domain">[('type','=','opportunity')]</field>
+            <field name="context">{
+                    'default_type': 'opportunity',
+                    'default_user_id': uid,
+                    'search_default_assigned_to_me': 1,
+            }</field>
+            <field name="view_ids"
+                   eval="[(5, 0, 0),
+                          (0, 0, {'view_mode': 'tree', 'view_id': ref('crm.crm_case_tree_view_oppor')}),
+                          (0, 0, {'view_mode': 'form', 'view_id': ref('crm.crm_case_form_view_oppor')}),
+                          (0, 0, {'view_mode': 'kanban', 'view_id': ref('crm.crm_case_kanban_view_leads')}),
+                          (0, 0, {'view_mode': 'calendar'}),
+                          (0, 0, {'view_mode': 'pivot'}),
+                          (0, 0, {'view_mode': 'graph'})]"/>
+            <field name="search_view_id" ref="crm.view_crm_case_opportunities_filter"/>
+        </record>
+
+
+         <record id="crm.crm_case_tree_view_oppor" model="ir.ui.view">
+            <field name="name">crm.lead.tree.opportunity</field>
+            <field name="model">crm.lead</field>
+            <field name="arch" type="xml">
+                <tree string="Leads">
+                    <field name="create_date"/>
+                    <field name="user_id" string="SE"/>
+                     <field name="partner_id" string= "Customer"/>
+                     <field name="principal_id" string="Supplier"/>
+                    <field name="name" string="Project Description"/>
+                    <field name="planned_revenue" string="Amount in PHP net of VAT"/>
+                    <field name="expected_gross_margin" string="GM Percentage"/>
+                    <field name="gross_margin_value" string="GM Value"/>
+                    <field name="date_deadline"/>
+                    <field name="probability" string="Probability"/>
+                </tree>
+            </field>
+        </record>
+
+         <record id="sale.view_order_tree" model="ir.ui.view">
+            <field name="name">sale.order.tree</field>
+            <field name="model">sale.order</field>
+            <field name="priority">2</field>
+            <field name="arch" type="xml">
+                <tree string="Sales Orders" decoration-bf="message_needaction==True" decoration-muted="state=='cancel'">
+                    <field name="message_needaction" invisible="1"/>
+                    <field name="name" string="Order Number"/>
+                    <field name="confirmation_date" string="Order Date"/>
+                    <field name="partner_id"/>
+                    <field name="user_id"/>
+                    <field name="amount_total" sum="Total Tax Included" widget="monetary"/>
+                    <field name="state"/>
+                    <field name="currency_id" invisible="1"/>
+                    <field name="invoice_status" invisible="1"/>
+                    
+                </tree>
+            </field>
+        </record>
+
+
+      <menuitem id="sale.menu_sale_quotations"
+                action="sale.action_quotations"
+                parent="sale.sale_order_menu"
+                sequence="1" groups="-sales_team.group_sale_salesman,base.group_erp_manager"/>
+
+      <menuitem
+        id="sale_crm.sale_order_menu_quotations_crm"
+        action="sale.action_quotations"
+        parent="crm.crm_menu_pipeline"
+        sequence="10" groups="-sales_team.group_sale_salesman,base.group_erp_manager"/> -->
+
+    <!-- explicit list view definition -->
+    <!--
+    <record model="ir.ui.view" id="asiaglobal.list">
+      <field name="name">asiaglobal list</field>
+      <field name="model">asiaglobal.asiaglobal</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+  -->
+
+  <!-- actions opening views on models -->
+    <!--
+    <record model="ir.actions.act_window" id="asiaglobal.action_window">
+      <field name="name">asiaglobal window</field>
+      <field name="res_model">asiaglobal.asiaglobal</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+  -->
+
+  <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="asiaglobal.action_server">
+      <field name="name">asiaglobal server</field>
+      <field name="model_id" ref="model_asiaglobal_asiaglobal"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+  -->
+
+  <!-- Top menu item -->
+    <!--
+    <menuitem name="asiaglobal" id="asiaglobal.menu_root"/>
+  -->
+  <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="asiaglobal.menu_1" parent="asiaglobal.menu_root"/>
+    <menuitem name="Menu 2" id="asiaglobal.menu_2" parent="asiaglobal.menu_root"/>
+  -->
+  <!-- actions -->
+    <!--
+    <menuitem name="List" id="asiaglobal.menu_1_list" parent="asiaglobal.menu_1"
+              action="asiaglobal.action_window"/>
+    <menuitem name="Server to list" id="asiaglobal" parent="asiaglobal.menu_2"
+              action="asiaglobal.action_server"/>
+            -->
+          </data>
+        </odoo>

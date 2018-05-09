@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_quotation_service_document">
+            <t t-call="asiaglobal.external_layout_service_quotation">
+                <t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})"/>
+                <div class="page" style="font-size:18px">
+                    <table class="list_table" style="border:none;font-size:16px" width="100%">
+                        <tr>
+                            <td class="noborder" valign="top" width="56%">
+                                <b>Qoutation # <span t-field="o.name"/></b>
+                            </td>
+                            <td class="noborder" width="8%">
+                            </td>
+                            <td class="noborder" width="36%">
+                                <b><span t-field="o.date_order" t-options='{"format": "MMMM dd, yyyy"}'/></b>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <br/>
+                                        
+                    <div style="font-size:18px">
+                        <t t-if="o.partner_id.parent_id">
+                            <b><span t-field="o.partner_id.parent_id.name" style="text-transform: uppercase;"/></b><br/>
+                            <span t-field="o.partner_id.parent_id.city"/>
+                        </t>
+                        <t t-else="">
+                            <b><span t-field="o.partner_id.name" style="text-transform: uppercase;"/></b><br/>
+                            <span t-field="o.partner_id.city"/>
+                        </t>
+                    </div>
+                    
+
+                    <br/>
+                    <br/>
+                    
+                    <table class="list_table" style="border:none;font-size:18px" width="100%">
+                        <tr>
+                            <td class="noborder" valign="top" width="26%">
+                                Attention
+                            </td>
+                            <td class="noborder" width="8%">
+                            </td>
+                            <td class="noborder" width="66%">
+                                <t t-if="o.partner_id.parent_id">
+                                    : <b><span t-field="o.partner_id.title.shortcut" style="text-transform: uppercase;"/> <span t-field="o.partner_id.name" style="text-transform: uppercase;"/></b>
+                                </t>
+                                <t t-else="">
+                                    : <b><span t-field="o.partner_id.name" style="text-transform: uppercase;"/></b>
+                                </t>
+                            </td>
+                        </tr>
+                        <t t-if="o.subject">
+                            <tr>
+                                <td class="noborder" valign="top" width="21%">
+                                    Subject
+                                </td>
+                                <td class="noborder" width="8%">
+                                </td>
+                                <td class="noborder" width="71%">
+                                    <p>: <b><span t-field="o.subject" style="text-transform: uppercase;text-align:left;"/></b></p>
+                                </td>
+                            </tr>
+                        </t>
+
+                    </table>
+
+                    <br/>
+
+                    <p> Dear <span t-field="o.partner_id.title.shortcut"/> <span t-field="o.partner_id.last_name"/>, </p>
+
+                    <p >We are pleased to submit to you our best offer on the following subject to the terms and condition stated herein for your consideration.</p>
+
+                    <!-- Is there a discount on at least one line? -->
+                    <!-- <t t-set="display_discount" t-value="any([l.discount for l in o.order_line])"/> -->
+
+                    <di class="row">
+                        <table class="table table-bordered" style="font-size:14px">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">QTY</th>
+                                    <th>DESCRIPTION</th>
+                                    <th class="text-right">UNIT PRICE</th>
+                                    <th class="text-right">TOTAL PRICE</th>
+                                </tr>
+                            </thead>
+                            <tbody class="invoice_tbody">
+                                <!-- PARTS AND PRODUCTS -->
+                                <t t-set="subtotal" t-value="0"/>
+                                <t t-set="discount_amount" t-value="0"/>
+                                <t t-set="discount_percent" t-value="0"/>
+                                <t t-set="amount_parts" t-value="0"/>
+                                <t t-foreach="o.order_line" t-as="l">
+                                    <t t-if="l.product_id.type != 'service'">
+                                        <tr>
+                                            <td><span t-field="l.product_uom_qty"/></td>
+                                            <td><span t-field="l.product_uom"/></td>
+                                            <td><span t-field="l.name"/></td>
+                                            <td class="text-right"><span t-field="l.price_unit"/></td>
+                                            <td class="text-right"><span t-field="l.price_subtotal" t-options='{"widget": "monetary", "display_currency": o.pricelist_id.currency_id}'/></td>
+                                        </tr>
+                                        <!-- <t t-set="subtotal" t-value="subtotal += l.price_total"/> -->
+                                        <t t-set='subtotal' t-value='subtotal + l.price_subtotal'/>
+                                        <t t-set='discount_amount' t-value='discount_amount + ((l.price_unit * l.discount) / 100)'/>
+                                        <t t-set='discount_percent' t-value='discount_percent + l.discount'/>
+                                        <t t-set='amount_parts' t-value='amount_parts + l.price_reduce'/>
+                                    </t>
+                                </t>
+
+                                <!-- PARTS AND PRODUCTS TOTALS -->
+                                <tr style="border:0;">
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="text-right">Sub Total</td>
+                                    <td class="text-right"><span t-esc="subtotal" t-options='{"widget": "monetary", "display_currency": o.pricelist_id.currency_id}'/></td>
+                                </tr>
+                                <tr style="border:0;">
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="text-right">Less <span t-esc="discount_percent"/>% Discount</td>
+                                    <td class="text-right"><span t-esc="discount_amount" t-options='{"widget": "monetary", "display_currency": o.pricelist_id.currency_id}'/></td>
+                                </tr>
+                                <tr style="border:0;">
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="text-right">Amount in Parts</td>
+                                    <td class="text-right"><span t-esc="amount_parts" t-options='{"widget": "monetary", "display_currency": o.pricelist_id.currency_id}'/></td>
+                                </tr>
+
+                                <!-- LABOR AND SERVICES -->
+                                <t t-set="subtotal_with_service" t-value="0"/>
+                                <!-- <t t-set="tax_name" t-value="0"/> -->
+                                <!-- <t t-set="tax_amount" t-value="0"/> -->
+                                <t t-foreach="o.order_line" t-as="l">
+                                    <t t-if="l.product_id.type == 'service'">
+                                        <tr>
+                                            <td><span t-field="l.product_uom_qty"/></td>
+                                            <td><span t-field="l.product_uom"/></td>
+                                            <td><span t-field="l.name"/></td>
+                                            <td class="text-right"><span t-field="l.price_unit"/></td>
+                                            <td class="text-right"><span t-field="l.price_total" t-options='{"widget": "monetary", "display_currency": o.pricelist_id.currency_id}'/></td>
+                                        </tr>
+                                        <t t-set='subtotal_with_service' t-value='subtotal_with_service + (amount_parts + l.price_subtotal)'/>
+                                        <!-- <t t-foreach="l.tax_id" t-as="tax">
+                                            <t t-set="tax_name" t-value="tax_name + l.tax_id.display_name"/>
+                                        </t> -->
+                                        <!-- <t t-set="tax_amount" t-value="tax_amount + l.price_tax"/> -->
+                                    </t>
+                                </t>
+
+                                <!-- LABOR AND SERVICES TOTALS -->
+                                
+                                <tr style="border:0;">
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="text-right">Sub Total</td>
+                                    <td class="text-right"><span t-esc="subtotal_with_service" t-options='{"widget": "monetary", "display_currency": o.pricelist_id.currency_id}'/></td>
+                                </tr>
+                                <tr style="border:none;">
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="text-right">Plus 12% VAT</td>
+                                    <td class="text-right"><span t-field="o.amount_tax" t-options='{"widget": "monetary", "display_currency": o.pricelist_id.currency_id}'/></td>
+                                </tr>
+                                <tr style="border:0;">
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="text-right"><b>TOTAL AMOUNT,INCLUSIVE OF VAT</b></td>
+                                    <td class="text-right"><span t-field="o.amount_total" t-options='{"widget": "monetary", "display_currency": o.pricelist_id.currency_id}'/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </di>
+
+                    <br/>
+                    <br/>
+                    
+                    <div>
+                        <b><span>Notes: </span></b><br/>
+                        <!-- <p t-field="o.description" /> -->
+                    </div>
+
+                    <br/>
+                    <br/>
+
+                    <div>
+                        <b><span>Terms and Conditions: </span></b><br/>
+                        <p t-field="o.note" />
+                    </div>
+                    
+                    <br/>
+                    <br/>
+
+                    <div>
+                        <b><u>OTHER TERMS AND CONDITION:</u></b>
+
+                        <br/>
+
+                        <p>
+                            This quotation is based on current factory prices and subject to confirmation at the time of
+                            placing your order. The price (s) quoted on item (s) which is/are to be delivered, ex- incoming
+                            shipment is/are base on the prevailing foreign currency to Peso exchange rate, customs duties
+                            and all taxes, assessments or fees as charged and collected by the Philippine Government or
+                            any of its instrumentalities, agencies or subdivisions. Any increases on inflation rate or
+                            devaluation of the Peso, increases in the minimum wage or in the consumer price index as
+                            prescribed by the Central Bank from the date of submission of this quotation, and any
+                            imposition of additional taxes, charges, fees and duties on the same shall be for buyer’s
+                            account. Hence, price (s) quoted is/are subject to upward adjustment at the time of delivery
+                        </p>
+                    </div>
+
+                    <br/>
+
+                    <div>
+                        <center><b>Note: </b> PURCHASE ORDERS AND PAYMENTS SHOULD BE ADDRESSED TO: <br/><br/> <b><span t-field="o.company_id.name" style="text-transform: uppercase;"/></b></center>
+                    </div>
+
+                    <br/>
+
+                    <p>
+                        Thank you for giving us the opportunity to quote on your requirements and we look forward
+                        to receiving your favorable reply.
+                    </p>
+
+                    <br/>
+                    <br/>
+
+                    <div>
+                        <span>Very truly yours,</span>
+
+                        <br/>
+                        <br/>
+                        <b><span t-field="o.user_id.name"/></b><br/>
+                        <p>Parts Sales and Marketing</p>
+                    </div>
+
+                    <br/>
+                    <br/>
+                    <br/>
+
+                    <div>
+                        <span>Noted by,</span>
+
+                        <br/>
+                        <br/>
+                        <b><span t-field="o.user_id.name"/></b><br/>
+                        <p>Customer Service Manager</p>
+                    </div>
+
+                </div>
+            </t>
+        </template>
+
+        <template id="report_quotation_service">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="asiaglobal.report_quotation_service_document" t-lang="o.partner_id.lang"/>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>
