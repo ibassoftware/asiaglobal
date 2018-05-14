@@ -137,7 +137,7 @@ class AGSaleOrder(models.Model):
 	notes = fields.Text(help='Notes')
 
 	state = fields.Selection([
-		('draft', 'Draft'),
+		('draft', 'For Approval'),
 		('manager_approval', 'Manager Approval'),
 		('admin_approval', 'CEO Approval'),
 		('approved', 'Approved'),
@@ -280,6 +280,15 @@ class AGSaleOrder(models.Model):
 
 	attention_to = fields.Char(
 	    string='Attention To',
+	)
+
+	note_to_customer = fields.Text(
+	    string='Note To Customer',
+	)
+
+	approving_manager_id = fields.Many2one(
+	    'hr.employee',
+	    string='Approving Manager',
 	)
 
 	# @api.multi

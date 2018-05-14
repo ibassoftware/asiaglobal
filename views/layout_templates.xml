@@ -21,7 +21,8 @@
 
         <template id="external_layout_service_quotation_custom">
             <div class="header">
-                <img src='/asiaglobal/static/src/img/agt.png' style="height:100%;"/>
+               <img t-if="company.logo" t-att-src="b'data:image/png;base64,%s' % company.logo" class="pull-left"/>
+                <!-- <img src='/asiaglobal/static/src/img/agtprimary' style="height:100%;"/> -->
             </div>
 
             <div class="article o_report_layout_standard">

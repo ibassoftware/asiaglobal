@@ -40,8 +40,8 @@
                     
                     <table class="list_table" style="border:none;font-size:18px" width="100%">
                         <tr>
-                            <td class="noborder" valign="top" width="26%">
-                                Attention <span t-field="o.attention_to"/>
+                            <td class="noborder" valign="top" width="50%">
+                                Attention: <b> <span t-field="o.attention_to"/> </b> <br/>
                             </td>
                             <td class="noborder" width="8%">
                             </td>
@@ -56,13 +56,8 @@
                         </tr>
                         <t t-if="o.subject">
                             <tr>
-                                <td class="noborder" valign="top" width="21%">
-                                    Subject
-                                </td>
-                                <td class="noborder" width="8%">
-                                </td>
-                                <td class="noborder" width="71%">
-                                    <p>: <b><span t-field="o.subject" style="text-transform: uppercase;text-align:left;"/></b></p>
+                                <td class="noborder" valign="top" width="90%">
+                                    Subject: <b> <span t-field="o.subject"/> </b> <br/>
                                 </td>
                             </tr>
                         </t>
@@ -71,9 +66,11 @@
 
                     <br/>
 
-                    <p> Dear <span t-field="o.partner_id.title.shortcut"/> <span t-field="o.partner_id.last_name"/>, </p>
+                    <p> Dear <span t-field="o.attention_to"/>, </p>
 
                     <p >We are pleased to submit to you our best offer on the following subject to the terms and condition stated herein for your consideration.</p>
+                    <br/>
+                    <br/>
 
                     <!-- Is there a discount on at least one line? -->
                     <!-- <t t-set="display_discount" t-value="any([l.discount for l in o.order_line])"/> -->
@@ -85,6 +82,7 @@
                                     <th colspan="2">QTY</th>
                                     <th>DESCRIPTION</th>
                                     <th class="text-right">UNIT PRICE</th>
+                                    <th class="text-right">DISCOUNT</th>
                                     <th class="text-right">TOTAL PRICE</th>
                                 </tr>
                             </thead>
@@ -101,36 +99,34 @@
                                             <td><span t-field="l.product_uom"/></td>
                                             <td><span t-field="l.name"/></td>
                                             <td class="text-right"><span t-field="l.price_unit"/></td>
+                                            <td class="text-right"><span t-field="l.discount"/></td>
                                             <td class="text-right"><span t-field="l.price_subtotal" t-options='{"widget": "monetary", "display_currency": o.pricelist_id.currency_id}'/></td>
                                         </tr>
                                         <!-- <t t-set="subtotal" t-value="subtotal += l.price_total"/> -->
                                         <t t-set='subtotal' t-value='subtotal + l.price_subtotal'/>
-                                        <t t-set='discount_amount' t-value='discount_amount + ((l.price_unit * l.discount) / 100)'/>
-                                        <t t-set='discount_percent' t-value='discount_percent + l.discount'/>
+                                  <!--       <t t-set='discount_amount' t-value='discount_amount + ((l.price_unit * l.discount) / 100)'/>
+                                        <t t-set='discount_percent' t-value='discount_percent + l.discount'/> -->
                                         <t t-set='amount_parts' t-value='amount_parts + l.price_reduce'/>
                                     </t>
+
+
                                 </t>
 
                                 <!-- PARTS AND PRODUCTS TOTALS -->
-                                <tr style="border:0;">
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td class="text-right">Sub Total</td>
+                               <!--  <tr class="noborder">
+                                    <td style="visibility:hidden;"></td>
+                                    <td style="visibility:hidden;"></td>
+                                    <td style="visibility:hidden;"></td>
+                                    <td class="text-right">Sub Total (Parts)</td>
                                     <td class="text-right"><span t-esc="subtotal" t-options='{"widget": "monetary", "display_currency": o.pricelist_id.currency_id}'/></td>
-                                </tr>
+                                </tr> -->
+                               
                                 <tr style="border:0;">
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td class="text-right">Less <span t-esc="discount_percent"/>% Discount</td>
-                                    <td class="text-right"><span t-esc="discount_amount" t-options='{"widget": "monetary", "display_currency": o.pricelist_id.currency_id}'/></td>
-                                </tr>
-                                <tr style="border:0;">
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td class="text-right">Amount in Parts</td>
+                                    <td style="visibility:hidden;"></td>
+                                    <td style="visibility:hidden;"></td>
+                                    <td style="visibility:hidden;"></td>
+                                    <td style="visibility:hidden;"></td>
+                                    <td class="text-right" border="0">Amount in Parts</td>
                                     <td class="text-right"><span t-esc="amount_parts" t-options='{"widget": "monetary", "display_currency": o.pricelist_id.currency_id}'/></td>
                                 </tr>
 
@@ -145,6 +141,7 @@
                                             <td><span t-field="l.product_uom"/></td>
                                             <td><span t-field="l.name"/></td>
                                             <td class="text-right"><span t-field="l.price_unit"/></td>
+                                            <td class="text-right"><span t-field="l.discount"/></td>
                                             <td class="text-right"><span t-field="l.price_total" t-options='{"widget": "monetary", "display_currency": o.pricelist_id.currency_id}'/></td>
                                         </tr>
                                         <t t-set='subtotal_with_service' t-value='subtotal_with_service + (amount_parts + l.price_subtotal)'/>
@@ -155,27 +152,38 @@
                                     </t>
                                 </t>
 
+                               <!--   <tr style="border:0;">
+                                    <td style="visibility:hidden;"></td>
+                                    <td style="visibility:hidden;"></td>
+                                    <td style="visibility:hidden;"></td>
+                                    <td class="text-right">Less Discounts</td>
+                                    <td class="text-right"><span t-esc="discount_amount" t-options='{"widget": "monetary", "display_currency": o.pricelist_id.currency_id}'/></td>
+                                </tr> -->
+
                                 <!-- LABOR AND SERVICES TOTALS -->
                                 
                                 <tr style="border:0;">
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td style="visibility:hidden;"></td>
+                                    <td style="visibility:hidden;"></td>
+                                    <td style="visibility:hidden;"></td>
+                                    <td style="visibility:hidden;"></td>
                                     <td class="text-right">Sub Total</td>
                                     <td class="text-right"><span t-esc="subtotal_with_service" t-options='{"widget": "monetary", "display_currency": o.pricelist_id.currency_id}'/></td>
                                 </tr>
                                 <tr style="border:none;">
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td style="visibility:hidden;"></td>
+                                    <td style="visibility:hidden;"></td>
+                                    <td style="visibility:hidden;"></td>
+                                    <td style="visibility:hidden;"></td>
                                     <td class="text-right">Plus 12% VAT</td>
                                     <td class="text-right"><span t-field="o.amount_tax" t-options='{"widget": "monetary", "display_currency": o.pricelist_id.currency_id}'/></td>
                                 </tr>
                                 <tr style="border:0;">
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td class="text-right"><b>TOTAL AMOUNT,INCLUSIVE OF VAT</b></td>
+                                    <td style="visibility:hidden;"></td>
+                                    <td style="visibility:hidden;"></td>
+                                    <td style="visibility:hidden;"></td>
+                                    <td style="visibility:hidden;"></td>
+                                    <td class="text-right"><b>TOTAL AMOUNT, INCLUSIVE OF VAT</b></td>
                                     <td class="text-right"><span t-field="o.amount_total" t-options='{"widget": "monetary", "display_currency": o.pricelist_id.currency_id}'/></td>
                                 </tr>
                             </tbody>
@@ -187,7 +195,7 @@
                     
                     <div>
                         <b><span>Notes: </span></b><br/>
-                        <!-- <p t-field="o.description" /> -->
+                        <p t-field="o.note_to_customer" />
                     </div>
 
                     <br/>
@@ -222,7 +230,7 @@
                     <br/>
 
                     <div>
-                        <center><b>Note: </b> PURCHASE ORDERS AND PAYMENTS SHOULD BE ADDRESSED TO: <br/><br/> <b><span t-field="o.company_id.name" style="text-transform: uppercase;"/></b></center>
+                        <center><b>Note: </b> PURCHASE ORDERS AND PAYMENTS SHOULD BE ADDRESSED TO: <br/><br/> <b>ASIAGLOBAL TECHNOLOGIES, INC.</b></center>
                     </div>
 
                     <br/>
@@ -253,8 +261,8 @@
 
                         <br/>
                         <br/>
-                        <b><span t-field="o.user_id.name"/></b><br/>
-                        <p>Customer Service Manager</p>
+                        <b><span t-field="o.approving_manager_id"/></b><br/>
+                        <p><span t-field="o.approving_manager_id.job_id"/></p>
                     </div>
 
                 </div>

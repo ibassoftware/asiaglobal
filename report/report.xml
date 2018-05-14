@@ -9,7 +9,6 @@
             report_type="qweb-pdf"
             name="asiaglobal.report_quotation_service"
             file="asiaglobal.report_quotation_service"
-            attachment_use="True"
             attachment="(object.state in ('draft', 'sent') and 'Service Quotation - %s' % (object.name)) or 'Order - %s' % (object.name)"
             menu="True"
             paperformat="asiaglobal.paperformat_report_quotation_custom"
