@@ -21,7 +21,7 @@
 
         <template id="external_layout_service_quotation_custom">
             <div class="header">
-                <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % to_text(company.logo)" style="max-height: 100px;"/>
+                <img src='/asiaglobal/static/src/img/agt.png' style="height:100%;"/>
             </div>
 
             <div class="article o_report_layout_standard">
@@ -30,12 +30,11 @@
 
             <div class="footer">
                 <p style="font-size:12px">
-                    <span t-field="company.street"/> <span t-field="company.street2"/>, <span t-field="company.city"/> <span t-field="company.zip"/> Telephone: <span t-field="company.phone"/><br/>
-                    <span t-field="company.email"/>
+                    Building B2A Granville Industrial ComplexBrgy. Bancal Carmona, Cavite 4116 Telephone: 63 (046) 413 1408eFax: 63 (02) 857 2169 corporate@asiaglobaltec.com
                 </p>
                 <div class="row" style="font-size: 14px;color: red;">
                     <div class="col-xs-12">
-                        <p> <b>Solution. Satisfaction.</b></p>
+                        <p> <b>Solutions. Satisfaction.</b></p>
                     </div>
                     <!-- <div class="col-xs-4 text-muted text-right">
                         Page <span class="page"/> of <span class="topage"/>

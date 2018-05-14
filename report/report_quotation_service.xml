@@ -3,12 +3,15 @@
     <data>
         <template id="report_quotation_service_document">
             <t t-call="asiaglobal.external_layout_service_quotation">
+
+               
+
                 <t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})"/>
                 <div class="page" style="font-size:18px">
                     <table class="list_table" style="border:none;font-size:16px" width="100%">
                         <tr>
                             <td class="noborder" valign="top" width="56%">
-                                <b>Qoutation # <span t-field="o.name"/></b>
+                                <b>Quotation # <span t-field="o.name"/></b>
                             </td>
                             <td class="noborder" width="8%">
                             </td>
@@ -38,18 +41,18 @@
                     <table class="list_table" style="border:none;font-size:18px" width="100%">
                         <tr>
                             <td class="noborder" valign="top" width="26%">
-                                Attention
+                                Attention <span t-field="o.attention_to"/>
                             </td>
                             <td class="noborder" width="8%">
                             </td>
-                            <td class="noborder" width="66%">
+                         <!--    <td class="noborder" width="66%">
                                 <t t-if="o.partner_id.parent_id">
                                     : <b><span t-field="o.partner_id.title.shortcut" style="text-transform: uppercase;"/> <span t-field="o.partner_id.name" style="text-transform: uppercase;"/></b>
                                 </t>
                                 <t t-else="">
                                     : <b><span t-field="o.partner_id.name" style="text-transform: uppercase;"/></b>
                                 </t>
-                            </td>
+                            </td> -->
                         </tr>
                         <t t-if="o.subject">
                             <tr>
@@ -255,12 +258,13 @@
                     </div>
 
                 </div>
-            </t>
+            </t> 
         </template>
 
         <template id="report_quotation_service">
             <t t-call="web.html_container">
                 <t t-foreach="docs" t-as="o">
+
                     <t t-call="asiaglobal.report_quotation_service_document" t-lang="o.partner_id.lang"/>
                 </t>
             </t>

@@ -16,23 +16,23 @@ class AsiaglobalPartner(models.Model):
 	first_name = fields.Char()
 	last_name = fields.Char()
 
-	@api.onchange('first_name')
-	def set_first_name(self):
-		name = self.name
-		if self.first_name:
-			name = self.first_name
-		if self.first_name and self.last_name:
-			name = self.first_name + ' ' + self.last_name 
-		self.name = name
+	# @api.onchange('first_name')
+	# def set_first_name(self):
+	# 	name = self.name
+	# 	if self.first_name:
+	# 		name = self.first_name
+	# 	if self.first_name and self.last_name:
+	# 		name = self.first_name + ' ' + self.last_name 
+	# 	self.name = name
 
-	@api.onchange('last_name')
-	def set_last_name(self):
-		name = self.name
-		if self.last_name:
-			name = self.last_name
-		if self.first_name and self.last_name:
-			name = self.first_name + ' ' + self.last_name 
-		self.name = name
+	# @api.onchange('last_name')
+	# def set_last_name(self):
+	# 	name = self.name
+	# 	if self.last_name:
+	# 		name = self.last_name
+	# 	if self.first_name and self.last_name:
+	# 		name = self.first_name + ' ' + self.last_name 
+	# 	self.name = name
 
 # class AsiaglobalLead(models.Model):
 # 	_inherit = 'crm.lead'
@@ -277,6 +277,10 @@ class AGSaleOrder(models.Model):
 
 	def admin_approval(self):
 		self.state = "approved"	
+
+	attention_to = fields.Char(
+	    string='Attention To',
+	)
 
 	# @api.multi
 	# def write(self, vals):

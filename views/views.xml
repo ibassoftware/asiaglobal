@@ -11,12 +11,12 @@
         <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='sales_purchases']/group[@name='container_row_2']/group[@name='purchase']/field[@name='supplier']" position="after">
           <field name="is_principal"/>
         </xpath>
-        <xpath expr="//field[@name='name']" position="after">
+        <!-- <xpath expr="//field[@name='name']" position="after">
           <group>
             <field name="first_name" />
             <field name="last_name" />
           </group>
-        </xpath>
+        </xpath> -->
       </field>
     </record>
 
@@ -173,6 +173,7 @@
           <field name="expected_gross_value"/>
           <field name="gross_margin_value"/>
           <field name="subject" attrs="{'invisible':[('sale_type', '!=', 'parts')]}"/>
+          <field name="attention_to"/>
         </xpath>
 
         <xpath expr="//field[@name='opportunity_id']" position="after"> 
