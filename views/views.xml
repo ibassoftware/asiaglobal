@@ -144,7 +144,7 @@
         </xpath>
 
          <xpath expr="//button[@name='action_cancel']" position="replace">
-           <button name="action_cancel" states="draft,manager_approval,admin_approval,sent,sale" type="object" string="Cancel"/>
+           <button name="action_cancel" states="draft,manager_approval,admin_approval,approved,sent,sale" type="object" string="Cancel"/>
         </xpath>
        
 
