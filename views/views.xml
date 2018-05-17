@@ -68,6 +68,7 @@
         <tree string='Project List'>
           <field name="project_description"/>
           <field name='name' string="Reference Number"/>
+          <field name='user_id' string="SE"/>
           <field name='partner_id' string="Customer"/>
           <field name="principal_id"/>
           <field name="opportunity_type"/>
