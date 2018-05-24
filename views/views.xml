@@ -71,6 +71,7 @@
           <field name='user_id' string="SE"/>
           <field name='partner_id' string="Customer"/>
           <field name="principal_id"/>
+          <field name="team_id"/>
           <field name="opportunity_type"/>
           <field name="sale_type"/>
           <field name="project_stage_id"/>
