@@ -16,6 +16,8 @@ class AsiaglobalPartner(models.Model):
 	first_name = fields.Char()
 	last_name = fields.Char()
 
+	
+
 	# @api.onchange('first_name')
 	# def set_first_name(self):
 	# 	name = self.name

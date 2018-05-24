@@ -185,6 +185,10 @@
         <xpath expr="//field[@name='opportunity_id']" position="after"> 
           <field name="notes"/>
         </xpath>
+
+         <xpath expr="//field[@name='order_line']" position="attributes">
+          <attribute name="attrs">{'readonly': [('state', 'in', ('done','cancel','approved'))]}</attribute>
+        </xpath>
                   
       </field>
     </record>
