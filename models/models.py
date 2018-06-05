@@ -2,9 +2,16 @@
 
 from odoo import models, fields, api
 import logging
+import re
 from odoo.exceptions import UserError, AccessError, ValidationError
 
 _logger = logging.getLogger(__name__)
+
+def cleanhtml(raw_html):
+	cleanr = re.compile('<.*?>')
+	cleantext = re.sub(cleanr, '', raw_html)
+	return cleantext
+
 
 class AsiaglobalPartner(models.Model):
 	_inherit = 'res.partner'
@@ -16,108 +23,130 @@ class AsiaglobalPartner(models.Model):
 	first_name = fields.Char()
 	last_name = fields.Char()
 
+class AGTSalesActivity(models.Model):
+	_inherit = 'mail.activity'
+
+	sale_order_id = fields.Many2one(
+		'sale.order',
+		string='Project Reference',
+		compute="_get_order_reference"
+	)
+
+	partner_id = fields.Many2one(
+		'res.partner',
+		string='Customer',
+		compute="_resolve_other_data"
+	)
+
+	principal_id = fields.Many2one(
+		'res.partner',
+		string='Principal',
+		compute="_resolve_other_data"
+	)
+
+	team_id = fields.Many2one(
+		'crm.team',
+		string='Sales Channel',
+		compute="_resolve_other_data"
+	)
+
+	project_description = fields.Char(
+		string='Project',
+		compute="_resolve_other_data"
+	)
+
 	
+	@api.depends('res_name','res_model_id')
+	@api.one
+	def _get_order_reference(self):
+		if (self.res_model_id.model == 'sale.order'):
+			ref_sale_id = self.env['sale.order'].search([('name', '=',self.res_name)], limit=1)
+			self.sale_order_id = ref_sale_id
+			return ref_sale_id
 
-	# @api.onchange('first_name')
-	# def set_first_name(self):
-	# 	name = self.name
-	# 	if self.first_name:
-	# 		name = self.first_name
-	# 	if self.first_name and self.last_name:
-	# 		name = self.first_name + ' ' + self.last_name 
-	# 	self.name = name
+	@api.depends('sale_order_id')
+	@api.one
+	def _resolve_other_data(self):
+		self.partner_id = self.sale_order_id.partner_id
+		self.principal_id = self.sale_order_id.principal_id
+		self.team_id = self.sale_order_id.team_id
+		self.project_description =self.sale_order_id.project_description
 
-	# @api.onchange('last_name')
-	# def set_last_name(self):
-	# 	name = self.name
-	# 	if self.last_name:
-	# 		name = self.last_name
-	# 	if self.first_name and self.last_name:
-	# 		name = self.first_name + ' ' + self.last_name 
-	# 	self.name = name
+	@api.multi
+	def action_done(self):
+		""" Wrapper without feedback because web button add context as
+		parameter, therefore setting context to feedback """
+		return self.action_feedback()
 
-# class AsiaglobalLead(models.Model):
-# 	_inherit = 'crm.lead'
+	def action_feedback(self, feedback=False):
+		message = self.env['mail.message']
+		if feedback:
+			self.write(dict(feedback=feedback))
+		for activity in self:
+			record = self.env[activity.res_model].browse(activity.res_id)
+			record.message_post_with_view(
+				'mail.message_activity_done',
+				values={'activity': activity},
+				subtype_id=self.env.ref('mail.mt_activities').id,
+				mail_activity_type_id=activity.activity_type_id.id,
+			)
+			message |= record.message_ids[0]
 
-# 	principal_id = fields.Many2one(
-# 		'res.partner',
-# 		string='Principal',
-# 		domain=[('is_principal','=',True), ]
-# 	)
+		# Add handling here
+		if (self.res_model_id.model == 'sale.order'):
+			self.env['asiaglobal.sales_report'].create({
+				'sale_order_id':self.sale_order_id.id,
+				'partner_id': self.partner_id.id,
+				'principal_id': self.principal_id.id,
+				'team_id': self.sale_order_id.team_id.id,
+				'project_description': self.project_description,
+				'activity_summary': self.summary,
+				'feedback': cleanhtml(self.feedback),
+				'user_id': self.env.uid
+				})
+		self.unlink()
+		return message.ids and message.ids[0] or False
 
-# 	opportunity_type = fields.Selection([('Indent', 'Indent'), ('forward', 'Forward Sale'), ('other', 'Other')],
-# 		default= "forward")
+class AGTSalesReports(models.Model):
+	_name = 'asiaglobal.sales_report'
+	
+	sale_order_id = fields.Many2one(
+		'sale.order',
+		string='Project Reference',
+	)
 
-# 	expected_gross_margin = fields.Float(
-# 		string='Expected Gross Margin (%)',
-# 	)
+	partner_id = fields.Many2one(
+		'res.partner',
+		string='Customer',
+	)
 
-# 	gross_margin_value = fields.Float(
-# 		string='Margin in value',
-# 		compute='_compute_margin',
-# 		store=True,
-# 	)
+	principal_id = fields.Many2one(
+		'res.partner',
+		string='Principal',
+	)
 
-# 	legacy_quote = fields.Char(
-# 		string='Legacy Sales Quote Number',
-# 	)
+	team_id = fields.Many2one(
+		'crm.team',
+		string='Sales Channel',
+	)
 
-# 	sale_type = fields.Selection([('unit', 'Unit Sales'), ('parts', 'Parts Sales'), ('others', 'Others')],
-# 		default= "unit")
-
-# 	@api.depends('gross_margin_value', 'expected_gross_margin', 'planned_revenue')
-# 	def _compute_margin(self):
-# 		for rec in self:
-# 			rec.gross_margin_value = rec.planned_revenue * (rec.expected_gross_margin * 0.01)
-
-# 	@api.model
-# 	def create(self, values):
-# 		record = super(AsiaglobalLead, self).create(values)
-# 		try:
-# 			employee = self.env['hr.employee'].search([('user_id','=',record['user_id'].id)])[0]
-# 			if employee:
-
-# 				employee_manager = employee.parent_id.id
-# 				_logger.info('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
-# 				_logger.info(employee.name)
-# 				_logger.info(employee.parent_id.name)
-# 				_logger.info(employee.parent_id.user_id.partner_id.id)
-
-# 				if employee_manager:
-# 					record.message_subscribe([employee.parent_id.user_id.partner_id.id])
-# 		except Exception as e:
-# 			pass
+	project_description = fields.Char(
+		string='Project',
 		
-# 		return record
+	)
 
-	
+	activity_summary = fields.Char(
+		string='Activity Summary',
+	)
 
-# 	@api.one
-# 	@api.constrains('planned_revenue', 'expected_gross_margin')
-# 	def _check_minimum(self):
-# 		if self.type == 'opportunity':
-# 			if self.planned_revenue <= 0 or self.expected_gross_margin <= 0:
-# 				raise ValidationError("Revenue and Gross Margin must be more than zero")
+	feedback = fields.Char(
+		string='Feedback',
+	)
 
-# 	@api.depends('order_ids')
-# 	def _compute_sale_amount_total(self):
-# 		for lead in self:
-# 			total = 0.0
-# 			nbr = 0
-# 			company_currency = lead.company_currency or self.env.user.company_id.currency_id
-# 			for order in lead.order_ids:
-# 				if order.state in ('draft', 'sent', 'sale','manager_approval', 'admin_approval', 'approved'):
-# 					nbr += 1
-# 				if order.state not in ('draft', 'sent', 'cancel', 'manager_approval', 'admin_approval', 'approved'):
-# 					total += order.currency_id.compute(order.amount_untaxed, company_currency)
-# 			lead.sale_amount_total = total
-# 			lead.sale_number = nbr
-
-		# if employee:
-		# 	employee_manager = employee.parent_id.id
-		# 	if employee_manager:
-		# 		self.message_subscribe([employee_manager])
-		# return record
+	user_id = fields.Many2one(
+	    'res.users',
+	    string='Employee',
+	)
 
 class AGSQStages(models.Model):
 	_name = 'asiaglobal.stages'
@@ -281,16 +310,16 @@ class AGSaleOrder(models.Model):
 		self.state = "approved"	
 
 	attention_to = fields.Char(
-	    string='Attention To',
+		string='Attention To',
 	)
 
 	note_to_customer = fields.Text(
-	    string='Note To Customer',
+		string='Note To Customer',
 	)
 
 	approving_manager_id = fields.Many2one(
-	    'hr.employee',
-	    string='Approving Manager',
+		'hr.employee',
+		string='Approving Manager',
 	)
 
 	# @api.multi
