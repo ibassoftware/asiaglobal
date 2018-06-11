@@ -1,0 +1,97 @@
+<odoo> <data>
+
+	<record id="sale_subscription.sale_subscription_action" model="ir.actions.act_window">
+        <field name="name">Rentals</field>
+        <field name="res_model">sale.subscription</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,kanban,form,pivot,graph</field>
+        <field name="context">{}</field>
+        <field name="domain">[]</field>
+        <field name="search_view_id" eval='False'/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to create a new Rentals.
+            </p>
+            <p>
+                This is for AGT Rentals only
+            </p>
+          
+        </field>
+    </record>
+
+	<menuitem id="sale_subscription.menu_sale_subscription_root" name="Rentals"/>
+	<menuitem id="sale_subscription.menu_sale_subscription" name="Rentals" parent="sale_subscription.menu_sale_subscription_root"/>
+	<menuitem action="sale_subscription.sale_subscription_action" id="sale_subscription.menu_sale_subscription_action" sequence="1" parent="sale_subscription.menu_sale_subscription" name="Rentals"/>
+
+	<record model="ir.ui.view" id="agt_sale_subscription_view_form">
+		<field name="name">agt.sale.subscription.form.view</field>
+		<field name="model">sale.subscription</field>
+		<field name="inherit_id" ref="sale_subscription.sale_subscription_view_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='user_id']" position="after">
+				<field name="principal_id"/>
+				<field name="project_stage_id"/>
+				<field name="project_probability"/>
+				<field name="team_id" required="1"/>
+       		 </xpath>
+
+       		 <xpath expr="//field[@name='partner_id']" position="after">
+				<field name="project_description"/>
+       		 </xpath>
+
+       		 <xpath expr="//button[@name='set_open']" position="replace">
+				<button name="set_open" string="Start Rental" type="object" attrs="{'invisible': ['|',('state','=','open'),('state','=','draft')]}" class="oe_highlight"/>
+       		 </xpath>
+
+       		<xpath expr="//field[@name='user_id']" position="replace">
+				 <field name="user_id" required="1"/>
+       		 </xpath>
+
+       		  
+
+       		 <xpath expr="//form/header/button[4]" position="replace">
+				<button name="470" string="Cancel Rental" type="action" context="{'cancel':1}" attrs="{'invisible': [('state','in',['cancel','close','draft'])]}"/>
+
+				<button name="admin_approval" states="draft" string="Approve" type="object" groups="base.group_erp_manager"/>
+       		 </xpath>
+
+       		 <xpath expr="//button[@name='471']" position="replace">
+				
+       		 </xpath>
+
+       		  <xpath expr="//button[@name='set_pending']" position="replace">
+				
+       		 </xpath>
+
+       		 <xpath expr="//button[@name='prepare_renewal_order']" position="replace">
+				
+       		 </xpath>
+
+		</field>
+	</record>
+
+
+	 <record id="sale_subscription.sale_subscription_view_list" model="ir.ui.view">
+        <field name="name">sale.subscription.list</field>
+        <field name="model">sale.subscription</field>
+        <field name="groups_id" eval="[(4, ref('account.group_account_invoice'))]"/>
+        <field name="arch" type="xml">
+            <tree string="Sale Subscriptions" decoration-info="state=='draft'" decoration-danger="state=='pending'" decoration-muted="state in ('cancel','close')">
+                <field name="code"/>
+                <field name="project_description"/>
+                <field name="principal_id"/>
+                <field name="partner_id"/>
+                <field name="pricelist_id" invisible="1"/>
+                <field name="team_id"/>
+                <field name="user_id"/>
+
+                <field name="company_id" groups="base.group_multi_company"/>
+                <field name="recurring_total"/>
+                <field name="project_stage_id"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+
+</data></odoo>

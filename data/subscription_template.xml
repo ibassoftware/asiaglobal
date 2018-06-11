@@ -1,0 +1,14 @@
+<odoo> <data>
+	<record id="agt_monthly_template" model="sale.subscription.template">
+            <field name="name">AGT - Monthly</field>
+            <field name="code">AGT-M</field>
+            <field name="recurring_interval">1</field>
+            <field name="recurring_rule_type">monthly</field>
+        </record>
+   <record id="agt_yearly_template" model="sale.subscription.template">
+            <field name="name">AGT - Annnual</field>
+            <field name="code">AGT-Y</field>
+            <field name="recurring_interval">1</field>
+            <field name="recurring_rule_type">yearly</field>
+        </record>
+</data></odoo>

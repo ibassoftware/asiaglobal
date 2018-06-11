@@ -1,0 +1,110 @@
+<odoo>
+	<data>
+		  <record id="categ_konecranes" model="product.category">
+            <field name="name">Konecranes</field>
+            <field name="parent_id" eval="ref('product.product_category_1')"/>
+        </record>
+
+         <record id="categ_port_equipment" model="product.category">
+            <field name="name">Port Equipment</field>
+            <field name="parent_id" eval="ref('asiaglobal.categ_konecranes')"/>
+        </record>
+
+        <record id="categ_snorkel" model="product.category">
+            <field name="name">Snorkel</field>
+            <field name="parent_id" eval="ref('product.product_category_1')"/>
+        </record>
+
+         <record id="categ_aerial_platform" model="product.category">
+            <field name="name">Aeriel Platform</field>
+            <field name="parent_id" eval="ref('asiaglobal.categ_snorkel')"/>
+        </record>
+
+        <record id="categ_kone_spare" model="product.category">
+            <field name="name">Spare Parts</field>
+            <field name="parent_id" eval="ref('asiaglobal.categ_konecranes')"/>
+        </record>
+
+         <record id="categ_kone_snorkel" model="product.category">
+            <field name="name">Spare Parts</field>
+            <field name="parent_id" eval="ref('asiaglobal.categ_snorkel')"/>
+        </record>
+
+         <record id="categ_linde" model="product.category">
+            <field name="name">Linde</field>
+            <field name="parent_id" eval="ref('product.product_category_1')"/>
+        </record>
+
+        <record id="categ_linde_forklifts" model="product.category">
+            <field name="name">Forklifts</field>
+            <field name="parent_id" eval="ref('asiaglobal.categ_linde')"/>
+        </record>
+
+         <record id="categ_linde_spare_parts" model="product.category">
+            <field name="name">Spare Parts</field>
+            <field name="parent_id" eval="ref('asiaglobal.categ_linde')"/>
+        </record>
+
+         <record id="categ_metech" model="product.category">
+            <field name="name">Metech</field>
+            <field name="parent_id" eval="ref('product.product_category_1')"/>
+        </record>
+
+        <record id="categ_metech_racks" model="product.category">
+            <field name="name">Racks</field>
+            <field name="parent_id" eval="ref('asiaglobal.categ_metech')"/>
+        </record>
+
+
+         <record id="categ_hako" model="product.category">
+            <field name="name">Hako</field>
+            <field name="parent_id" eval="ref('product.product_category_1')"/>
+        </record>
+
+        <record id="categ_hako_industrial" model="product.category">
+            <field name="name">Industrial Cleaning Machine</field>
+            <field name="parent_id" eval="ref('asiaglobal.categ_hako')"/>
+        </record>
+
+         <record id="categ_hako_spares" model="product.category">
+            <field name="name">Spare Parts</field>
+            <field name="parent_id" eval="ref('asiaglobal.categ_hako')"/>
+        </record>
+
+         <record id="categ_hawker" model="product.category">
+            <field name="name">Hawker</field>
+            <field name="parent_id" eval="ref('product.product_category_1')"/>
+        </record>
+
+        <record id="categ_hawker_batteries" model="product.category">
+            <field name="name">Forklift Batteries</field>
+            <field name="parent_id" eval="ref('asiaglobal.categ_hawker')"/>
+        </record>
+
+        <record id="categ_rental" model="product.category">
+            <field name="name">All AGT Rental Fleet</field>
+            <field name="parent_id" eval="ref('product.product_category_1')"/>
+        </record>
+
+          <record id="categ_baoli" model="product.category">
+            <field name="name">BAOLI</field>
+            <field name="parent_id" eval="ref('product.product_category_1')"/>
+        </record>
+
+        <record id="categ_baoli_forklifts" model="product.category">
+            <field name="name">Forklifts</field>
+            <field name="parent_id" eval="ref('asiaglobal.categ_baoli')"/>
+        </record>
+
+         <record id="categ_baoli_spares" model="product.category">
+            <field name="name">Spare Parts</field>
+            <field name="parent_id" eval="ref('asiaglobal.categ_baoli')"/>
+        </record>
+
+
+      
+
+
+
+	</data>
+</odoo>

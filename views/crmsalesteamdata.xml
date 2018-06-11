@@ -1,0 +1,78 @@
+
+<odoo>
+	<data>
+		  <record id="team_weqd_department_sales" model="crm.team">
+            <field name="name">WEQD - Sales</field>
+            <field name="member_ids" eval="[(4, ref('base.user_root'))]"/>
+            <field name="company_id" eval="False"/>
+            <field name="minimum_gross_margin">12</field>
+            <field name="maximum_gross_value">3000000</field>
+            <field name="minimum_gross_margin_forward">18</field>
+            <field name="maximum_gross_value_forward">3000000</field>
+        </record>
+
+         <record id="team_weqd_department_other_product" model="crm.team">
+            <field name="name">WEQD - Other Product</field>
+            <field name="member_ids" eval="[(4, ref('base.user_root'))]"/>
+            <field name="company_id" eval="False"/>
+            <field name="minimum_gross_margin">12</field>
+            <field name="maximum_gross_value">3000000</field>
+            <field name="minimum_gross_margin_forward">18</field>
+            <field name="maximum_gross_value_forward">3000000</field>
+        </record>
+
+         <record id="team_weqd_department_service_and_parts" model="crm.team">
+            <field name="name">WEQD - Service and Parts</field>
+            <field name="member_ids" eval="[(4, ref('base.user_root'))]"/>
+            <field name="company_id" eval="False"/>
+           <field name="minimum_gross_margin">25</field>
+            <field name="maximum_gross_value">500000</field>
+            <field name="minimum_gross_margin_forward">25</field>
+            <field name="maximum_gross_value_forward">500000</field>
+        </record>
+
+          <record id="team_weqd_department_service_and_parts" model="crm.team">
+            <field name="name">WEQD - Rental</field>
+            <field name="member_ids" eval="[(4, ref('base.user_root'))]"/>
+            <field name="company_id" eval="False"/>
+             <field name="minimum_gross_margin">0</field>
+            <field name="maximum_gross_value">0</field>
+            <field name="minimum_gross_margin_forward">0</field>
+            <field name="maximum_gross_value_forward">0</field>
+        </record>
+
+
+         <record id="team_heqd_department_sales" model="crm.team">
+            <field name="name">HEQD - Sales</field>
+            <field name="member_ids" eval="[(4, ref('base.user_root'))]"/>
+            <field name="company_id" eval="False"/>
+            <field name="minimum_gross_margin">12</field>
+            <field name="maximum_gross_value">5000000</field>
+            <field name="minimum_gross_margin_forward">18</field>
+            <field name="maximum_gross_value_forward">5000000</field>
+        </record>
+
+        <record id="team_heqd_department_sales_other" model="crm.team">
+            <field name="name">HEQD - Other</field>
+            <field name="member_ids" eval="[(4, ref('base.user_root'))]"/>
+            <field name="company_id" eval="False"/>
+            <field name="minimum_gross_margin">12</field>
+            <field name="maximum_gross_value">5000000</field>
+            <field name="minimum_gross_margin_forward">18</field>
+            <field name="maximum_gross_value_forward">5000000</field>
+        </record>
+
+        <record id="team_heqd_department_sales_service" model="crm.team">
+            <field name="name">HEQD - Service and Parts</field>
+            <field name="member_ids" eval="[(4, ref('base.user_root'))]"/>
+            <field name="company_id" eval="False"/>
+             <field name="minimum_gross_margin">25</field>
+            <field name="maximum_gross_value">500000</field>
+            <field name="minimum_gross_margin_forward">25</field>
+            <field name="maximum_gross_value_forward">500000</field>
+        </record>
+
+
+
+	</data>
+</odoo>

@@ -1,0 +1,19 @@
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="agt_sales_team_form">
+			<field name="name">agt_sales_team.form</field>
+			<field name="model">crm.team</field>
+			<field name="inherit_id" ref="sales_team.crm_team_view_form"/>
+			<field name="arch" type="xml">
+			
+				<xpath expr="//field[@name='team_type']" position="before">
+       				<field name="minimum_gross_margin"/>
+       				<field name="maximum_gross_value"/>
+       				<field name="minimum_gross_margin_forward"/>
+       				<field name="maximum_gross_value_forward"/>
+     	  		 </xpath>
+
+			</field>
+		</record>
+	</data>
+</odoo>

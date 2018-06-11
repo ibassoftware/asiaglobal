@@ -263,44 +263,56 @@ class AGSaleOrder(models.Model):
 
 
 	def manager_approval(self):
-		if (self.team_id.name == "HEQD" and self.sale_type == "unit"
-		and self.opportunity_type == "forward" ):
-			if ( self.expected_gross_value <= 5000000 and self.expected_gross_margin >= 18 ):
-				self.state = "approved"
-				return
-			
-		if (self.team_id.name == "HEQD" and self.sale_type == "unit"
-		and self.opportunity_type == "Indent" ):
-			if ( self.expected_gross_value <= 5000000 and self.expected_gross_margin >= 12 ):
-				self.state = "approved"
-				return
-			
-		if (self.team_id.name == "HEQD" and self.sale_type == "parts"):
-			if ( self.expected_gross_value <= 500000 and self.expected_gross_margin >= 25 ):
+
+		if (self.opportunity_type == "forward"):
+			if (self.expected_gross_value <= self.team_id.maximum_gross_value_forward and self.expected_gross_margin >= self.team_id.minimum_gross_margin_forward):
 				self.state = "approved"
 				return
 
-		if (self.team_id.name == "WEQD" and self.sale_type == "unit"
-		and self.opportunity_type == "forward" ):
-			if ( self.expected_gross_value <= 3000000 and self.expected_gross_margin >= 18 ):
+		if (self.opportunity_type == "Indent"):
+			if (self.expected_gross_value <= self.team_id.maximum_gross_value and self.expected_gross_margin >= self.team_id.minimum_gross_margin):
 				self.state = "approved"
 				return
-			
-		if (self.team_id.name == "WEQD" and self.sale_type == "unit"
-		and self.opportunity_type == "Indent" ):
-			if ( self.expected_gross_value <= 3000000 and self.expected_gross_margin >= 12 ):
-				self.state = "approved"
-				return
-			
-		if (self.team_id.name == "WEQD" and self.sale_type == "parts"):
-			if ( self.expected_gross_value <= 500000 and self.expected_gross_margin >= 25 ):
-				self.state = "approved"
-				return
+		
 
-		if (self.team_id.name == "Rentals" and self.sale_type == "parts"):
-			if ( self.expected_gross_value <= 500000):
-				self.state = "approved"
-				return
+		# if (self.team_id.name == "HEQD" and self.sale_type == "unit"
+		# and self.opportunity_type == "forward" ):
+		# 	if ( self.expected_gross_value <= 5000000 and self.expected_gross_margin >= 18 ):
+		# 		self.state = "approved"
+		# 		return
+			
+		# if (self.team_id.name == "HEQD" and self.sale_type == "unit"
+		# and self.opportunity_type == "Indent" ):
+		# 	if ( self.expected_gross_value <= 5000000 and self.expected_gross_margin >= 12 ):
+		# 		self.state = "approved"
+		# 		return
+			
+		# if (self.team_id.name == "HEQD" and self.sale_type == "parts"):
+		# 	if ( self.expected_gross_value <= 500000 and self.expected_gross_margin >= 25 ):
+		# 		self.state = "approved"
+		# 		return
+
+		# if (self.team_id.name == "WEQD" and self.sale_type == "unit"
+		# and self.opportunity_type == "forward" ):
+		# 	if ( self.expected_gross_value <= 3000000 and self.expected_gross_margin >= 18 ):
+		# 		self.state = "approved"
+		# 		return
+			
+		# if (self.team_id.name == "WEQD" and self.sale_type == "unit"
+		# and self.opportunity_type == "Indent" ):
+		# 	if ( self.expected_gross_value <= 3000000 and self.expected_gross_margin >= 12 ):
+		# 		self.state = "approved"
+		# 		return
+			
+		# if (self.team_id.name == "WEQD" and self.sale_type == "parts"):
+		# 	if ( self.expected_gross_value <= 500000 and self.expected_gross_margin >= 25 ):
+		# 		self.state = "approved"
+		# 		return
+
+		# if (self.team_id.name == "Rentals" and self.sale_type == "parts"):
+		# 	if ( self.expected_gross_value <= 500000):
+		# 		self.state = "approved"
+		# 		return
 		
 		
 		self.state = "admin_approval"

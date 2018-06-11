@@ -189,8 +189,9 @@
           <field name="principal_id"/>
           <field name="team_id"/>
           <field name="opportunity_type"/>
-          <field name="sale_type"/>
+          <!-- <field name="sale_type"/> -->
           <field name="project_stage_id"/>
+          <field name="gross_margin_value"/>
           <field name="expected_gross_value"/>
           <field name='state'/>
         </tree>
@@ -255,10 +256,12 @@
       <xpath expr="//field[@name='partner_id']" position="after">
         <field name="principal_id" attrs="{'readonly': [('state', '!=', 'draft')],'required': 1}"/>
         <field name="opportunity_type" attrs="{'readonly': [('state', '!=', 'draft')],'required': 1}"/>
-        <field name="sale_type" attrs="{'readonly': [('state', '!=', 'draft')],'required': 1}"/>
+        <!-- <field name="sale_type" attrs="{'readonly': [('state', '!=', 'draft')],'required': 1}"/> -->
         <field name="expected_gross_margin" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
         <field name="team_id" attrs="{'required': 1}"/>
         <field name="legacy_quote" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+         <field name="subject"/>
+          <field name="attention_to"/>
         </xpath>
 
          <xpath expr="//button[@name='action_cancel']" position="replace">
@@ -293,10 +296,8 @@
           <field name="exchange_rate"  attrs="{'invisible':[('current_currency', '==', 'PHP')], 'readonly': [('state', '!=', 'draft')]}"/>
           <field name="expected_gross_value"/>
           <field name="gross_margin_value"/>         
-           <field name="subject"  attrs="{'invisible':[('sale_type', '!=', 'parts')], 'required':[('sale_type', '==', 'parts')]}"/>
-          <field name="attention_to"  attrs="{'invisible':[('sale_type', '!=', 'parts')], 'required':[('sale_type', '==', 'parts')]}"/>
-          <field name="note_to_customer"  attrs="{'invisible':[('sale_type', '!=', 'parts')], 'required':[('sale_type', '==', 'parts')]}"/>
-          <field name="approving_manager_id"  attrs="{'invisible':[('sale_type', '!=', 'parts')], 'required':[('sale_type', '==', 'parts')]}"/>
+          <field name="note_to_customer"/>
+          <field name="approving_manager_id"/>
         </xpath>
 
         <xpath expr="//field[@name='opportunity_id']" position="after"> 
@@ -305,6 +306,10 @@
 
          <xpath expr="//field[@name='order_line']" position="attributes">
           <attribute name="attrs">{'readonly': [('state', 'in', ('done','cancel','approved'))]}</attribute>
+        </xpath>
+
+        <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="attributes">
+          <attribute name="string">Model/Part Number</attribute>
         </xpath>
                   
       </field>

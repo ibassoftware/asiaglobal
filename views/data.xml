@@ -7,7 +7,11 @@
             <field name="name">WEQD</field>
             <field name="member_ids" eval="[(4, ref('base.user_root'))]"/>
             <field name="company_id" eval="False"/>
+            <field name="minimum_gross_margin">18</field>
+            <field name="maximum_gross_value">3000000</field>
         </record>
+
+      
 
         <record id="team_heqd_department" model="crm.team">
             <field name="name">HEQD</field>
