@@ -55,7 +55,7 @@
 				<button name="admin_approval" states="draft" string="Approve" type="object" groups="base.group_erp_manager"/>
        		 </xpath>
 
-       		 <xpath expr="//button[@name='471']" position="replace">
+       		 <xpath expr="//form/header/button[@name='464']" position="replace">
 				
        		 </xpath>
 
