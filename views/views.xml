@@ -227,6 +227,8 @@
             <field name="groups_id" eval="[(6,0,[ref('make_invisible')])]"/>
         </record>
 
+
+
     <record id="product.product_template_tree_view" model="ir.ui.view">
         <field name="name">product.template.product.tree</field>
         <field name="model">product.template</field>
@@ -288,6 +290,17 @@
             </kanban>
         </field>
     </record>
+
+    <record id="ag_product_product_tree_view" model="ir.ui.view">
+            <field name="name">product.product.tree</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_product_tree_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                  <field name="description_sale"/>
+                </xpath>
+            </field>
+        </record>
 
     <record id="view_order_form" model="ir.ui.view">
       <field name="name">id.view_order_form</field>
