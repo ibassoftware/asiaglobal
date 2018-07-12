@@ -334,6 +334,14 @@ class AGSaleOrder(models.Model):
 		string='Approving Manager',
 	)
 
+class AGTSaleOrderLine(models.Model):
+	_inherit = 'sale.order.line'
+
+	prod_categ_id = fields.Many2one(
+	    'product.category',
+	    string='Category',
+	)
+
 	# @api.multi
 	# def write(self, vals):
 	# 	res = super(AGSaleOrder, self).write(vals)
