@@ -1,0 +1,106 @@
+<odoo>
+  <data>
+
+    <!-- START JOB ORDER -->
+    <record model="ir.ui.view" id="service_job_order_form">
+      <field name="name">asiaglobal.job.order.form</field>
+      <field name="model">asiaglobal.job_order</field>
+      <field name="arch" type="xml">
+        <form string="Job Order">
+          <header>
+            <field name="state" widget="statusbar" statusbar_visible="draft,schedule,progress,bill,done"/>
+          </header>
+          <sheet>
+
+            <div class="oe_title">
+              <label for="name"/>
+              <h1>
+                <field name="name"/>
+              </h1>
+            </div>
+
+            <group>
+              <group>
+                <field name="customer_id"/>
+                <field name="equipment_id" domain="[('customer','=',customer_id)]"/>
+                <field name="manufacturer"/>
+                <field name="model"/>
+                <field name="serial_number"/>
+              </group>
+              <group>
+                <field name="type"/>
+                <field name="under_warranty"/>
+                <field name="warranty_date" attrs="{'invisible':[('under_warranty', '=', False)]}"/>
+                <field name="scheduled_date"/>
+                <field name="actual_repair_date"/>
+                <field name="technician_id" widget="many2many_tags"/>
+              </group>
+            </group>
+
+            <notebook>
+              <page string="Order Details">
+                <group >
+                  <field name="initial_complaint"/>
+                  <field name="initial_diagnosis"/>
+                </group>
+              </page>
+              <page string="Additional Info">
+                <group>
+                  <field name="ticket_ids"/>
+                  <field name="sale_ids"/>
+                </group>
+              </page>
+            </notebook>
+
+          </sheet>
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="message_ids" widget="mail_thread"/>
+          </div>
+
+        </form>
+      </field>
+    </record>
+
+    <record model='ir.ui.view' id='service_job_order_tree'>
+      <field name='name'>asiaglobal.job.order.tree</field>
+      <field name='model'>asiaglobal.job_order</field>
+      <field name='arch' type='xml'>
+        <tree string='Job Orders'>
+          <field name="name" />
+          <field name='customer_id'/>
+          <field name='type'/>
+          <field name='equipment_id'/>
+          <field name='scheduled_date'/>
+          <field name='actual_repair_date'/>
+          <field name='state'/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="asiaglobal_job_order_search" model="ir.ui.view">
+      <field name="name">asiaglobal.job.order.search</field>
+      <field name="model">asiaglobal.job_order</field>
+      <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <search string="Job Order">
+                    <field name="name" />
+                </search>
+            </field>
+        </record>
+
+    <record model="ir.actions.act_window" id="service_job_order_action">
+      <field name="name">Job Orders</field>
+      <field name="res_model">asiaglobal.job_order</field>
+      <field name="view_mode">tree,form</field>
+      <field name="search_view_id" ref="asiaglobal_job_order_search" />
+      <field name="help" type="html">
+        <p>
+          Create a job order.
+        </p>
+      </field>
+    </record>
+    <!-- END JOB ORDER -->
+
+  </data>
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Sequences for sale.order -->
+        <record id="seq_job_order" model="ir.sequence">
+            <field name="name">Job Order</field>
+            <field name="code">asiaglobal.job.order</field>
+            <field name="prefix">AGT-JO-%(range_year)s-</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+		<!-- Top menu item -->
+		<menuitem id="service_menu_root"
+			name="Services"
+			web_icon="asiaglobal,static/src/img/icon.png"
+			sequence="7"/>
+
+		<menuitem id="menu_job_order"
+			name="Job Orders"
+			parent="asiaglobal.service_menu_root"
+			action="asiaglobal.service_job_order_action"
+			sequence="1"/>
+
+		<menuitem id="menu_equipment_profile"
+			name="Equipment Profile"
+			parent="asiaglobal.service_menu_root"
+			action="asiaglobal.service_equipment_profile_action"
+			sequence="2"/>
+
+		<menuitem id="menu_service_config"
+			name="Configuration"
+			parent="service_menu_root"
+			sequence="6" />
+
+		<menuitem id="menu_equipment_type"
+			name="Equipment Type"
+			parent="asiaglobal.menu_service_config"
+			action="asiaglobal.service_equipment_type_action"
+			sequence="2"/>
+
+		<menuitem id="menu_manufacturer"
+			name="Manufacturers"
+			parent="asiaglobal.menu_service_config"
+			action="asiaglobal.service_manufacturer_action"
+			sequence="3"/>
+
+		<menuitem id="menu_manufacturer_model"
+			name="Manufacturer Model"
+			parent="asiaglobal.menu_service_config"
+			action="asiaglobal.service_manufacturer_model_action"
+			sequence="4"/>
+
+		<menuitem id="menu_engine_model"
+			name="Engine Model"
+			parent="asiaglobal.menu_service_config"
+			action="asiaglobal.service_engine_model_action"
+			sequence="5"/>
+
+		<menuitem id="menu_drive_axle_model"
+			name="Drive Axle Model"
+			parent="asiaglobal.menu_service_config"
+			action="asiaglobal.service_drive_axle_model_action"
+			sequence="6"/>
+
+		<menuitem id="menu_transmission_model"
+			name="Transmission Model"
+			parent="asiaglobal.menu_service_config"
+			action="asiaglobal.service_transmission_action"
+			sequence="7"/>
+
+		<menuitem id="menu_mast_type"
+			name="Mast Type"
+			parent="asiaglobal.menu_service_config"
+			action="asiaglobal.service_mast_type_action"
+			sequence="8"/>
+
+</odoo>

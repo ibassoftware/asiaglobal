@@ -1,0 +1,75 @@
+<odoo>
+  <data>
+
+    <!-- START MANUFCATURER -->
+    <record model="ir.ui.view" id="service_manufacturer_form">
+      <field name="name">asiaglobal.manufacturer.form</field>
+      <field name="model">asiaglobal.manufacturer</field>
+      <field name="arch" type="xml">
+        <form string="Manufacturers">
+          <header>
+          </header>
+          <sheet>
+            <group>
+              <field name="name"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model='ir.ui.view' id='service_manufacturer_tree'>
+      <field name='name'>asiaglobal.manufacturer.tree</field>
+      <field name='model'>asiaglobal.manufacturer</field>
+      <field name='arch' type='xml'>
+        <tree string='Manufacturers'>
+          <field name='name'/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="service_manufacturer_action">
+      <field name="name">Manufacturers</field>
+      <field name="res_model">asiaglobal.manufacturer</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <!-- END MANUFACTURER -->
+
+    <!-- START MANUFACTURER MODEL -->
+    <record model="ir.ui.view" id="service_manufacturer_model_form">
+      <field name="name">asiaglobal.manufacturer.model.form</field>
+      <field name="model">asiaglobal.manufacturer_model</field>
+      <field name="arch" type="xml">
+        <form string="Manufacturer Model">
+          <header>
+          </header>
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="manufacturer"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model='ir.ui.view' id='service_manufacturer_model_tree'>
+      <field name='name'>asiaglobal.manufacturer.model.tree</field>
+      <field name='model'>asiaglobal.manufacturer_model</field>
+      <field name='arch' type='xml'>
+        <tree string='Manufacturer Model'>
+          <field name='name'/>
+          <field name="manufacturer"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="service_manufacturer_model_action">
+      <field name="name">Manufacturer Model</field>
+      <field name="res_model">asiaglobal.manufacturer_model</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <!-- END MANUFACTURER MODELS -->
+
+  </data>
+</odoo>
