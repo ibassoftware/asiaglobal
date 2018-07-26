@@ -44,11 +44,11 @@
                   <field name="initial_diagnosis"/>
                 </group>
               </page>
-              <page string="Additional Info">
-                <group>
-                  <field name="ticket_ids"/>
-                  <field name="sale_ids"/>
-                </group>
+              <page string="Tickets">
+                <field name="ticket_ids"/>
+              </page>
+              <page string="Sale Orders">
+                <field name="sale_ids"/>
               </page>
             </notebook>
 

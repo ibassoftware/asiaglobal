@@ -208,42 +208,55 @@
               </group>
             </group>
 
-            <group>
-              <group string="Engine">
-                <field name="engine_make"/>
-                <field name="engine_model" domain="[('manufacturer','=',engine_make)]"/>
-                <field name="engine_serial_number"/>
-              </group>
-              <group string="Transmission">
-                <field name="transmission_make"/>
-                <field name="transmission_model" domain="[('manufacturer','=',transmission_make)]"/>
-                <field name="transmission_serial_number"/>
-              </group>
-            </group>
+            <notebook>
+              <page string="General Information">
+                <group>
+                  <group string="Engine">
+                    <field name="engine_make"/>
+                    <field name="engine_model" domain="[('manufacturer','=',engine_make)]"/>
+                    <field name="engine_serial_number"/>
+                  </group>
+                  <group string="Transmission">
+                    <field name="transmission_make"/>
+                    <field name="transmission_model" domain="[('manufacturer','=',transmission_make)]"/>
+                    <field name="transmission_serial_number"/>
+                  </group>
+                </group>
 
-            <group>
-              <group string="Drive Axle">
-                <field name="drive_axle_manufacturer"/>
-                <field name="drive_axle_model" domain="[('manufacturer','=',drive_axle_manufacturer)]"/>
-                <field name="drive_axle_serial_number"/>
-              </group>
-              <group string="Traction Battery">
-                <field name="traction_battery_capacity"/>
-                <field name="traction_battery_serial_number"/>
-              </group>
-            </group>
+                <group>
+                  <group string="Drive Axle">
+                    <field name="drive_axle_manufacturer"/>
+                    <field name="drive_axle_model" domain="[('manufacturer','=',drive_axle_manufacturer)]"/>
+                    <field name="drive_axle_serial_number"/>
+                  </group>
+                  <group string="Traction Battery">
+                    <field name="traction_battery_capacity"/>
+                    <field name="traction_battery_serial_number"/>
+                  </group>
+                </group>
 
-            <group>
-              <group string="Mast">
-                <field name="mast_type"/>
-                <field name="mast_serial_number"/>
-              </group>
-              <group string="Others">
-                <field name="forks"/>
-                <field name="lift_height"/>
-                <field name="gross_weight"/>
-              </group>
-            </group>
+                <group>
+                  <group string="Mast">
+                    <field name="mast_type"/>
+                    <field name="mast_serial_number"/>
+                  </group>
+                  <group string="Others">
+                    <field name="forks"/>
+                    <field name="lift_height"/>
+                    <field name="gross_weight"/>
+                  </group>
+                </group>
+              </page>
+              <page string="Contract">
+                <group>
+                  <group string="Maintenance">
+                    <field name="maintenance_frequency_count"/>
+                    <field name="maintenance_frequency"/>
+                    <field name="next_maintenance_date" readonly="1"/>
+                  </group>
+                </group>
+              </page>
+            </notebook>
 
           </sheet>
           <div class="oe_chatter">
