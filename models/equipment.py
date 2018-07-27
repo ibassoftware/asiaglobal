@@ -39,9 +39,8 @@ class AsiaGlobalEquipmentProfile(models.Model):
 	_name = 'asiaglobal.equipment_profile'
 	_inherit = ['mail.thread','mail.activity.mixin']
 
-	name = fields.Char(required=True, string='Equipment Profile')
+	name = fields.Char(string='Equipment Profile', store=True, compute="_compute_name")
 	customer = fields.Many2one('res.partner', ondelete='cascade', required=True)
-
 	manufacturer = fields.Many2one('asiaglobal.manufacturer')
 	model = fields.Many2one('asiaglobal.manufacturer_model')
 	serial_number = fields.Char()
@@ -71,6 +70,9 @@ class AsiaGlobalEquipmentProfile(models.Model):
 	lift_height = fields.Char()
 	gross_weight = fields.Char()
 
+	maintenance_contract = fields.Boolean()
+	maintenance_start_date = fields.Date(default=fields.Datetime.now())
+	maintenance_end_date = fields.Date(default=fields.Datetime.now())
 	maintenance_frequency_count = fields.Integer()
 	maintenance_frequency = fields.Selection([
 		('day', 'Days'),
@@ -79,6 +81,26 @@ class AsiaGlobalEquipmentProfile(models.Model):
 		('year', 'Years'),
 	], default='day')
 	next_maintenance_date = fields.Date(default=fields.Datetime.now())
+
+	hour_meter = fields.Float()
+
+	@api.one
+	@api.depends('customer','manufacturer','model','serial_number')
+	def _compute_name(self):
+		name = ''
+		if self.customer:
+			name += self.customer.name
+
+		if self.manufacturer:
+			name += ' - ' + self.manufacturer.name
+
+		if self.model:
+			name += ' - ' + self.model.name
+
+		if self.serial_number:
+			name += ' - ' + self.serial_number
+
+		self.name = name
 
 	@api.model
 	def create(self, vals):
@@ -105,22 +127,23 @@ class AsiaGlobalEquipmentProfile(models.Model):
 			# job_order = self.env['asiaglobal.job_order']
 
 			for maintenance in for_maintenance:
-				values = {
-					'customer_id': maintenance.customer.id,
-					'equipment_id': maintenance.id,
-					'manufacturer': maintenance.manufacturer.id,
-					'model': maintenance.model.id,
-					'serial_number': maintenance.serial_number,
-					'scheduled_date': maintenance.next_maintenance_date,
-				}                
-				job_order = self.env['asiaglobal.job_order'].create(values)
+				if maintenance.maintenance_contract == True:
+					values = {
+						'customer_id': maintenance.customer.id,
+						'equipment_id': maintenance.id,
+						'manufacturer': maintenance.manufacturer.id,
+						'model': maintenance.model.id,
+						'serial_number': maintenance.serial_number,
+						'scheduled_date': maintenance.next_maintenance_date,
+					}                
+					job_order = self.env['asiaglobal.job_order'].create(values)
 
-				if job_order:
-					# UPDATE MAINTENANCE DATE
-					new_maintenance_date = self.get_maintenance_date(targetdate, maintenance.maintenance_frequency_count, maintenance.maintenance_frequency)
+					if job_order:
+						# UPDATE MAINTENANCE DATE
+						new_maintenance_date = self.get_maintenance_date(targetdate, maintenance.maintenance_frequency_count, maintenance.maintenance_frequency)
 
-					if new_maintenance_date:
-						maintenance.write({'next_maintenance_date': new_maintenance_date})
+						if new_maintenance_date:
+							maintenance.write({'next_maintenance_date': new_maintenance_date})
 		return
 
 	def get_maintenance_date(self, date, count, frequency):

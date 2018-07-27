@@ -33,7 +33,7 @@
                 <field name="warranty_date" attrs="{'invisible':[('under_warranty', '=', False)]}"/>
                 <field name="scheduled_date"/>
                 <field name="actual_repair_date"/>
-                <field name="technician_id" widget="many2many_tags"/>
+                <field name="technician_id"/>
               </group>
             </group>
 
@@ -50,11 +50,15 @@
               <page string="Sale Orders">
                 <field name="sale_ids"/>
               </page>
+              <page string="Service Reports">
+                <field name="service_report_ids"/>
+              </page>
             </notebook>
 
           </sheet>
           <div class="oe_chatter">
             <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="activity_ids" widget="mail_activity"/>
             <field name="message_ids" widget="mail_thread"/>
           </div>
 
@@ -62,19 +66,31 @@
       </field>
     </record>
 
-    <record model='ir.ui.view' id='service_job_order_tree'>
-      <field name='name'>asiaglobal.job.order.tree</field>
-      <field name='model'>asiaglobal.job_order</field>
-      <field name='arch' type='xml'>
-        <tree string='Job Orders'>
+    <record model="ir.ui.view" id="service_job_order_tree">
+      <field name="name">asiaglobal.job.order.tree</field>
+      <field name="model">asiaglobal.job_order</field>
+      <field name="arch" type="xml">
+        <tree string="Job Orders">
           <field name="name" />
-          <field name='customer_id'/>
-          <field name='type'/>
-          <field name='equipment_id'/>
-          <field name='scheduled_date'/>
-          <field name='actual_repair_date'/>
-          <field name='state'/>
+          <field name="customer_id"/>
+          <field name="technician_id"/>
+          <field name="type"/>
+          <field name="equipment_id"/>
+          <field name="scheduled_date"/>
+          <field name="actual_repair_date"/>
+          <field name="state"/>
         </tree>
+      </field>
+    </record>
+
+    <record id="service_job_order_calendar" model="ir.ui.view">
+      <field name="name">asiaglobal.job_order.calendar</field>
+      <field name="model">asiaglobal.job_order</field>
+      <field name="arch" type="xml">
+        <calendar string="Job Orders" date_start="scheduled_date" color="technician_id">
+          <field name="name"/>
+          <field name="customer_id"/>
+        </calendar>
       </field>
     </record>
 
@@ -82,17 +98,17 @@
       <field name="name">asiaglobal.job.order.search</field>
       <field name="model">asiaglobal.job_order</field>
       <field name="priority" eval="8" />
-            <field name="arch" type="xml">
-                <search string="Job Order">
-                    <field name="name" />
-                </search>
-            </field>
-        </record>
+      <field name="arch" type="xml">
+        <search string="Job Order">
+          <field name="name" />
+        </search>
+      </field>
+    </record>
 
     <record model="ir.actions.act_window" id="service_job_order_action">
       <field name="name">Job Orders</field>
       <field name="res_model">asiaglobal.job_order</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">tree,form,calendar</field>
       <field name="search_view_id" ref="asiaglobal_job_order_search" />
       <field name="help" type="html">
         <p>

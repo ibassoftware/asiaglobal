@@ -2,7 +2,7 @@ from odoo import models, fields, api, _
 
 class AsiaGlobalJobOrder(models.Model):
 	_name = 'asiaglobal.job_order'
-	_inherit = ['mail.thread','mail.activity.mixin']
+	_inherit = ['mail.thread', 'mail.activity.mixin']
 
 	name = fields.Char(string='Order Reference', required=True, copy=False, readonly=True, states={'draft': [('readonly', False)]}, index=True, default=lambda self: _('New'))
 	initial_complaint = fields.Text()
@@ -12,7 +12,8 @@ class AsiaGlobalJobOrder(models.Model):
 		('reactive','Reactive')
 	])
 	initial_diagnosis = fields.Text()
-	technician_id = fields.Many2many('hr.employee', string='Technicians Assigned', domain=[('is_technician','=',True)])
+	# technician_id = fields.Many2many('hr.employee', string='Technicians Assigned', domain=[('is_technician','=',True)])
+	technician_id = fields.Many2one('hr.employee', string='Primary Technician', domain=[('is_technician','=',True)])
 	ticket_ids = fields.One2many('helpdesk.ticket', 'jo_id', string='Helpdesk Tickets')
 	state = fields.Selection([
 		('draft','New'),
@@ -30,6 +31,8 @@ class AsiaGlobalJobOrder(models.Model):
 	serial_number = fields.Char()
 	scheduled_date = fields.Date(default=fields.Datetime.now())
 	actual_repair_date = fields.Date(default=fields.Datetime.now())
+
+	service_report_ids = fields.One2many('asiaglobal.service_report', 'jo_id')
 
 	@api.onchange('equipment_id')
 	def set_equipment_details(self):

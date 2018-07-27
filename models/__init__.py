@@ -11,3 +11,5 @@ from . import hr_employee
 from . import job_order
 from . import helpdesk_ticket
 from . import sale_order
+
+from . import service_report

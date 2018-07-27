@@ -25,10 +25,11 @@
 
     # always loaded
     'data': [
+        'security/service_security.xml',
         'security/ir.model.access.csv',
+        'data/ir_sequence_data.xml',
         'data/report_paperformat_data.xml',
         'data/subscription_template.xml',
-        'data/ir_sequence_data.xml',
         'views/ir_cron.xml',
         'views/views.xml',
         'views/templates.xml',
@@ -44,6 +45,7 @@
         'views/hr_employee_views.xml',
         'views/job_order_views.xml',
         'views/helpdesk_ticket_views.xml',
+        'views/service_report_views.xml',
         'views/service_menu.xml',
         'report/report_quotation_service.xml',
         'report/report.xml',

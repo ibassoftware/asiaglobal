@@ -1,0 +1,160 @@
+<odoo>
+  <data>
+
+    <!-- START JOB ORDER -->
+    <record model="ir.ui.view" id="service_report_form">
+      <field name="name">asiaglobal.service.report.form</field>
+      <field name="model">asiaglobal.service_report</field>
+      <field name="arch" type="xml">
+        <form string="Service Report">
+          <header>
+            <!-- <field name="state" widget="statusbar" statusbar_visible="draft,schedule,progress,bill,done"/> -->
+          </header>
+          <sheet>
+
+            <div class="oe_title">
+              <label for="name"/>
+              <h1>
+                <field name="name" readonly="1"/>
+              </h1>
+            </div>
+
+            <group>
+              <group>
+                <field name="jo_id"/>
+                <field name="customer_id"/>
+                <field name="model"/>
+                <field name="serial_number"/>
+                <field name="mast_no"/>
+              </group>
+              <group>
+                <field name="visit_date"/>
+                <field name="time_in" widget="float_time"/>
+                <field name="time_out" widget="float_time"/>
+                <field name="hour_meter"/>
+              </group>
+            </group>
+
+            <notebook>
+              <page string="Details">
+                <group >
+                  <field name="customer_complaints">
+                    <tree editable="bottom">
+                        <field name="customer_complaint"/>
+                        <field name="cause"/>
+                    </tree>
+                  </field>
+                  <field name="service_rendered"/>
+                  <field name="recommendation"/>
+                </group>
+              </page>
+              <page string="Parts">
+                <group>
+                  <group>
+                    <field name="is_parts_fitted"/>
+                  </group>
+                  <field name="parts_fitted" attrs="{'invisible':[('is_parts_fitted', '=', False)]}" nolabel="1">
+                    <tree editable="bottom">
+                      <field name="product_id"/>
+                        <field name="product_qty"/>
+                        <field name="description"/>
+                        <field name="part_number"/>
+                    </tree>
+                  </field>
+                </group>
+                <group>
+                  <group>
+                    <field name="is_parts_required"/>
+                  </group>
+                  <field name="parts_required" attrs="{'invisible':[('is_parts_required', '=', False)]}" nolabel="1">
+                    <tree editable="bottom">
+                      <field name="product_id"/>
+                      <field name="product_qty"/>
+                      <field name="description"/>
+                      <field name="part_number"/>
+                    </tree>
+                  </field>
+                </group>
+              </page>
+              <page string="Others">
+                <group>
+                  <group string="Warranty Coverage">
+                    <field name="with_warranty"/>
+                    <field name="warranty_failure"/>
+                    <field name="warranty_failure_reason"/>
+                  </group>
+                  <group>
+                    <field name="billable"/>
+                    <field name="billable_amount"/>
+                    <field name="technician_id"/>
+                    <field name="supervisor_id"/>
+                  </group>
+                </group>
+              </page>
+            </notebook>
+
+          </sheet>
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="activity_ids" widget="mail_activity"/>
+            <field name="message_ids" widget="mail_thread"/>
+          </div>
+
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="service_report_tree">
+      <field name="name">asiaglobal.service.report.tree</field>
+      <field name="model">asiaglobal.service_report</field>
+      <field name="arch" type="xml">
+        <tree string="Service Report">
+          <field name="name" />
+          <field name="customer_id"/>
+          <field name="jo_id"/>
+          <field name="visit_date"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- <record id="service_job_order_calendar" model="ir.ui.view">
+      <field name="name">asiaglobal.job_order.calendar</field>
+      <field name="model">asiaglobal.job_order</field>
+      <field name="arch" type="xml">
+        <calendar string="Job Orders" date_start="scheduled_date" color="technician_id">
+          <field name="name"/>
+          <field name="customer_id"/>
+        </calendar>
+      </field>
+    </record> -->
+
+    <record id="asiaglobal_service_report_search" model="ir.ui.view">
+      <field name="name">asiaglobal.service.report.search</field>
+      <field name="model">asiaglobal.service_report</field>
+      <field name="priority" eval="8"/>
+      <field name="arch" type="xml">
+        <search string="Service Report">
+          <field name="name" />
+          <field name="jo_id" />
+          <field name="customer_id" />
+          <field name="visit_date" />
+          <field name="technician_id" />
+        </search>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="service_service_report_action">
+      <field name="name">Service Report</field>
+      <field name="res_model">asiaglobal.service_report</field>
+      <field name="view_mode">tree,form</field>
+      <field name="search_view_id" ref="asiaglobal_service_report_search"/>
+      <field name="help" type="html">
+        <p>
+          Create a service report.
+        </p>
+      </field>
+    </record>
+    <!-- END JOB ORDER -->
+
+  </data>
+</odoo>

@@ -4,6 +4,7 @@
 		<menuitem id="service_menu_root"
 			name="Services"
 			web_icon="asiaglobal,static/src/img/icon.png"
+			groups="group_service_manager,group_service_user"
 			sequence="7"/>
 
 		<menuitem id="menu_job_order"
@@ -18,9 +19,16 @@
 			action="asiaglobal.service_equipment_profile_action"
 			sequence="2"/>
 
+		<menuitem id="menu_service_report"
+			name="Service Report"
+			parent="asiaglobal.service_menu_root"
+			action="asiaglobal.service_service_report_action"
+			sequence="3"/>
+
 		<menuitem id="menu_service_config"
 			name="Configuration"
 			parent="service_menu_root"
+			groups="asiaglobal.group_service_manager"
 			sequence="6" />
 
 		<menuitem id="menu_equipment_type"
@@ -64,5 +72,11 @@
 			parent="asiaglobal.menu_service_config"
 			action="asiaglobal.service_mast_type_action"
 			sequence="8"/>
+
+		<menuitem id="menu_service_activity_type"
+			name="Activity Types"
+			parent="asiaglobal.menu_service_config"
+			action="mail.mail_activity_type_action"
+			sequence="9"/>
 
 </odoo>
