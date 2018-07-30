@@ -2,6 +2,7 @@ from odoo import models, fields, api, _
 
 class AsiaGlobalJobOrder(models.Model):
 	_name = 'asiaglobal.job_order'
+	_description = 'Job Order'
 	_inherit = ['mail.thread', 'mail.activity.mixin']
 
 	name = fields.Char(string='Order Reference', required=True, copy=False, readonly=True, states={'draft': [('readonly', False)]}, index=True, default=lambda self: _('New'))

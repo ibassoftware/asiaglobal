@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_service_report_document">
+            <t t-call="asiaglobal.external_layout_service_report">
+                <!-- <t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})"/> -->
+                <div class="page" style="font-size:18px">
+                    <center><h3>SERVICE REPORT</h3></center>
+                    <br/>
+                    <table class="table-condensed" style="font-size:13px" width="100%">
+                        <tr>
+                            <td style="border-top:none;" width="56%">
+                            </td>
+                            <td style="border-top:none;" width="8%">
+                            </td>
+                            <td style="border: 1px solid black;" width="36%">
+                                <span><b>SR No.</b></span> <span t-field="o.name"/><br/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;" width="56%">
+                                <span><b>Customer</b></span><br/>
+                                <span t-field="o.customer_id.name"/>
+                            </td>
+                            <td style="border-top:none;" width="8%">
+                            </td>
+                            <td style="border: 1px solid black;" width="36%">
+                                <span><b>Job Order</b></span> <span t-field="o.jo_id.name"/>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <br/>
+
+                    <table class="table-condensed" style="font-size:13px" width="100%">
+                        <tr>
+                            <td style="border: 1px solid black;" width="56%">
+                                <span><b>Model</b></span> <span t-field="o.model.name"/><br/>
+                            </td>
+                            <td style="border-top:none;" width="8%">
+                            </td>
+                            <td style="border: 1px solid black;" width="36%">
+                                <span><b>Truck Serial No.</b></span> <span t-field="o.serial_number"/><br/>
+                            </td>
+                        </tr>
+                        <tr></tr>
+                        <tr>
+                            <td style="border: 1px solid black;" width="56%">
+                                <span><b>Hour Meter</b></span> <span t-field="o.hour_meter"/><br/>
+                            </td>
+                            <td style="border-top:none;" width="8%">
+                            </td>
+                            <td style="border: 1px solid black;" width="36%">
+                                <span><b>Mast No.</b></span> <span t-field="o.mast_no"/><br/>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <br/>
+
+                    <table class="table-condensed" style="font-size:13px" width="100%">
+                        <tr>
+                            <td style="border: 1px solid black;" valign="top" width="56%">
+                                <span><b>Date of Visit</b></span><br/> 
+                                <span t-field="o.visit_date"/>
+                            </td>
+                            <td style="border-top:none;" width="8%">
+                            </td>
+                            <td style="border: 1px solid black;" width="18%">
+                                <span><b>Time In</b></span><br/> 
+                                <span t-field="o.time_in" t-field-options='{"widget": "float_time"}' />
+                            </td>
+                            <td style="border: 1px solid black;" width="18%">
+                                <span><b>Time Out</b></span><br/> 
+                                <span t-field="o.time_out" t-field-options='{"widget": "float_time"}' />
+                            </td>
+                        </tr>
+                    </table>
+
+                    <table class="table table-condensed" style="font-size:13px" width="100%">
+                        <tr>
+                            <td style="border-top:none;" width="50%">
+                                Customer Complaint/s
+                            </td>
+                            <td style="border-top:none;" width="50%">
+                                Cause
+                            </td>
+                        </tr>
+                        <tr t-foreach="o.customer_complaints" t-as="complaint">
+                            <td style="border: 1px solid black;" width="50%">
+                                <span t-field="complaint.customer_complaint"/>
+                            </td>
+                            <td style="border: 1px solid black;" width="50%">
+                                <span t-field="complaint.cause"/>
+                            </td>
+                        </tr>
+                    </table>
+                                        
+                    <table class="table table-condensed" style="font-size:13px" width="100%">
+                        <tr>
+                            <td style="border-top:none;">
+                                Service Rendered
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;">
+                                <p><span t-field="o.recommendation"/></p>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <table class="table table-condensed" style="font-size:13px" width="100%">
+                        <tr>
+                            <td style="border-top:none;">
+                                Recommendation / Remarks
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black;">
+                                <p><span t-field="o.recommendation"/></p>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <table class="table table-condensed" style="font-size:13px" width="100%">
+                        <tr>
+                            <td style="border-top:none;" width="20%">
+                                Parts Fitted
+                                <t t-if="o.is_parts_fitted">
+                                    <input type="checkbox" checked="checked"/>
+                                </t>
+                                <t t-else="">
+                                    <input type="checkbox"/>
+                                </t>
+                            </td>
+                            <td style="border-top:none;" width="45%">
+                                <i>(Please use separate sheet if necessary)</i>
+                            </td>
+                            <td style="border-top:none;" width="35%">
+                            </td>
+                        </tr>
+                        <t t-if="o.is_parts_fitted">
+                            <tr t-foreach="o.parts_fitted" t-as="parts_fitted">
+                                <td style="border: 1px solid black;" width="20%">
+                                    <span t-field="parts_fitted.product_qty"/>
+                                </td>
+                                <td style="border: 1px solid black;" width="45%">
+                                    <span t-field="parts_fitted.description"/>
+                                </td>
+                                <td style="border: 1px solid black;" width="35%">
+                                    <span t-field="parts_fitted.part_number"/>
+                                </td>
+                            </tr>
+                        </t>
+                        <t t-else="">
+                            <td style="border: 1px solid black;" width="20%">
+                                <br/>
+                            </td>
+                            <td style="border: 1px solid black;" width="45%">
+                                <br/>
+                            </td>
+                            <td style="border: 1px solid black;" width="35%">
+                                <br/>
+                            </td>
+                        </t>
+                    </table>
+
+                    <table class="table table-condensed" style="font-size:13px" width="100%">
+                        <tr>
+                            <td style="border-top:none;" width="20%">
+                                Parts Required 
+                                <t t-if="o.is_parts_required">
+                                    <input type="checkbox" checked="checked"/>
+                                </t>
+                                <t t-else="">
+                                    <input type="checkbox"/>
+                                </t>
+                            </td>
+                            <td style="border-top:none;" width="45%">
+                                <i>(Please use separate sheet if necessary)</i>
+                            </td>
+                            <td style="border-top:none;" width="35%">
+                            </td>
+                        </tr>
+                        <t t-if="o.is_parts_required">
+                            <tr t-foreach="o.parts_required" t-as="parts_required">
+                                <td style="border: 1px solid black;" width="20%">
+                                    <span t-field="parts_required.product_qty"/>
+                                </td>
+                                <td style="border: 1px solid black;" width="45%">
+                                    <span t-field="parts_required.description"/>
+                                </td>
+                                <td style="border: 1px solid black;" width="35%">
+                                    <span t-field="parts_required.part_number"/>
+                                </td>
+                            </tr>
+                        </t>
+                        <t t-else="">
+                            <td style="border: 1px solid black;" width="20%">
+                                <br/>
+                            </td>
+                            <td style="border: 1px solid black;" width="45%">
+                                <br/>
+                            </td>
+                            <td style="border: 1px solid black;" width="35%">
+                                <br/>
+                            </td>
+                        </t>
+                    </table>
+
+                    <table class="table table-condensed" style="font-size:13px" width="100%">
+                        <tr>
+                            <td style="border: 1px solid black;" width="65%">
+                                Warranty Coverage <br/>
+                                Is the unit within the coverage period?
+                                <t t-if="o.with_warranty">
+                                    YES <input type="checkbox" checked="checked"/> 
+                                    NO <input type="checkbox"/> <br/>
+                                </t>
+                                <t t-else="">
+                                    YES <input type="checkbox"/> 
+                                    NO <input type="checkbox" checked="checked"/> <br/>
+                                </t>
+                                If yes, is this a Warantable Failure?
+                                <t t-if="o.warranty_failure">
+                                    YES <input type="checkbox" checked="checked"/> 
+                                    NO <input type="checkbox"/> <br/>
+                                </t>
+                                <t t-else="">
+                                    YES <input type="checkbox"/> 
+                                    NO <input type="checkbox" checked="checked"/> <br/>
+                                </t>
+                                State Reason: <span t-field="o.warranty_failure_reason"/>
+                            </td>
+                            <td style="border: 1px solid black;" width="35%">
+                                <table>
+                                    <tr>
+                                        <td width="40%">
+                                            <b>BILLABLE</b>
+                                        </td>
+                                        <td width="8%">
+                                        </td>
+                                        <td width="52%">
+                                            <t t-if="o.billable">
+                                                YES <input type="checkbox" checked="checked"/> <br/>
+                                                NO <input type="checkbox"/> <br/>
+                                            </t>
+                                            <t t-else="">
+                                                YES <input type="checkbox"/> <br/>
+                                                NO <input type="checkbox" checked="checked"/> <br/>
+                                            </t>
+                                            Amount <span t-field="o.billable_amount"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                                
+                                
+                            </td>
+                        </tr>
+                    </table>
+
+                    <br/>
+
+                    <!-- <div style="position: absolute; top: 800px; width: 100%; font-size: 12px;"> -->
+                    <div style="width: 100%; font-size: 13px;">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <strong>Service Rendered By: </strong><br/><br/>
+                                &#160;&#160;&#160;&#160;&#160;<span t-field="o.technician_id"/><br/>
+                                <span>____________________________</span><br/>
+                                <t t-if="o.technician_id.job_id">
+                                    &#160;&#160;&#160;&#160;&#160;<span t-field="o.technician_id.job_id.name"/>
+                                </t>
+                                <t t-else="">
+                                    &#160;&#160;&#160;&#160;&#160;Service Technician/s
+                                </t>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <strong>Reviewed and Noted By: </strong><br/><br/>
+                                &#160;&#160;&#160;&#160;&#160;<span t-field="o.supervisor_id"/><br/>
+                                <span>____________________________</span><br/>
+                                <t t-if="o.supervisor_id.job_id">
+                                    &#160;&#160;&#160;&#160;&#160;<span t-field="o.supervisor_id.job_id.name"/>
+                                </t>
+                                <t t-else="">
+                                    &#160;&#160;&#160;&#160;&#160;Service Supervisor or Manager
+                                </t>
+                            </div>
+                            <div class="col-xs-6">
+                                <!-- <strong>Customer's Signature: </strong><br/><br/> -->
+                                <center>
+                                    <p>
+                                        ____________________________<br/>
+                                        Customer's Signature
+                                    </p>
+                                </center>
+                                <!-- <span t-field="o.x_checked_by"/> -->
+                            </div>
+                        </div>
+                    </div>
+                   <!--  <br/>
+                    <div style="position: absolute; top: 800px; width: 100%; font-size: 12px;">
+                        <div class="col-xs-6">
+                            <strong>Reviewed and Noted By: </strong><br/><br/>
+                            <span>____________________</span><br/>
+                            <span t-field="o.supervisor_id"/>
+                        </div>
+                        <div class="col-xs-6">
+                            <strong>Customer's Signature: </strong><br/><br/>
+                            <span>____________________</span><br/>
+                        </div>
+                    </div> -->
+
+                </div>
+            </t> 
+        </template>
+
+        <template id="report_service_report">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+
+                    <!-- <t t-call="asiaglobal.service_report_document" t-lang="o.partner_id.lang"/> -->
+                    <t t-call="asiaglobal.report_service_report_document" />
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

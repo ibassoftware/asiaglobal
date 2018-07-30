@@ -14,5 +14,18 @@
             paperformat="asiaglobal.paperformat_report_quotation_custom"
         />
 
+        <report 
+            id="service_report"
+            model="asiaglobal.service_report"
+            string="Service Report"
+            report_type="qweb-pdf"
+            name="asiaglobal.report_service_report"
+            file="asiaglobal.report_service_report"
+            attachment_use="False"
+            attachment="('Service Report '+(object.name or '').replace('/','')+'.pdf')"
+            menu="True"
+            paperformat="asiaglobal.paperformat_report_service_custom"
+        />
+
     </data>
 </odoo>

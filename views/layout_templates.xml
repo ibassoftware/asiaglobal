@@ -45,5 +45,44 @@
         </template>
         <!-- END SERVICE QUOTE -->
 
+        <!-- START SERVICE REPORT -->
+        <template id="external_layout_service_report">
+            <t t-if="not o and doc">
+                <t t-set="o" t-value="doc"/>
+            </t>
+
+            <t t-if="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id.sudo()"/>
+            </t>
+
+            <t t-if="not o or not 'company_id' in o">
+                <t t-set="company" t-value="res_company"/>
+            </t>
+
+            <t t-call="asiaglobal.external_layout_service_report_custom"><t t-raw="0"/></t>
+        </template>
+
+        <template id="external_layout_service_report_custom">
+            <div class="header">
+               <!-- <img t-if="company.logo" t-att-src="b'data:image/png;base64,%s' % company.logo" class="pull-left"/> -->
+            </div>
+
+            <div class="article o_report_layout_standard">
+                <t t-raw="0" />
+            </div>
+
+            <div class="footer">
+                <p style="font-size:10px">
+                    <i><b>Address and Contact Details</b></i><br/>
+                    <span>AGT Building</span><br/>
+                    <span> Granville Industrial Complex, Brgy. Bancal</span>
+                    <span>Carmona, Cavite 4116</span><br/>
+                    <span>Service Hotline +63 (02) 899 1802</span><br/>
+                    <span>eFax: 63 (02) 857 2169</span>
+                </p>
+            </div>
+        </template>
+        <!-- END SERVICE REPORT -->
+
     </data>
 </odoo>

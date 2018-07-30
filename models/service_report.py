@@ -1,5 +1,8 @@
 from odoo import models, fields, api, _ 
 
+import logging
+_logger = logging.getLogger(__name__)
+
 class AsiaGlobalServiceReportComplaints(models.Model):
 	_name = 'asiaglobal.service_report_complaints'
 
@@ -23,6 +26,7 @@ class AsiaGlobalServiceReportParts(models.Model):
 
 class AsiaGlobalServiceReport(models.Model):
 	_name = 'asiaglobal.service_report'
+	_description = 'Service Report'
 	_inherit = ['mail.thread', 'mail.activity.mixin']
 
 	name = fields.Char(string='SR No.', required=True, copy=False, index=True, default=lambda self: _('New'))
@@ -55,8 +59,12 @@ class AsiaGlobalServiceReport(models.Model):
 	billable = fields.Boolean()
 	billable_amount = fields.Float(string='Amount')
 
-	technician_id = fields.Many2one('hr.employee', string='Service Technician/s')
+	technician_id = fields.Many2one('hr.employee', string='Service Technician/s', domain=[('is_technician','=',True)])
 	supervisor_id = fields.Many2one('hr.employee', string='Service Supervisor or Manager')
+
+	@api.onchange('technician_id')
+	def set_supervisor(self):
+		self.supervisor_id = self.technician_id.parent_id
 
 	@api.onchange('jo_id')
 	def set_details(self):
@@ -64,27 +72,46 @@ class AsiaGlobalServiceReport(models.Model):
 		self.model = self.jo_id.model
 		self.mast_no = self.jo_id.equipment_id.mast_serial_number
 		self.serial_number = self.jo_id.serial_number
+		self.technician_id = self.jo_id.technician_id
 
-	# def update_hour_meter(self, service_hour_meter, jo_id):
-	# 	job_order = self.env['asiaglobal.job_order'].search([('id','='jo_id)])
-	# 	equipment = job_order.equipment_id
-	# 	equipment_hour_meter = equipment.hour_meter
-	# 	new_hour_meter = 0
-	# 	if hour_meter and equipment:
-	# 		new_hour_meter = equipment_hour_meter + new_hour_meter
-	# 	equipment.write({'hour_meter':new_hour_meter})
+	def update_hour_meter(self, service_hour_meter, jo_id):
+		job_order = self.env['asiaglobal.job_order'].search([('id','=',jo_id)])
+		equipment = self.env['asiaglobal.equipment_profile'].search([('id','=',job_order.equipment_id.id)])
+
+		equipment_hour_meter = equipment.hour_meter
+		new_hour_meter = 0
+		if equipment:
+			new_hour_meter = equipment_hour_meter + service_hour_meter
+		equipment.write({'hour_meter': new_hour_meter})
 
 	@api.model
 	def create(self, vals):
-		# hour_meter = vals.get('hour_meter', False)
-		# jo_id = vals.get('jo_id', False)
+		hour_meter = vals.get('hour_meter', False)
+		jo_id = vals.get('jo_id', False)
 		
 		if vals.get('name', _('New')) == _('New'):
 			vals['name'] = self.env['ir.sequence'].next_by_code('asiaglobal.service.report') or _('New')
 		result = super(AsiaGlobalServiceReport, self).create(vals)
 
 		# UPDATE HOUR METER
-		# if hour_meter and jo_id:
-		# 	self.update_hour_meter(hour_meter, jo_id)
+		if hour_meter and jo_id:
+			self.update_hour_meter(hour_meter, jo_id)
+
+		return result
+
+	@api.multi
+	def write(self, vals):
+		last_hour_meter = self.hour_meter
+		new_hour_meter = vals.get('hour_meter', False)
+		service_hour_meter = new_hour_meter - last_hour_meter
+
+		jo_id = vals.get('jo_id', False)
+		if not jo_id:
+			jo_id = self.jo_id.id
+
+		result = super(AsiaGlobalServiceReport, self).write(vals)
+
+		if service_hour_meter and jo_id:
+			self.update_hour_meter(service_hour_meter, jo_id)
 
 		return result

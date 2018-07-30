@@ -48,6 +48,7 @@
         'views/service_report_views.xml',
         'views/service_menu.xml',
         'report/report_quotation_service.xml',
+        'report/service_report.xml',
         'report/report.xml',
 
     ],

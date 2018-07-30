@@ -37,6 +37,7 @@ class AsiaGlobalMastType(models.Model):
 
 class AsiaGlobalEquipmentProfile(models.Model):
 	_name = 'asiaglobal.equipment_profile'
+	_description = 'Equipment Profile'
 	_inherit = ['mail.thread','mail.activity.mixin']
 
 	name = fields.Char(string='Equipment Profile', store=True, compute="_compute_name")
