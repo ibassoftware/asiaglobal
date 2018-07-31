@@ -28,6 +28,7 @@
                 <field name="serial_number"/>
               </group>
               <group>
+                <field name="state"/>
                 <field name="type"/>
                 <field name="under_warranty"/>
                 <field name="warranty_date" attrs="{'invisible':[('under_warranty', '=', False)]}"/>
