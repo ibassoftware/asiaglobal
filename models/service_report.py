@@ -33,6 +33,7 @@ class AsiaGlobalServiceReport(models.Model):
 	jo_id = fields.Many2one('asiaglobal.job_order', string='Job Order', required=True)
 
 	customer_id = fields.Many2one('res.partner', string='Customer')
+	ship_to = fields.Many2one('res.partner', string='Ship To / Site Address')
 	model = fields.Many2one('asiaglobal.manufacturer_model', string='Model')
 	# mast_no = fields.Many2one('asiaglobal.mast_type', string='Mast No.')
 	mast_no = fields.Char(string='Mast No.')
@@ -69,6 +70,7 @@ class AsiaGlobalServiceReport(models.Model):
 	@api.onchange('jo_id')
 	def set_details(self):
 		self.customer_id = self.jo_id.customer_id
+		self.ship_to = self.jo_id.ship_to
 		self.model = self.jo_id.model
 		self.mast_no = self.jo_id.equipment_id.mast_serial_number
 		self.serial_number = self.jo_id.serial_number

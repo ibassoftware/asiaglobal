@@ -197,6 +197,7 @@
             <group>
               <group>
                 <field name="customer"/>
+                <field name="ship_to"/>
                 <field name="manufacturer"/>
                 <field name="model" domain="[('manufacturer','=',manufacturer)]"/>
                 <field name="serial_number"/>

@@ -42,6 +42,7 @@ class AsiaGlobalEquipmentProfile(models.Model):
 
 	name = fields.Char(string='Equipment Profile', store=True, compute="_compute_name")
 	customer = fields.Many2one('res.partner', ondelete='cascade', required=True)
+	ship_to = fields.Many2one('res.partner', string='Ship To / Site Address')
 	manufacturer = fields.Many2one('asiaglobal.manufacturer')
 	model = fields.Many2one('asiaglobal.manufacturer_model')
 	serial_number = fields.Char()

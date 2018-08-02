@@ -23,6 +23,7 @@
               <group>
                 <field name="jo_id"/>
                 <field name="customer_id"/>
+                <field name="ship_to"/>
                 <field name="model"/>
                 <field name="serial_number"/>
                 <field name="mast_no"/>

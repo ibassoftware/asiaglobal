@@ -8,6 +8,7 @@ class AsiaGlobalJobOrder(models.Model):
 	name = fields.Char(string='Order Reference', required=True, copy=False, readonly=True, states={'draft': [('readonly', False)]}, index=True, default=lambda self: _('New'))
 	initial_complaint = fields.Text()
 	customer_id = fields.Many2one('res.partner', string='Customer')
+	ship_to = fields.Many2one('res.partner', string='Ship To / Site Address')
 	type = fields.Selection([
 		('proactive','Proactive'),
 		('reactive','Reactive')
@@ -37,6 +38,7 @@ class AsiaGlobalJobOrder(models.Model):
 
 	@api.onchange('equipment_id')
 	def set_equipment_details(self):
+		self.ship_to = self.equipment_id.ship_to
 		self.manufacturer = self.equipment_id.manufacturer
 		self.model = self.equipment_id.model
 		self.serial_number = self.equipment_id.serial_number

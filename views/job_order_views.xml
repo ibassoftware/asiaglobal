@@ -23,6 +23,7 @@
               <group>
                 <field name="customer_id"/>
                 <field name="equipment_id" domain="[('customer','=',customer_id)]"/>
+                <field name="ship_to"/>
                 <field name="manufacturer"/>
                 <field name="model"/>
                 <field name="serial_number"/>

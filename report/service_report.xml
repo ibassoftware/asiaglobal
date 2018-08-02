@@ -9,7 +9,9 @@
                     <br/>
                     <table class="table-condensed" style="font-size:13px" width="100%">
                         <tr>
-                            <td style="border-top:none;" width="56%">
+                            <td style="border: 1px solid black;" width="56%">
+                                <span><b>Customer</b></span><br/>
+                                <span t-field="o.customer_id.name"/>
                             </td>
                             <td style="border-top:none;" width="8%">
                             </td>
@@ -19,8 +21,8 @@
                         </tr>
                         <tr>
                             <td style="border: 1px solid black;" width="56%">
-                                <span><b>Customer</b></span><br/>
-                                <span t-field="o.customer_id.name"/>
+                                <span><b>Ship To / Site Address</b></span><br/>
+                                <span t-field="o.ship_to" t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}'/>
                             </td>
                             <td style="border-top:none;" width="8%">
                             </td>
