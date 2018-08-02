@@ -29,7 +29,7 @@ class AsiaGlobalServiceReport(models.Model):
 	_description = 'Service Report'
 	_inherit = ['mail.thread', 'mail.activity.mixin']
 
-	name = fields.Char(string='SR No.', required=True, copy=False, index=True, default=lambda self: _('New'))
+	name = fields.Char(string='SR No.', required=True, copy=False, index=True)
 	jo_id = fields.Many2one('asiaglobal.job_order', string='Job Order', required=True)
 
 	customer_id = fields.Many2one('res.partner', string='Customer')
@@ -91,8 +91,8 @@ class AsiaGlobalServiceReport(models.Model):
 		hour_meter = vals.get('hour_meter', False)
 		jo_id = vals.get('jo_id', False)
 		
-		if vals.get('name', _('New')) == _('New'):
-			vals['name'] = self.env['ir.sequence'].next_by_code('asiaglobal.service.report') or _('New')
+		# if vals.get('name', _('New')) == _('New'):
+		# 	vals['name'] = self.env['ir.sequence'].next_by_code('asiaglobal.service.report') or _('New')
 		result = super(AsiaGlobalServiceReport, self).create(vals)
 
 		# UPDATE HOUR METER

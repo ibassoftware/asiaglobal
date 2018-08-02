@@ -15,7 +15,7 @@
             <div class="oe_title">
               <label for="name"/>
               <h1>
-                <field name="name" readonly="1"/>
+                <field name="name"/>
               </h1>
             </div>
 
@@ -113,6 +113,7 @@
           <field name="name" />
           <field name="customer_id"/>
           <field name="jo_id"/>
+          <field name="serial_number"/>
           <field name="visit_date"/>
         </tree>
       </field>
@@ -140,6 +141,7 @@
           <field name="customer_id" />
           <field name="visit_date" />
           <field name="technician_id" />
+          <field name="serial_number"/>
         </search>
       </field>
     </record>

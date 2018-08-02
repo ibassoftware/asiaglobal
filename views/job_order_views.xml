@@ -78,6 +78,8 @@
           <field name="technician_id"/>
           <field name="type"/>
           <field name="equipment_id"/>
+          <field name="serial_number"/>
+          <field name="initial_complaint"/>
           <field name="scheduled_date"/>
           <field name="actual_repair_date"/>
           <field name="state"/>
@@ -103,6 +105,10 @@
       <field name="arch" type="xml">
         <search string="Job Order">
           <field name="name" />
+          <field name="customer_id" />
+          <field name="technician_id"/>
+          <field name="equipment_id"/>
+          <field name="serial_number"/>
         </search>
       </field>
     </record>
