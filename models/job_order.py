@@ -14,7 +14,6 @@ class AsiaGlobalJobOrder(models.Model):
 		('reactive','Reactive')
 	])
 	initial_diagnosis = fields.Text()
-	# technician_id = fields.Many2many('hr.employee', string='Technicians Assigned', domain=[('is_technician','=',True)])
 	technician_id = fields.Many2one('hr.employee', string='Primary Technician', domain=[('is_technician','=',True)])
 	ticket_ids = fields.One2many('helpdesk.ticket', 'jo_id', string='Helpdesk Tickets')
 	state = fields.Selection([
@@ -35,6 +34,12 @@ class AsiaGlobalJobOrder(models.Model):
 	actual_repair_date = fields.Date(default=fields.Datetime.now())
 
 	service_report_ids = fields.One2many('asiaglobal.service_report', 'jo_id')
+	legacy_jo_no = fields.Char(string='Legacy Job Order Number')
+	job_classification = fields.Selection([
+		('weqd','WEQD'),
+		('heqd','HEQD'),
+		('rental','RENTAL'),
+	])
 
 	@api.onchange('equipment_id')
 	def set_equipment_details(self):
@@ -42,6 +47,13 @@ class AsiaGlobalJobOrder(models.Model):
 		self.manufacturer = self.equipment_id.manufacturer
 		self.model = self.equipment_id.model
 		self.serial_number = self.equipment_id.serial_number
+
+	@api.onchange('job_classification')
+	def set_classification_details(self):
+		if self.job_classification == 'weqd' or self.job_classification == 'heqd':
+			self.under_warranty = True
+		else:
+			self.under_warranty = False
 
 	@api.model
 	def create(self, vals):
