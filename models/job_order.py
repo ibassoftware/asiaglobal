@@ -34,7 +34,7 @@ class AsiaGlobalJobOrder(models.Model):
 	actual_repair_date = fields.Date(default=fields.Datetime.now())
 
 	service_report_ids = fields.One2many('asiaglobal.service_report', 'jo_id')
-	legacy_jo_no = fields.Char(string='Legacy Job Order Number')
+	legacy_jo_no = fields.Char(string='Legacy Number')
 	job_classification = fields.Selection([
 		('weqd','WEQD'),
 		('heqd','HEQD'),
