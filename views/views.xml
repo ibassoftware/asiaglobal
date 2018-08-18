@@ -385,6 +385,7 @@
           <field name="gross_margin_value"/>         
           <field name="note_to_customer"/>
           <field name="approving_manager_id"/>
+          <field name="jo_id"/>
         </xpath>
 
         <xpath expr="//field[@name='opportunity_id']" position="after"> 

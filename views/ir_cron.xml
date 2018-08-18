@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<!-- <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data noupdate="1"> 
         <record forcecreate="True" id="ir_cron_equipment_job_order" model="ir.cron">
@@ -14,3 +14,4 @@
         </record>
     </data>
 </odoo>
+ -->

@@ -24,6 +24,7 @@
                 <field name="legacy_jo_no"/>
                 <field name="customer_id"/>
                 <field name="equipment_id" domain="[('customer','=',customer_id)]"/>
+                <field name="operational"/>
                 <field name="ship_to"/>
                 <field name="manufacturer"/>
                 <field name="model"/>
@@ -33,6 +34,7 @@
                 <field name="state"/>
                 <field name="type"/>
                 <field name="job_classification"/>
+                <field name="job_type"/>
                 <field name="under_warranty"/>
                 <field name="warranty_date" attrs="{'invisible':[('under_warranty', '=', False)]}"/>
                 <field name="scheduled_date"/>
@@ -51,11 +53,22 @@
               <page string="Tickets">
                 <field name="ticket_ids"/>
               </page>
-              <page string="Sale Orders">
+              <page string="Project List">
                 <field name="sale_ids"/>
               </page>
               <page string="Service Reports">
                 <field name="service_report_ids"/>
+              </page>
+              <page string="Timesheets">
+                <field name="timesheet_ids">
+                  <tree editable="bottom" string="Timesheet Activities" default_order="date">
+                    <field name="date"/>
+                    <field name="technician_id" required="1" string="Technician" domain="[('is_technician','=',True)]"/>
+                    <field name="activity_type" options='{"no_open": True,"no_create": 1, "no_create_edit": 1}'/>
+                    <field name="name"/>
+                    <field name="unit_amount" string="Duration" sum="Total hours" widget="float_time"/>
+                  </tree>
+                </field>
               </page>
             </notebook>
 
@@ -81,6 +94,7 @@
           <field name="technician_id"/>
           <field name="type"/>
           <field name="job_classification"/>
+          <field name="job_type"/>
           <field name="equipment_id"/>
           <field name="serial_number"/>
           <field name="initial_complaint"/>
@@ -119,6 +133,7 @@
             <filter string="Customer" domain="[]" context="{'group_by':'customer_id'}"/>
             <filter string="Technician" domain="[]" context="{'group_by':'technician_id'}"/>
             <filter string="Job Classification" domain="[]" context="{'group_by':'job_classification'}"/>
+            <filter string="Job Type" domain="[]" context="{'group_by':'job_type'}"/>
             <filter string="Status" domain="[]" context="{'group_by':'state'}"/>
           </group>
         </search>

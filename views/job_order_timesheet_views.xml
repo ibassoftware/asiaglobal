@@ -1,0 +1,105 @@
+<odoo>
+  <data>
+
+    <!-- START TIMESHEET ACTIVITY TYPE -->
+    <record model="ir.ui.view" id="service_timesheet_activity_type_form">
+      <field name="name">asiaglobal.timesheet.activity.type.form</field>
+      <field name="model">asiaglobal.timesheet_activity_type</field>
+      <field name="arch" type="xml">
+        <form string="Timesheet Activity Type">
+          <header>
+          </header>
+          <sheet>
+            <group>
+              <group>
+                <field name="name"/>
+              </group>
+              <group>
+                <field name="billable"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="service_timesheet_activity_type_tree">
+      <field name="name">asiaglobal.timesheet.activity.type.tree</field>
+      <field name="model">asiaglobal.timesheet_activity_type</field>
+      <field name="arch" type="xml">
+        <tree string="Timesheet Activity Type">
+          <field name="name" />
+          <field name="billable"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="service_timesheet_activity_type_action">
+      <field name="name">Timesheet Activity Types</field>
+      <field name="res_model">asiaglobal.timesheet_activity_type</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p>
+          Create a timesheet activity type.
+        </p>
+      </field>
+    </record>
+    <!-- END TIMESHEET ACTIVITY TYPE -->
+
+    <!-- START TIMESHEET -->
+    <record model="ir.ui.view" id="service_timesheet_form">
+      <field name="name">asiaglobal.service.timesheet.form</field>
+      <field name="model">asiaglobal.service_timesheet</field>
+      <field name="arch" type="xml">
+        <form string="Timesheet Activities" create="false" edit="false">
+          <header>
+          </header>
+          <sheet>
+            <group>
+              <group>
+                <field name="date"/>
+                <field name="name"/>
+                <field name="unit_amount" widget="float_time"/>
+              </group>
+              <group>
+                <field name="jo_id"/>
+                <field name="technician_id" string="Technician"/>
+                <field name="activity_type"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="service_timesheet_tree">
+      <field name="name">asiaglobal.service.timesheet.tree</field>
+      <field name="model">asiaglobal.service_timesheet</field>
+      <field name="arch" type="xml">
+        <tree string="Timesheet Activities" default_order="date" create="false" edit="false">
+          <field name="date"/>
+          <field name="name"/>
+          <field name="jo_id"/>
+          <field name="technician_id" string="Technician"/>
+          <field name="activity_type" />
+          <field name="unit_amount" string="Duration" widget="float_time" sum="Total hours"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="service_timesheet_action">
+      <field name="name">Timesheets</field>
+      <field name="res_model">asiaglobal.service_timesheet</field>
+      <field name="view_mode">tree,form</field>
+      <!-- <field name="view_id" ref="service_timesheet_tree"/> -->
+      <!-- <field name="view_ids" eval="[(5, 0, 0), (0, 0, {'view_mode': 'tree', 'view_id': ref('service_timesheet_tree')}), (0, 0, {'view_mode': 'form', 'view_id': ref('service_timesheet_form')})]"/> -->
+      <field name="help" type="html">
+        <p>
+          Create a timesheet.
+        </p>
+      </field>
+    </record>
+    <!-- END TIMESHEET -->
+
+  </data>
+</odoo>

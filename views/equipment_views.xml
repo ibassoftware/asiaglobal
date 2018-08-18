@@ -231,21 +231,72 @@
                     <field name="drive_axle_model" domain="[('manufacturer','=',drive_axle_manufacturer)]"/>
                     <field name="drive_axle_serial_number"/>
                   </group>
-                  <group string="Traction Battery">
+                  <!-- <group string="Traction Battery">
                     <field name="traction_battery_capacity"/>
                     <field name="traction_battery_serial_number"/>
+                  </group> -->
+                  <group string="Mast">
+                    <field name="mast_type"/>
+                    <field name="mast_serial_number"/>
                   </group>
                 </group>
 
                 <group>
-                  <group string="Mast">
+                  <group string="Battery &amp; Charger">
+                    <field name="battery_1"/>
+                    <field name="battery_1_type"/>
+                    <field name="battery_1_serial"/>
+                    <br/>
+                    <field name="battery_2"/>
+                    <field name="battery_2_type"/>
+                    <field name="battery_2_serial"/>
+                    <br/>
+                    <field name="battery_3"/>
+                    <field name="battery_3_type"/>
+                    <field name="battery_3_serial"/>
+                  </group>
+                  <!-- <group string="Mast">
                     <field name="mast_type"/>
                     <field name="mast_serial_number"/>
+                  </group> -->
+                  <!-- <group string="Rental">
+                    <field name="rental_date_start"/>
+                    <field name="rental_date_end"/>
                   </group>
                   <group string="Others">
                     <field name="forks"/>
                     <field name="lift_height"/>
                     <field name="gross_weight"/>
+                  </group> -->
+                </group>
+              </page>
+              <page string="Other Information">
+                <group>
+                  <group>
+                    <field name="equipment_owner_id"/>
+                  </group>
+                  <group>
+                    <field name="operational" />
+                  </group>
+                </group>
+                <group>
+                  <group string="Rental">
+                    <field name="rental_date_start"/>
+                    <field name="rental_date_end"/>
+                  </group>
+                  <group string="Others">
+                    <field name="forks"/>
+                    <field name="lift_height"/>
+                    <field name="gross_weight"/>
+                  </group>
+                </group>
+              </page>
+              <page string="Warranty Information">
+                <group>
+                  <group>
+                    <field name="warranty_date_acceptance"/>
+                    <field name="warranty_year"/>
+                    <field name="warranty_hours" widget="float_time"/>
                   </group>
                 </group>
               </page>
@@ -260,6 +311,9 @@
                     <field name="next_maintenance_date" readonly="1" attrs="{'invisible':[('maintenance_contract', '=', False)]}"/>
                   </group>
                 </group>
+              </page>
+              <page string="Job Orders">
+                <field name="jo_ids"/>
               </page>
             </notebook>
 
@@ -300,11 +354,6 @@
                     <field name="engine_serial_number"/>
                     <field name="transmission_serial_number"/>
                     <field name="drive_axle_serial_number"/>
-                    <!-- <filter domain="[('state', '=', 'draft')]" string="To Submit" name="to_report" help="New Official Business"/>
-                    <filter domain="[('state', '=', 'confirm')]" string="To Approve" name="to_approve" help="Confirmed Official Business"/>
-                    <filter domain="[('state', '=', 'validae')]" string="Approved" name="approved" help="Approved Official Business"/>
-                    <filter domain="[('state', '=', 'refused')]" string="Refused" name="refused" help="Refused Official Business"/>
-                    <filter domain="[('state', '!=', 'cancel')]" string="Not Refused" name="uncancelled" help="Actual Official Business, not the refused ones"/> -->
                 </search>
             </field>
         </record>

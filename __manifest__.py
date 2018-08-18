@@ -30,7 +30,8 @@
         'data/ir_sequence_data.xml',
         'data/report_paperformat_data.xml',
         'data/subscription_template.xml',
-        'views/ir_cron.xml',
+        'data/timesheet_data.xml',
+        # 'views/ir_cron.xml',
         'views/views.xml',
         'views/templates.xml',
         'views/data.xml',
@@ -43,6 +44,7 @@
         'views/equipment_views.xml',
         'views/res_partner_views.xml',
         'views/hr_employee_views.xml',
+        'views/job_order_timesheet_views.xml',
         'views/job_order_views.xml',
         'views/helpdesk_ticket_views.xml',
         'views/service_report_views.xml',
@@ -50,6 +52,7 @@
         'report/report_quotation_service.xml',
         'report/service_report.xml',
         'report/report.xml',
+        'wizard/maintenance_jo_views.xml',
 
     ],
     # only loaded in demonstration mode

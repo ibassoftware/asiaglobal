@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- TIMESHEET ACTIVITY TYPE -->
+        <record id="timesheet_activity_type_travel" model="asiaglobal.timesheet_activity_type">
+            <field name="name">Travel Time</field>
+        </record>
+
+        <record id="timesheet_activity_type_prep" model="asiaglobal.timesheet_activity_type">
+            <field name="name">Prep Time</field>
+        </record>
+
+        <record id="timesheet_activity_type_repair" model="asiaglobal.timesheet_activity_type">
+            <field name="name">Repair Time</field>
+        </record>
+
+        <!-- TIMESHEET ANALYTIC ACCOUNT -->
+        <!-- <record id="asiaglobal_jo_analytic_account" model="account.analytic.account">
+            <field name="name">AGT-JO</field>
+            <field name="code">AGT-JO</field>
+        </record> -->
+
+    </data>
+</odoo>

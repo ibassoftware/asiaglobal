@@ -220,6 +220,7 @@ class AGSaleOrder(models.Model):
 	)
 
 	@api.depends('pricelist_id')
+	@api.one
 	def _get_currency(self):
 		self.current_currency = self.pricelist_id.currency_id.name
 

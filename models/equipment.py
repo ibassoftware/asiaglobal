@@ -41,7 +41,7 @@ class AsiaGlobalEquipmentProfile(models.Model):
 	_inherit = ['mail.thread','mail.activity.mixin']
 
 	name = fields.Char(string='Equipment Profile', store=True, compute="_compute_name")
-	customer = fields.Many2one('res.partner', ondelete='cascade', required=True)
+	customer = fields.Many2one('res.partner', ondelete='cascade', required=True, track_visibility='onchange')
 	ship_to = fields.Many2one('res.partner', string='Ship To / Site Address')
 	manufacturer = fields.Many2one('asiaglobal.manufacturer')
 	model = fields.Many2one('asiaglobal.manufacturer_model')
@@ -66,6 +66,18 @@ class AsiaGlobalEquipmentProfile(models.Model):
 	traction_battery_capacity = fields.Char()
 	traction_battery_serial_number = fields.Char()
 
+	battery_1 = fields.Char()
+	battery_1_type = fields.Char(string='Type')
+	battery_1_serial = fields.Char(string='Serial Number')
+
+	battery_2 = fields.Char()
+	battery_2_type = fields.Char(string='Type')
+	battery_2_serial = fields.Char(string='Serial Number')
+
+	battery_3 = fields.Char()
+	battery_3_type = fields.Char(string='Type')
+	battery_3_serial = fields.Char(string='Serial Number')
+
 	mast_type = fields.Many2one('asiaglobal.mast_type')
 	mast_serial_number = fields.Char()
 	forks = fields.Char()
@@ -85,6 +97,20 @@ class AsiaGlobalEquipmentProfile(models.Model):
 	next_maintenance_date = fields.Date(default=fields.Datetime.now())
 
 	hour_meter = fields.Float()
+
+	# WARRANTY
+	warranty_date_acceptance = fields.Date(string='Date of Acceptance', default=fields.Datetime.now())
+	warranty_year = fields.Float()
+	warranty_hours = fields.Float()
+
+	jo_ids = fields.One2many('asiaglobal.job_order', 'equipment_id')
+
+	# RENTAL
+	rental_date_start = fields.Date(string='Start of Rental Period')
+	rental_date_end = fields.Date(string='End of Rental Period')
+
+	equipment_owner_id = fields.Many2one('res.partner', string='Equipment Owner', track_visibility='onchange')
+	operational = fields.Boolean(default=True)
 
 	@api.one
 	@api.depends('customer','manufacturer','model','serial_number')
@@ -115,56 +141,70 @@ class AsiaGlobalEquipmentProfile(models.Model):
 		result = super(AsiaGlobalEquipmentProfile, self).create(vals)
 		return result
 
+	# @api.model
+	# def create_job(self):
+
+	# 	_logger.info('HOWDY')
+
+	# 	targetdate = datetime.today().strftime("%Y-%m-%d")
+	# 	for_maintenance = self.search([('next_maintenance_date','=',targetdate)],order='customer')
+
+	# 	_logger.info(targetdate)
+	# 	_logger.info(for_maintenance)
+	# 	if for_maintenance:
+	# 		# job_order = self.env['asiaglobal.job_order']
+
+	# 		for maintenance in for_maintenance:
+	# 			if maintenance.maintenance_contract == True:
+	# 				values = {
+	# 					'customer_id': maintenance.customer.id,
+	# 					'equipment_id': maintenance.id,
+	# 					'manufacturer': maintenance.manufacturer.id,
+	# 					'model': maintenance.model.id,
+	# 					'serial_number': maintenance.serial_number,
+	# 					'scheduled_date': maintenance.next_maintenance_date,
+	# 				}                
+	# 				job_order = self.env['asiaglobal.job_order'].create(values)
+
+	# 				if job_order:
+	# 					# UPDATE MAINTENANCE DATE
+	# 					new_maintenance_date = self.get_maintenance_date(targetdate, maintenance.maintenance_frequency_count, maintenance.maintenance_frequency)
+
+	# 					if new_maintenance_date:
+	# 						maintenance.write({'next_maintenance_date': new_maintenance_date})
+	# 	return
+
+	# def get_maintenance_date(self, date, count, frequency):
+	# 	new_maintenance_date = False
+
+	# 	if frequency == 'day':
+	# 		days = count
+	# 		new_maintenance_date = (datetime.strptime(date, '%Y-%m-%d') + timedelta(days=days)).strftime("%Y-%m-%d")
+
+	# 	if frequency == 'week':
+	# 		days = count * 7
+	# 		new_maintenance_date = (datetime.strptime(date, '%Y-%m-%d') + timedelta(days=days)).strftime("%Y-%m-%d")
+
+	# 	if frequency == 'month':
+	# 		months = count
+	# 		new_maintenance_date = (datetime.strptime(date, '%Y-%m-%d') + relativedelta(months=months)).strftime("%Y-%m-%d")
+
+	# 	if frequency == 'year':
+	# 		years = count
+	# 		new_maintenance_date = (datetime.strptime(date, '%Y-%m-%d') + relativedelta(years=years)).strftime("%Y-%m-%d")
+
+	# 	return new_maintenance_date
+
 	@api.model
-	def create_job(self):
-
-		_logger.info('HOWDY')
-
-		targetdate = datetime.today().strftime("%Y-%m-%d")
-		for_maintenance = self.search([('next_maintenance_date','=',targetdate)],order='customer')
-
-		_logger.info(targetdate)
-		_logger.info(for_maintenance)
-		if for_maintenance:
-			# job_order = self.env['asiaglobal.job_order']
-
-			for maintenance in for_maintenance:
-				if maintenance.maintenance_contract == True:
-					values = {
-						'customer_id': maintenance.customer.id,
-						'equipment_id': maintenance.id,
-						'manufacturer': maintenance.manufacturer.id,
-						'model': maintenance.model.id,
-						'serial_number': maintenance.serial_number,
-						'scheduled_date': maintenance.next_maintenance_date,
-					}                
-					job_order = self.env['asiaglobal.job_order'].create(values)
-
-					if job_order:
-						# UPDATE MAINTENANCE DATE
-						new_maintenance_date = self.get_maintenance_date(targetdate, maintenance.maintenance_frequency_count, maintenance.maintenance_frequency)
-
-						if new_maintenance_date:
-							maintenance.write({'next_maintenance_date': new_maintenance_date})
-		return
-
-	def get_maintenance_date(self, date, count, frequency):
-		new_maintenance_date = False
-
-		if frequency == 'day':
-			days = count
-			new_maintenance_date = (datetime.strptime(date, '%Y-%m-%d') + timedelta(days=days)).strftime("%Y-%m-%d")
-
-		if frequency == 'week':
-			days = count * 7
-			new_maintenance_date = (datetime.strptime(date, '%Y-%m-%d') + timedelta(days=days)).strftime("%Y-%m-%d")
-
-		if frequency == 'month':
-			months = count
-			new_maintenance_date = (datetime.strptime(date, '%Y-%m-%d') + relativedelta(months=months)).strftime("%Y-%m-%d")
-
-		if frequency == 'year':
-			years = count
-			new_maintenance_date = (datetime.strptime(date, '%Y-%m-%d') + relativedelta(years=years)).strftime("%Y-%m-%d")
-
-		return new_maintenance_date
+	def create_maintenance_jo(self, equipment_id, date):
+		values = {
+			'customer_id': equipment_id.customer.id,
+			'equipment_id': equipment_id.id,
+			'manufacturer': equipment_id.manufacturer.id,
+			'model': equipment_id.model.id,
+			'serial_number': equipment_id.serial_number,
+			'scheduled_date': date,
+			'actual_repair_date': date,
+		}                
+		job_order = self.env['asiaglobal.job_order'].create(values)
+		return job_order

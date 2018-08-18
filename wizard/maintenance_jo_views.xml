@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+
+    <record id="maintenance_jo_view" model="ir.ui.view">
+        <field name="name">Maintenance Job Order</field>
+        <field name="model">asiaglobal.maintenance_jo</field>
+        <field name="arch" type="xml">
+            <form string="Maintenance Job Order">
+                <group>
+                    <field name="date" />
+                </group>
+                <footer>
+                    <button name="generate" string="Generate" type="object" default_focus="1" class="oe_highlight"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="maintenance_jo_action" model="ir.actions.act_window">
+        <field name="name">Maintenance Job Order</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">asiaglobal.maintenance_jo</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="maintenance_jo_view"/>
+        <field name="target">new</field>
+    </record>
+
+    <record id="service_equipment_profile_form_extend" model="ir.ui.view">
+        <field name="name">asiaglobal.equipment.profile.form.extend</field>
+        <field name="model">asiaglobal.equipment_profile</field>
+        <field name="inherit_id" ref="asiaglobal.service_equipment_profile_form"/>
+        <field name="arch" type="xml">
+        	<xpath expr="//header" position="inside">
+        		<button name="%(maintenance_jo_action)d" string="Generate JO" type="action"/>
+        	</xpath>
+        </field>
+    </record>
+
+</data>
+</odoo>

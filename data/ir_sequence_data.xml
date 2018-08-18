@@ -11,13 +11,13 @@
             <field name="company_id" eval="False"/>
         </record>
 
-        <!-- <record id="seq_service_report" model="ir.sequence">
+        <record id="seq_service_report" model="ir.sequence">
             <field name="name">Service Report</field>
             <field name="code">asiaglobal.service.report</field>
             <field name="prefix"></field>
             <field name="padding">5</field>
             <field name="company_id" eval="False"/>
-        </record> -->
+        </record>
 
     </data>
 </odoo>

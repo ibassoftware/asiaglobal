@@ -25,6 +25,18 @@
 			action="asiaglobal.service_service_report_action"
 			sequence="3"/>
 
+		<menuitem id="menu_service_reporting"
+			name="Reporting"
+			parent="asiaglobal.service_menu_root"
+			groups="asiaglobal.group_service_manager"
+			sequence="4"/>
+
+		<menuitem id="menu_timesheet_report"
+			name="Timesheets"
+			parent="asiaglobal.menu_service_reporting"
+			action="asiaglobal.service_timesheet_action"
+			sequence="2"/>
+
 		<menuitem id="menu_service_config"
 			name="Configuration"
 			parent="service_menu_root"
@@ -78,5 +90,11 @@
 			parent="asiaglobal.menu_service_config"
 			action="mail.mail_activity_type_action"
 			sequence="9"/>
+
+		<menuitem id="menu_service_timesheet_activity_type"
+			name="Timesheet Activity Types"
+			parent="asiaglobal.menu_service_config"
+			action="asiaglobal.service_timesheet_activity_type_action"
+			sequence="10"/>
 
 </odoo>

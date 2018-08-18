@@ -21,6 +21,7 @@
 
             <group>
               <group>
+                <field name="legacy_service_report_no"/>
                 <field name="jo_id"/>
                 <field name="customer_id"/>
                 <field name="ship_to"/>
@@ -47,6 +48,7 @@
                   </field>
                   <field name="service_rendered"/>
                   <field name="recommendation"/>
+                  <field name="operational"/>
                 </group>
               </page>
               <page string="Parts">
@@ -111,6 +113,7 @@
       <field name="arch" type="xml">
         <tree string="Service Report">
           <field name="name" />
+          <field name="legacy_service_report_no"/>
           <field name="customer_id"/>
           <field name="jo_id"/>
           <field name="serial_number"/>
@@ -137,6 +140,7 @@
       <field name="arch" type="xml">
         <search string="Service Report">
           <field name="name" />
+          <field name="legacy_service_report_no"/>
           <field name="jo_id" />
           <field name="customer_id" />
           <field name="visit_date" />
