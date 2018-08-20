@@ -14,10 +14,17 @@ class AsiaGlobalJobOrder(models.Model):
 	initial_complaint = fields.Text()
 	customer_id = fields.Many2one('res.partner', string='Customer')
 	ship_to = fields.Many2one('res.partner', string='Ship To / Site Address')
+
+	# type = fields.Selection([
+	# 	('proactive','Proactive'),
+	# 	('reactive','Reactive')
+	# ], string="Department")
 	type = fields.Selection([
-		('proactive','Proactive'),
-		('reactive','Reactive')
+		('weqd','WEQD'),
+		('heqd','HEQD'),
+		('rental','RENTAL'),
 	], string="Department")
+
 	initial_diagnosis = fields.Text()
 	technician_id = fields.Many2one('hr.employee', string='Primary Technician', domain=[('is_technician','=',True)])
 	ticket_ids = fields.One2many('helpdesk.ticket', 'jo_id', string='Helpdesk Tickets')
