@@ -51,6 +51,7 @@
         'views/service_menu.xml',
         'report/report_quotation_service.xml',
         'report/service_report.xml',
+        'report/report_job_order.xml',
         'report/report.xml',
         'wizard/maintenance_jo_views.xml',
 

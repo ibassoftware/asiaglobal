@@ -27,5 +27,17 @@
             paperformat="asiaglobal.paperformat_report_service_custom"
         />
 
+        <report 
+            id="job_order"
+            model="asiaglobal.job_order"
+            string="Job Order"
+            report_type="qweb-pdf"
+            name="asiaglobal.report_job_order"
+            file="asiaglobal.report_job_order"
+            attachment_use="False"
+            attachment="('Job Order '+(object.name or '').replace('/','')+'.pdf')"
+            menu="True"
+        />
+
     </data>
 </odoo>

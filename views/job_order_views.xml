@@ -23,12 +23,12 @@
               <group>
                 <field name="legacy_jo_no"/>
                 <field name="customer_id"/>
-                <field name="equipment_id" domain="[('customer','=',customer_id)]"/>
-                <field name="operational"/>
                 <field name="ship_to"/>
+                <field name="equipment_id" domain="[('customer','=',customer_id)]"/>
                 <field name="manufacturer"/>
                 <field name="model"/>
                 <field name="serial_number"/>
+                <field name="operational"/>
               </group>
               <group>
                 <field name="state"/>

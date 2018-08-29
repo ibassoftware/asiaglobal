@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_job_order_document">
+            <t t-call="asiaglobal.external_layout_job_order">
+                <t t-set="o" t-value="o.with_context({'lang':o.customer_id.lang})"/>
+                <div class="page" style="font-size:18px">
+                    <table class="list_table" style="border:none;font-size:16px" width="100%">
+                        <tr>
+                            <td class="noborder" valign="top" width="56%">
+                                <h3>Job Order # <span t-field="o.name"/></h3>
+                            </td>
+                            <td class="noborder" width="8%">
+                            </td>
+                            <td class="noborder" width="36%">
+                            </td>
+                        </tr>
+                    </table>
+
+                    <br/>
+                    
+                    <table class="list_table" style="border:none;font-size:16px" width="100%">
+                        <tr>
+                            <td class="noborder" valign="top" width="50%">
+                                <b>Customer:</b> <span t-field="o.customer_id.name"/> <br/>
+                            </td>
+                            <td class="noborder" width="8%">
+                            </td>
+                            <td class="noborder" width="42%">
+                                <b>Scheduled Date:</b> <span t-field="o.scheduled_date"/> <br/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="noborder" valign="top" width="50%">
+                                <b>Ship To / Site Address:</b> <span t-field="o.ship_to.display_name"/> <br/>
+                                <!-- <span t-field="o.ship_to" t-options='{"widget": "contact", "fields": ["address", "name"]}'/> <br/>  -->
+                            </td>
+                            <td class="noborder" width="8%">
+                            </td>
+                            <td class="noborder" width="42%">
+                                <b>Actual Repair Date:</b> <span t-field="o.actual_repair_date"/> <br/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="noborder" valign="top" width="50%">
+                                <b>Equipment:</b> <span t-field="o.equipment_id.name"/> <br/>
+                            </td>
+                            <td class="noborder" width="8%">
+                            </td>
+                            <td class="noborder" width="42%">
+                                <b>Technician:</b> <span t-field="o.technician_id.name"/> <br/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="noborder" valign="top" width="50%">
+                                <b>Manufacturer:</b> <span t-field="o.manufacturer.name"/> <br/>
+                            </td>
+                            <td class="noborder" width="8%">
+                            </td>
+                            <td class="noborder" width="42%">
+                                <b>Department:</b> <span t-field="o.type"/> <br/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="noborder" valign="top" width="50%">
+                                <b>Model:</b> <span t-field="o.model.name"/> <br/>
+                            </td>
+                            <td class="noborder" width="8%">
+                            </td>
+                            <td class="noborder" width="42%">
+                                <b>Job Classification:</b> <span t-field="o.job_classification"/> <br/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="noborder" valign="top" width="50%">
+                                <b>Serial Number:</b> <span t-field="o.serial_number"/> <br/>
+                            </td>
+                            <td class="noborder" width="8%">
+                            </td>
+                            <td class="noborder" width="42%">
+                                <b>Job Type:</b> <span t-field="o.job_type"/> <br/>
+                            </td>
+                        </tr>
+
+                        <t t-if="o.under_warranty">
+                            <tr>
+                                <td class="noborder" valign="top" width="50%">
+                                    <b>Under Warranty:</b> <span t-field="o.under_warranty"/> <br/>
+                                </td>
+                                <td class="noborder" width="8%">
+                                </td>
+                                <td class="noborder" width="42%">
+                                </td>
+                            </tr>
+                        </t>
+
+                        <t t-if="o.under_warranty and o.warranty_date">
+                            <tr>
+                                <td class="noborder" valign="top" width="50%">
+                                    <b>Warranty Date:</b> <span t-field="o.warranty_date"/> <br/>
+                                </td>
+                                <td class="noborder" width="8%">
+                                </td>
+                                <td class="noborder" width="42%">
+                                </td>
+                            </tr>
+                        </t>
+
+                    </table>
+
+                    <br/>
+                    <br/>
+
+                    <div style="font-size:16px">
+                        <h4><b>Initial Complaint</b></h4>
+                        <p t-field="o.initial_complaint"/>
+                    </div>
+
+                    <br/>
+
+                    <div style="font-size:16px">
+                        <h4><b>Initial Diagnosis</b></h4>
+                        <p t-field="o.initial_diagnosis"/>
+                    </div>
+
+                </div>
+            </t> 
+        </template>
+
+        <template id="report_job_order">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="asiaglobal.report_job_order_document" t-lang="o.customer_id.lang"/>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>
