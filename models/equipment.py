@@ -110,7 +110,16 @@ class AsiaGlobalEquipmentProfile(models.Model):
 	rental_date_end = fields.Date(string='End of Rental Period')
 
 	equipment_owner_id = fields.Many2one('res.partner', string='Equipment Owner', track_visibility='onchange')
+	
 	operational = fields.Boolean(default=True)
+	operational_message = fields.Char(string='Equipment Status', track_visibility='onchange')
+
+	@api.onchange('operational')
+	def set_operational_message(self):
+		if self.operational == True:
+			self.operational_message = "OPERATIONAL"
+		else:
+			self.operational_message = "NOT OPERATIONAL"
 
 	@api.one
 	@api.depends('customer','manufacturer','model','serial_number')

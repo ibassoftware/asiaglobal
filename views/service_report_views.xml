@@ -49,6 +49,7 @@
                   <field name="service_rendered"/>
                   <field name="recommendation"/>
                   <field name="operational"/>
+                  <field name="operational_message" invisible="1"/>
                 </group>
               </page>
               <page string="Parts">

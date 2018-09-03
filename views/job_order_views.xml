@@ -8,7 +8,7 @@
       <field name="arch" type="xml">
         <form string="Job Order">
           <header>
-            <field name="state" widget="statusbar" statusbar_visible="draft,schedule,progress,bill,done"/>
+            <field name="state" widget="statusbar" statusbar_visible="draft,schedule,waiting,progress,bill,done"/>
           </header>
           <sheet>
 
@@ -29,6 +29,7 @@
                 <field name="model"/>
                 <field name="serial_number"/>
                 <field name="operational"/>
+                <field name="operational_message" invisible="1"/>
               </group>
               <group>
                 <field name="state"/>

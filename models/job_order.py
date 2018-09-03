@@ -15,10 +15,6 @@ class AsiaGlobalJobOrder(models.Model):
 	customer_id = fields.Many2one('res.partner', string='Customer')
 	ship_to = fields.Many2one('res.partner', string='Ship To / Site Address')
 
-	# type = fields.Selection([
-	# 	('proactive','Proactive'),
-	# 	('reactive','Reactive')
-	# ], string="Department")
 	type = fields.Selection([
 		('weqd','WEQD'),
 		('heqd','HEQD'),
@@ -31,6 +27,7 @@ class AsiaGlobalJobOrder(models.Model):
 	state = fields.Selection([
 		('draft','New'),
 		('schedule','For Scheduling'),
+		('waiting','Waiting for Parts'),
 		('progress', 'In Progress'),
 		('bill', 'For Billing'),
 		('done','Done'),
@@ -49,12 +46,6 @@ class AsiaGlobalJobOrder(models.Model):
 	service_report_ids = fields.One2many('asiaglobal.service_report', 'jo_id')
 	legacy_jo_no = fields.Char(string='Legacy Number')
 
-	# job_classification = fields.Selection([
-	# 	('weqd','WEQD'),
-	# 	('heqd','HEQD'),
-	# 	('rental','RENTAL'),
-	# ])
-
 	job_classification = fields.Selection([
 		('Internal','Internal'),
 		('external','External'),
@@ -69,8 +60,17 @@ class AsiaGlobalJobOrder(models.Model):
 	])
 
 	operational = fields.Boolean()
+	operational_message = fields.Char(string='Equipment Status', track_visibility='onchange')
 
 	timesheet_ids = fields.One2many('asiaglobal.service_timesheet', 'jo_id')
+
+	@api.onchange('operational')
+	def set_operational_message(self):
+		if self.equipment_id:
+			if self.operational == True:
+				self.operational_message = "OPERATIONAL"
+			else:
+				self.operational_message = "NOT OPERATIONAL"
 
 	@api.onchange('equipment_id')
 	def set_equipment_details(self):
