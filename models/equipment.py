@@ -114,6 +114,22 @@ class AsiaGlobalEquipmentProfile(models.Model):
 	operational = fields.Boolean(default=True)
 	operational_message = fields.Char(string='Equipment Status', track_visibility='onchange')
 
+	@api.multi
+	@api.onchange('customer')
+	def onchange_customer(self):
+		if not self.customer:
+			self.update({
+				'ship_to': False,
+			})
+			return
+
+		addr = self.customer.address_get(['delivery'])
+		values = {
+			'ship_to': addr['delivery'],
+		}
+
+		self.update(values)
+
 	@api.onchange('operational')
 	def set_operational_message(self):
 		if self.operational == True:

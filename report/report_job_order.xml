@@ -33,8 +33,8 @@
 
                         <tr>
                             <td class="noborder" valign="top" width="50%">
-                                <b>Ship To / Site Address:</b> <span t-field="o.ship_to.display_name"/> <br/>
-                                <!-- <span t-field="o.ship_to" t-options='{"widget": "contact", "fields": ["address", "name"]}'/> <br/>  -->
+                                <!-- <b>Ship To / Site Address:</b> <span t-field="o.ship_to.display_name"/> <br/> -->
+                                <b>Ship To / Site Address:</b> <span t-field="o.ship_to" t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True, "phone_icons": False}'/> <br/> 
                             </td>
                             <td class="noborder" width="8%">
                             </td>
