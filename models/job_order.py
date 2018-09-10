@@ -113,12 +113,21 @@ class AsiaGlobalJobOrder(models.Model):
 				self.warranty_date = False
 
 
-	# @api.onchange('job_classification')
-	# def set_classification_details(self):
-	# 	if self.job_classification == 'weqd' or self.job_classification == 'heqd':
-	# 		self.under_warranty = True
-	# 	else:
-	# 		self.under_warranty = False
+	@api.multi
+	@api.onchange('customer_id')
+	def onchange_customer_id(self):
+		if not self.customer_id:
+			self.update({
+				'ship_to': False,
+			})
+			return
+
+		addr = self.customer_id.address_get(['delivery'])
+		values = {
+			'ship_to': addr['delivery'],
+		}
+
+		self.update(values)
 
 	@api.model
 	def create(self, vals):
