@@ -89,15 +89,15 @@ class AsiaGlobalServiceReport(models.Model):
 		self.technician_id = self.jo_id.technician_id
 		self.operational = self.jo_id.equipment_id.operational
 
-	def update_hour_meter(self, service_hour_meter, jo_id):
-		job_order = self.env['asiaglobal.job_order'].search([('id','=',jo_id)])
-		equipment = self.env['asiaglobal.equipment_profile'].search([('id','=',job_order.equipment_id.id)])
+	# def update_hour_meter(self, service_hour_meter, jo_id):
+	# 	job_order = self.env['asiaglobal.job_order'].search([('id','=',jo_id)])
+	# 	equipment = self.env['asiaglobal.equipment_profile'].search([('id','=',job_order.equipment_id.id)])
 
-		equipment_hour_meter = equipment.hour_meter
-		new_hour_meter = 0
-		if equipment:
-			new_hour_meter = equipment_hour_meter + service_hour_meter
-		equipment.write({'hour_meter': new_hour_meter})
+	# 	equipment_hour_meter = equipment.hour_meter
+	# 	new_hour_meter = 0
+	# 	if equipment:
+	# 		new_hour_meter = equipment_hour_meter + service_hour_meter
+	# 	equipment.write({'hour_meter': new_hour_meter})
 
 	def update_operational(self, operational, jo_id, operational_message):
 		job_order = self.env['asiaglobal.job_order'].search([('id','=',jo_id)])
@@ -113,7 +113,7 @@ class AsiaGlobalServiceReport(models.Model):
 
 	@api.model
 	def create(self, vals):
-		hour_meter = vals.get('hour_meter', False)
+		# hour_meter = vals.get('hour_meter', False)
 		jo_id = vals.get('jo_id', False)
 		operational = vals.get('operational')
 		operational_message = vals.get('operational_message')
@@ -123,8 +123,8 @@ class AsiaGlobalServiceReport(models.Model):
 		result = super(AsiaGlobalServiceReport, self).create(vals)
 
 		# UPDATE HOUR METER
-		if hour_meter and jo_id:
-			self.update_hour_meter(hour_meter, jo_id)
+		# if hour_meter and jo_id:
+		# 	self.update_hour_meter(hour_meter, jo_id)
 
 		self.update_operational(operational, jo_id, operational_message)
 
@@ -132,9 +132,9 @@ class AsiaGlobalServiceReport(models.Model):
 
 	@api.multi
 	def write(self, vals):
-		last_hour_meter = self.hour_meter
-		new_hour_meter = vals.get('hour_meter', False)
-		service_hour_meter = new_hour_meter - last_hour_meter
+		# last_hour_meter = self.hour_meter
+		# new_hour_meter = vals.get('hour_meter', False)
+		# service_hour_meter = new_hour_meter - last_hour_meter
 
 		operational = vals.get('operational')
 		operational_message = vals.get('operational_message')
@@ -145,8 +145,8 @@ class AsiaGlobalServiceReport(models.Model):
 
 		result = super(AsiaGlobalServiceReport, self).write(vals)
 
-		if service_hour_meter and jo_id:
-			self.update_hour_meter(service_hour_meter, jo_id)
+		# if service_hour_meter and jo_id:
+		# 	self.update_hour_meter(service_hour_meter, jo_id)
 
 		self.update_operational(operational, jo_id, operational_message)
 

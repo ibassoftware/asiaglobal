@@ -12,8 +12,8 @@ class AsiaGlobalJobOrder(models.Model):
 
 	name = fields.Char(string='Order Reference', required=True, copy=False, readonly=True, states={'draft': [('readonly', False)]}, index=True, default=lambda self: _('New'))
 	initial_complaint = fields.Text()
-	customer_id = fields.Many2one('res.partner', string='Customer')
-	ship_to = fields.Many2one('res.partner', string='Ship To / Site Address')
+	customer_id = fields.Many2one('res.partner', string='Customer', required=True)
+	ship_to = fields.Many2one('res.partner', string='Ship To / Site Address', required=True)
 
 	type = fields.Selection([
 		('weqd','WEQD'),
@@ -36,7 +36,7 @@ class AsiaGlobalJobOrder(models.Model):
 	under_warranty = fields.Boolean()
 	warranty_date = fields.Date(default=fields.Datetime.now())
 
-	equipment_id = fields.Many2one('asiaglobal.equipment_profile', string='Equipment')
+	equipment_id = fields.Many2one('asiaglobal.equipment_profile', string='Equipment', required=True)
 	manufacturer = fields.Many2one('asiaglobal.manufacturer', string='Manufacturer')
 	model = fields.Many2one('asiaglobal.manufacturer_model', string='Model')
 	serial_number = fields.Char()

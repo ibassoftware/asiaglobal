@@ -96,7 +96,7 @@ class AsiaGlobalEquipmentProfile(models.Model):
 	], default='day')
 	next_maintenance_date = fields.Date(default=fields.Datetime.now())
 
-	hour_meter = fields.Float()
+	hour_meter = fields.Float(compute="_compute_hour_meter")
 
 	# WARRANTY
 	warranty_date_acceptance = fields.Date(string='Date of Acceptance', default=fields.Datetime.now())
@@ -154,6 +154,12 @@ class AsiaGlobalEquipmentProfile(models.Model):
 			name += ' - ' + self.serial_number
 
 		self.name = name
+
+	@api.multi
+	def _compute_hour_meter(self):
+		for record in self:
+			latest_service_report = self.env['asiaglobal.service_report'].search([], order="visit_date DESC", limit=1)
+			record.hour_meter = latest_service_report.hour_meter
 
 	@api.model
 	def create(self, vals):
