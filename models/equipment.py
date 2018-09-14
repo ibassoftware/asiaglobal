@@ -158,8 +158,24 @@ class AsiaGlobalEquipmentProfile(models.Model):
 	@api.multi
 	def _compute_hour_meter(self):
 		for record in self:
-			latest_service_report = self.env['asiaglobal.service_report'].search([], order="visit_date DESC", limit=1)
-			record.hour_meter = latest_service_report.hour_meter
+			# latest_service_report = self.env['asiaglobal.service_report'].search([], order="visit_date DESC", limit=1)
+			latest_service_report_hour_meter = 0
+			latest_service_report_visit_date = False
+			for job in record.jo_ids:
+				for report in job.service_report_ids:
+					if not latest_service_report_visit_date:
+						latest_service_report_visit_date = report.visit_date
+						latest_service_report_hour_meter = report.hour_meter
+					if latest_service_report_visit_date < report.visit_date:
+						latest_service_report_visit_date = report.visit_date
+						latest_service_report_hour_meter = report.hour_meter
+
+					_logger.info('BULRAEK')
+					_logger.info(report.visit_date)
+					_logger.info(latest_service_report_visit_date)
+					_logger.info(latest_service_report_hour_meter)
+
+			record.hour_meter = latest_service_report_hour_meter
 
 	@api.model
 	def create(self, vals):
