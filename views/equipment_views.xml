@@ -1,384 +1,385 @@
 <odoo>
-  <data>
+	<data>
 
-    <!-- START EQUIPMENT TYPE -->
-    <record model="ir.ui.view" id="service_equipment_type_form">
-      <field name="name">asiaglobal.equipment_type.form</field>
-      <field name="model">asiaglobal.equipment_type</field>
-      <field name="arch" type="xml">
-        <form string="Equipment Type">
-          <header>
-          </header>
-          <sheet>
-            <group>
-              <field name="name"/>
-            </group>
-          </sheet>
-        </form>
-      </field>
-    </record>
+		<!-- START EQUIPMENT TYPE -->
+		<record model="ir.ui.view" id="service_equipment_type_form">
+			<field name="name">asiaglobal.equipment_type.form</field>
+			<field name="model">asiaglobal.equipment_type</field>
+			<field name="arch" type="xml">
+				<form string="Equipment Type">
+					<header>
+					</header>
+					<sheet>
+						<group>
+							<field name="name"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
 
-    <record model='ir.ui.view' id='service_equipment_type_tree'>
-      <field name='name'>asiaglobal.equipment_type.tree</field>
-      <field name='model'>asiaglobal.equipment_type</field>
-      <field name='arch' type='xml'>
-        <tree string='Equipment Type'>
-          <field name='name'/>
-        </tree>
-      </field>
-    </record>
+		<record model='ir.ui.view' id='service_equipment_type_tree'>
+			<field name='name'>asiaglobal.equipment_type.tree</field>
+			<field name='model'>asiaglobal.equipment_type</field>
+			<field name='arch' type='xml'>
+				<tree string='Equipment Type'>
+					<field name='name'/>
+				</tree>
+			</field>
+		</record>
 
-    <record model="ir.actions.act_window" id="service_equipment_type_action">
-      <field name="name">Equipment Type</field>
-      <field name="res_model">asiaglobal.equipment_type</field>
-      <field name="view_mode">tree,form</field>
-    </record>
-    <!-- END EQUIPMENT TYPE -->
+		<record model="ir.actions.act_window" id="service_equipment_type_action">
+			<field name="name">Equipment Type</field>
+			<field name="res_model">asiaglobal.equipment_type</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<!-- END EQUIPMENT TYPE -->
 
-    <!-- START ENGINE MODEL -->
-    <record model="ir.ui.view" id="service_engine_model_form">
-      <field name="name">asiaglobal.engine.model.form</field>
-      <field name="model">asiaglobal.engine_model</field>
-      <field name="arch" type="xml">
-        <form string="Engine Model">
-          <header>
-          </header>
-          <sheet>
-            <group>
-              <field name="name"/>
-              <field name="manufacturer"/>
-            </group>
-          </sheet>
-        </form>
-      </field>
-    </record>
+		<!-- START ENGINE MODEL -->
+		<record model="ir.ui.view" id="service_engine_model_form">
+			<field name="name">asiaglobal.engine.model.form</field>
+			<field name="model">asiaglobal.engine_model</field>
+			<field name="arch" type="xml">
+				<form string="Engine Model">
+					<header>
+					</header>
+					<sheet>
+						<group>
+							<field name="name"/>
+							<field name="manufacturer"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
 
-    <record model='ir.ui.view' id='service_engine_model_tree'>
-      <field name='name'>asiaglobal.engine.model.tree</field>
-      <field name='model'>asiaglobal.engine_model</field>
-      <field name='arch' type='xml'>
-        <tree string='Engine Model'>
-          <field name='name'/>
-          <field name="manufacturer"/>
-        </tree>
-      </field>
-    </record>
+		<record model='ir.ui.view' id='service_engine_model_tree'>
+			<field name='name'>asiaglobal.engine.model.tree</field>
+			<field name='model'>asiaglobal.engine_model</field>
+			<field name='arch' type='xml'>
+				<tree string='Engine Model'>
+					<field name='name'/>
+					<field name="manufacturer"/>
+				</tree>
+			</field>
+		</record>
 
-    <record model="ir.actions.act_window" id="service_engine_model_action">
-      <field name="name">Engine Model</field>
-      <field name="res_model">asiaglobal.engine_model</field>
-      <field name="view_mode">tree,form</field>
-    </record>
-    <!-- END ENGINE MODELS -->
+		<record model="ir.actions.act_window" id="service_engine_model_action">
+			<field name="name">Engine Model</field>
+			<field name="res_model">asiaglobal.engine_model</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<!-- END ENGINE MODELS -->
 
-    <!-- START DRIVE AXLE MODEL -->
-    <record model="ir.ui.view" id="service_drive_axle_model_form">
-      <field name="name">asiaglobal.drive_axle.model.form</field>
-      <field name="model">asiaglobal.drive_axlemodel</field>
-      <field name="arch" type="xml">
-        <form string="Drive Axle Model">
-          <header>
-          </header>
-          <sheet>
-            <group>
-              <field name="name"/>
-              <field name="manufacturer"/>
-            </group>
-          </sheet>
-        </form>
-      </field>
-    </record>
+		<!-- START DRIVE AXLE MODEL -->
+		<record model="ir.ui.view" id="service_drive_axle_model_form">
+			<field name="name">asiaglobal.drive_axle.model.form</field>
+			<field name="model">asiaglobal.drive_axlemodel</field>
+			<field name="arch" type="xml">
+				<form string="Drive Axle Model">
+					<header>
+					</header>
+					<sheet>
+						<group>
+							<field name="name"/>
+							<field name="manufacturer"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
 
-    <record model='ir.ui.view' id='service_drive_axle_model_tree'>
-      <field name='name'>asiaglobal.drive_axle.model.tree</field>
-      <field name='model'>asiaglobal.drive_axlemodel</field>
-      <field name='arch' type='xml'>
-        <tree string='Drive Axle Model'>
-          <field name='name'/>
-          <field name="manufacturer"/>
-        </tree>
-      </field>
-    </record>
+		<record model='ir.ui.view' id='service_drive_axle_model_tree'>
+			<field name='name'>asiaglobal.drive_axle.model.tree</field>
+			<field name='model'>asiaglobal.drive_axlemodel</field>
+			<field name='arch' type='xml'>
+				<tree string='Drive Axle Model'>
+					<field name='name'/>
+					<field name="manufacturer"/>
+				</tree>
+			</field>
+		</record>
 
-    <record model="ir.actions.act_window" id="service_drive_axle_model_action">
-      <field name="name">Drive Axle Model</field>
-      <field name="res_model">asiaglobal.drive_axlemodel</field>
-      <field name="view_mode">tree,form</field>
-    </record>
-    <!-- END DRIVE AXLE MODELS -->
+		<record model="ir.actions.act_window" id="service_drive_axle_model_action">
+			<field name="name">Drive Axle Model</field>
+			<field name="res_model">asiaglobal.drive_axlemodel</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<!-- END DRIVE AXLE MODELS -->
 
-    <!-- START TRANSMISSION MODEL -->
-    <record model="ir.ui.view" id="service_transmission_model_form">
-      <field name="name">asiaglobal.transmission.model.form</field>
-      <field name="model">asiaglobal.transmission_model</field>
-      <field name="arch" type="xml">
-        <form string="Transmission Model">
-          <header>
-          </header>
-          <sheet>
-            <group>
-              <field name="name"/>
-              <field name="manufacturer"/>
-            </group>
-          </sheet>
-        </form>
-      </field>
-    </record>
+		<!-- START TRANSMISSION MODEL -->
+		<record model="ir.ui.view" id="service_transmission_model_form">
+			<field name="name">asiaglobal.transmission.model.form</field>
+			<field name="model">asiaglobal.transmission_model</field>
+			<field name="arch" type="xml">
+				<form string="Transmission Model">
+					<header>
+					</header>
+					<sheet>
+						<group>
+							<field name="name"/>
+							<field name="manufacturer"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
 
-    <record model='ir.ui.view' id='service_transmission_model_tree'>
-      <field name='name'>asiaglobal.transmission.model.tree</field>
-      <field name='model'>asiaglobal.transmission_model</field>
-      <field name='arch' type='xml'>
-        <tree string='Transmission Model'>
-          <field name='name'/>
-          <field name="manufacturer"/>
-        </tree>
-      </field>
-    </record>
+		<record model='ir.ui.view' id='service_transmission_model_tree'>
+			<field name='name'>asiaglobal.transmission.model.tree</field>
+			<field name='model'>asiaglobal.transmission_model</field>
+			<field name='arch' type='xml'>
+				<tree string='Transmission Model'>
+					<field name='name'/>
+					<field name="manufacturer"/>
+				</tree>
+			</field>
+		</record>
 
-    <record model="ir.actions.act_window" id="service_transmission_action">
-      <field name="name">Transmission Model</field>
-      <field name="res_model">asiaglobal.transmission_model</field>
-      <field name="view_mode">tree,form</field>
-    </record>
-    <!-- END TRANSMISSION MODELS -->
+		<record model="ir.actions.act_window" id="service_transmission_action">
+			<field name="name">Transmission Model</field>
+			<field name="res_model">asiaglobal.transmission_model</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<!-- END TRANSMISSION MODELS -->
 
-    <!-- START MAST TYPE -->
-    <record model="ir.ui.view" id="service_mast_type_form">
-      <field name="name">asiaglobal.mast.type.form</field>
-      <field name="model">asiaglobal.mast_type</field>
-      <field name="arch" type="xml">
-        <form string="Mast Type">
-          <header>
-          </header>
-          <sheet>
-            <group>
-              <field name="name"/>
-            </group>
-          </sheet>
-        </form>
-      </field>
-    </record>
+		<!-- START MAST TYPE -->
+		<record model="ir.ui.view" id="service_mast_type_form">
+			<field name="name">asiaglobal.mast.type.form</field>
+			<field name="model">asiaglobal.mast_type</field>
+			<field name="arch" type="xml">
+				<form string="Mast Type">
+					<header>
+					</header>
+					<sheet>
+						<group>
+							<field name="name"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
 
-    <record model='ir.ui.view' id='service_mast_type_tree'>
-      <field name='name'>asiaglobal.mast.type.tree</field>
-      <field name='model'>asiaglobal.mast_type</field>
-      <field name='arch' type='xml'>
-        <tree string='Mast Type'>
-          <field name='name'/>
-        </tree>
-      </field>
-    </record>
+		<record model='ir.ui.view' id='service_mast_type_tree'>
+			<field name='name'>asiaglobal.mast.type.tree</field>
+			<field name='model'>asiaglobal.mast_type</field>
+			<field name='arch' type='xml'>
+				<tree string='Mast Type'>
+					<field name='name'/>
+				</tree>
+			</field>
+		</record>
 
-    <record model="ir.actions.act_window" id="service_mast_type_action">
-      <field name="name">Mast Type</field>
-      <field name="res_model">asiaglobal.mast_type</field>
-      <field name="view_mode">tree,form</field>
-    </record>
-    <!-- END MAST TYPE -->
+		<record model="ir.actions.act_window" id="service_mast_type_action">
+			<field name="name">Mast Type</field>
+			<field name="res_model">asiaglobal.mast_type</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<!-- END MAST TYPE -->
 
-    <!-- START EQUIPMENT PROFILE -->
-    <record model="ir.ui.view" id="service_equipment_profile_form">
-      <field name="name">asiaglobal.equipment.profile.form</field>
-      <field name="model">asiaglobal.equipment_profile</field>
-      <field name="arch" type="xml">
-        <form string="Equipment Profile">
-          <header>
-          </header>
-          <sheet>
+		<!-- START EQUIPMENT PROFILE -->
+		<record model="ir.ui.view" id="service_equipment_profile_form">
+			<field name="name">asiaglobal.equipment.profile.form</field>
+			<field name="model">asiaglobal.equipment_profile</field>
+			<field name="arch" type="xml">
+				<form string="Equipment Profile">
+					<header>
+					</header>
+					<sheet>
 
-            <div class="oe_title">
-              <label for="name"/>
-              <h1>
-                <field name="name" readonly="1"/>
-              </h1>
-            </div>
+						<div class="oe_title">
+							<label for="name"/>
+							<h1>
+								<field name="name" readonly="1"/>
+							</h1>
+						</div>
 
-            <group>
-              <group>
-                <field name="customer" domain="[('customer','=',True)]" context="{'search_default_customer':1}" options='{"always_reload": True}'/>
-                <field name="ship_to" context="{'default_type':'delivery', 'show_address': 1}" options='{"always_reload": True}'/>
-                <field name="manufacturer"/>
-                <field name="model" domain="[('manufacturer','=',manufacturer)]"/>
-                <field name="serial_number"/>
-              </group>
-              <group>
-                <field name="type"/>
-                <field name="date_in_service"/>
-                <field name="capacity"/>
-                <field name="hour_meter" readonly="1"/>
-              </group>
-            </group>
+						<group>
+							<group>
+								<field name="customer" domain="[('customer','=',True)]" context="{'search_default_customer':1}" options='{"always_reload": True}'/>
+								<field name="ship_to" context="{'default_type':'delivery', 'show_address': 1}" options='{"always_reload": True}'/>
+								<field name="manufacturer"/>
+								<field name="model" domain="[('manufacturer','=',manufacturer)]"/>
+								<field name="serial_number"/>
+							</group>
+							<group>
+								<field name="type"/>
+								<field name="date_in_service"/>
+								<field name="capacity"/>
+								<field name="hour_meter" readonly="1"/>
+							</group>
+						</group>
 
-            <notebook>
-              <page string="General Information">
-                <group>
-                  <group string="Engine">
-                    <field name="engine_make"/>
-                    <field name="engine_model" domain="[('manufacturer','=',engine_make)]"/>
-                    <field name="engine_serial_number"/>
-                  </group>
-                  <group string="Transmission">
-                    <field name="transmission_make"/>
-                    <field name="transmission_model" domain="[('manufacturer','=',transmission_make)]"/>
-                    <field name="transmission_serial_number"/>
-                  </group>
-                </group>
+						<notebook>
 
-                <group>
-                  <group string="Drive Axle">
-                    <field name="drive_axle_manufacturer"/>
-                    <field name="drive_axle_model" domain="[('manufacturer','=',drive_axle_manufacturer)]"/>
-                    <field name="drive_axle_serial_number"/>
-                  </group>
-                  <!-- <group string="Traction Battery">
-                    <field name="traction_battery_capacity"/>
-                    <field name="traction_battery_serial_number"/>
-                  </group> -->
-                  <group string="Mast">
-                    <field name="mast_type"/>
-                    <field name="mast_serial_number"/>
-                  </group>
-                </group>
+							<page string="General Information">
+								<group>
+									<group string="Engine">
+										<field name="engine_make"/>
+										<field name="engine_model" domain="[('manufacturer','=',engine_make)]"/>
+										<field name="engine_serial_number"/>
+									</group>
+									<group string="Transmission">
+										<field name="transmission_make"/>
+										<field name="transmission_model" domain="[('manufacturer','=',transmission_make)]"/>
+										<field name="transmission_serial_number"/>
+									</group>
+								</group>
 
-                <group>
-                  <group string="Battery &amp; Charger">
-                    <field name="battery_1"/>
-                    <field name="battery_1_type"/>
-                    <field name="battery_1_serial"/>
-                    <br/>
-                    <field name="battery_2"/>
-                    <field name="battery_2_type"/>
-                    <field name="battery_2_serial"/>
-                    <br/>
-                    <field name="battery_3"/>
-                    <field name="battery_3_type"/>
-                    <field name="battery_3_serial"/>
-                  </group>
-                  <!-- <group string="Mast">
-                    <field name="mast_type"/>
-                    <field name="mast_serial_number"/>
-                  </group> -->
-                  <!-- <group string="Rental">
-                    <field name="rental_date_start"/>
-                    <field name="rental_date_end"/>
-                  </group>
-                  <group string="Others">
-                    <field name="forks"/>
-                    <field name="lift_height"/>
-                    <field name="gross_weight"/>
-                  </group> -->
-                </group>
-              </page>
-              <page string="Other Information">
-                <group>
-                  <group>
-                    <field name="equipment_owner_id"/>
-                  </group>
-                  <group>
-                    <field name="operational" />
-                    <field name="operational_message" invisible="1"/>
-                  </group>
-                </group>
-                <group>
-                  <group string="Rental">
-                    <field name="rental_date_start"/>
-                    <field name="rental_date_end"/>
-                  </group>
-                  <group string="Others">
-                    <field name="forks"/>
-                    <field name="lift_height"/>
-                    <field name="gross_weight"/>
-                  </group>
-                </group>
-              </page>
-              <page string="Warranty Information">
-                <group>
-                  <group>
-                    <field name="warranty_date_acceptance"/>
-                    <field name="warranty_year"/>
-                    <field name="warranty_hours" widget="float_time"/>
-                  </group>
-                </group>
-              </page>
-              <page string="Preventive Maintenance Contract">
-                <group>
-                  <group string="Maintenance">
-                    <field name="maintenance_contract"/>
-                    <field name="maintenance_start_date" attrs="{'invisible':[('maintenance_contract', '=', False)]}"/>
-                    <field name="maintenance_end_date" attrs="{'invisible':[('maintenance_contract', '=', False)]}"/>
-                    <field name="maintenance_frequency_count" attrs="{'invisible':[('maintenance_contract', '=', False)]}"/>
-                    <field name="maintenance_frequency" attrs="{'invisible':[('maintenance_contract', '=', False)]}"/>
-                    <field name="next_maintenance_date" readonly="1" attrs="{'invisible':[('maintenance_contract', '=', False)]}"/>
-                  </group>
-                </group>
-              </page>
-              <page string="Job Orders">
-                <field name="jo_ids"/>
-              </page>
-            </notebook>
+								<group>
+									<group string="Drive Axle">
+										<field name="drive_axle_manufacturer"/>
+										<field name="drive_axle_model" domain="[('manufacturer','=',drive_axle_manufacturer)]"/>
+										<field name="drive_axle_serial_number"/>
+									</group>
+								 
+									<group string="Mast">
+										<field name="mast_type"/>
+										<field name="mast_serial_number"/>
+									</group>
+								</group>
 
-          </sheet>
-          <div class="oe_chatter">
-            <field name="message_follower_ids" widget="mail_followers"/>
-            <field name="message_ids" widget="mail_thread"/>
-          </div>
+								<group>
+									<group string="Battery &amp; Charger">
+										<field name="battery_1"/>
+										<field name="battery_1_type"/>
+										<field name="battery_1_serial"/>
+										<br/>
+										<field name="battery_2"/>
+										<field name="battery_2_type"/>
+										<field name="battery_2_serial"/>
+										<br/>
+										<field name="battery_3"/>
+										<field name="battery_3_type"/>
+										<field name="battery_3_serial"/>
+									</group>
+								</group>
+							</page>
 
-        </form>
-      </field>
-    </record>
+							<page string="Other Information">
+								<group>
+									<group>
+										<field name="equipment_owner_id"/>
+									</group>
+									<group>
+										<field name="operational" />
+										<field name="operational_message" invisible="1"/>
+									</group>
+								</group>
+								<group>
+									<group string="Rental">
+										<field name="rental_date_start"/>
+										<field name="rental_date_end"/>
+									</group>
+									<group string="Others">
+										<field name="forks"/>
+										<field name="lift_height"/>
+										<field name="gross_weight"/>
+									</group>
+								</group>
+							</page>
 
-    <record model='ir.ui.view' id='service_equipment_profile_tree'>
-      <field name='name'>asiaglobal.equipment.profile.tree</field>
-      <field name='model'>asiaglobal.equipment_profile</field>
-      <field name='arch' type='xml'>
-        <tree string="Equipments">
-          <field name="name" />
-          <field name='customer'/>
-          <field name='type'/>
-          <field name='date_in_service'/>
-          <field name='manufacturer'/>
-          <field name='model'/>
-          <field name='serial_number'/>
-        </tree>
-      </field>
-    </record>
+							<page string="Warranty Information">
+								<group>
+									<group>
+										<field name="warranty_date_acceptance"/>
+										<field name="warranty_year"/>
+										<field name="warranty_hours" widget="float_time"/>
+									</group>
+								</group>
+							</page>
 
-    <record id="asiaglobal_equipment_profile_search" model="ir.ui.view">
-      <field name="name">asiaglobal.equipment.profile.search</field>
-      <field name="model">asiaglobal.equipment_profile</field>
-      <field name="priority" eval="8" />
-            <field name="arch" type="xml">
-                <search string="Equipments">
-                    <field name="name" />
-                    <field name="serial_number"/>
-                    <field name="engine_serial_number"/>
-                    <field name="transmission_serial_number"/>
-                    <field name="drive_axle_serial_number"/>
-                </search>
-            </field>
-        </record>
+							<page string="Preventive Maintenance Contract">
+								<group>
+									<group string="Maintenance">
+										<field name="maintenance_contract"/>
+										<field name="maintenance_start_date" attrs="{'invisible':[('maintenance_contract', '=', False)]}"/>
+										<field name="maintenance_end_date" attrs="{'invisible':[('maintenance_contract', '=', False)]}"/>
+										<field name="maintenance_frequency_count" attrs="{'invisible':[('maintenance_contract', '=', False)]}"/>
+										<field name="maintenance_frequency" attrs="{'invisible':[('maintenance_contract', '=', False)]}"/>
+										<field name="next_maintenance_date" readonly="1" attrs="{'invisible':[('maintenance_contract', '=', False)]}"/>
+									</group>
+								</group>
+							</page>
 
-    <record model="ir.actions.act_window" id="service_equipment_profile_action">
-      <field name="name">Equipments</field>
-      <field name="res_model">asiaglobal.equipment_profile</field>
-      <field name="view_mode">tree,form</field>
-      <field name="search_view_id" ref="asiaglobal_equipment_profile_search" />
-      <field name="help" type="html">
-        <p>
-          Create an equipment.
-        </p>
-      </field>
-    </record>
+							<page string="Job Orders">
+								<field name="jo_ids"/>
+							</page>
 
-    <record model="ir.actions.act_window" id="action_equipment_customer">
-      <field name="context">{}</field>
-      <field name="domain">[('customer','in',active_ids)]</field>
-      <field name="name">Equipments</field>
-      <field name="res_model">asiaglobal.equipment_profile</field>
-      <field name="view_id" ref="asiaglobal.service_equipment_profile_tree"/>
-    </record>
-    <!-- END EQUIPMENT PROFILE -->
+							<page string="Parts Fitted">
+								<field name="parts_fitted">
+									<tree>
+										<field name="service_report"/>
+										<field name="product_id"/>
+										<field name="product_qty"/>
+										<field name="description"/>
+										<field name="part_number"/>
+									</tree>
+								</field>
+							</page>
+						</notebook>
 
-  </data>
+					</sheet>
+					<div class="oe_chatter">
+						<field name="message_follower_ids" widget="mail_followers"/>
+						<field name="message_ids" widget="mail_thread"/>
+					</div>
+
+				</form>
+			</field>
+		</record>
+
+		<record model='ir.ui.view' id='service_equipment_profile_tree'>
+			<field name='name'>asiaglobal.equipment.profile.tree</field>
+			<field name='model'>asiaglobal.equipment_profile</field>
+			<field name='arch' type='xml'>
+				<tree string="Equipments">
+					<field name="name" />
+					<field name='customer'/>
+					<field name='type'/>
+					<field name='date_in_service'/>
+					<field name='manufacturer'/>
+					<field name='model'/>
+					<field name='serial_number'/>
+				</tree>
+			</field>
+		</record>
+
+		<record id="asiaglobal_equipment_profile_search" model="ir.ui.view">
+			<field name="name">asiaglobal.equipment.profile.search</field>
+			<field name="model">asiaglobal.equipment_profile</field>
+			<field name="priority" eval="8" />
+						<field name="arch" type="xml">
+								<search string="Equipments">
+										<field name="name" />
+										<field name="serial_number"/>
+										<field name="engine_serial_number"/>
+										<field name="transmission_serial_number"/>
+										<field name="drive_axle_serial_number"/>
+								</search>
+						</field>
+				</record>
+
+		<record model="ir.actions.act_window" id="service_equipment_profile_action">
+			<field name="name">Equipments</field>
+			<field name="res_model">asiaglobal.equipment_profile</field>
+			<field name="view_mode">tree,form</field>
+			<field name="search_view_id" ref="asiaglobal_equipment_profile_search" />
+			<field name="help" type="html">
+				<p>
+					Create an equipment.
+				</p>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_equipment_customer">
+			<field name="context">{}</field>
+			<field name="domain">[('customer','in',active_ids)]</field>
+			<field name="name">Equipments</field>
+			<field name="res_model">asiaglobal.equipment_profile</field>
+			<field name="view_id" ref="asiaglobal.service_equipment_profile_tree"/>
+		</record>
+		<!-- END EQUIPMENT PROFILE -->
+
+	</data>
 </odoo>

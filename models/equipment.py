@@ -40,6 +40,19 @@ class AsiaGlobalEquipmentProfile(models.Model):
 	_description = 'Equipment Profile'
 	_inherit = ['mail.thread','mail.activity.mixin']
 
+	@api.one
+	def _compute_parts_fitted(self):
+		_logger.info('MISSU')
+		parts_fitted = []
+		for job in self.jo_ids:
+			for report in job.service_report_ids:
+				if report.is_parts_fitted == True and report.parts_fitted:
+					for parts in report.parts_fitted:
+						parts_fitted.append(parts.id)
+		_logger.info(parts_fitted)
+		# self.parts_fitted = self.env['asiaglobal.service_report_parts'].browse(list(parts_fitted))
+		self.parts_fitted = parts_fitted
+
 	name = fields.Char(string='Equipment Profile', store=True, compute="_compute_name")
 	customer = fields.Many2one('res.partner', ondelete='cascade', required=True, track_visibility='onchange')
 	ship_to = fields.Many2one('res.partner', string='Ship To / Site Address')
@@ -114,6 +127,8 @@ class AsiaGlobalEquipmentProfile(models.Model):
 	operational = fields.Boolean(default=True)
 	operational_message = fields.Char(string='Equipment Status', track_visibility='onchange')
 
+	parts_fitted = fields.Many2many('asiaglobal.service_report_parts', string='Parts Fitted', compute='_compute_parts_fitted')
+
 	@api.multi
 	@api.onchange('customer')
 	def onchange_customer(self):
@@ -158,7 +173,6 @@ class AsiaGlobalEquipmentProfile(models.Model):
 	@api.multi
 	def _compute_hour_meter(self):
 		for record in self:
-			# latest_service_report = self.env['asiaglobal.service_report'].search([], order="visit_date DESC", limit=1)
 			latest_service_report_hour_meter = 0
 			latest_service_report_visit_date = False
 			for job in record.jo_ids:
@@ -188,64 +202,11 @@ class AsiaGlobalEquipmentProfile(models.Model):
 		result = super(AsiaGlobalEquipmentProfile, self).create(vals)
 		return result
 
-	# @api.model
-	# def create_job(self):
-
-	# 	_logger.info('HOWDY')
-
-	# 	targetdate = datetime.today().strftime("%Y-%m-%d")
-	# 	for_maintenance = self.search([('next_maintenance_date','=',targetdate)],order='customer')
-
-	# 	_logger.info(targetdate)
-	# 	_logger.info(for_maintenance)
-	# 	if for_maintenance:
-	# 		# job_order = self.env['asiaglobal.job_order']
-
-	# 		for maintenance in for_maintenance:
-	# 			if maintenance.maintenance_contract == True:
-	# 				values = {
-	# 					'customer_id': maintenance.customer.id,
-	# 					'equipment_id': maintenance.id,
-	# 					'manufacturer': maintenance.manufacturer.id,
-	# 					'model': maintenance.model.id,
-	# 					'serial_number': maintenance.serial_number,
-	# 					'scheduled_date': maintenance.next_maintenance_date,
-	# 				}                
-	# 				job_order = self.env['asiaglobal.job_order'].create(values)
-
-	# 				if job_order:
-	# 					# UPDATE MAINTENANCE DATE
-	# 					new_maintenance_date = self.get_maintenance_date(targetdate, maintenance.maintenance_frequency_count, maintenance.maintenance_frequency)
-
-	# 					if new_maintenance_date:
-	# 						maintenance.write({'next_maintenance_date': new_maintenance_date})
-	# 	return
-
-	# def get_maintenance_date(self, date, count, frequency):
-	# 	new_maintenance_date = False
-
-	# 	if frequency == 'day':
-	# 		days = count
-	# 		new_maintenance_date = (datetime.strptime(date, '%Y-%m-%d') + timedelta(days=days)).strftime("%Y-%m-%d")
-
-	# 	if frequency == 'week':
-	# 		days = count * 7
-	# 		new_maintenance_date = (datetime.strptime(date, '%Y-%m-%d') + timedelta(days=days)).strftime("%Y-%m-%d")
-
-	# 	if frequency == 'month':
-	# 		months = count
-	# 		new_maintenance_date = (datetime.strptime(date, '%Y-%m-%d') + relativedelta(months=months)).strftime("%Y-%m-%d")
-
-	# 	if frequency == 'year':
-	# 		years = count
-	# 		new_maintenance_date = (datetime.strptime(date, '%Y-%m-%d') + relativedelta(years=years)).strftime("%Y-%m-%d")
-
-	# 	return new_maintenance_date
-
 	@api.model
 	def create_maintenance_jo(self, equipment_id, date):
 		values = {
 			'customer_id': equipment_id.customer.id,
+			'ship_to': equipment_id.ship_to.id,
 			'equipment_id': equipment_id.id,
 			'manufacturer': equipment_id.manufacturer.id,
 			'model': equipment_id.model.id,

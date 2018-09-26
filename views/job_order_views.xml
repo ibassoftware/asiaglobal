@@ -8,7 +8,7 @@
       <field name="arch" type="xml">
         <form string="Job Order">
           <header>
-            <field name="state" widget="statusbar" statusbar_visible="draft,schedule,waiting,progress,bill,done"/>
+            <field name="state" widget="statusbar" statusbar_visible="draft,schedule,waiting,progress,bill,waiting_quote,waiting_order,done"/>
           </header>
           <sheet>
 

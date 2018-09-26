@@ -30,8 +30,10 @@ class AsiaGlobalJobOrder(models.Model):
 		('waiting','Waiting for Parts'),
 		('progress', 'In Progress'),
 		('bill', 'For Billing'),
+		('waiting_quote', 'Waiting for Quotation'),
+		('waiting_order', 'Waiting for Purchase Order'),
 		('done','Done'),
-		], string='Status', default='draft')
+		], string='Status', default='draft', track_visibility='onchange')
 	sale_ids = fields.One2many('sale.order', 'jo_id', string='Sale Orders')
 	under_warranty = fields.Boolean()
 	warranty_date = fields.Date(default=fields.Datetime.now())

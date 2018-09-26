@@ -34,6 +34,7 @@ class AsiaGlobalServiceReport(models.Model):
 
 	customer_id = fields.Many2one('res.partner', string='Customer')
 	ship_to = fields.Many2one('res.partner', string='Ship To / Site Address')
+	equipment_id = fields.Many2one('asiaglobal.equipment_profile', string='Equipment')
 	model = fields.Many2one('asiaglobal.manufacturer_model', string='Model')
 	mast_no = fields.Char(string='Mast No.')
 	serial_number = fields.Char(string='Truck Serial No.')
@@ -83,21 +84,12 @@ class AsiaGlobalServiceReport(models.Model):
 	def set_details(self):
 		self.customer_id = self.jo_id.customer_id
 		self.ship_to = self.jo_id.ship_to
+		self.equipment_id = self.jo_id.equipment_id
 		self.model = self.jo_id.model
 		self.mast_no = self.jo_id.equipment_id.mast_serial_number
 		self.serial_number = self.jo_id.serial_number
 		self.technician_id = self.jo_id.technician_id
 		self.operational = self.jo_id.equipment_id.operational
-
-	# def update_hour_meter(self, service_hour_meter, jo_id):
-	# 	job_order = self.env['asiaglobal.job_order'].search([('id','=',jo_id)])
-	# 	equipment = self.env['asiaglobal.equipment_profile'].search([('id','=',job_order.equipment_id.id)])
-
-	# 	equipment_hour_meter = equipment.hour_meter
-	# 	new_hour_meter = 0
-	# 	if equipment:
-	# 		new_hour_meter = equipment_hour_meter + service_hour_meter
-	# 	equipment.write({'hour_meter': new_hour_meter})
 
 	def update_operational(self, operational, jo_id, operational_message):
 		job_order = self.env['asiaglobal.job_order'].search([('id','=',jo_id)])
@@ -106,14 +98,8 @@ class AsiaGlobalServiceReport(models.Model):
 		job_order.write({'operational': operational, 'operational_message': operational_message})
 		equipment.write({'operational': operational, 'operational_message': operational_message})
 
-		# name = "Operational"
-		# if not operational:
-		# 	name = "Not Operational"
-		# self.message_post(body=_("Equipment: %s") % (name))
-
 	@api.model
 	def create(self, vals):
-		# hour_meter = vals.get('hour_meter', False)
 		jo_id = vals.get('jo_id', False)
 		operational = vals.get('operational')
 		operational_message = vals.get('operational_message')
@@ -122,20 +108,12 @@ class AsiaGlobalServiceReport(models.Model):
 			vals['name'] = self.env['ir.sequence'].next_by_code('asiaglobal.service.report') or _('New')
 		result = super(AsiaGlobalServiceReport, self).create(vals)
 
-		# UPDATE HOUR METER
-		# if hour_meter and jo_id:
-		# 	self.update_hour_meter(hour_meter, jo_id)
-
 		self.update_operational(operational, jo_id, operational_message)
 
 		return result
 
 	@api.multi
 	def write(self, vals):
-		# last_hour_meter = self.hour_meter
-		# new_hour_meter = vals.get('hour_meter', False)
-		# service_hour_meter = new_hour_meter - last_hour_meter
-
 		operational = vals.get('operational')
 		operational_message = vals.get('operational_message')
 
@@ -144,9 +122,6 @@ class AsiaGlobalServiceReport(models.Model):
 			jo_id = self.jo_id.id
 
 		result = super(AsiaGlobalServiceReport, self).write(vals)
-
-		# if service_hour_meter and jo_id:
-		# 	self.update_hour_meter(service_hour_meter, jo_id)
 
 		self.update_operational(operational, jo_id, operational_message)
 
