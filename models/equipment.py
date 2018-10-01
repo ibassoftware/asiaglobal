@@ -42,15 +42,12 @@ class AsiaGlobalEquipmentProfile(models.Model):
 
 	@api.one
 	def _compute_parts_fitted(self):
-		_logger.info('MISSU')
 		parts_fitted = []
 		for job in self.jo_ids:
 			for report in job.service_report_ids:
 				if report.is_parts_fitted == True and report.parts_fitted:
 					for parts in report.parts_fitted:
 						parts_fitted.append(parts.id)
-		_logger.info(parts_fitted)
-		# self.parts_fitted = self.env['asiaglobal.service_report_parts'].browse(list(parts_fitted))
 		self.parts_fitted = parts_fitted
 
 	name = fields.Char(string='Equipment Profile', store=True, compute="_compute_name")

@@ -24,6 +24,20 @@ class AsiaGlobalServiceReportParts(models.Model):
 		self.description = self.product_id.name
 		self.part_number = self.product_id.code
 
+class AsiaGlobalServiceReportPartsRequired(models.Model):
+	_name = 'asiaglobal.service_report_parts_required'
+
+	service_report = fields.Many2one('asiaglobal.service_report')
+	product_id = fields.Many2one('product.product', string='Product')
+	product_qty = fields.Integer(string='Qty')
+	description = fields.Char()
+	part_number = fields.Char()
+
+	@api.onchange('product_id')
+	def set_product_details(self):
+		self.description = self.product_id.name
+		self.part_number = self.product_id.code
+
 class AsiaGlobalServiceReport(models.Model):
 	_name = 'asiaglobal.service_report'
 	_description = 'Service Report'
@@ -51,7 +65,7 @@ class AsiaGlobalServiceReport(models.Model):
 	is_parts_fitted = fields.Boolean()
 	parts_fitted = fields.One2many('asiaglobal.service_report_parts', 'service_report')
 	is_parts_required = fields.Boolean()
-	parts_required = fields.One2many('asiaglobal.service_report_parts', 'service_report')
+	parts_required = fields.One2many('asiaglobal.service_report_parts_required', 'service_report')
 
 	with_warranty = fields.Boolean(string='Is the unit within the coverage period?')
 	warranty_failure = fields.Boolean(string='if yes, is this a warrantable failure?')
