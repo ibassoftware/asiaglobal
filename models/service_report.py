@@ -21,8 +21,8 @@ class AsiaGlobalServiceReportParts(models.Model):
 
 	@api.onchange('product_id')
 	def set_product_details(self):
-		self.description = self.product_id.name
-		self.part_number = self.product_id.code
+		self.description = self.product_id.description_sale
+		self.part_number = self.product_id.default_code
 
 class AsiaGlobalServiceReportPartsRequired(models.Model):
 	_name = 'asiaglobal.service_report_parts_required'
@@ -35,8 +35,8 @@ class AsiaGlobalServiceReportPartsRequired(models.Model):
 
 	@api.onchange('product_id')
 	def set_product_details(self):
-		self.description = self.product_id.name
-		self.part_number = self.product_id.code
+		self.description = self.product_id.description_sale
+		self.part_number = self.product_id.default_code
 
 class AsiaGlobalServiceReport(models.Model):
 	_name = 'asiaglobal.service_report'
