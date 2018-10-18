@@ -60,9 +60,10 @@
                   <field name="parts_fitted" attrs="{'invisible':[('is_parts_fitted', '=', False)]}" nolabel="1">
                     <tree editable="bottom">
                       <field name="product_id"/>
-                        <field name="product_qty"/>
-                        <field name="description"/>
-                        <field name="part_number"/>
+                      <field name="part_number"/>
+                      <field name="description"/>
+                      <field name="amount" invisible="1"/>
+                      <field name="product_qty"/>  
                     </tree>
                   </field>
                 </group>
@@ -73,9 +74,10 @@
                   <field name="parts_required" attrs="{'invisible':[('is_parts_required', '=', False)]}" nolabel="1">
                     <tree editable="bottom">
                       <field name="product_id"/>
-                      <field name="product_qty"/>
-                      <field name="description"/>
                       <field name="part_number"/>
+                      <field name="description"/>
+                      <field name="amount"/>
+                      <field name="product_qty"/>
                     </tree>
                   </field>
                 </group>
@@ -91,6 +93,7 @@
                     <field name="billable"/>
                     <field name="billable_amount"/>
                     <field name="technician_id"/>
+                    <field name="technician_ids" widget="many2many_tags"/>
                     <field name="supervisor_id"/>
                   </group>
                 </group>

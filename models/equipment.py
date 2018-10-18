@@ -40,6 +40,19 @@ class AsiaGlobalEquipmentProfile(models.Model):
 	_description = 'Equipment Profile'
 	_inherit = ['mail.thread','mail.activity.mixin']
 
+	@api.depends('job_expense_ids.amount_total')
+	def _amount_all(self):
+		"""
+		Compute the total amounts of the Expense.
+		"""
+		for equipment in self:
+			amount_expense_total = 0.0
+			for expense in equipment.job_expense_ids:
+				amount_expense_total += expense.amount_total
+			equipment.update({
+				'amount_expense_total':amount_expense_total,
+			})
+
 	@api.one
 	def _compute_parts_fitted(self):
 		parts_fitted = []
@@ -125,6 +138,9 @@ class AsiaGlobalEquipmentProfile(models.Model):
 	operational_message = fields.Char(string='Equipment Status', track_visibility='onchange')
 
 	parts_fitted = fields.Many2many('asiaglobal.service_report_parts', string='Parts Fitted', compute='_compute_parts_fitted')
+
+	job_expense_ids = fields.One2many('asiaglobal.job_expense', 'equipment_id', string='Job Expense')
+	amount_expense_total = fields.Float(string='Total Other Repair Costs', store=True, readonly=True, compute='_amount_all', track_visibility='always')
 
 	@api.multi
 	@api.onchange('customer')

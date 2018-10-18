@@ -52,6 +52,7 @@ class AsiaGlobalJobOrder(models.Model):
 		('Internal','Internal'),
 		('external','External'),
 		('warranty','Warranty'),
+		('cannibalization','Cannibalization'),
 	])
 
 	job_type = fields.Selection([

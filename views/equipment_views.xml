@@ -310,12 +310,29 @@
 								<field name="parts_fitted">
 									<tree>
 										<field name="service_report"/>
-										<field name="product_id"/>
-										<field name="product_qty"/>
-										<field name="description"/>
+										<field name="product_id" invisible="1"/>
 										<field name="part_number"/>
+										<field name="description"/>
+										<field name="amount"/>
+										<field name="product_qty"/>										
 									</tree>
 								</field>
+							</page>
+
+							<page string="Other Repair Expenses">
+								<field name="job_expense_ids">
+									<tree editable="bottom">
+										<field name="description"/>
+										<field name="supplier_name"/>
+										<field name="po_id"/>
+										<field name="qty"/>
+										<field name="amount"/>
+									</tree>
+								</field>
+								<group class="oe_subtotal_footer oe_right" colspan="2" name="expense_total">
+	                                <label for="amount_expense_total" />
+	                                <field name="amount_expense_total" nolabel="1" />
+	                            </group>
 							</page>
 						</notebook>
 

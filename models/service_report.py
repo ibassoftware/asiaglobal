@@ -12,31 +12,37 @@ class AsiaGlobalServiceReportComplaints(models.Model):
 
 class AsiaGlobalServiceReportParts(models.Model):
 	_name = 'asiaglobal.service_report_parts'
+	_description = 'Parts Fitted'
 
 	service_report = fields.Many2one('asiaglobal.service_report')
 	product_id = fields.Many2one('product.product', string='Product')
 	product_qty = fields.Integer(string='Qty')
 	description = fields.Char()
 	part_number = fields.Char()
+	amount = fields.Float(string='Amount (Cost)')
 
 	@api.onchange('product_id')
 	def set_product_details(self):
 		self.description = self.product_id.description_sale
 		self.part_number = self.product_id.default_code
+		self.amount = self.product_id.standard_price
 
 class AsiaGlobalServiceReportPartsRequired(models.Model):
 	_name = 'asiaglobal.service_report_parts_required'
+	_description = 'Parts Required'
 
 	service_report = fields.Many2one('asiaglobal.service_report')
 	product_id = fields.Many2one('product.product', string='Product')
 	product_qty = fields.Integer(string='Qty')
 	description = fields.Char()
 	part_number = fields.Char()
+	amount = fields.Float(string='Amount (Cost)')
 
 	@api.onchange('product_id')
 	def set_product_details(self):
 		self.description = self.product_id.description_sale
 		self.part_number = self.product_id.default_code
+		self.amount = self.product_id.standard_price
 
 class AsiaGlobalServiceReport(models.Model):
 	_name = 'asiaglobal.service_report'
@@ -74,7 +80,8 @@ class AsiaGlobalServiceReport(models.Model):
 	billable = fields.Boolean()
 	billable_amount = fields.Float(string='Amount')
 
-	technician_id = fields.Many2one('hr.employee', string='Service Technician/s', domain=[('is_technician','=',True)])
+	technician_id = fields.Many2one('hr.employee', string='Service Technician', domain=[('is_technician','=',True)])
+	technician_ids = fields.Many2many('hr.employee', string='Other Technicians', domain=[('is_technician','=',True)])
 	supervisor_id = fields.Many2one('hr.employee', string='Service Supervisor or Manager')
 
 	legacy_service_report_no = fields.Char(string='Legacy Service Report #')
