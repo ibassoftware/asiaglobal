@@ -126,7 +126,7 @@ class AsiaGlobalEquipmentProfile(models.Model):
 	warranty_year = fields.Float()
 	warranty_hours = fields.Float()
 
-	jo_ids = fields.One2many('asiaglobal.job_order', 'equipment_id')
+	jo_ids = fields.One2many('asiaglobal.job_order', 'equipment_id', string='Job Orders', readonly=True)
 
 	# RENTAL
 	rental_date_start = fields.Date(string='Start of Rental Period')
