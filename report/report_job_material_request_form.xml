@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_job_material_request_form_document">
+            <t t-call="asiaglobal.external_layout_job_material_request">
+                <t t-set="o" t-value="o.with_context({'lang':o.customer_id.lang})"/>
+                <!-- <div class="page" t-attf-style="background-image:url('/asiaglobal/static/src/img/jmrf.PNG');  no-repeat; background-size: cover;"> -->
+                <div class="page">
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+
+                    <div class="row">
+                        <div class="col-xs-5 col-xs-offset-3">
+                            <p><span t-field="o.date"/></p>
+                        </div>
+                        <div class="col-xs-4">
+                            <p/>
+                        </div>
+                    </div>
+
+                    <br/>
+
+                    <div class="row">
+                        <div class="col-xs-5 col-xs-offset-3">
+                            <p/>
+                        </div>
+                        <div class="col-xs-4">
+                            <p/>
+                        </div>
+                    </div>
+
+                    <br/>
+
+                    <div class="row">
+                        <div class="col-xs-5 col-xs-offset-3">
+                            <p><span t-field="o.customer_id.name"/></p>
+                        </div>
+                        <div class="col-xs-2">
+                            <!-- <p><span t-field="o.is_warranty"/></p> -->
+                            <t t-if="o.is_warranty == True">
+                                <p><input type="checkbox" checked="True"/> </p>
+                            </t>
+                        </div>
+                        <div class="col-xs-2">
+                            <!-- <p><span t-field="o.is_rental"/></p> -->
+                            <t t-if="o.is_rental == True">
+                                <p><input type="checkbox" checked="True"/> </p>
+                            </t>
+                        </div>
+                    </div>
+
+                    <br/>
+
+                    <div class="row">
+                        <div class="col-xs-5 col-xs-offset-3">
+                            <!-- <p> <span t-field="o.location_id" t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True, "phone_icons": False}'/> </p> -->
+                            <p> <span t-field="o.location_id.contact_address"/> </p>
+                        </div>
+                        <div class="col-xs-4">
+                            <p/>
+                        </div>
+                    </div>
+
+                    <br/>
+
+                    <div class="row">
+                        <div class="col-xs-5 col-xs-offset-3">
+                            <p><span t-field="o.model.name"/></p> 
+                        </div>
+                        <div class="col-xs-4">
+                            <p/>
+                        </div>
+                    </div>
+
+                    <br/>
+
+                    <div class="row">
+                        <div class="col-xs-6 col-xs-offset-3">
+                            <p><span t-field="o.serial_number"/></p> 
+                        </div>
+                        <div class="col-xs-3">
+                            <p><span t-field="o.hour_meter"/></p>
+                        </div>
+                    </div>
+
+                    <br/>
+
+                    <div class="row">
+                        <div class="col-xs-4 col-xs-offset-1 text-right">
+                            <!-- <p><span t-field="o.is_operational"/></p>  -->
+                            <t t-if="o.is_operational == True">
+                                <p><input type="checkbox" checked="True"/> </p>
+                            </t>
+                        </div>
+                       <div class="col-xs-2 col-xs-offset-3">
+                            <!-- <p><span t-field="o.is_not_operational"/></p>  -->
+                            <t t-if="o.is_not_operational == True">
+                                <p><input type="checkbox" checked="True"/></p>
+                            </t>
+                        </div>
+                        <div class="col-xs-1">
+                            <!-- <p><span t-field="o.is_urgent"/></p>  -->
+                            <t t-if="o.is_urgent == True">
+                                <p><input type="checkbox" checked="True"/> </p>
+                            </t>
+                        </div>
+                    </div>
+
+                    <br/>
+                    <br/>
+
+                    <div class="row">
+                        <table class="table table-condensed" style="font-size:14px">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody class="invoice_tbody">
+                                <t t-foreach="o.line_ids" t-as="l">
+                                    <tr>
+                                        <td width="10%" class="text-center"></td>
+                                        <td width="30%" class="text-center"><span t-field="l.description"/></td>
+                                        <td width="30%" class="text-center"><span t-field="l.part_number"/></td>
+                                        <td width="10%" class="text-center"><span t-field="l.qty"/></td>
+                                        <td width="20%" class="text-center"><span t-field="l.item_code"/></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- <div style="position: absolute; top: 600; width: 100%; font-size: 12px;">
+                        <div class="row">
+                            <div class="col-xs-9 col-xs-offset-3">
+                                <p><span t-field="o.remarks"/></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="position: absolute; top: 700; width: 100%; font-size: 12px;">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <span t-field="o.request_by"/>    
+                            </div>
+                            <div class="col-xs-4">
+                                <span t-field="o.noted_by"/>                    
+                            </div>
+                            <div class="col-xs-4 pull-right">
+                                <span t-field="o.approved_by"/>                    
+                            </div>
+                        </div>
+                    </div> -->
+
+                </div>
+            </t> 
+        </template>
+
+        <template id="report_job_material_request_form">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="asiaglobal.report_job_material_request_form_document" t-lang="o.customer_id.lang"/>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

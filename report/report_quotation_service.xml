@@ -75,7 +75,7 @@
                     <!-- Is there a discount on at least one line? -->
                     <!-- <t t-set="display_discount" t-value="any([l.discount for l in o.order_line])"/> -->
 
-                    <di class="row">
+                    <div class="row">
                         <table class="table table-bordered" style="font-size:14px">
                             <thead>
                                 <tr>
@@ -188,7 +188,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                    </di>
+                    </div>
 
                     <br/>
                     <br/>

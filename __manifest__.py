@@ -21,7 +21,7 @@
 
     # any module necessary for this one to work correctly
     'depends': ['base','crm','sale_management', 'purchase','hr', 'helpdesk', 'sales_team', 'r2d2',
-    'sale','sale_crm', 'mail', 'sale_subscription', 'product'],
+    'sale','sale_crm', 'mail', 'sale_subscription', 'product', 'stock'],
 
     # always loaded
     'data': [
@@ -48,10 +48,12 @@
         'views/job_order_views.xml',
         'views/helpdesk_ticket_views.xml',
         'views/service_report_views.xml',
+        'views/job_material_request_form_view.xml',
         'views/service_menu.xml',
         'report/report_quotation_service.xml',
         'report/service_report.xml',
         'report/report_job_order.xml',
+        'report/report_job_material_request_form.xml',
         'report/report.xml',
         'wizard/maintenance_jo_views.xml',
 

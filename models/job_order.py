@@ -66,6 +66,7 @@ class AsiaGlobalJobOrder(models.Model):
 	operational_message = fields.Char(string='Equipment Status', track_visibility='onchange')
 
 	timesheet_ids = fields.One2many('asiaglobal.service_timesheet', 'jo_id')
+	job_material_request_ids = fields.One2many('asiaglobal.job_material_request_form', 'jo_id', string="Job / Material Request")
 
 	@api.onchange('operational')
 	def set_operational_message(self):

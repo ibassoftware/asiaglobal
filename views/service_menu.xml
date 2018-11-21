@@ -25,11 +25,17 @@
 			action="asiaglobal.service_service_report_action"
 			sequence="3"/>
 
+		<!-- <menuitem id="menu_job_material_request_form"
+			name="Job / Material Request Form"
+			parent="asiaglobal.service_menu_root"
+			action="asiaglobal.job_material_request_form_action"
+			sequence="4"/> -->
+
 		<menuitem id="menu_service_reporting"
 			name="Reporting"
 			parent="asiaglobal.service_menu_root"
 			groups="asiaglobal.group_service_manager"
-			sequence="4"/>
+			sequence="5"/>
 
 		<menuitem id="menu_timesheet_report"
 			name="Timesheets"
@@ -96,5 +102,12 @@
 			parent="asiaglobal.menu_service_config"
 			action="asiaglobal.service_timesheet_activity_type_action"
 			sequence="10"/>
+
+		<!-- STOCK -->
+		<menuitem id="menu_job_material_request_form"
+			name="Job / Material Request Form"
+			parent="stock.menu_stock_warehouse_mgmt"
+			action="asiaglobal.job_material_request_form_action"
+			sequence="20"/>
 
 </odoo>

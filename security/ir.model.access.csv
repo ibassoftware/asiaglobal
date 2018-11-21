@@ -8,3 +8,5 @@ asiaglobal.access_service_timesheet_user,access.service.timesheet.user,asiagloba
 asiaglobal.access_service_timesheet_manager,access.service.timesheet.manager,asiaglobal.model_asiaglobal_service_timesheet,asiaglobal.group_service_manager,1,1,1,1
 asiaglobal.access_service_report_user,access.service.report.user,asiaglobal.model_asiaglobal_service_report,asiaglobal.group_service_user,1,1,1,1
 asiaglobal.access_service_report_manager,access.service.report.manager,asiaglobal.model_asiaglobal_service_report,asiaglobal.group_service_manager,1,1,1,1
+asiaglobal.access_job_material_request_form_user,access.job.material.request.form.user,asiaglobal.model_asiaglobal_job_material_request_form,asiaglobal.group_service_user,1,1,1,1
+asiaglobal.access_job_material_request_form_line_user,access.job.material.request.form.line.user,asiaglobal.model_asiaglobal_job_material_request_form_line,asiaglobal.group_service_user,1,1,1,1

@@ -39,5 +39,17 @@
             menu="True"
         />
 
+        <report 
+            id="job_material_request_form"
+            model="asiaglobal.job_material_request_form"
+            string="Job / Material Request Form"
+            report_type="qweb-pdf"
+            name="asiaglobal.report_job_material_request_form"
+            file="asiaglobal.report_job_material_request_form"
+            menu="True"
+            paperformat="asiaglobal.paperformat_report_job_material_request_custom"
+            
+        />
+
     </data>
 </odoo>

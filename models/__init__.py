@@ -14,3 +14,4 @@ from . import helpdesk_ticket
 from . import sale_order
 from . import service_report
 from . import job_expense
+from . import job_material_request_form

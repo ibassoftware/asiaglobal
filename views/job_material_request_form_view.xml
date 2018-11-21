@@ -1,0 +1,125 @@
+<odoo>
+  <data>
+
+    <!-- START JOB ORDER -->
+    <record model="ir.ui.view" id="view_job_material_request_form_new">
+      <field name="name">asiaglobal.job.material.request.form.new</field>
+      <field name="model">asiaglobal.job_material_request_form</field>
+      <field name="arch" type="xml">
+        <form string="Job / Material Request Form">
+          <header/>
+          <sheet>
+
+            <div class="oe_title">
+              <label for="name"/>
+              <h1>
+                <field name="name" readonly="1"/>
+              </h1>
+            </div>
+
+            <group>
+              <group>
+                <field name="date"/>
+                <field name="customer_id" domain="[('customer','=',True)]" context="{'search_default_customer':1}" options='{"always_reload": True}'/>
+                <field name="location_id" context="{'default_type':'delivery', 'show_address': 1}" options='{"always_reload": True}'/>
+                <field name="equipment_id" domain="[('customer','=',customer_id)]"/>
+                <field name="model"/>
+                <field name="serial_number"/>
+              </group>
+              <group>
+                <field name="jo_id"/>
+                <field name="is_warranty"/>
+                <field name="is_rental"/>
+                <field name="hour_meter"/>
+                <field name="is_operational"/>
+                <field name="is_not_operational"/>
+                <field name="is_urgent"/>
+              </group>
+            </group>
+
+            <notebook>
+              <page string="Details">
+                <field name="line_ids">
+                  <tree editable="bottom">
+                    <field name="product_id"/>
+                    <field name="description"/>
+                    <field name="part_number"/>
+                    <field name="qty"/>
+                    <field name="item_code"/>
+                  </tree>
+                </field>
+                <!-- <field name="remarks" class="oe_inline"/>
+                <div class="oe_clear"/> -->
+              </page>
+              <!-- <page string="Other Info">
+                <group>
+                  <group>
+                    <field name="request_by"/>
+                    <field name="noted_by"/>
+                    <field name="approved_by"/>
+                  </group>
+                </group>
+              </page> -->
+              
+            </notebook>
+          </sheet>
+
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="activity_ids" widget="mail_activity"/>
+            <field name="message_ids" widget="mail_thread"/>
+          </div>
+
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_job_material_request_form_tree">
+      <field name="name">asiaglobal.job.material.request.tree</field>
+      <field name="model">asiaglobal.job_material_request_form</field>
+      <field name="arch" type="xml">
+        <tree string="Job / Material Request Form">
+          <field name="name" />
+          <field name="date" />
+          <field name="customer_id"/>
+          <field name="jo_id"/>
+          <field name="equipment_id"/>
+          <field name="model"/>
+          <field name="serial_number"/>
+          <field name="hour_meter"/>
+          <field name="serial_number"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="view_job_material_request_form_search" model="ir.ui.view">
+      <field name="name">asiaglobal.job.material.request.search</field>
+      <field name="model">asiaglobal.job_material_request_form</field>
+      <field name="priority" eval="8" />
+      <field name="arch" type="xml">
+        <search string="Job / Material Request">
+          <field name="name" />
+          <field name="customer_id" />
+          <field name="jo_id"/>
+          <field name="equipment_id" />
+          <field name="model"/>
+          <field name="serial_number"/>
+        </search>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="job_material_request_form_action">
+      <field name="name">Job / Material Request Form</field>
+      <field name="res_model">asiaglobal.job_material_request_form</field>
+      <field name="view_mode">tree,form</field>
+      <field name="search_view_id" ref="view_job_material_request_form_search" />
+      <field name="help" type="html">
+        <p>
+          Create a job / material request form.
+        </p>
+      </field>
+    </record>
+    <!-- END JOB ORDER -->
+
+  </data>
+</odoo>

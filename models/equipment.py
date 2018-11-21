@@ -63,6 +63,14 @@ class AsiaGlobalEquipmentProfile(models.Model):
 						parts_fitted.append(parts.id)
 		self.parts_fitted = parts_fitted
 
+	@api.one
+	def _compute_job_material_request(self):
+		job_material_request = []
+		for job in self.jo_ids:
+			for request in job.job_material_request_ids:
+				job_material_request.append(request.id)
+		self.job_material_request_ids = job_material_request
+
 	name = fields.Char(string='Equipment Profile', store=True, compute="_compute_name")
 	customer = fields.Many2one('res.partner', ondelete='cascade', required=True, track_visibility='onchange')
 	ship_to = fields.Many2one('res.partner', string='Ship To / Site Address')
@@ -141,6 +149,8 @@ class AsiaGlobalEquipmentProfile(models.Model):
 
 	job_expense_ids = fields.One2many('asiaglobal.job_expense', 'equipment_id', string='Job Expense')
 	amount_expense_total = fields.Float(string='Total Other Repair Costs', store=True, readonly=True, compute='_amount_all', track_visibility='always')
+
+	job_material_request_ids = fields.Many2many('asiaglobal.job_material_request_form', string='Job Material Request Form', compute='_compute_job_material_request')
 
 	@api.multi
 	@api.onchange('customer')

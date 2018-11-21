@@ -60,6 +60,9 @@
               <page string="Service Reports">
                 <field name="service_report_ids"/>
               </page>
+              <page string="Job / Material Request Form">
+                <field name="job_material_request_ids"/>
+              </page>
               <page string="Timesheets">
                 <field name="timesheet_ids">
                   <tree editable="bottom" string="Timesheet Activities" default_order="date">
