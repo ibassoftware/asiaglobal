@@ -51,5 +51,17 @@
             
         />
 
+        <report 
+            id="agt_account_invoice"
+            model="account.invoice"
+            string="Invoices"
+            report_type="qweb-html"
+            name="asiaglobal.agt_report_account_invoice"
+            file="asiaglobal.agt_report_account_invoice"
+            menu="True"
+            paperformat="asiaglobal.paperformat_report_agt_account_invoice"
+            
+        />
+
     </data>
 </odoo>
