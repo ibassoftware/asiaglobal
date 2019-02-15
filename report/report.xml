@@ -55,7 +55,7 @@
             id="agt_account_invoice"
             model="account.invoice"
             string="Invoices"
-            report_type="qweb-html"
+            report_type="qweb-pdf"
             name="asiaglobal.agt_report_account_invoice"
             file="asiaglobal.agt_report_account_invoice"
             menu="True"
