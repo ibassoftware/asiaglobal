@@ -4,8 +4,8 @@
         <template id="agt_report_account_invoice_document">
             <t t-call="asiaglobal.external_layout_agt_account_invoice">
                 <t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})" />
-                <div class="page" t-attf-style="background-image:url('/asiaglobal/static/src/img/bill.PNG');  no-repeat; background-size: cover;">
-                <!-- <div class="page"> -->
+                <!-- <div class="page" t-attf-style="background-image:url('/asiaglobal/static/src/img/bill.PNG');  no-repeat; background-size: cover;"> -->
+                <div class="page">
                 	<br/>
                     <br/>
                     <br/>
