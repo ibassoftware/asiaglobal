@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','crm','sale_management', 'purchase','hr', 'helpdesk', 'sales_team', 'r2d2',
+    'depends': ['base','crm','sale_management', 'purchase','hr', 'helpdesk', 'sales_team', 'r2d2', 'account_reports',
     'sale','sale_crm', 'mail', 'sale_subscription', 'product', 'stock'],
 
     # always loaded
@@ -35,9 +35,9 @@
         'views/views.xml',
         'views/templates.xml',
         'views/data.xml',
-        # 'views/crm.xml',
-        # 'views/crmsalesteamdata.xml',
-        # 'views/rentals.xml',
+        'views/crm.xml',
+        'views/crmsalesteamdata.xml',
+        'views/rentals.xml',
         'views/productcategories.xml',
         'views/layout_templates.xml',
         'views/manufacturer_views.xml',
