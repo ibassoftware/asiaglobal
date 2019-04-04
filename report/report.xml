@@ -63,5 +63,18 @@
             
         />
 
+         <report 
+            id="job_order_stp"
+            model="asiaglobal.job_order"
+            string="Job Order STP"
+            report_type="qweb-pdf"
+            name="asiaglobal.report_job_order_stp"
+            file="asiaglobal.report_job_order_stp"
+            attachment_use="False"
+            attachment="('Job Order '+(object.name or '').replace('/','')+'.pdf')"
+            menu="True"
+            paperformat="asiaglobal.paperformat_report_agt_job_order_stp"
+        />
+
     </data>
 </odoo>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_job_order_stp_document">
+            <t t-call="asiaglobal.external_layout_job_order_stp">
+                <t t-set="o" t-value="o.with_context({'lang':o.customer_id.lang})"/>
+                <div class="page">
+                <!-- <div class="page" style="font-size:18px">  -->
+                <!-- <div class="page" t-attf-style="background-image:url('/asiaglobal/static/img/jostp.JPG');  no-repeat; background-size: cover;"> -->
+
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    
+                    <table class="list_table" style="border:none;font-size:12px" width="50%">
+                        <tr>
+                            <td class="noborder" width="15%">
+                            </td>
+                            <td class="noborder" valign="top" width="35%">
+                                <span t-field="o.customer_id.name"/> <br/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="noborder" width="15%">
+                            </td>
+                            <td class="noborder" valign="top" width="35%">
+                                <!-- <span t-field="o.ship_to" t-options='{"widget": "contact", "fields": ["address"], "no_marker": True, "phone_icons": False}'/> <br/>  -->
+                                <span t-field="o.ship_to.street"/> <br/>
+                                 <span t-field="o.ship_to.street2"/> <span t-field="o.ship_to.city"/> <span t-field="o.ship_to.country_id.name"/>
+                            </td>                           
+                        </tr>
+
+                        <tr>
+                            <td class="noborder" width="15%">
+                            </td>
+                            <td class="noborder" valign="top" width="35%">
+                                <br/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="noborder" width="15%">
+                            </td>
+                            <td class="noborder" valign="top" width="35%">
+                                <span t-field="o.model.name"/> <br/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="noborder" width="15%">
+                            </td>
+                            <td class="noborder" valign="top" width="35%">
+                               <span t-field="o.serial_number"/> <br/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="noborder" width="15%">
+                            </td>
+                            <td class="noborder" valign="top" width="35%">
+                                <br/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="noborder" width="15%">
+                            </td>
+                            <td class="noborder" width="35%">
+                                <span t-field="o.scheduled_date"/> <br/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="noborder" width="15%">
+                            </td>
+                            <td class="noborder" width="35%">
+                                <span t-field="o.technician_id.name"/> <br/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="noborder" width="15%">
+                            </td>
+                            <td class="noborder" width="35%">
+                                <span t-field="o.job_type"/> <br/>
+                            </td>
+                        </tr>
+
+
+                    </table>
+
+                    <br/>
+                    <br/>
+
+                    <div style="font-size:12px">
+                        <p t-field="o.initial_complaint"/>
+                    </div>
+
+                    <br/>
+                    <br/>
+                    <br/>
+
+                    <span style="font-size:12px" t-field="o.create_uid.name"/>
+
+
+
+                </div>
+            </t> 
+        </template>
+
+        <template id="report_job_order_stp">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="asiaglobal.report_job_order_stp_document" t-lang="o.customer_id.lang"/>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>
