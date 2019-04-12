@@ -10,8 +10,6 @@
 
                     <br/>
                     <br/>
-                    <br/>
-                    <br/>
                     
                     <table class="list_table" style="border:none;font-size:12px" width="50%">
                         <tr>
@@ -39,6 +37,13 @@
                                 <br/>
                             </td>
                         </tr>
+                        <tr>
+                            <td class="noborder" width="15%">
+                            </td>
+                            <td class="noborder" valign="top" width="35%">
+                                <br/>
+                            </td>
+                        </tr>
 
                         <tr>
                             <td class="noborder" width="15%">
@@ -53,6 +58,14 @@
                             </td>
                             <td class="noborder" valign="top" width="35%">
                                <span t-field="o.serial_number"/> <br/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="noborder" width="15%">
+                            </td>
+                            <td class="noborder" valign="top" width="35%">
+                                <br/>
                             </td>
                         </tr>
 
@@ -93,18 +106,21 @@
 
                     <br/>
                     <br/>
+                    <br/>
+                    <br/>
 
-                    <div style="font-size:12px">
+                    <div style="font-size:12px; padding-left: 50px;">
                         <p t-field="o.initial_complaint"/>
                     </div>
 
                     <br/>
                     <br/>
                     <br/>
-
-                    <span style="font-size:12px" t-field="o.create_uid.name"/>
-
-
+                    <br/>
+                    <br/>
+                    <div style=" font-size:12px; padding-left: 50px;">
+                        <p t-field="o.create_uid.name"/>
+                    </div>
 
                 </div>
             </t> 
