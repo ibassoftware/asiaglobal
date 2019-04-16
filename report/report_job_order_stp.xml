@@ -88,14 +88,6 @@
                         <tr>
                             <td class="noborder" width="15%">
                             </td>
-                            <td class="noborder" valign="top" width="35%">
-                                <br/>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="noborder" width="15%">
-                            </td>
                             <td class="noborder" width="35%">
                                 <span t-field="o.scheduled_date"/> <br/>
                             </td>
@@ -105,6 +97,7 @@
                             <td class="noborder" width="15%">
                             </td>
                             <td class="noborder" width="35%">
+                                <br/>
                                 <span t-field="o.technician_id.name"/> <br/>
                             </td>
                         </tr>
@@ -120,6 +113,7 @@
 
                     </table>
 
+                    <br/>
                     <br/>
                     <br/>
                     <br/>
