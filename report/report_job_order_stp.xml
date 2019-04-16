@@ -88,6 +88,14 @@
                         <tr>
                             <td class="noborder" width="15%">
                             </td>
+                            <td class="noborder" valign="top" width="35%">
+                                <br/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="noborder" width="15%">
+                            </td>
                             <td class="noborder" width="35%">
                                 <span t-field="o.scheduled_date"/> <br/>
                             </td>
@@ -115,13 +123,11 @@
                     <br/>
                     <br/>
                     <br/>
-                    <br/>
 
                     <div style="font-size:12px; padding-left: 25px;">
                         <p t-field="o.initial_complaint"/>
                     </div>
 
-                    <br/>
                     <br/>
                     <br/>
                     <br/>
