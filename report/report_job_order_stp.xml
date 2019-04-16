@@ -24,6 +24,14 @@
                             <td class="noborder" width="15%">
                             </td>
                             <td class="noborder" valign="top" width="35%">
+                                <br/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="noborder" width="15%">
+                            </td>
+                            <td class="noborder" valign="top" width="35%">
                                 <!-- <span t-field="o.ship_to" t-options='{"widget": "contact", "fields": ["address"], "no_marker": True, "phone_icons": False}'/> <br/>  -->
                                 <span t-field="o.ship_to.street"/> <br/>
                                  <span t-field="o.ship_to.street2"/> <span t-field="o.ship_to.city"/> <span t-field="o.ship_to.country_id.name"/>
@@ -50,6 +58,14 @@
                             </td>
                             <td class="noborder" valign="top" width="35%">
                                 <span t-field="o.model.name"/> <br/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="noborder" width="15%">
+                            </td>
+                            <td class="noborder" valign="top" width="35%">
+                                <br/>
                             </td>
                         </tr>
 
@@ -88,8 +104,24 @@
                         <tr>
                             <td class="noborder" width="15%">
                             </td>
+                            <td class="noborder" valign="top" width="35%">
+                                <br/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="noborder" width="15%">
+                            </td>
                             <td class="noborder" width="35%">
                                 <span t-field="o.technician_id.name"/> <br/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="noborder" width="15%">
+                            </td>
+                            <td class="noborder" valign="top" width="35%">
+                                <br/>
                             </td>
                         </tr>
 
@@ -109,7 +141,7 @@
                     <br/>
                     <br/>
 
-                    <div style="font-size:12px; padding-left: 50px;">
+                    <div style="font-size:12px; padding-left: 25px;">
                         <p t-field="o.initial_complaint"/>
                     </div>
 
@@ -118,7 +150,7 @@
                     <br/>
                     <br/>
                     <br/>
-                    <div style=" font-size:12px; padding-left: 50px;">
+                    <div style=" font-size:12px; padding-left: 25px;">
                         <p t-field="o.create_uid.name"/>
                     </div>
 
