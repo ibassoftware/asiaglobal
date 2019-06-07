@@ -7,7 +7,7 @@
                     <t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})" />
                     <div class="page">
                         <br/>
-                        <table class="list_table" style="border:none;font-size:12px" width="100%">
+                        <table class="list_table" style="border:none;font-size:14px" width="100%">
                             <tr>
                                 <td class="noborder" valign="top" width="46%" style="border-style:solid;border-color:#808080;border-width:1px 1px 0px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;" >
                                     <b>Vendor</b>
@@ -74,7 +74,7 @@
                             </tr>
                         </table>
 
-                        <table class="table table-condensed" style="font-size: 12px">
+                        <table class="table table-condensed" style="font-size: 14px">
                             <thead>
                                 <tr style="border-top:1px solid #000000;">
                                     <th style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"><strong>Item Code</strong></th>
@@ -134,7 +134,7 @@
                                     </t>
                                 </t>
                                 <tr>
-                                    <td colspan="4" style="border-style:solid;border-color:#808080;border-width:1px 1px 0px 1px;font-size:12px;">
+                                    <td colspan="4" style="border-style:solid;border-color:#808080;border-width:1px 1px 0px 1px;font-size:14px;">
                                         <span t-field="o.notes"/>
                                     </td>
                                     <td width="10%" style="border-style:solid;border-color:#808080;border-width:1px 1px 0px 1px;font-size:14px;">
@@ -144,9 +144,9 @@
                                         <b><i><span t-field="o.amount_total" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/></i></b>
                                     </td>
                                 </tr>
-                                <tr style="font-size:12px;">
+                                <tr style="font-size:14px;">
                                     <td colspan="6" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;">
-                                        <table class="list_table" style="border:none;font-size:12px" width="100%">
+                                        <table class="list_table" style="border:none;font-size:14px" width="100%">
                                             <tr>
                                                 <td width="25%" class="noborder" style="padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
                                                     <center>
@@ -166,7 +166,7 @@
                                                 <td width="25%" class="noborder" style="padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
                                                     <center>
                                                         <b>Approver 2:</b><br/>
-                                                        _________________________
+                                                        _________________________<br/>
                                                         J. Malijan <br/>
                                                         AVP - Finance &amp; Admin
                                                     </center>
@@ -174,7 +174,7 @@
                                                 <td width="25%" class="noborder" style="padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
                                                     <center>
                                                         <b>Noted By:</b><br/>
-                                                        _________________________
+                                                        _________________________<br/>
                                                         A. RAMOS <br/>
                                                         President
                                                     </center>
