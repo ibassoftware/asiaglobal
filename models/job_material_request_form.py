@@ -6,11 +6,11 @@ class JobMaterialRequestForm(models.Model):
 	_inherit = ['mail.thread', 'mail.activity.mixin']
 
 	name = fields.Char(string='Reference', required=True, copy=False, index=True, default=lambda self: _('New'))
-	date = fields.Date(default=fields.Datetime.now())
-	jo_id = fields.Many2one('asiaglobal.job_order', string='Job Order')
-	customer_id = fields.Many2one('res.partner', string='Customer')
-	location_id = fields.Many2one('res.partner', string='Location')
-	equipment_id = fields.Many2one('asiaglobal.equipment_profile')
+	date = fields.Date(default=fields.Datetime.now(), required=True)
+	jo_id = fields.Many2one('asiaglobal.job_order', string='Job Order', required=True)
+	customer_id = fields.Many2one('res.partner', string='Customer', required=True)
+	location_id = fields.Many2one('res.partner', string='Location', required=True)
+	equipment_id = fields.Many2one('asiaglobal.equipment_profile', required=True)
 	model = fields.Many2one('asiaglobal.manufacturer_model')
 	serial_number = fields.Char()
 	hour_meter = fields.Float()
@@ -80,10 +80,10 @@ class JobMaterialRequestFormLine(models.Model):
 	_description = 'Job / Material Request Form Line'
 
 	jmrf_id = fields.Many2one('asiaglobal.job_material_request_form', string='Job Material FRequest Form')
-	product_id = fields.Many2one('product.product', string='Product')
+	product_id = fields.Many2one('product.product', string='Product', required=True)
 	description = fields.Char()
 	part_number = fields.Char()
-	qty = fields.Float()
+	qty = fields.Float(required=True)
 	item_code = fields.Char()
 
 	@api.onchange('product_id')

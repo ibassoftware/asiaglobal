@@ -64,7 +64,8 @@
                     <div class="row">
                         <div class="col-xs-5 col-xs-offset-3">
                             <!-- <p> <span t-field="o.location_id" t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True, "phone_icons": False}'/> </p> -->
-                            <p> <span t-field="o.location_id.contact_address"/> </p>
+                            <!-- <p> <span t-field="o.location_id.contact_address"/> </p> -->
+                            <span t-field="o.location_id.street"/> <span t-field="o.location_id.street2"/> <span t-field="o.location_id.city"/> <span t-field="o.location_id.country_id.name"/>
                         </div>
                         <div class="col-xs-4">
                             <p/>
@@ -117,7 +118,6 @@
                     </div>
 
                     <br/>
-                    <br/>
 
                     <div class="row">
                         <table class="table table-condensed" style="font-size:14px">
@@ -131,40 +131,76 @@
                                 </tr>
                             </thead>
                             <tbody class="invoice_tbody">
+                                <t t-set="line_count" t-value="0"/>
                                 <t t-foreach="o.line_ids" t-as="l">
+                                    <t t-set="line_count" t-value="line_count + 1"/>
                                     <tr>
-                                        <td width="10%" class="text-center"></td>
-                                        <td width="30%" class="text-center"><span t-field="l.description"/></td>
-                                        <td width="30%" class="text-center"><span t-field="l.part_number"/></td>
-                                        <td width="10%" class="text-center"><span t-field="l.qty"/></td>
-                                        <td width="20%" class="text-center"><span t-field="l.item_code"/></td>
+                                        <td width="10%" class="text-center" style="border-top: 0px;"></td>
+                                        <td width="30%" class="text-center" style="border-top: 0px;"><span t-field="l.description"/></td>
+                                        <td width="30%" class="text-center" style="border-top: 0px;"><span t-field="l.part_number"/></td>
+                                        <td width="10%" class="text-center" style="border-top: 0px;"><span t-field="l.qty"/></td>
+                                        <td width="20%" class="text-center" style="border-top: 0px;"><span t-field="l.item_code"/></td>
                                     </tr>
+                                </t>
+                                <t t-set="break_count" t-value="15 - line_count"/>
+                                <t t-if="break_count > 0">
+                                    <t t-foreach="break_count" t-as="break">
+                                        <tr>
+                                            <td width="10%" style="border-top: 0px;">
+                                                <br/>
+                                            </td>
+                                            <td width="30%" style="border-top: 0px;">
+                                                <br/>
+                                            </td>
+                                            <td width="30%" style="border-top: 0px;">
+                                                <br/>
+                                            </td>
+                                            <td width="10%" style="border-top: 0px;">
+                                                <br/>
+                                            </td>
+                                            <td width="20%" style="border-top: 0px;">
+                                                <br/>
+                                            </td>
+                                        </tr>
+                                    </t>
                                 </t>
                             </tbody>
                         </table>
                     </div>
 
-                    <!-- <div style="position: absolute; top: 600; width: 100%; font-size: 12px;">
-                        <div class="row">
-                            <div class="col-xs-9 col-xs-offset-3">
-                                <p><span t-field="o.remarks"/></p>
-                            </div>
+                    <br/>
+
+                    <div class="row" style="font-size:12px;">
+                        <div class="col-xs-9 col-xs-offset-3">
+                            <p><span t-field="o.remarks"/></p>
                         </div>
                     </div>
 
-                    <div style="position: absolute; top: 700; width: 100%; font-size: 12px;">
-                        <div class="row">
-                            <div class="col-xs-4">
-                                <span t-field="o.request_by"/>    
-                            </div>
-                            <div class="col-xs-4">
-                                <span t-field="o.noted_by"/>                    
-                            </div>
-                            <div class="col-xs-4 pull-right">
-                                <span t-field="o.approved_by"/>                    
-                            </div>
+                    <br/>
+                    <br/>
+
+                    <div class="row text-center" style="font-size:14px;">
+                        <div class="col-xs-4">
+                            <!-- <span t-field="o.request_by"/> -->
+                            <span t-field="o.create_uid.name"/>
                         </div>
-                    </div> -->
+                        <div class="col-xs-4">
+                            <!-- <span t-field="o.noted_by"/> -->
+                            <t t-if="o.jo_id.type == 'weqd'">
+                                <span>Jonas M. Conopio</span>
+                            </t>
+                            <t t-elif="o.jo_id.type == 'heqd'">
+                                <span>Arturo V. Darjuan</span>
+                            </t>
+                            <t t-elif="o.jo_id.type == 'rental'">
+                                <span>Manuel H. Valera Jr.</span>
+                            </t>
+                        </div>
+                        <div class="col-xs-4 pull-right">
+                            <!-- <span t-field="o.approved_by"/>-->
+                            <span>Joanne Malijan / Alexis Ramos</span>
+                        </div>
+                    </div>
 
                 </div>
             </t> 

@@ -215,7 +215,136 @@
             </div>
 
         </template>
-        <!-- END JOB ORDER SHOOT TOPRINT -->
+        <!-- END JOB ORDER SHOOT TO PRINT -->
+
+        <!-- START PURCHASE QUOTATION -->
+        <template id="external_layout_purchase_quotation_asiaglobal">
+            <t t-if="not o and doc">
+                <t t-set="o" t-value="doc"/>
+            </t>
+
+            <t t-if="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id.sudo()"/>
+            </t>
+
+            <t t-if="not o or not 'company_id' in o">
+                <t t-set="company" t-value="res_company"/>
+            </t>
+
+            <t t-call="asiaglobal.external_layout_purchase_quotation_asiaglobal_custom"><t t-raw="0"/></t>
+        </template>
+
+        <template id="external_layout_purchase_quotation_asiaglobal_custom">
+            <!-- <div t-attf-style="background-image:url('/chocovron/static/img/DR2.jpg');  no-repeat; background-size: cover;"> -->
+            <div class="header">
+                <table class="list_table" style="border:none;font-size:12px" width="100%">
+                    <tr>
+                        <td class="noborder" valign="top" width="46%">
+                            <img t-if="o.company_id.logo" t-att-src="'data:image/png;base64,%s' % to_text(o.company_id.logo)" width="200" height="60"/><br/>
+                            <!-- <strong style="font-size:20px;" t-field="o.company_id.partner_id.name"/><br/> -->
+                            <span t-field="o.company_id.partner_id.street"/>, <span t-field="o.company_id.partner_id.street2"/>, <span t-field="o.company_id.partner_id.city"/>, <span t-field="o.company_id.partner_id.state_id.name"/>, <span t-field="o.company_id.partner_id.country_id.name"/>
+                        </td>
+                        <td class="noborder" width="8%">
+                        </td>
+                        <td class="noborder" width="46%" align="right" style="vertical-align: top;">
+                            <br/>
+                            <h3>
+                                <span>Request For Quotation</span>
+                            </h3>
+                            <table width="50%">
+                                <tr>
+                                    <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">Date</td>
+                                    <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">P.O. No.</td>
+                                </tr>
+                                <tr>
+                                    <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;"><span t-field="o.date_order" t-options='{"format": "yyyy-MM-dd"}'/></td>
+                                    <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;"><span t-field="o.name"/></td>
+                                </tr>
+                            </table>
+
+
+                        </td>
+                    </tr>
+                </table>
+               
+            </div>
+
+            <div class="article o_report_layout_standard">
+                <t t-raw="0" />
+            </div>
+
+            <div class="footer">
+                
+            </div>
+        <!-- </div> -->
+        </template>
+        <!-- END PURCHASE QUOTATION -->
+
+        <!-- START PURCHASE -->
+        <template id="external_layout_purchase_asiaglobal">
+            <t t-if="not o and doc">
+                <t t-set="o" t-value="doc"/>
+            </t>
+
+            <t t-if="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id.sudo()"/>
+            </t>
+
+            <t t-if="not o or not 'company_id' in o">
+                <t t-set="company" t-value="res_company"/>
+            </t>
+
+            <t t-call="asiaglobal.external_layout_purchase_asiaglobal_custom"><t t-raw="0"/></t>
+        </template>
+
+        <template id="external_layout_purchase_asiaglobal_custom">
+            <!-- <div t-attf-style="background-image:url('/chocovron/static/img/DR2.jpg');  no-repeat; background-size: cover;"> -->
+            <div class="header">
+                <table class="list_table" style="border:none;font-size:12px" width="100%">
+                    <tr>
+                        <td class="noborder" valign="top" width="46%">
+                            <img t-if="o.company_id.logo" t-att-src="'data:image/png;base64,%s' % to_text(o.company_id.logo)" width="200" height="60"/><br/>
+                            <!-- <strong style="font-size:20px;" t-field="o.company_id.partner_id.name"/><br/> -->
+                            <span t-field="o.company_id.partner_id.street"/>, <span t-field="o.company_id.partner_id.street2"/>, <span t-field="o.company_id.partner_id.city"/>, <span t-field="o.company_id.partner_id.state_id.name"/>, <span t-field="o.company_id.partner_id.country_id.name"/>
+                        </td>
+                        <td class="noborder" width="8%">
+                        </td>
+                        <td class="noborder" width="46%" align="right" style="vertical-align: top;">
+                            <br/>
+                            <h3 t-if="o.state != 'draft'">
+                                <span>Purchase Order</span>
+                            </h3>
+                            <h3 t-if="o.state == 'draft'">
+                                <span>Request For Quotation</span>
+                            </h3>
+                            <table width="50%">
+                                <tr>
+                                    <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">Date</td>
+                                    <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">P.O. No.</td>
+                                </tr>
+                                <tr>
+                                    <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;"><span t-field="o.date_order" t-options='{"format": "yyyy-MM-dd"}'/></td>
+                                    <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;"><span t-field="o.name"/></td>
+                                </tr>
+                            </table>
+
+
+                        </td>
+                    </tr>
+                </table>
+               
+            </div>
+
+            <div class="article o_report_layout_standard">
+                <t t-raw="0" />
+            </div>
+
+            <div class="footer">
+                
+            </div>
+        <!-- </div> -->
+        </template>
+        <!-- END PURCHASE -->
 
     </data>
 </odoo>

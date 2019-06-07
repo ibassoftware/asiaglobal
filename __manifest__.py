@@ -56,6 +56,8 @@
         'report/report_job_material_request_form.xml',
         'report/report_invoice.xml',
         'report/report_job_order_stp.xml',
+        'report/report_purchasequotation.xml',
+        'report/report_purchaseorder.xml',
         'report/report.xml',
         'wizard/maintenance_jo_views.xml',
 
