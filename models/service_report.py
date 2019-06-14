@@ -7,7 +7,7 @@ class AsiaGlobalServiceReportComplaints(models.Model):
 	_name = 'asiaglobal.service_report_complaints'
 
 	service_report = fields.Many2one('asiaglobal.service_report')
-	customer_complaint = fields.Text(string='Customer Complaint/s')
+	name = fields.Text(string='Customer Complaint/s', required=True, oldname='customer_complaint')
 	cause = fields.Text()
 
 class AsiaGlobalServiceReportParts(models.Model):

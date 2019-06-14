@@ -178,6 +178,11 @@
 
                     <br/>
                     <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
 
                     <div class="row text-center" style="font-size:14px;">
                         <div class="col-xs-4">
@@ -196,7 +201,7 @@
                                 <span>Manuel H. Valera Jr.</span>
                             </t>
                         </div>
-                        <div class="col-xs-4 pull-right">
+                        <div class="col-xs-4 text-center">
                             <!-- <span t-field="o.approved_by"/>-->
                             <span>Joanne Malijan / Alexis Ramos</span>
                         </div>

@@ -42,7 +42,7 @@
                 <group >
                   <field name="customer_complaints">
                     <tree editable="bottom">
-                        <field name="customer_complaint"/>
+                        <field name="name"/>
                         <field name="cause"/>
                     </tree>
                   </field>
@@ -122,6 +122,7 @@
           <field name="jo_id"/>
           <field name="serial_number"/>
           <field name="visit_date"/>
+          <field name="customer_complaints" widget="many2many_tags"/>
         </tree>
       </field>
     </record>

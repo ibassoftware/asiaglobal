@@ -48,8 +48,8 @@
                     <field name="item_code"/>
                   </tree>
                 </field>
-                <!-- <field name="remarks" class="oe_inline"/>
-                <div class="oe_clear"/> -->
+                <field name="remarks" class="oe_inline" placeholder="Add remarks here..."/>
+                <div class="oe_clear"/>
               </page>
               <!-- <page string="Other Info">
                 <group>
