@@ -168,13 +168,19 @@
                         </table>
                     </div>
 
-                    <br/>
-
-                    <div class="row" style="font-size:12px;">
+                    <div style="position: absolute; top: 900px; width: 100%; font-size: 12px;">
                         <div class="col-xs-9 col-xs-offset-3">
                             <p><span t-field="o.remarks"/></p>
                         </div>
                     </div>
+
+                    
+
+                    <!-- <div class="row" style="font-size:12px;">
+                        <div class="col-xs-9 col-xs-offset-3">
+                            <p><span t-field="o.remarks"/></p>
+                        </div>
+                    </div> -->
 
                     <!-- <br/>
                     <br/>
