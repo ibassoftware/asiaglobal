@@ -176,20 +176,18 @@
                         </div>
                     </div>
 
+                    <!-- <br/>
                     <br/>
                     <br/>
                     <br/>
                     <br/>
-                    <br/>
-                    <br/>
+                    <br/> -->
 
-                    <div class="row text-center" style="font-size:14px;">
+                    <!-- <div class="row text-center" style="font-size:14px;">
                         <div class="col-xs-4">
-                            <!-- <span t-field="o.request_by"/> -->
                             <span t-field="o.create_uid.name"/>
                         </div>
                         <div class="col-xs-4">
-                            <!-- <span t-field="o.noted_by"/> -->
                             <t t-if="o.jo_id.type == 'weqd'">
                                 <span>Jonas M. Conopio</span>
                             </t>
@@ -201,10 +199,9 @@
                             </t>
                         </div>
                         <div class="col-xs-4 text-center">
-                            <!-- <span t-field="o.approved_by"/>-->
                             <span>Joanne Malijan / Alexis Ramos</span>
                         </div>
-                    </div>
+                    </div> -->
 
                 </div>
             </t> 

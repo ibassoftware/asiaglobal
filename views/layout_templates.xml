@@ -146,6 +146,27 @@
             <div class="article o_report_layout_standard">
                 <t t-raw="0" />
             </div>
+            <div class="footer">
+                <div class="row text-center" style="font-size:14px;">
+                    <div class="col-xs-4">
+                        <span t-field="o.create_uid.name"/>
+                    </div>
+                    <div class="col-xs-4">
+                        <t t-if="o.jo_id.type == 'weqd'">
+                            <span>Jonas M. Conopio</span>
+                        </t>
+                        <t t-elif="o.jo_id.type == 'heqd'">
+                            <span>Arturo V. Darjuan</span>
+                        </t>
+                        <t t-elif="o.jo_id.type == 'rental'">
+                            <span>Manuel H. Valera Jr.</span>
+                        </t>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                        <span>Joanne Malijan / Alexis Ramos</span>
+                    </div>
+                </div>
+            </div>
         </template>
         <!-- END JOB / MATERIAL REQUEST FORM -->
 
