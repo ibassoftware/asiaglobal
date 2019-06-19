@@ -168,7 +168,7 @@
                         </table>
                     </div>
 
-                    <div style="position: absolute; top: 1100px; width: 100%; font-size: 12px;">
+                    <div style="position: absolute; top: 1150px; width: 100%; font-size: 12px;">
                         <div class="col-xs-9 col-xs-offset-3">
                             <p><span t-field="o.remarks"/></p>
                         </div>
