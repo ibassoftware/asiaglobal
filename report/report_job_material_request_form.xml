@@ -23,7 +23,7 @@
                         <div class="col-xs-5 col-xs-offset-3">
                             <p><span t-field="o.date"/></p>
                         </div>
-                        <div class="col-xs-4">
+                        <div class="col-xs-4 text-center">
                             <p><span t-field="o.name"/></p>
                         </div>
                     </div>
