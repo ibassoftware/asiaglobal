@@ -118,6 +118,7 @@
                     </div>
 
                     <br/>
+                    <br/>
 
                     <div class="row">
                         <table class="table table-condensed" style="font-size:14px">
@@ -152,13 +153,13 @@
                                             <td width="30%" style="border-top: 0px;">
                                                 <br/>
                                             </td>
-                                            <td width="35%" style="border-top: 0px;">
+                                            <td width="32%" style="border-top: 0px;">
                                                 <br/>
                                             </td>
                                             <td width="8%" style="border-top: 0px;">
                                                 <br/>
                                             </td>
-                                            <td width="17%" style="border-top: 0px;">
+                                            <td width="20%" style="border-top: 0px;">
                                                 <br/>
                                             </td>
                                         </tr>
