@@ -19,7 +19,8 @@
 
             <group>
               <group>
-                <field name="date"/>
+                <field name="legacy_no"/>
+                <field name="jo_id"/>
                 <field name="customer_id" domain="[('customer','=',True)]" context="{'search_default_customer':1}" options='{"always_reload": True}'/>
                 <field name="location_id" context="{'default_type':'delivery', 'show_address': 1}" options='{"always_reload": True}'/>
                 <field name="equipment_id" domain="[('customer','=',customer_id)]"/>
@@ -27,7 +28,7 @@
                 <field name="serial_number"/>
               </group>
               <group>
-                <field name="jo_id"/>
+                <field name="date"/>
                 <field name="is_warranty"/>
                 <field name="is_rental"/>
                 <field name="hour_meter"/>

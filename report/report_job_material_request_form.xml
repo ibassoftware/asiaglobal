@@ -24,7 +24,7 @@
                             <p><span t-field="o.date"/></p>
                         </div>
                         <div class="col-xs-4 text-center">
-                            <p><span t-field="o.name"/></p>
+                            <p><span t-field="o.jo_id.name"/></p>
                         </div>
                     </div>
 

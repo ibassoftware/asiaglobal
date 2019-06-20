@@ -24,6 +24,7 @@ class JobMaterialRequestForm(models.Model):
 	request_by = fields.Many2one('res.users')
 	noted_by = fields.Many2one('res.users')
 	approved_by = fields.Many2one('res.users')
+	legacy_no = fields.Char(string="Legacy Number")
 
 	@api.onchange('jo_id')
 	def set_details(self):
