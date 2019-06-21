@@ -81,6 +81,7 @@
       <field name="arch" type="xml">
         <tree string="Job / Material Request Form">
           <field name="name" />
+          <field name="legacy_no" />
           <field name="date" />
           <field name="customer_id"/>
           <field name="jo_id"/>
