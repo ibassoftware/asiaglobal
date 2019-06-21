@@ -89,7 +89,6 @@
           <field name="model"/>
           <field name="serial_number"/>
           <field name="hour_meter"/>
-          <field name="serial_number"/>
         </tree>
       </field>
     </record>
