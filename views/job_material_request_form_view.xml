@@ -29,6 +29,7 @@
               </group>
               <group>
                 <field name="date"/>
+                <field name="gatepass_dr" />
                 <field name="is_warranty"/>
                 <field name="is_rental"/>
                 <field name="hour_meter"/>
@@ -88,7 +89,7 @@
           <field name="equipment_id"/>
           <field name="model"/>
           <field name="serial_number"/>
-          <field name="hour_meter"/>
+          <field name="gatepass_dr"/>
         </tree>
       </field>
     </record>
