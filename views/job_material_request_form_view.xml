@@ -86,7 +86,7 @@
           <field name="date" />
           <field name="customer_id"/>
           <field name="jo_id"/>
-          <field name="equipment_id"/>
+          <field name="remarks"/>
           <field name="model"/>
           <field name="serial_number"/>
           <field name="gatepass_dr"/>
