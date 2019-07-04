@@ -30,7 +30,7 @@
 
                     <br/>
 
-                    <div class="row">
+                    <div class="row" style="font-size:16px">
                         <div class="col-xs-5 col-xs-offset-3">
                             <p/>
                         </div>
@@ -122,7 +122,7 @@
                     <br/>
 
                     <div class="row">
-                        <table class="table table-condensed" style="font-size:14px">
+                        <table class="table table-condensed" style="font-size:16px">
                             <thead>
                                 <tr>
                                     <th></th>
@@ -170,7 +170,7 @@
                         </table>
                     </div>
 
-                    <div style="position: absolute; top: 1100px; width: 100%; font-size: 12px;">
+                    <div style="position: absolute; top: 1100px; width: 100%; font-size: 14px;">
                         <div class="col-xs-9 col-xs-offset-3">
                             <p><span t-field="o.remarks"/></p>
                         </div>
