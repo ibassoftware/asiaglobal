@@ -375,10 +375,10 @@
         <!-- <xpath expr="//button[@name='action_quotation_send'][1]" position="replace">
           <button name="action_quotation_send" string="Send by Email" type="object" states="sent,approved"/>
         </xpath> -->
-        <xpath expr="//button[@name='action_quotation_send'][1]" position="attributes">
+        <!-- <xpath expr="//button[@name='action_quotation_send'][1]" position="attributes">
           <attribute name="string">Send by Email</attribute>
           <attribute name="states">sent,approved</attribute>
-        </xpath>
+        </xpath> -->
 
         <xpath expr="//field[@name='payment_term_id']" position="replace"> 
           <!-- <field name="project_stage_id" options='{"no_open": True,"no_create": 1, "no_create_edit": 1}'/> -->
