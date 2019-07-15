@@ -99,7 +99,7 @@
                                         <span t-esc="int(float(line.product_qty))"/>
                                     </td>
                                     <td width="30%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
-                                        <span t-field="line.product_id.description_sale"/>
+                                        <span t-field="line.name"/>
                                     </td>
                                     <td width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
                                         <span t-field="line.price_unit" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>

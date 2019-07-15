@@ -372,8 +372,12 @@
           <button name="print_quotation" string="Print" type="object" states="sent,approved" class="o_sale_print"/>
         </xpath>
 
-        <xpath expr="//button[@name='action_quotation_send'][1]" position="replace">
+        <!-- <xpath expr="//button[@name='action_quotation_send'][1]" position="replace">
           <button name="action_quotation_send" string="Send by Email" type="object" states="sent,approved"/>
+        </xpath> -->
+        <xpath expr="//button[@name='action_quotation_send'][1]" position="attributes">
+          <attribute name="string">Send by Email</attribute>
+          <attribute name="states">sent,approved</attribute>
         </xpath>
 
         <xpath expr="//field[@name='payment_term_id']" position="replace"> 
