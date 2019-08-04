@@ -32,6 +32,7 @@
         'data/report_data.xml',
         'data/subscription_template.xml',
         'data/timesheet_data.xml',
+        'data/job_order_data.xml',
         'views/views.xml',
         'views/templates.xml',
         'views/data.xml',

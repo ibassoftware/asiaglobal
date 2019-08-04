@@ -10,3 +10,7 @@ asiaglobal.access_service_report_user,access.service.report.user,asiaglobal.mode
 asiaglobal.access_service_report_manager,access.service.report.manager,asiaglobal.model_asiaglobal_service_report,asiaglobal.group_service_manager,1,1,1,1
 asiaglobal.access_job_material_request_form_user,access.job.material.request.form.user,asiaglobal.model_asiaglobal_job_material_request_form,asiaglobal.group_service_user,1,1,1,1
 asiaglobal.access_job_material_request_form_line_user,access.job.material.request.form.line.user,asiaglobal.model_asiaglobal_job_material_request_form_line,asiaglobal.group_service_user,1,1,1,1
+asiaglobal.access_job_order_classification_user,access.job.order.classification.user,asiaglobal.model_asiaglobal_job_order_classification,asiaglobal.group_service_user,1,0,0,0
+asiaglobal.access_job_order_classification_manager,access.job.order.classification.manager,asiaglobal.model_asiaglobal_job_order_classification,asiaglobal.group_service_manager,1,1,1,1
+asiaglobal.access_job_order_type_user,access.job.order.type.user,asiaglobal.model_asiaglobal_job_order_type,asiaglobal.group_service_user,1,0,0,0
+asiaglobal.access_job_order_type_manager,access.job.order.type.manager,asiaglobal.model_asiaglobal_job_order_type,asiaglobal.group_service_manager,1,1,1,1

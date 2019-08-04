@@ -103,6 +103,18 @@
 			action="asiaglobal.service_timesheet_activity_type_action"
 			sequence="10"/>
 
+		<menuitem id="menu_job_order_classification"
+			name="Job Classifications"
+			parent="asiaglobal.menu_service_config"
+			action="asiaglobal.service_job_order_classification_action"
+			sequence="11"/>
+
+		<menuitem id="menu_job_order_type"
+			name="Job Types"
+			parent="asiaglobal.menu_service_config"
+			action="asiaglobal.service_job_order_type_action"
+			sequence="12"/>
+
 		<!-- STOCK -->
 		<menuitem id="menu_job_material_request_form"
 			name="Job / Material Request Form"

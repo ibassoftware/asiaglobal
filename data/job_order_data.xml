@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="1">
+		<!-- START JOB ORDER CLASSIFICATION -->
+		<record id="job_order_classification_internal" model="asiaglobal.job_order_classification">
+			<field name="name">Internal</field>
+		</record>
+		<record id="job_order_classification_external" model="asiaglobal.job_order_classification">
+			<field name="name">External</field>
+		</record>
+		<record id="job_order_classification_warranty" model="asiaglobal.job_order_classification">
+			<field name="name">Warranty</field>
+		</record>
+		<record id="job_order_classification_cannibalization" model="asiaglobal.job_order_classification">
+			<field name="name">Cannibalization</field>
+		</record>
+		<!-- END JOB ORDER CLASSIFICATION -->
+
+		<!-- START JOB ORDER TYPE -->
+		<record id="job_order_classification_maintenance" model="asiaglobal.job_order_type">
+			<field name="name">Prev Maintenance</field>
+		</record>
+		<record id="job_order_classification_inspection" model="asiaglobal.job_order_type">
+			<field name="name">Diagnostics Inspection</field>
+		</record>
+		<record id="job_order_classification_repair" model="asiaglobal.job_order_type">
+			<field name="name">Repair</field>
+		</record>
+		<record id="job_order_classification_assembly" model="asiaglobal.job_order_type">
+			<field name="name">Assembly/Delivery</field>
+		</record>
+		<!-- END JOB ORDER TYPE -->
+		
+	</data>
+</odoo>
