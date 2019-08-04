@@ -157,5 +157,31 @@
     </record>
     <!-- END JOB ORDER -->
 
+    <!-- START JOB ORDER CLASSIFICATION -->
+    <record model="ir.actions.act_window" id="service_job_order_classification_action">
+      <field name="name">Job Order Classifications</field>
+      <field name="res_model">asiaglobal.job_order_classification</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p>
+          Create a job order classifications.
+        </p>
+      </field>
+    </record>
+    <!-- END JOB ORDER CLASSIFICATION -->
+
+    <!-- START JOB ORDER TYPE -->
+    <record model="ir.actions.act_window" id="service_job_order_type_action">
+      <field name="name">Job Order Types</field>
+      <field name="res_model">asiaglobal.job_order_type</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p>
+          Create a job order types.
+        </p>
+      </field>
+    </record>
+    <!-- END JOB ORDER TYPE -->
+
   </data>
 </odoo>

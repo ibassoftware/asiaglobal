@@ -5,6 +5,18 @@ from dateutil.relativedelta import relativedelta
 import logging
 _logger = logging.getLogger(__name__)
 
+class AsiaGlobalJobOrderClassification(models.Model):
+	_name = 'asiaglobal.job_order_classification'
+	_description = 'Job Order Classification'
+
+	name = fields.Char(string='Job Classification')
+
+class AsiaGlobalJobOrderType(models.Model):
+	_name = 'asiaglobal.job_order_type'
+	_description = 'Job Order Type'
+
+	name = fields.Char(string='Job Type')
+
 class AsiaGlobalJobOrder(models.Model):
 	_name = 'asiaglobal.job_order'
 	_description = 'Job Order'
@@ -48,19 +60,23 @@ class AsiaGlobalJobOrder(models.Model):
 	service_report_ids = fields.One2many('asiaglobal.service_report', 'jo_id')
 	legacy_jo_no = fields.Char(string='Legacy Number')
 
-	job_classification = fields.Selection([
-		('Internal','Internal'),
-		('external','External'),
-		('warranty','Warranty'),
-		('cannibalization','Cannibalization'),
-	])
+	# job_classification = fields.Selection([
+	# 	('Internal','Internal'),
+	# 	('external','External'),
+	# 	('warranty','Warranty'),
+	# 	('cannibalization','Cannibalization'),
+	# ])
 
-	job_type = fields.Selection([
-		('maintenance','Prev Maintenance'),
-		('inspection','Diagnostics Inspection'),
-		('repair','Repair'),
-		('assembly','Assembly/Delivery'),
-	])
+	# job_type = fields.Selection([
+	# 	('maintenance','Prev Maintenance'),
+	# 	('inspection','Diagnostics Inspection'),
+	# 	('repair','Repair'),
+	# 	('assembly','Assembly/Delivery'),
+	# ])
+
+	job_classification = fields.Many2one('asiaglobal.job_order_classification')
+	job_type = fields.Many2one('asiaglobal.job_order_type')
+
 
 	operational = fields.Boolean()
 	operational_message = fields.Char(string='Equipment Status', track_visibility='onchange')
