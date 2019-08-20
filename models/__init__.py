@@ -12,6 +12,7 @@ from . import job_order_timesheet
 from . import job_order
 from . import helpdesk_ticket
 from . import sale_order
+from . import purchase_order
 from . import service_report
 from . import job_expense
 from . import job_material_request_form
