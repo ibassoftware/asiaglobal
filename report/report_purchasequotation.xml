@@ -52,7 +52,7 @@
                                                 <b>Dept.</b>
                                             </td>
                                             <td width="30%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
-                                                <br/>
+                                                <span t-field="o.department"/>
                                             </td>
                                         </tr>
                                     </table>
@@ -65,7 +65,7 @@
                                                 <b>Ship Via</b>
                                             </td>
                                             <td width="70%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;" >
-                                                <br/>
+                                                <span t-field="o.ship_via"/>
                                             </td>
                                         </tr>
                                     </table>
