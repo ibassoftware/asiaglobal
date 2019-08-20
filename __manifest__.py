@@ -51,6 +51,7 @@
         'views/service_report_views.xml',
         'views/job_material_request_form_view.xml',
         'views/purchase_order_views.xml',
+        'views/stock_picking_views.xml',
         'views/service_menu.xml',
         'report/report_quotation_service.xml',
         'report/service_report.xml',
