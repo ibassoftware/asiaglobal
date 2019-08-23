@@ -5,8 +5,7 @@
             <t t-call="asiaglobal.external_layout_stock_item_receipt">
 
                 <t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})"/>
-                <div class="page" style="font-size:18px">
-                    <br/>
+                <div class="page">
                     <center>
                         <h3>
                             <span>ITEM RECEIPT</span>
@@ -40,7 +39,7 @@
                     <br/>
                     <br/>
                     
-                    <div class="row">
+                    <div class="row" style="font-size:12px">
                         <table class="table table-condensed">
                             <thead>
                                 <tr>
