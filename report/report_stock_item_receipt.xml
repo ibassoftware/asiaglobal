@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_stock_item_receipt_document">
+            <t t-call="asiaglobal.external_layout_stock_item_receipt">
+
+                <t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})"/>
+                <div class="page" style="font-size:18px">
+                    <br/>
+                    <center>
+                        <h3>
+                            <span>ITEM RECEIPT</span>
+                        </h3>
+                        <span t-esc="datetime.datetime.strptime(o.scheduled_date, '%Y-%m-%d %H:%M:%S').strftime('%B %d, %Y')"/>
+                    </center>
+                    <br/>
+                    <table class="list_table" style="border:none;font-size:16px" width="100%">
+                        <tr>
+                            <td class="noborder" valign="top">
+                                <b>SUPPLIER : <span t-field="o.partner_id.name"/></b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="noborder" valign="top">
+                                <b>BL/MAWB/HAWB : </b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="noborder" valign="top">
+                                <b>BROKER : </b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="noborder" valign="top">
+                                <b>FORWARDER : </b>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <br/>
+                    <br/>
+                    
+                    <div class="row">
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;">REFERENCE #</th>
+                                    <th style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;">AGT PO #</th>
+                                    <th style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;">PART NUMBER</th>
+                                    <th style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;">ITEM DESCRIPTION</th>
+                                    <th style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;">ITEM CODE</th>
+                                    <th style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;">QTY</th>
+                                    <th style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;">STATUS</th>
+                                    <th style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;">LOCATION</th>
+                                </tr>
+                            </thead>
+                            <tbody class="invoice_tbody">
+                                <!-- PARTS AND PRODUCTS -->
+                                <t t-set="line_count" t-value="0"/>
+                                <t t-foreach="o.move_lines" t-as="move">
+                                    <tr>
+                                        <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;">
+                                            <t t-if="line_count == 0">
+                                                <span t-field="o.name"/>
+                                            </t>
+                                        </td>
+                                        <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;">
+                                            <t t-if="line_count == 0">
+                                                <span t-field="o.name"/>
+                                            </t>
+                                        </td>
+                                        <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;">
+                                            <span t-field="move.product_id_partno"/>
+                                        </td>
+                                        <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;">
+                                            <span t-field="move.product_id_description"/>
+                                        </td>
+                                        <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;">
+                                            <span t-field="move.product_id_code"/>
+                                        </td>
+                                        <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;">
+                                            <span t-field="move.quantity_done"/>
+                                        </td>
+                                        <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;">
+                                            <span t-field="move.state"/>
+                                        </td>
+                                        <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;">
+                                        </td>
+                                    </tr>
+                                    <t t-set="line_count" t-value="line_count + 1"/>
+                                </t>
+                              
+                                <tr>
+                                    <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"></td>
+                                    <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"></td>
+                                    <td colspan="2" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;" class="text-center">*nothing follows*</td>
+                                    <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"></td>
+                                    <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"></td>
+                                    <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"></td>
+                                    <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"></td>
+                                </tr>
+
+                                <t t-set="break_count" t-value="12 - line_count"/>
+                                <t t-if="break_count > 0">
+                                    <t t-foreach="break_count" t-as="break">
+                                        <tr>
+                                            <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"><br/></td>
+                                            <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"><br/></td>
+                                            <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"><br/></td>
+                                            <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"><br/></td>
+                                            <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"><br/></td>
+                                            <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"><br/></td>
+                                            <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"><br/></td>
+                                            <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"><br/></td>
+                                        </tr>
+                                    </t>
+                                </t>
+
+                                
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <br/>
+                    
+                    <div>
+                        <b><span>REMARKS: _______________________</span></b><br/>
+                    </div>
+
+                    <br/>
+                    <br/>
+
+                    <div>
+                        <b><span>RECEIVED BY: ____________________</span></b><br/>
+                    </div>
+                    
+                </div>
+            </t> 
+        </template>
+
+        <template id="report_stock_item_receipt">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="asiaglobal.report_stock_item_receipt_document" t-lang="o.partner_id.lang"/>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

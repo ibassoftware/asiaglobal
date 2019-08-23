@@ -91,9 +91,11 @@
                                     <t t-set="line_count" t-value="line_count + 1"/>
                                     <td width="20%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
                                         <span t-field="line.product_id.default_code"/>
+                                        <!-- <span t-field="line.product_id.name"/> -->
                                     </td>
                                     <td width="20%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
-                                        <span t-field="line.product_id.name"/>
+                                        <!-- <span t-field="line.product_id.name"/> -->
+                                        <span t-field="line.part_number"/>
                                     </td>
                                     <td width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
                                         <span t-esc="int(float(line.product_qty))"/>
