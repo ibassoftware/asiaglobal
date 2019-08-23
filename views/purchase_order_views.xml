@@ -11,6 +11,9 @@
                     <field name="department" />
                     <field name="ship_via" />
                 </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="after">
+                    <field name="part_number" />
+                </xpath>
             </field>
         </record> 
 

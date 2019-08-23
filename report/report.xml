@@ -63,7 +63,7 @@
             
         />
 
-         <report 
+        <report 
             id="job_order_stp"
             model="asiaglobal.job_order"
             string="Job Order STP"
@@ -74,6 +74,17 @@
             attachment="('Job Order STP '+(object.name or '').replace('/','')+'.pdf')"
             menu="True"
             paperformat="asiaglobal.paperformat_report_agt_job_order_stp"
+        />
+
+        <report 
+            id="stock_item_receipt"
+            model="stock.picking"
+            string="Item Receipt"
+            report_type="qweb-pdf"
+            name="asiaglobal.report_stock_item_receipt"
+            file="asiaglobal.report_stock_item_receipt"
+            menu="True"
+            paperformat="asiaglobal.paperformat_report_agt_stock_item_receipt"
         />
 
     </data>

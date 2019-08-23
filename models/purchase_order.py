@@ -18,3 +18,8 @@ class PurchaseOrder(models.Model):
 				else:
 					department = tag.name
 			order.department = department
+
+class PurchaseOrderLine(models.Model):
+	_inherit = 'purchase.order.line'
+
+	part_number = fields.Char()
