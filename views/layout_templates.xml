@@ -264,6 +264,14 @@
                             <img t-if="o.company_id.logo" t-att-src="'data:image/png;base64,%s' % to_text(o.company_id.logo)" width="200" height="60"/><br/>
                             <!-- <strong style="font-size:20px;" t-field="o.company_id.partner_id.name"/><br/> -->
                             <span t-field="o.company_id.partner_id.street"/>, <span t-field="o.company_id.partner_id.street2"/>, <span t-field="o.company_id.partner_id.city"/>, <span t-field="o.company_id.partner_id.state_id.name"/>, <span t-field="o.company_id.partner_id.country_id.name"/>
+                            <t t-if="o.company_id.phone">
+                                <br/>
+                                <span t-field="o.company_id.phone"/>
+                            </t>
+                            <t t-if="o.company_id.website">
+                                <br/>
+                                <span t-field="o.company_id.website"/>
+                            </t>
                         </td>
                         <td class="noborder" width="8%">
                         </td>
@@ -327,6 +335,14 @@
                             <img t-if="o.company_id.logo" t-att-src="'data:image/png;base64,%s' % to_text(o.company_id.logo)" width="200" height="60"/><br/>
                             <!-- <strong style="font-size:20px;" t-field="o.company_id.partner_id.name"/><br/> -->
                             <span t-field="o.company_id.partner_id.street"/>, <span t-field="o.company_id.partner_id.street2"/>, <span t-field="o.company_id.partner_id.city"/>, <span t-field="o.company_id.partner_id.state_id.name"/>, <span t-field="o.company_id.partner_id.country_id.name"/>
+                            <t t-if="o.company_id.phone">
+                                <br/>
+                                <span t-field="o.company_id.phone"/>
+                            </t>
+                            <t t-if="o.company_id.website">
+                                <br/>
+                                <span t-field="o.company_id.website"/>
+                            </t>
                         </td>
                         <td class="noborder" width="8%">
                         </td>
