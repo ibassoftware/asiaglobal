@@ -260,27 +260,37 @@
             <div class="header">
                 <table class="list_table" style="border:none;font-size:12px" width="100%">
                     <tr>
-                        <td class="noborder" valign="top" width="46%">
-                            <img t-if="o.company_id.logo" t-att-src="'data:image/png;base64,%s' % to_text(o.company_id.logo)" width="200" height="60"/><br/>
-                            <!-- <strong style="font-size:20px;" t-field="o.company_id.partner_id.name"/><br/> -->
-                            <span t-field="o.company_id.partner_id.street"/>, <span t-field="o.company_id.partner_id.street2"/>, <span t-field="o.company_id.partner_id.city"/>, <span t-field="o.company_id.partner_id.state_id.name"/>, <span t-field="o.company_id.partner_id.country_id.name"/>
-                            <t t-if="o.company_id.phone">
-                                <br/>
-                                <span t-field="o.company_id.phone"/>
-                            </t>
-                            <t t-if="o.company_id.website">
-                                <br/>
-                                <span t-field="o.company_id.website"/>
-                            </t>
+                        <td class="noborder" width="8%">
+                            <br/>
+                            <img src="/asiaglobal/static/src/img/logo_a.PNG" height="45" width="50" />
+                        </td>
+                        <td class="noborder" width="43%">
+                            <!-- <img t-if="o.company_id.logo" t-att-src="'data:image/png;base64,%s' % to_text(o.company_id.logo)" width="60" height="60"/> -->
+                            <br/>
+                            <b><h4 style="color:red;">AsiaGlobal Technologies, Inc.</h4></b>
+
+                            <table class="list_table" style="border:none;font-size:12px" width="100%">
+                                <tr>
+                                    <td class="noborder" valign="top" width="63%">
+                                        <span t-field="o.company_id.partner_id.street"/>, <span t-field="o.company_id.partner_id.street2"/>, <span t-field="o.company_id.partner_id.city"/>, <span t-field="o.company_id.partner_id.state_id.name"/>, <span t-field="o.company_id.partner_id.country_id.name"/>
+
+                                    </td>
+                                    <td class="noborder" valign="top" width="2%"></td>
+                                    <td class="noborder" valign="top" width="35%">
+                                        Phone # 899-1801<br/>
+                                        www.asiaglobaltech.com
+                                    </td>
+                                </tr>
+                            </table>
                         </td>
                         <td class="noborder" width="8%">
                         </td>
-                        <td class="noborder" width="46%" align="right" style="vertical-align: top;">
+                        <td class="noborder" width="41%" align="right" style="vertical-align: top;">
                             <br/>
                             <h3>
                                 <span>Request For Quotation</span>
                             </h3>
-                            <table width="50%">
+                            <table width="60%">
                                 <tr>
                                     <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">Date</td>
                                     <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">P.O. No.</td>
@@ -331,22 +341,32 @@
             <div class="header">
                 <table class="list_table" style="border:none;font-size:12px" width="100%">
                     <tr>
-                        <td class="noborder" valign="top" width="46%">
-                            <img t-if="o.company_id.logo" t-att-src="'data:image/png;base64,%s' % to_text(o.company_id.logo)" width="200" height="60"/><br/>
-                            <!-- <strong style="font-size:20px;" t-field="o.company_id.partner_id.name"/><br/> -->
-                            <span t-field="o.company_id.partner_id.street"/>, <span t-field="o.company_id.partner_id.street2"/>, <span t-field="o.company_id.partner_id.city"/>, <span t-field="o.company_id.partner_id.state_id.name"/>, <span t-field="o.company_id.partner_id.country_id.name"/>
-                            <t t-if="o.company_id.phone">
-                                <br/>
-                                <span t-field="o.company_id.phone"/>
-                            </t>
-                            <t t-if="o.company_id.website">
-                                <br/>
-                                <span t-field="o.company_id.website"/>
-                            </t>
+                        <td class="noborder" width="8%">
+                            <br/>
+                            <img src="/asiaglobal/static/src/img/logo_a.PNG" height="45" width="50" />
+                        </td>
+                        <td class="noborder" width="43%">
+                            <!-- <img t-if="o.company_id.logo" t-att-src="'data:image/png;base64,%s' % to_text(o.company_id.logo)" width="60" height="60"/> -->
+                            <br/>
+                            <b><h4 style="color:red;">AsiaGlobal Technologies, Inc.</h4></b>
+
+                            <table class="list_table" style="border:none;font-size:12px" width="100%">
+                                <tr>
+                                    <td class="noborder" valign="top" width="63%">
+                                        <span t-field="o.company_id.partner_id.street"/>, <span t-field="o.company_id.partner_id.street2"/>, <span t-field="o.company_id.partner_id.city"/>, <span t-field="o.company_id.partner_id.state_id.name"/>, <span t-field="o.company_id.partner_id.country_id.name"/>
+
+                                    </td>
+                                    <td class="noborder" valign="top" width="2%"></td>
+                                    <td class="noborder" valign="top" width="35%">
+                                        Phone # 899-1801<br/>
+                                        www.asiaglobaltech.com
+                                    </td>
+                                </tr>
+                            </table>
                         </td>
                         <td class="noborder" width="8%">
                         </td>
-                        <td class="noborder" width="46%" align="right" style="vertical-align: top;">
+                        <td class="noborder" width="41%" align="right" style="vertical-align: top;">
                             <br/>
                             <h3 t-if="o.state != 'draft'">
                                 <span>Purchase Order</span>
@@ -354,7 +374,7 @@
                             <h3 t-if="o.state == 'draft'">
                                 <span>Request For Quotation</span>
                             </h3>
-                            <table width="50%">
+                            <table width="60%">
                                 <tr>
                                     <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">Date</td>
                                     <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">P.O. No.</td>
