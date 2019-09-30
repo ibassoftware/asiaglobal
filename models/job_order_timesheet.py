@@ -38,3 +38,6 @@ class AsiaGlobalServcieTimesheet(models.Model):
 	name = fields.Char('Description', required=True)
 	date = fields.Date('Date', required=True, index=True, default=fields.Date.context_today)
 	unit_amount = fields.Float('Quantity', default=0.0)
+
+	def action_duplicate(self):
+		self.copy()
