@@ -21,6 +21,7 @@ class AsiaGlobalJobOrder(models.Model):
 	_name = 'asiaglobal.job_order'
 	_description = 'Job Order'
 	_inherit = ['mail.thread', 'mail.activity.mixin']
+	_order = 'name desc'
 
 	name = fields.Char(string='Order Reference', required=True, copy=False, readonly=True, states={'draft': [('readonly', False)]}, index=True, default=lambda self: _('New'))
 	initial_complaint = fields.Text()
@@ -28,8 +29,16 @@ class AsiaGlobalJobOrder(models.Model):
 	ship_to = fields.Many2one('res.partner', string='Ship To / Site Address', required=True)
 
 	type = fields.Selection([
-		('weqd','WEQD'),
+		('admin','ADMIN'),
+		('cebu','CEBU'),
 		('heqd','HEQD'),
+		('heqd_sale','HEQD-SALES'),
+		('heqd_service','HEQD-SERVICES'),
+		('weqd','WEQD'),
+		('weqd_ctd','WEQD-CTD'),
+		('weqd_rental','WEQD-RENTAL'),
+		('weqd_sale','WEQD-SALES'),
+		('weqd_service','WEQD-SERVICES'),
 		('rental','RENTAL'),
 	], string="Department")
 
