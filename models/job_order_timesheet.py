@@ -38,6 +38,24 @@ class AsiaGlobalServcieTimesheet(models.Model):
 	name = fields.Char('Description', required=True)
 	date = fields.Date('Date', required=True, index=True, default=fields.Date.context_today)
 	unit_amount = fields.Float('Quantity', default=0.0)
+	is_copied = fields.Boolean(copy=False)
 
 	def action_duplicate(self):
-		self.copy()
+		timesheet_ids = [(0,0, {
+			'activity_type': self.activity_type.id,
+			'technician_id': self.technician_id.id,
+			'name': self.name,
+			'date': self.date,
+			'unit_amount': self.unit_amount,
+			'is_copied': True,
+		})]
+		
+		# # self.env['asiaglobal.service_timesheet'].create({
+		# # 	'jo_id': self.jo_id.id,
+		# # 	'activity_type': self.activity_type.id,
+		# # 	'technician_id': self.technician_id.id,
+		# # 	'name': self.name,
+		# # 	'date': self.date,
+		# # 	'unit_amount': self.unit_amount,
+		# # })
+		self.jo_id.timesheet_ids = timesheet_ids
