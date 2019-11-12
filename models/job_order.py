@@ -31,15 +31,15 @@ class AsiaGlobalJobOrder(models.Model):
 	type = fields.Selection([
 		('admin','ADMIN'),
 		('cebu','CEBU'),
-		('heqd','HEQD'),
+		('heqd','HEQD-SERVICE'),
 		('heqd_sale','HEQD-SALES'),
-		('heqd_service','HEQD-SERVICES'),
-		('weqd','WEQD'),
+		('heqd_service','HEQD-SERVICES-DNU'),
+		('weqd','EQD-SERVICE'),
 		('weqd_ctd','WEQD-CTD'),
-		('weqd_rental','WEQD-RENTAL'),
+		('weqd_rental','WEQD-RENTAL-DNU'),
 		('weqd_sale','WEQD-SALES'),
-		('weqd_service','WEQD-SERVICES'),
-		('rental','RENTAL'),
+		('weqd_service','WEQD-SERVICES-DNU'),
+		('rental','WEQD-RENTAL'),
 	], string="Department")
 
 	initial_diagnosis = fields.Text()
