@@ -34,7 +34,7 @@ class AsiaGlobalJobOrder(models.Model):
 		('heqd','HEQD-SERVICE'),
 		('heqd_sale','HEQD-SALES'),
 		('heqd_service','HEQD-SERVICES-DNU'),
-		('weqd','EQD-SERVICE'),
+		('weqd','WEQD-SERVICE'),
 		('weqd_ctd','WEQD-CTD'),
 		('weqd_rental','WEQD-RENTAL-DNU'),
 		('weqd_sale','WEQD-SALES'),
