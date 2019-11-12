@@ -33,12 +33,12 @@ class AsiaGlobalJobOrder(models.Model):
 		('cebu','CEBU'),
 		('heqd','HEQD-SERVICE'),
 		('heqd_sale','HEQD-SALES'),
-		('heqd_service','HEQD-SERVICES-DNU'),
+		# ('heqd_service','HEQD-SERVICES-DNU'),
 		('weqd','WEQD-SERVICE'),
 		('weqd_ctd','WEQD-CTD'),
-		('weqd_rental','WEQD-RENTAL-DNU'),
+		# ('weqd_rental','WEQD-RENTAL-DNU'),
 		('weqd_sale','WEQD-SALES'),
-		('weqd_service','WEQD-SERVICES-DNU'),
+		# ('weqd_service','WEQD-SERVICES-DNU'),
 		('rental','WEQD-RENTAL'),
 	], string="Department")
 
