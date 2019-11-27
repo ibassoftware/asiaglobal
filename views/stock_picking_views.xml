@@ -12,6 +12,16 @@
                     <field name="product_id_partno" string="Material Number"/>
                     <field name="product_id_description" />
                 </xpath>
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="location"/>
+                </xpath>
+                <xpath expr="//field[@name='move_lines']" position="after">
+                    <field name="remarks" class="oe_inline" placeholder="Add remarks here..."/>
+                    <div class="oe_clear"/>
+                </xpath>
+                <xpath expr="//field[@name='group_id']" position="after">
+                    <field name="validated_by" />
+                </xpath>
             </field>
         </record>
 

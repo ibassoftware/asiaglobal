@@ -65,7 +65,12 @@
                                         </td>
                                         <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;">
                                             <t t-if="line_count == 0">
-                                                <span t-field="o.name"/>
+                                                <t t-if="o.purchase_id">
+                                                    <span t-field="o.purchase_id.name"/>
+                                                </t>
+                                                <t t-else="">
+                                                    <span t-field="o.origin"/>
+                                                </t>
                                             </t>
                                         </td>
                                         <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;">
@@ -84,6 +89,7 @@
                                             <span t-field="move.state"/>
                                         </td>
                                         <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;">
+                                            <span t-field="o.location"/>
                                         </td>
                                     </tr>
                                     <t t-set="line_count" t-value="line_count + 1"/>
@@ -123,14 +129,18 @@
                     <br/>
                     
                     <div>
-                        <b><span>REMARKS: _______________________</span></b><br/>
+                        <b><span>REMARKS: </span></b>
+                        <span t-if="o.remarks" t-field="o.remarks"/>
+                        <span t-if="not o.remarks">_______________________</span>
                     </div>
 
                     <br/>
                     <br/>
 
                     <div>
-                        <b><span>RECEIVED BY: ____________________</span></b><br/>
+                        <b><span>RECEIVED BY: </span></b>
+                        <span t-if="o.validated_by" t-field="o.validated_by"/>
+                        <span t-if="not o.validated_by">_______________________</span>
                     </div>
                     
                 </div>
