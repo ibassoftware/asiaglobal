@@ -152,14 +152,17 @@
                         <span t-field="o.create_uid.name"/>
                     </div>
                     <div class="col-xs-4">
-                        <t t-if="o.jo_id.type == 'weqd'">
+                        <t t-if="o.jo_id.type in ['weqd','weqd_ctd','weqd_sale']">
                             <span>Jonas M. Conopio</span>
                         </t>
-                        <t t-elif="o.jo_id.type == 'heqd'">
+                        <t t-elif="o.jo_id.type in ['heqd','heqd_sale']">
                             <span>Arturo V. Darjuan</span>
                         </t>
-                        <t t-elif="o.jo_id.type == 'rental'">
+                        <t t-elif="o.jo_id.type in ['rental']">
                             <span>Manuel H. Valera Jr.</span>
+                        </t>
+                        <t t-elif="o.jo_id.type in ['cebu']">
+                            <span>Rudie Cabardo</span>
                         </t>
                     </div>
                     <div class="col-xs-4 text-center">
