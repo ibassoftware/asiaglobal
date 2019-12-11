@@ -10,14 +10,11 @@ class ProductProduct(models.Model):
 	@api.multi
 	@api.depends('stock_move_ids.product_qty', 'stock_move_ids.state', 'product_tmpl_id.cost_method', 'override_stock_value', 'new_stock_value')
 	def _compute_stock_value(self):
+		result = super(ProductProduct, self)._compute_stock_value()
 		for product in self:
-			if not product.override_stock_value:
-				if product.cost_method in ['standard', 'average']:
-					product.stock_value = product.standard_price * product.with_context(company_owned=True).qty_available
-				elif product.cost_method == 'fifo':
-					product.stock_value = product._sum_remaining_values()
-			else:
+			if product.override_stock_value:
 				product.stock_value = product.new_stock_value
+		return result
 
 class ProductTemplate(models.Model):
 	_inherit = 'product.template'
