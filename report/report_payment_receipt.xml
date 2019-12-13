@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="asiaglobal_report_payment_receipt_extend" inherit_id="account.report_payment_receipt">
+            <xpath expr="//table[@class='table table-condensed']" position="after">
+                <br/>
+                <br/>
+                <div class="row text-center" style="border-top: 1px solid black;">
+                    <div class="col-md-6 col-md-offset-3">
+                        <table class="table table-condensed" style="width:400px;margin: 0 auto;">
+                            <thead>
+                                <tr>
+                                    <th>Account Title</th>
+                                    <th class="text-right">Debit</th>
+                                    <th class="text-right">Credit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="o.move_line_ids" t-as="move">
+                                    <td><span t-field="move.account_id.name"/></td>
+                                    <td class="text-right"><span t-field="move.debit"/></td>
+                                    <td class="text-right"><span t-field="move.credit"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="pull-right" style="margin-right: 50px;">
+                        <strong><span>Payment Received By:</span></strong><br/>
+                        <span>Name:</span><br/>
+                        <span>Signature:</span><br/>
+                        <span>Date:</span>
+                    </div>
+                </div>
+
+
+               
+            </xpath>
+        </template>
+
+
+    </data>
+</odoo>
