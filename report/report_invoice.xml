@@ -10,6 +10,7 @@
                     <br/>
                     <br/>
                     <br/>
+                    <br/>
 
                     <div class="row" t-if="o.type == 'in_refund' or o.type == 'in_invoice'">
                         <!-- SOLD TO -->
