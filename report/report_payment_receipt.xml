@@ -2,6 +2,11 @@
 <odoo>
     <data>
         <template id="asiaglobal_report_payment_receipt_extend" inherit_id="account.report_payment_receipt">
+            <xpath expr="//div[@class='page']/h3" position="before">
+                <br/>
+                <br/>
+                <br/>
+            </xpath>
             <xpath expr="//table[@class='table table-condensed']" position="after">
                 <br/>
                 <br/>
