@@ -63,6 +63,7 @@
         'report/report_purchaseorder.xml',
         'report/report_stock_item_receipt.xml',
         'report/report_payment_receipt.xml',
+        'report/report_deliveryslip.xml',
         'report/report.xml',
         'wizard/maintenance_jo_views.xml',
 

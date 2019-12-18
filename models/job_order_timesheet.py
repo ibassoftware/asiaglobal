@@ -40,6 +40,8 @@ class AsiaGlobalServcieTimesheet(models.Model):
 	unit_amount = fields.Float('Quantity', default=0.0)
 	is_copied = fields.Boolean(copy=False)
 
+	serial_number = fields.Char(related='jo_id.serial_number', string='Serial Number of Unit')
+
 	def action_duplicate(self):
 		timesheet_ids = [(0,0, {
 			'activity_type': self.activity_type.id,
