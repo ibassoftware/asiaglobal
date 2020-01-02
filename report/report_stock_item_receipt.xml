@@ -10,7 +10,8 @@
                         <h3>
                             <span>ITEM RECEIPT</span>
                         </h3>
-                        <span t-esc="datetime.datetime.strptime(o.scheduled_date, '%Y-%m-%d %H:%M:%S').strftime('%B %d, %Y')"/>
+                        <span t-if="not o.date_done" t-esc="datetime.datetime.strptime(o.scheduled_date, '%Y-%m-%d %H:%M:%S').strftime('%B %d, %Y')"/>
+                        <span t-if="o.date_done" t-esc="datetime.datetime.strptime(o.date_done, '%Y-%m-%d %H:%M:%S').strftime('%B %d, %Y')"/>
                     </center>
                     <br/>
                     <table class="list_table" style="border:none;font-size:16px" width="100%">
