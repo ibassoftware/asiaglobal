@@ -21,6 +21,7 @@
                 </xpath>
                 <xpath expr="//field[@name='group_id']" position="after">
                     <field name="validated_by" />
+                    <field name="date_done" />
                 </xpath>
             </field>
         </record>
