@@ -1,3 +1,4 @@
+# # -*- RCS -*-
 from odoo import models, fields, api, _ 
 
 class ProductProduct(models.Model):
