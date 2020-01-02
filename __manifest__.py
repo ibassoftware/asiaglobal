@@ -10,8 +10,8 @@
         Long description of module's purpose
     """,
 
-    'author': "My Company",
-    'website': "http://www.yourcompany.com",
+    'author': "IBAS",
+    'website': "http://www.ibasuite.com",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/master/odoo/addons/base/module/module_data.xml
@@ -21,7 +21,7 @@
 
     # any module necessary for this one to work correctly
     'depends': ['base','crm','sale_management', 'purchase','hr', 'helpdesk', 'sales_team', 'r2d2', 'account_reports',
-    'sale','sale_crm', 'mail', 'sale_subscription', 'product', 'stock'],
+    'sale','sale_crm', 'mail', 'sale_subscription', 'product', 'stock', 'stock_account'],
 
     # always loaded
     'data': [
@@ -52,6 +52,7 @@
         'views/job_material_request_form_view.xml',
         'views/purchase_order_views.xml',
         'views/stock_picking_views.xml',
+        'views/stock_account_views.xml',
         'views/service_menu.xml',
         'report/report_quotation_service.xml',
         'report/service_report.xml',
@@ -73,3 +74,5 @@
         'demo/demo.xml',
     ],
 }
+
+# # -*- RCS -*-
