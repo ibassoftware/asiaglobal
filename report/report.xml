@@ -87,5 +87,17 @@
             paperformat="asiaglobal.paperformat_report_agt_stock_item_receipt"
         />
 
+        <report 
+            id="account_payable_voucher"
+            model="account.invoice"
+            string="Account Payable Voucher"
+            report_type="qweb-pdf"
+            name="asiaglobal.report_account_payable_voucher"
+            file="asiaglobal.report_account_payable_voucher"
+            menu="True"
+            paperformat="asiaglobal.paperformat_report_account_payable_voucher"
+            
+        />
+
     </data>
 </odoo>
