@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_account_payable_voucher_document">
+            <t t-call="asiaglobal.external_layout_account_payable_voucher">
+                <t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})"/>
+                <div class="page">
+                    <br/>
+                    <center>
+                        <h3>
+                            <span>ACCOUNTS PAYABLE VOUCHERS</span>
+                        </h3>
+                        <!-- <span t-if="not o.date_done" t-esc="datetime.datetime.strptime(o.scheduled_date, '%Y-%m-%d %H:%M:%S').strftime('%B %d, %Y')"/>
+                        <span t-if="o.date_done" t-esc="datetime.datetime.strptime(o.date_done, '%Y-%m-%d %H:%M:%S').strftime('%B %d, %Y')"/> -->
+                    </center>
+                    <br/>
+                    <table class="list_table" style="border: 1px solid #808080;font-size:14px" width="100%" cellspacing="0">
+                        <tr>
+                            <td colspan="2" rowspan="2" class="noborder" valign="top" width="70%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                                <b>PAYEE: </b> <span t-field="o.partner_id.name"/>
+                            </td>
+                            <td colspan="2" class="noborder" valign="top" width="30%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                                <b>REF No. </b> <span t-field="o.number"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="noborder" valign="top" width="30%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                                <b>DATE: </b> <span t-field="o.date"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" class="noborder text-center" valign="top" width="100%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                                <b>PARTICULARS</b><br/>
+                                <span t-field="o.reference"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="noborder text-center" valign="top" width="70%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                                <b>ACCOUNT TITLE</b>
+                            </td>
+                            <td class="noborder text-center" valign="top" width="15%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                                <b>DEBIT</b>
+                            </td>
+                            <td class="noborder text-center" valign="top" width="15%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                                <b>CREDIT</b>
+                            </td>
+                        </tr>
+                        <t t-set="line_count" t-value="0"/>
+                        <t t-foreach="o.move_id.line_ids" t-as="move">
+                            <t t-set="line_count" t-value="line_count + 1"/>
+                            <tr>
+                                <t t-if="move.debit == 0 and move.credit != 0">
+                                    <td class="noborder text-right" valign="top" width="40%" style="border:0;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                                        <span t-field="move.name"/>
+                                    </td>
+                                </t>
+                                <t t-else="">
+                                    <td class="noborder" valign="top" width="40%" style="border:0;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                                        <span t-field="move.name"/>
+                                    </td>
+                                </t>
+                                
+                                <td class="noborder" valign="top" width="30%" style="border:0;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                                    <span t-field="move.name"/>
+                                </td>
+                                <td class="noborder text-right" valign="top" width="15%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;border-bottom:none;border-top:none;">
+                                    <span t-field="move.debit"/>
+                                </td>
+                                <td class="noborder text-right" valign="top" width="15%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;border-bottom:none;border-top:none;">
+                                    <span t-field="move.credit"/>
+                                </td>
+                            </tr>
+                        </t>
+                        <t t-set="break_count" t-value="15 - line_count"/>
+                        <t t-if="break_count > 0">
+                            <t t-foreach="break_count" t-as="break">
+                                <tr>
+                                    <td colspan="2" class="noborder text-center" valign="top" width="70%" style="border:0;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                                        <br/>
+                                    </td>
+                                    <td class="noborder text-center" valign="top" width="15%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;border-bottom:none;border-top:none;">
+                                        <br/>
+                                    </td>
+                                    <td class="noborder text-center" valign="top" width="15%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;border-bottom:none;border-top:none;">
+                                        <br/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </t>
+                        <tr>
+                            <td colspan="2" class="noborder text-right" valign="top" width="70%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                                <b>TOTAL AMOUNT PAYABLE </b> <span t-field="o.currency_id.name"/>
+                            </td>
+                            <td class="noborder text-center" valign="top" width="15%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                                <b></b>
+                            </td>
+                            <td class="noborder text-center" valign="top" width="15%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                                <b><span t-field="o.move_id.amount"/></b>
+                            </td>
+                        </tr>
+                    </table>
+                    <br/>
+                    <table class="list_table" style="border:none;font-size:14px" width="100%">
+                        <tr>
+                            <td class="noborder" valign="top" width="25%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                                <b>PREPARED BY: </b>
+                                <br/>
+                                <br/>
+                                <center>
+                                    <span>__________________</span>
+                                    <span>AP Assistant</span>
+                                </center>
+                            </td>
+                            <td class="noborder" valign="top" width="25%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                                <b>CHECKED BY: </b>
+                                <br/>
+                                <br/>
+                                <center>
+                                    <span>__________________</span>
+                                    <span>Jr. Accounting Manager</span>
+                                </center>
+                            </td>
+                            <td class="noborder" valign="top" width="25%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                                <b>NOTED BY: </b>
+                                <br/>
+                                <br/>
+                                <center>
+                                    <span>__________________</span>
+                                    <span>AVP - Finance &amp; Admin</span>
+                                </center>
+                            </td>
+                            <td class="noborder" valign="top" width="25%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                                <b>APPROVED BY: </b>
+                                <br/>
+                                <br/>
+                                <center>
+                                    <span>__________________</span>
+                                    <span>President</span>
+                                </center>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </t> 
+        </template>
+
+        <template id="report_account_payable_voucher">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="asiaglobal.report_account_payable_voucher_document" t-lang="o.partner_id.lang"/>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

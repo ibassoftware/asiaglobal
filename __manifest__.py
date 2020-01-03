@@ -65,6 +65,7 @@
         'report/report_stock_item_receipt.xml',
         'report/report_payment_receipt.xml',
         'report/report_deliveryslip.xml',
+        'report/report_account_payable_voucher.xml',
         'report/report.xml',
         'wizard/maintenance_jo_views.xml',
 
