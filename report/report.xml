@@ -54,7 +54,7 @@
         <report 
             id="agt_account_invoice"
             model="account.invoice"
-            string="Invoices"
+            string="Billing Invoice"
             report_type="qweb-pdf"
             name="asiaglobal.agt_report_account_invoice"
             file="asiaglobal.agt_report_account_invoice"
@@ -96,6 +96,18 @@
             file="asiaglobal.report_account_payable_voucher"
             menu="True"
             paperformat="asiaglobal.paperformat_report_account_payable_voucher"
+            
+        />
+
+        <report 
+            id="agt_account_invoice_charge"
+            model="account.invoice"
+            string="Charge Invoice"
+            report_type="qweb-pdf"
+            name="asiaglobal.agt_report_account_invoice_charge"
+            file="asiaglobal.agt_report_account_invoice_charge"
+            menu="True"
+            paperformat="asiaglobal.paperformat_report_agt_account_invoice"
             
         />
 
