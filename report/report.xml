@@ -111,5 +111,15 @@
             
         />
 
+        <report 
+            id="asiaglobal_purchase_local"
+            model="purchase.order"
+            string="Local PO"
+            report_type="qweb-pdf"
+            name="asiaglobal.asiaglobal_report_purchase_local"
+            file="asiaglobal.asiaglobal_report_purchase_local"
+            menu="True"            
+        />
+
     </data>
 </odoo>
