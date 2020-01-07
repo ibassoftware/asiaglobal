@@ -13,7 +13,7 @@
                     <br/>
                     <br/>
 
-                    <div class="row" t-if="o.type == 'in_refund' or o.type == 'in_invoice'">
+                    <div class="row">
                         <!-- SOLD TO -->
                         <div class="col-xs-5">
                         </div>
@@ -192,34 +192,6 @@
                         <thead>
                         </thead>
                         <tbody class="invoice_tbody">
-                            <t t-if="o.type == 'out_refund' or o.type == 'out_invoice'">
-                            <tr>
-                                <td width="10%" style="border-top: 0px;"></td>
-                                <td width="40%" style="border-top: 0px;">
-                                    <br/>
-                                    <span t-field="o.comment"/>
-                                </td>
-                                <td width="10%" class="text-center" style="border-top: 0px;">
-                                    <br/>
-                                </td>
-                                <td width="10%" class="text-center" style="border-top: 0px;">
-                                    <br/>
-                                </td>
-                                <td width="15%" class="text-center" style="border-top: 0px;">
-                                    <br/>
-                                </td>
-                                <td width="15%" style="border-top: 0px;">
-                                    <span t-field="o.amount_total" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/><br/><br/>
-                                    <span t-field="o.amount_tax" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/><br/>
-                                    <span t-field="o.amount_untaxed" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/><br/>
-                                    <br/>
-                                    <span t-field="o.amount_untaxed" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/><br/>
-                                    <span t-field="o.amount_tax" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/><br/>
-                                    <span t-field="o.amount_total" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/><br/><br/>
-                                </td>
-                            </tr>
-                        </t>
-                        <t t-if="o.type == 'in_refund' or o.type == 'in_invoice'">
                             <tr>
                                  <td width="10%" style="border-top: 0px;"></td>
                                 <td width="55%" style="border-top: 0px;">
@@ -281,7 +253,6 @@
                                    <br/>
                                 </td>
                             </tr>
-                        </t>
                         </tbody>
                     </table>
                 </div>
@@ -470,7 +441,6 @@
                         <thead>
                         </thead>
                         <tbody class="invoice_tbody">
-                            <t t-if="o.type == 'out_refund' or o.type == 'out_invoice'">
                             <tr>
                                 <td width="10%" style="border-top: 0px;"></td>
                                 <td width="40%" style="border-top: 0px;">
@@ -496,70 +466,6 @@
                                     <span t-field="o.amount_total" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/><br/><br/>
                                 </td>
                             </tr>
-                        </t>
-                        <t t-if="o.type == 'in_refund' or o.type == 'in_invoice'">
-                            <tr>
-                                 <td width="10%" style="border-top: 0px;"></td>
-                                <td width="55%" style="border-top: 0px;">
-                                    <br/>
-                                </td>
-                                <td width="20%" style="border-top: 0px;">
-                                    <br/>
-                                </td>
-                                <td width="15%" class="text-center" style="border-top: 0px;">
-                                    <br/>
-                                </td>
-                            </tr>
-                            <tr>
-                                 <td width="10%" style="border-top: 0px;"></td>
-                                <td width="55%" style="border-top: 0px;">
-                                    <br/>
-                                </td>
-                                <td width="20%" style="border-top: 0px;">
-                                    <br/>
-                                </td>
-                                <td width="15%" class="text-center" style="border-top: 0px;">
-                                    <br/>
-                                </td>
-                            </tr>
-                            <tr>
-                                 <td width="10%" style="border-top: 0px;"></td>
-                                <td width="55%" style="border-top: 0px;">
-                                    <br/>
-                                </td>
-                                <td width="20%" style="border-top: 0px;">
-                                    <br/>
-                                </td>
-                                <td width="15%" class="text-center" style="border-top: 0px;">
-                                    <br/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="10%" style="border-top: 0px;"></td>
-                                <td width="55%" style="border-top: 0px;">
-                                    <br/>
-                                </td>
-                                <td width="30%" class="text-right" style="border-top: 0px;">
-                                    <span t-field="o.amount_total" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
-                                </td>
-                                <td width="5%" style="border-top: 0px;">
-                                    <br/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="10%" style="border-top: 0px;"></td>
-                                <td width="55%" style="border-top: 0px;">
-                                    <br/>
-                                </td>
-                                <td width="30%" style="border-top: 0px;">
-                                     <br/>
-                                    <span t-field="o.comment"/>
-                                </td>
-                                <td width="5%" style="border-top: 0px;">
-                                   <br/>
-                                </td>
-                            </tr>
-                        </t>
                         </tbody>
                     </table>
                 </div>
