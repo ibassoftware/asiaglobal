@@ -121,5 +121,17 @@
             menu="True"            
         />
 
+        <report 
+            id="account_payable_voucher_expense"
+            model="hr.expense.sheet"
+            string="Account Payable Voucher"
+            report_type="qweb-pdf"
+            name="asiaglobal.report_account_payable_voucher_expense"
+            file="asiaglobal.report_account_payable_voucher_expense"
+            menu="True"
+            paperformat="asiaglobal.paperformat_report_account_payable_voucher"
+            
+        />
+
     </data>
 </odoo>
