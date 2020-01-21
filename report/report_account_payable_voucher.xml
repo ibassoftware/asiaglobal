@@ -31,7 +31,7 @@
                         <tr>
                             <td colspan="4" class="noborder text-center" valign="top" width="100%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
                                 <b>PARTICULARS</b><br/>
-                                <span t-field="o.reference"/>
+                                <span t-field="o.reference"/> <span t-field="o.name"/>
                             </td>
                         </tr>
                         <tr>
