@@ -32,18 +32,18 @@
 
                    <div class="row">
                         <!-- SOLD TO -->
-                        <div class="col-xs-4 col-xs-offset-1" style="padding-right: 0px;">
+                        <div class="col-xs-4" style="padding-left: 15px;">
                             <span t-field="o.partner_id.name"/><br/>
                             <span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/><br/>
                             <span t-field="o.partner_id.vat"/>
                         </div>
                         <!-- SHIP TO -->
-                        <div class="col-xs-4" style="padding-left: 0px;padding-right: 0px;">
+                        <div class="col-xs-4" style="padding-left: 0px;">
                             <span t-field="o.partner_id.name"/><br/>
                             <span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/>
                         </div>
                         <!-- BILL TO -->
-                        <div class="col-xs-3" style="padding-left: 0px;">
+                        <div class="col-xs-4" style="padding-left: 0px;">
                             <span t-field="o.partner_id.name"/><br/>
                             <span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/>
                         </div>
@@ -250,19 +250,19 @@
                     <br/>
 
                    <div class="row">
-                         <!-- SOLD TO -->
-                        <div class="col-xs-4 col-xs-offset-1" style="padding-right: 0px;">
+                        <!-- SOLD TO -->
+                        <div class="col-xs-4" style="padding-left: 15px;">
                             <span t-field="o.partner_id.name"/><br/>
                             <span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/><br/>
                             <span t-field="o.partner_id.vat"/>
                         </div>
                         <!-- SHIP TO -->
-                        <div class="col-xs-4" style="padding-left: 0px;padding-right: 0px;">
+                        <div class="col-xs-4" style="padding-left: 0px;">
                             <span t-field="o.partner_id.name"/><br/>
                             <span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/>
                         </div>
                         <!-- BILL TO -->
-                        <div class="col-xs-3" style="padding-left: 0px;">
+                        <div class="col-xs-4" style="padding-left: 0px;">
                             <span t-field="o.partner_id.name"/><br/>
                             <span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/>
                         </div>
