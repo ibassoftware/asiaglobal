@@ -60,7 +60,6 @@
                                         <!-- <span t-field="move.name"/> -->
                                         <span t-field="move.account_id.name"/>
                                     </td>
-                                    </td>
                                 </t>
                                 
                                 <td class="noborder" valign="top" width="30%" style="border:0;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
