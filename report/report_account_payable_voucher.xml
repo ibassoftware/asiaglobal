@@ -51,12 +51,15 @@
                             <tr>
                                 <t t-if="move.debit == 0 and move.credit != 0">
                                     <td class="noborder text-right" valign="top" width="40%" style="border:0;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
-                                        <span t-field="move.name"/>
+                                        <!-- <span t-field="move.name"/> -->
+                                        <span t-field="move.account_id.name"/>
                                     </td>
                                 </t>
                                 <t t-else="">
                                     <td class="noborder" valign="top" width="40%" style="border:0;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
-                                        <span t-field="move.name"/>
+                                        <!-- <span t-field="move.name"/> -->
+                                        <span t-field="move.account_id.name"/>
+                                    </td>
                                     </td>
                                 </t>
                                 
@@ -107,7 +110,7 @@
                                 <br/>
                                 <br/>
                                 <center>
-                                    <span>__________________</span><br/>
+                                    <span>______________________</span><br/>
                                     <span>AP Assistant</span>
                                 </center>
                             </td>
@@ -116,7 +119,7 @@
                                 <br/>
                                 <br/>
                                 <center>
-                                    <span>__________________</span><br/>
+                                    <span>______________________</span><br/>
                                     <span>Jr. Accounting Manager</span>
                                 </center>
                             </td>
@@ -125,7 +128,7 @@
                                 <br/>
                                 <br/>
                                 <center>
-                                    <span>__________________</span><br/>
+                                    <span>______________________</span><br/>
                                     <span>AVP - Finance &amp; Admin</span>
                                 </center>
                             </td>
@@ -134,7 +137,7 @@
                                 <br/>
                                 <br/>
                                 <center>
-                                    <span>__________________</span><br/>
+                                    <span>______________________</span><br/>
                                     <span>President</span>
                                 </center>
                             </td>

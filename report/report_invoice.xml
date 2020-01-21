@@ -47,22 +47,6 @@
                             <span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/>
                         </div>
                     </div>
-                
-                    <div class="row">
-                        <!-- SOLD TO -->
-                        <!-- ADDRESS -->
-                        <div class="col-xs-2 col-xs-offset-2">
-                            <p/>
-                        </div>
-                        <!-- SHIP TO -->
-                        <div class="col-xs-4">
-                            
-                        </div>
-                        <!-- BILL TO -->
-                        <div class="col-xs-4">
-                            <p/>
-                        </div>
-                    </div>
 
                     <div class="row">
                         <!-- TIN -->
@@ -293,22 +277,6 @@
                         <div class="col-xs-4">
                             <span t-field="o.partner_id.name"/><br/>
                             <span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/>
-                        </div>
-                    </div>
-                
-                    <div class="row">
-                        <!-- SOLD TO -->
-                        <!-- ADDRESS -->
-                        <div class="col-xs-2 col-xs-offset-2">
-                            <p/>
-                        </div>
-                        <!-- SHIP TO -->
-                        <div class="col-xs-4">
-                            
-                        </div>
-                        <!-- BILL TO -->
-                        <div class="col-xs-4">
-                            <p/>
                         </div>
                     </div>
 
