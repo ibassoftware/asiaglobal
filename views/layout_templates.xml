@@ -427,9 +427,7 @@
             <div class="header">
                 <table class="list_table" style="border:none;font-size:12px" width="100%">
                     <tr>
-                        <center>
-                            <img t-if="o.company_id.logo" t-att-src="'data:image/png;base64,%s' % to_text(o.company_id.logo)" width="200" height="60"/>
-                        </center>
+                        <img t-if="o.company_id.logo" t-att-src="'data:image/png;base64,%s' % to_text(o.company_id.logo)" width="200" height="60"/>
                     </tr>
                 </table>
                
