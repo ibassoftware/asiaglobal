@@ -280,7 +280,7 @@
 
                    <div class="row">
                         <!-- SOLD TO -->
-                        <div class="col-xs-1 col-xs-offset-1">
+                        <div class="col-xs-3 col-xs-offset-1">
                             <span t-field="o.partner_id.name"/><br/>
                             <span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/>
                         </div>
