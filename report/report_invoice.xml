@@ -32,7 +32,7 @@
 
                    <div class="row">
                         <!-- SOLD TO -->
-                        <div class="col-xs-4">
+                        <div class="col-xs-4 col-xs-offset-1">
                             <span t-field="o.partner_id.name"/><br/>
                             <span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/>
                         </div>
@@ -42,7 +42,7 @@
                             <span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/>
                         </div>
                         <!-- BILL TO -->
-                        <div class="col-xs-4">
+                        <div class="col-xs-3">
                             <span t-field="o.partner_id.name"/><br/>
                             <span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/>
                         </div>
@@ -264,7 +264,7 @@
 
                    <div class="row">
                         <!-- SOLD TO -->
-                        <div class="col-xs-4">
+                        <div class="col-xs-4 col-xs-offset-1">
                             <span t-field="o.partner_id.name"/><br/>
                             <span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/>
                         </div>
@@ -274,7 +274,7 @@
                             <span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/>
                         </div>
                         <!-- BILL TO -->
-                        <div class="col-xs-4">
+                        <div class="col-xs-3">
                             <span t-field="o.partner_id.name"/><br/>
                             <span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/>
                         </div>
