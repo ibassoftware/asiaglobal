@@ -46,7 +46,7 @@
                             </td>
                         </tr>
                         <t t-set="line_count" t-value="0"/>
-                        <t t-foreach="o.move_id.line_ids" t-as="move">
+                        <t t-foreach="o.move_id.line_ids.sorted(key=lambda r: r.debit, reverse=True)" t-as="move">
                             <t t-set="line_count" t-value="line_count + 1"/>
                             <tr>
                                 <t t-if="move.debit == 0 and move.credit != 0">
