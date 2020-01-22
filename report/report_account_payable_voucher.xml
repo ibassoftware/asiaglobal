@@ -62,7 +62,7 @@
                                     </td>
                                 </t>
                                 
-                                <td class="noborder" valign="top" width="30%" style="border:0;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                                <td class="noborder text-right" valign="top" width="30%" style="border:0;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
                                     <span t-field="move.analytic_account_id.name"/>
                                 </td>
                                 <td class="noborder text-right" valign="top" width="15%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;border-bottom:none;border-top:none;">
@@ -213,7 +213,7 @@
                                     </td>
                                 </t>
                                 
-                                <td class="noborder" valign="top" width="30%" style="border:0;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                                <td class="noborder text-right" valign="top" width="30%" style="border:0;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
                                     <span t-field="move.analytic_account_id.name"/>
                                 </td>
                                 <td class="noborder text-right" valign="top" width="15%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;border-bottom:none;border-top:none;">
