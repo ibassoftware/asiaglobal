@@ -346,7 +346,7 @@
                                     <span t-field="l.price_subtotal" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
                                 </td>
                             </tr>
-                            <t t-set="break_count" t-value="15 - line_count"/>
+                            <t t-set="break_count" t-value="19 - line_count"/>
                             <t t-if="break_count > 0">
                                 <t t-foreach="break_count" t-as="break">
                                     <tr>
