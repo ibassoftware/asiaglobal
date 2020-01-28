@@ -31,11 +31,7 @@
                         <tr>
                             <td colspan="4" class="noborder text-center" valign="top" width="100%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
                                 <b>PARTICULARS</b><br/>
-<<<<<<< HEAD
-                                <span t-field="o.reference"/>
-=======
                                 <span t-field="o.reference"/> <span t-field="o.name"/>
->>>>>>> 23508d8391de2276fdec3334a9826b0c8a9746a2
                             </td>
                         </tr>
                         <tr>
@@ -50,33 +46,17 @@
                             </td>
                         </tr>
                         <t t-set="line_count" t-value="0"/>
-<<<<<<< HEAD
-                        <t t-foreach="o.move_id.line_ids" t-as="move">
-=======
                         <t t-foreach="o.move_id.line_ids.sorted(key=lambda r: r.debit, reverse=True)" t-as="move">
->>>>>>> 23508d8391de2276fdec3334a9826b0c8a9746a2
                             <t t-set="line_count" t-value="line_count + 1"/>
                             <tr>
                                 <t t-if="move.debit == 0 and move.credit != 0">
                                     <td class="noborder text-right" valign="top" width="40%" style="border:0;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
-<<<<<<< HEAD
-                                        <span t-field="move.name"/>
-=======
                                         <!-- <span t-field="move.name"/> -->
                                         <span t-field="move.account_id.name"/>
->>>>>>> 23508d8391de2276fdec3334a9826b0c8a9746a2
                                     </td>
                                 </t>
                                 <t t-else="">
                                     <td class="noborder" valign="top" width="40%" style="border:0;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
-<<<<<<< HEAD
-                                        <span t-field="move.name"/>
-                                    </td>
-                                </t>
-                                
-                                <td class="noborder" valign="top" width="30%" style="border:0;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
-                                    <span t-field="move.name"/>
-=======
                                         <!-- <span t-field="move.name"/> -->
                                         <span t-field="move.account_id.name"/>
                                     </td>
@@ -84,7 +64,6 @@
                                 
                                 <td class="noborder text-center" valign="top" width="30%" style="border:0;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
                                     <span t-field="move.analytic_account_id.name"/>
->>>>>>> 23508d8391de2276fdec3334a9826b0c8a9746a2
                                 </td>
                                 <td class="noborder text-right" valign="top" width="15%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;border-bottom:none;border-top:none;">
                                     <span t-field="move.debit"/>
@@ -130,11 +109,7 @@
                                 <br/>
                                 <br/>
                                 <center>
-<<<<<<< HEAD
-                                    <span>__________________</span>
-=======
                                     <span>__________________________</span><br/>
->>>>>>> 23508d8391de2276fdec3334a9826b0c8a9746a2
                                     <span>AP Assistant</span>
                                 </center>
                             </td>
@@ -143,11 +118,7 @@
                                 <br/>
                                 <br/>
                                 <center>
-<<<<<<< HEAD
-                                    <span>__________________</span>
-=======
                                     <span>__________________________</span><br/>
->>>>>>> 23508d8391de2276fdec3334a9826b0c8a9746a2
                                     <span>Jr. Accounting Manager</span>
                                 </center>
                             </td>
@@ -156,11 +127,7 @@
                                 <br/>
                                 <br/>
                                 <center>
-<<<<<<< HEAD
-                                    <span>__________________</span>
-=======
                                     <span>__________________________</span><br/>
->>>>>>> 23508d8391de2276fdec3334a9826b0c8a9746a2
                                     <span>AVP - Finance &amp; Admin</span>
                                 </center>
                             </td>
@@ -169,11 +136,7 @@
                                 <br/>
                                 <br/>
                                 <center>
-<<<<<<< HEAD
-                                    <span>__________________</span>
-=======
                                     <span>__________________________</span><br/>
->>>>>>> 23508d8391de2276fdec3334a9826b0c8a9746a2
                                     <span>President</span>
                                 </center>
                             </td>
@@ -191,8 +154,6 @@
             </t>
         </template>
 
-<<<<<<< HEAD
-=======
         <!-- START APV IN EXPENSE -->
         <template id="report_account_payable_voucher_expense_document">
             <t t-call="asiaglobal.external_layout_account_payable_voucher">
@@ -345,6 +306,5 @@
         </template>
         <!-- END APV IN EXPENSE -->
 
->>>>>>> 23508d8391de2276fdec3334a9826b0c8a9746a2
     </data>
 </odoo>
