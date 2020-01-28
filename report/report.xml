@@ -54,7 +54,7 @@
         <report 
             id="agt_account_invoice"
             model="account.invoice"
-            string="Invoices"
+            string="Billing Invoice"
             report_type="qweb-pdf"
             name="asiaglobal.agt_report_account_invoice"
             file="asiaglobal.agt_report_account_invoice"
@@ -94,6 +94,40 @@
             report_type="qweb-pdf"
             name="asiaglobal.report_account_payable_voucher"
             file="asiaglobal.report_account_payable_voucher"
+            menu="True"
+            paperformat="asiaglobal.paperformat_report_account_payable_voucher"
+            
+        />
+
+        <report 
+            id="agt_account_invoice_charge"
+            model="account.invoice"
+            string="Charge Invoice"
+            report_type="qweb-pdf"
+            name="asiaglobal.agt_report_account_invoice_charge"
+            file="asiaglobal.agt_report_account_invoice_charge"
+            menu="True"
+            paperformat="asiaglobal.paperformat_report_agt_account_invoice"
+            
+        />
+
+        <report 
+            id="asiaglobal_purchase_local"
+            model="purchase.order"
+            string="Local PO"
+            report_type="qweb-pdf"
+            name="asiaglobal.asiaglobal_report_purchase_local"
+            file="asiaglobal.asiaglobal_report_purchase_local"
+            menu="True"            
+        />
+
+        <report 
+            id="account_payable_voucher_expense"
+            model="hr.expense.sheet"
+            string="Account Payable Voucher"
+            report_type="qweb-pdf"
+            name="asiaglobal.report_account_payable_voucher_expense"
+            file="asiaglobal.report_account_payable_voucher_expense"
             menu="True"
             paperformat="asiaglobal.paperformat_report_account_payable_voucher"
             

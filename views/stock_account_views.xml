@@ -9,6 +9,7 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='qty_at_date']" position="before">
                     <field name="default_code"/>
+                    <field name="description_sale" string="Description"/>
                 </xpath>
             </field>
         </record>
