@@ -173,7 +173,8 @@
                                 <b>PAYEE: </b> <span t-field="o.employee_id.name"/>
                             </td>
                             <td colspan="2" class="noborder" valign="top" width="30%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
-                                <b>REF No. </b> <span t-field="o.name"/>
+                                <b>REF No. </b> <!-- <span t-field="o.name"/> -->
+                                <span t-field="o.account_move_id.name"
                             </td>
                         </tr>
                         <tr>
@@ -202,7 +203,7 @@
                         <t t-foreach="o.account_move_id.line_ids.sorted(key=lambda r: r.debit, reverse=True)" t-as="move">
                             <t t-set="line_count" t-value="line_count + 1"/>
                             <tr>
-                                <t t-if="move.debit == 0 and move.credit != 0">
+                                <!-- <t t-if="move.debit == 0 and move.credit != 0">
                                     <td class="noborder text-right" valign="top" width="40%" style="border:0;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
                                         <span t-field="move.account_id.name"/>
                                     </td>
@@ -211,7 +212,11 @@
                                     <td class="noborder" valign="top" width="40%" style="border:0;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
                                         <span t-field="move.account_id.name"/>
                                     </td>
-                                </t>
+                                </t> -->
+
+                                <td class="noborder text-right" valign="top" width="40%" style="border:0;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                                    <span t-field="move.name"/>
+                                </td>
                                 
                                 <td class="noborder text-center" valign="top" width="30%" style="border:0;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
                                     <span t-field="move.analytic_account_id.name"/>
