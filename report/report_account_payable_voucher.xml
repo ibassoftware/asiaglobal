@@ -91,7 +91,7 @@
                         </t>
                         <tr>
                             <td colspan="2" class="noborder text-right" valign="top" width="70%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
-                                <b>TOTAL AMOUNT PAYABLE </b> <span t-field="o.currency_id.name"/>
+                                <b>TOTAL AMOUNT PAYABLE </b> <!-- <span t-field="o.currency_id.name"/> -->
                             </td>
                             <td class="noborder text-center" valign="top" width="15%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
                                 <b></b>
@@ -257,7 +257,7 @@
                         </t>
                         <tr>
                             <td colspan="2" class="noborder text-right" valign="top" width="70%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
-                                <b>TOTAL AMOUNT PAYABLE </b> <span t-field="o.currency_id.name"/>
+                                <b>TOTAL AMOUNT PAYABLE </b> <!-- <span t-field="o.currency_id.name"/> -->
                             </td>
                             <td class="noborder text-center" valign="top" width="15%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
                                 <b></b>
