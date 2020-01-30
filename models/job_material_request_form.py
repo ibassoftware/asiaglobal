@@ -131,7 +131,7 @@ class JobMaterialRequestForm(models.Model):
 		return result
 
 	picking_id = fields.Many2one('stock.picking.type', string='Operation Type')
-	location_id = fields.Many2one('stock.location', string='Stock Location')
+	location_id_2 = fields.Many2one('stock.location', string='Stock Location')
 	destination_id = fields.Many2one('stock.location', string='Destination Location')
 
 class JobMaterialRequestFormLine(models.Model):
