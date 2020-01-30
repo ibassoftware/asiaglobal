@@ -186,11 +186,11 @@
                             <td colspan="4" class="noborder text-center" valign="top" width="100%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
                                 <b>PARTICULARS</b><br/>
                                 <!-- <span t-field="o.reference"/> -->
-                                <t t-set="particulars" t-value=""/>
-                                <t t-foreach="o.expense_line_ids" t-as="expense">
-                                    <t t-set="particulars" t-value="particulars + ' ' + expense.name"/>
-                                </t>
-                                <span t-esc="particulars"/>
+                                <p>
+                                    <t t-foreach="o.expense_line_ids" t-as="expense">
+                                        <span t-esc="expense.name"/>
+                                    </t>
+                                </p>
                             </td>
                         </tr>
                         <tr>
