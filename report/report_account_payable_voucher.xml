@@ -193,7 +193,7 @@
                                             <span>, </span>
                                         </t>
                                         <span t-esc="expense.name"/>
-                                        <t t-set="expense_count" t-value="expense_count += 1"/>
+                                        <t t-set="expense_count" t-value="expense_count + 1"/>
                                     </t>
                                 </p>
                             </td>
