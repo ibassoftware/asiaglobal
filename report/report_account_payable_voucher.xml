@@ -189,7 +189,7 @@
                                 <t t-set="expense_count" t-value="0"/>
                                 <p>
                                     <t t-foreach="o.expense_line_ids" t-as="expense">
-                                        <t t-if="expense_count > 0"/>
+                                        <t t-if="expense_count > 0">
                                             <span>, </span>
                                         </t>
                                         <span t-esc="expense.name"/>
