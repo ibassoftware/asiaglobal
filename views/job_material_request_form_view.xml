@@ -58,7 +58,7 @@
                     <field name="part_number"/>
                     <field name="qty"/>
                     <field name="item_code"/>
-                    <field name="line_cost"/>
+                    <field name="line_cost" readonly="1"/>
                   </tree>
                 </field>
                 <field name="remarks" class="oe_inline" placeholder="Add remarks here..."/>
