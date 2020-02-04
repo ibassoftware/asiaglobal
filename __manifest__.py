@@ -54,6 +54,7 @@
         'views/stock_picking_views.xml',
         'views/stock_account_views.xml',
         'views/service_menu.xml',
+        'views/stock_move_update.xml',
         'report/report_quotation_service.xml',
         'report/service_report.xml',
         'report/report_job_order.xml',

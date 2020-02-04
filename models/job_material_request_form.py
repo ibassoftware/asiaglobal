@@ -90,7 +90,7 @@ class JobMaterialRequestForm(models.Model):
 			self.stock_picking_id = self.env['stock.picking'].create({
 				'move_type':'direct',
 				'picking_type_id': self.picking_id.id,
-				'location_id': self.location_id.id,
+				'location_id': self.location_id_2.id,
 				'location_dest_id': self.destination_id.id,
 				'origin': self.name
 			}) 
@@ -103,7 +103,7 @@ class JobMaterialRequestForm(models.Model):
 					'picking_id': self.stock_picking_id.id,
 					'name': target_list.product_id.name,
 					'product_uom': target_list.product_id.uom_id.id,
-					'location_id': self.location_id.id,
+					'location_id': self.location_id_2.id,
 					'location_dest_id': self.destination_id.id
 				})
 
