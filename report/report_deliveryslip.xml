@@ -11,16 +11,16 @@
 							<div class="col-xs-6 col-xs-offset-2">
 								<span t-field="o.partner_id.name"/>
 							</div>
-							<div class="col-xs-3 col-xs-offset-1">
+							<div class="col-xs-2 col-xs-offset-2">
 								<span t-esc="datetime.datetime.strptime(o.scheduled_date, '%Y-%m-%d %H:%M:%S').strftime('%m/%d/%Y')"/>
 							</div>
 						</div>
 
 						<div class="row">
-							<div class="col-xs-7 col-xs-offset-1">
+							<div class="col-xs-8 col-xs-offset-1">
 								<span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/>
 							</div>
-							<div class="col-xs-3 col-xs-offset-1">
+							<div class="col-xs-2 col-xs-offset-1">
 								<span t-field="o.sale_id.payment_term_id.name"/>
 							</div>
 						</div>

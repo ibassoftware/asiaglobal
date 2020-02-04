@@ -12,6 +12,7 @@
                     <br/>
                     <br/>
                     <br/>
+                    <br/>
 
                     <div class="row">
                         <!-- SOLD TO -->
@@ -28,6 +29,7 @@
                         </div>
                     </div>
 
+                   <br/>
                    <br/>
 
                    <div class="row">
@@ -65,6 +67,7 @@
 
                     <br/>
                     <br/>
+                    <br/>
 
                     <div class="row">
                         <!-- SALESMAN -->
@@ -87,6 +90,7 @@
 
                     <br/>
                     <br/>
+                    <br/>
 
                     <!-- Is there a discount on at least one line? -->
                     <t t-set="display_discount" t-value="any([l.discount for l in o.invoice_line_ids])"/>
@@ -107,8 +111,8 @@
                             <t t-set="line_count" t-value="0"/>
                             <tr t-foreach="o.invoice_line_ids" t-as="l">
                                 <t t-set="line_count" t-value="line_count + 1"/>
-                                <td width="7%" style="border-top: 0px;"></td>
-                            	<td width="10%" style="border-top: 0px;">
+                                <td width="5%" style="border-top: 0px;"></td>
+                            	<td width="12%" style="border-top: 0px;">
                                     <span t-field="l.quantity"/>
                                 </td>
                                 <td width="10%" style="border-top: 0px;">
@@ -125,14 +129,14 @@
                                     <span t-field="l.price_subtotal" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
                                 </td>
                             </tr>
-                            <t t-set="break_count" t-value="16 - line_count"/>
+                            <t t-set="break_count" t-value="17 - line_count"/>
                             <t t-if="break_count > 0">
                                 <t t-foreach="break_count" t-as="break">
                                     <tr>
-                                        <td width="7%" style="border-top: 0px;">
+                                        <td width="5%" style="border-top: 0px;">
                                             <br/>
                                         </td>
-                                        <td width="10%" style="border-top: 0px;">
+                                        <td width="12%" style="border-top: 0px;">
                                             <br/>
                                         </td>
                                         <td width="10%" style="border-top: 0px;">
@@ -165,22 +169,10 @@
                                 <td width="55%" style="border-top: 0px;">
                                     <br/>
                                 </td>
-                                <td width="20%" style="border-top: 0px;">
+                                <td width="33%" style="border-top: 0px;">
                                     <br/>
                                 </td>
-                                <td width="15%" class="text-center" style="border-top: 0px;">
-                                    <br/>
-                                </td>
-                            </tr>
-                            <tr>
-                                 <td width="10%" style="border-top: 0px;"></td>
-                                <td width="55%" style="border-top: 0px;">
-                                    <br/>
-                                </td>
-                                <td width="20%" style="border-top: 0px;">
-                                    <br/>
-                                </td>
-                                <td width="15%" class="text-center" style="border-top: 0px;">
+                                <td width="2%" class="text-center" style="border-top: 0px;">
                                     <br/>
                                 </td>
                             </tr>
@@ -189,10 +181,22 @@
                                 <td width="55%" style="border-top: 0px;">
                                     <br/>
                                 </td>
-                                <td width="20%" style="border-top: 0px;">
+                                <td width="33%" style="border-top: 0px;">
                                     <br/>
                                 </td>
-                                <td width="15%" class="text-center" style="border-top: 0px;">
+                                <td width="2%" class="text-center" style="border-top: 0px;">
+                                    <br/>
+                                </td>
+                            </tr>
+                            <tr>
+                                 <td width="10%" style="border-top: 0px;"></td>
+                                <td width="55%" style="border-top: 0px;">
+                                    <br/>
+                                </td>
+                                <td width="33%" style="border-top: 0px;">
+                                    <br/>
+                                </td>
+                                <td width="2%" class="text-center" style="border-top: 0px;">
                                     <br/>
                                 </td>
                             </tr>
@@ -201,10 +205,10 @@
                                 <td width="55%" style="border-top: 0px;">
                                     <br/>
                                 </td>
-                                <td width="30%" class="text-right" style="border-top: 0px;">
+                                <td width="33%" class="text-right" style="border-top: 0px;">
                                     <span t-field="o.amount_total" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
                                 </td>
-                                <td width="5%" style="border-top: 0px;">
+                                <td width="2%" style="border-top: 0px;">
                                     <br/>
                                 </td>
                             </tr>
@@ -213,11 +217,11 @@
                                 <td width="55%" style="border-top: 0px;">
                                     <br/>
                                 </td>
-                                <td width="30%" style="border-top: 0px;">
+                                <td width="33%" style="border-top: 0px;">
                                      <br/>
                                     <span t-field="o.comment"/>
                                 </td>
-                                <td width="5%" style="border-top: 0px;">
+                                <td width="2%" style="border-top: 0px;">
                                    <br/>
                                 </td>
                             </tr>
@@ -242,6 +246,8 @@
                 <t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})" />
                 <!-- <div class="page" t-attf-style="background-image:url('/asiaglobal/static/src/img/bill.PNG');  no-repeat; background-size: cover;"> -->
                 <div class="page" style="font-size:12px">
+                    <br/>
+                    <br/>
                     <br/>
                     <br/>
                     <br/>
@@ -284,6 +290,7 @@
 
                     <br/>
                     <br/>
+                    <br/>
 
                     <div class="row">
                         <!-- SALESMAN -->
@@ -306,6 +313,7 @@
 
                     <br/>
                     <br/>
+                    <br/>
 
                     <!-- Is there a discount on at least one line? -->
                     <t t-set="display_discount" t-value="any([l.discount for l in o.invoice_line_ids])"/>
@@ -326,8 +334,8 @@
                             <t t-set="line_count" t-value="0"/>
                             <tr t-foreach="o.invoice_line_ids" t-as="l">
                                 <t t-set="line_count" t-value="line_count + 1"/>
-                                <td width="7%" style="border-top: 0px;"></td>
-                                <td width="10%" style="border-top: 0px;">
+                                <td width="5%" style="border-top: 0px;"></td>
+                                <td width="12%" style="border-top: 0px;">
                                     <span t-field="l.quantity"/>
                                 </td>
                                 <td width="10%" style="border-top: 0px;">
@@ -350,10 +358,10 @@
                             <t t-if="break_count > 0">
                                 <t t-foreach="break_count" t-as="break">
                                     <tr>
-                                        <td width="7%" style="border-top: 0px;">
+                                        <td width="5%" style="border-top: 0px;">
                                             <br/>
                                         </td>
-                                        <td width="10%" style="border-top: 0px;">
+                                        <td width="12%" style="border-top: 0px;">
                                             <br/>
                                         </td>
                                         <td width="10%" style="border-top: 0px;">
