@@ -18,24 +18,28 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="noborder" valign="top" width="46%" style="border-style:solid; border-color:#808080;border-width:0px 1px 1px 1px;padding-left:1.5em;padding-top:0.10em;">                 
-                                    <span class="uppercase">
-                                        <b>
-                                            <span t-field="o.partner_id"/>
-                                        </b><br />
-                                    </span>
-                                    <address t-field="o.partner_id"
-                                    t-options='{"widget": "contact", "fields": ["address"], "no_marker": True}' />
+                                <td class="noborder" valign="top" width="46%" style="border-style:solid; border-color:#808080;border-width:0px 1px 1px 1px;padding-left:1.5em;padding-top:0.10em;">
+                                    <div style="vertical-align: middle;">                 
+                                        <span class="uppercase">
+                                            <b>
+                                                <span t-field="o.partner_id"/>
+                                            </b><br />
+                                        </span>
+                                        <address t-field="o.partner_id"
+                                        t-options='{"widget": "contact", "fields": ["address"], "no_marker": True}' />
+                                    </div>
                                 </td>
                                 <td class="noborder"  width="8%"></td>
-                                <td class="noborder" valign="top" width="46%" style="border-style:solid; border-color:#808080;border-width:0px 1px 1px 1px;padding-left:1.5em;padding-top:0.10em;"  >
-                                    <span class="uppercase">
-                                        <b>
-                                            <span t-field="o.company_id"/>
-                                        </b><br />
-                                    </span>
-                                    <address t-field="o.company_id.partner_id"
-                                    t-options='{"widget": "contact", "fields": ["address"], "no_marker": True}' />
+                                <td class="noborder" valign="top" width="46%" style="border-style:solid; border-color:#808080;border-width:0px 1px 1px 1px;padding-left:1.5em;padding-top:0.10em;" >
+                                    <div style="vertical-align: middle;">
+                                        <span class="uppercase">
+                                            <b>
+                                                <span t-field="o.company_id"/>
+                                            </b><br />
+                                        </span>
+                                        <address t-field="o.company_id.partner_id"
+                                        t-options='{"widget": "contact", "fields": ["address"], "no_marker": True}' />
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
@@ -79,10 +83,10 @@
                                 <tr style="border-top:1px solid #000000;">
                                     <th style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"><strong>Item Code</strong></th>
                                     <th style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"><strong>Part Number</strong></th>
-                                    <th style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"><strong>Quantity</strong></th>
+                                    <th class="text-center" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"><strong>Quantity</strong></th>
                                     <th style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"><strong>Description</strong></th>
-                                    <th style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"><strong>Unit Price</strong></th>
-                                    <th style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"><strong>Total Price</strong></th>
+                                    <th class="text-right" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"><strong>Unit Price</strong></th>
+                                    <th class="text-right" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"><strong>Total Price</strong></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -97,16 +101,16 @@
                                         <!-- <span t-field="line.product_id.name"/> -->
                                         <span t-field="line.part_number"/>
                                     </td>
-                                    <td width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
+                                    <td class="text-center" width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
                                         <span t-esc="int(float(line.product_qty))"/>
                                     </td>
                                     <td width="30%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
                                         <span t-field="line.name"/>
                                     </td>
-                                    <td width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
+                                    <td class="text-right" width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
                                         <span t-field="line.price_unit" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
                                     </td>
-                                    <td width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
+                                    <td class="text-right" width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
                                         <span t-field="line.price_subtotal" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
                                     </td>
                                 </tr>
@@ -142,7 +146,7 @@
                                     <td width="10%" style="border-style:solid;border-color:#808080;border-width:1px 1px 0px 1px;font-size:14px;">
                                         <span><b><i>Total </i></b></span>
                                     </td>
-                                    <td width="10%" style="border-style:solid;border-color:#808080;border-width:1px 1px 0px 1px;font-size:14px;">
+                                    <td class="text-right" width="10%" style="border-style:solid;border-color:#808080;border-width:1px 1px 0px 1px;font-size:14px;">
                                         <b><i><span t-field="o.amount_total" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/></i></b>
                                     </td>
                                 </tr>
@@ -152,7 +156,7 @@
                                             <tr>
                                                 <td width="25%" class="noborder" style="padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
                                                     <center>
-                                                        <b>Prepared By:</b><br/>
+                                                        <b>Prepared By:</b><br/><br/>
                                                         _________________________
                                                         <span t-field="o.create_uid.name"/><br/>
                                                         Name &amp; Signature
@@ -160,14 +164,14 @@
                                                 </td>
                                                 <td width="25%" class="noborder" style="padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
                                                     <center>
-                                                        <b>Approver 1:</b><br/>
+                                                        <b>Approver 1:</b><br/><br/>
                                                         _________________________<br/><br/>
                                                         Dept. Manager
                                                     </center>
                                                 </td>
                                                 <td width="25%" class="noborder" style="padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
                                                     <center>
-                                                        <b>Approver 2:</b><br/>
+                                                        <b>Approver 2:</b><br/><br/>
                                                         _________________________<br/>
                                                         J. Malijan <br/>
                                                         AVP - Finance &amp; Admin
@@ -175,7 +179,7 @@
                                                 </td>
                                                 <td width="25%" class="noborder" style="padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
                                                     <center>
-                                                        <b>Noted By:</b><br/>
+                                                        <b>Noted By:</b><br/><br/>
                                                         _________________________<br/>
                                                         A. RAMOS <br/>
                                                         President
@@ -188,93 +192,7 @@
                             </tbody>
                         </table>
 
-                        <!-- <table class="table table-condensed">
-                            <thead>
-                                <tr style="font-size:14px;">
-                                    <th><strong>Item Code</strong></th>
-                                    <th><strong>Part Number</strong></th>
-                                    <th><strong>Quantity</strong></th>
-                                    <th><strong>Description</strong></th>
-                                    <th><strong>Unit Price</strong></th>
-                                    <th><strong>Total Price</strong></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <t t-set="line_count" t-value="0"/>
-                                <tr style="font-size:14px;" t-foreach="o.order_line" t-as="line">
-                                    <t t-set="line_count" t-value="line_count + 1"/>
-                                    <td width="20%">
-                                        <span t-field="line.product_id.default_code"/>
-                                    </td>
-                                    <td width="20%">
-                                        <span t-field="line.product_id.name"/>
-                                    </td>
-                                    <td width="10%">
-                                        <span t-field="line.product_qty"/>
-                                    </td>
-                                    <td width="30%">
-                                         <span t-field="line.product_id.description_sale"/>
-                                    </td>
-                                    <td width="10%">
-                                        <span t-field="line.price_unit"/>
-                                    </td>
-                                    <td width="10%">
-                                        <span t-field="line.price_subtotal"/>
-                                    </td>
-                                </tr>
-                                <t t-set="break_count" t-value="15 - line_count"/>
-                                <t t-if="break_count > 0">
-                                    <t t-foreach="break_count" t-as="break">
-                                        <tr>
-                                            <td width="20%">
-                                                <br/>
-                                            </td>
-                                            <td width="20%">
-                                                <br/>
-                                            </td>
-                                            <td width="10%">
-                                                <br/>
-                                            </td>
-                                            <td width="30%">
-                                                <br/>
-                                            </td>
-                                            <td width="10%">
-                                                <br/>
-                                            </td>
-                                            <td width="10%">
-                                                <br/>
-                                            </td>
-                                        </tr>
-                                    </t>
-                                </t>
-                                <tr style="font-size:14px;">
-                                    <td width="80%">
-                                        <span t-field="o.notes"/>
-                                    </td>
-                                    <td width="10%">
-                                        <span style="color:red;"><b><i>Total </i></b></span>
-                                    </td>
-                                    <td width="10%">
-                                        <b><i><span t-field="o.amount_total" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/></i></b>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table> -->
-
                         <br/>
-
-                        <!-- <div class="row" style="font-size:14px;">
-                            <div class="col-xs-4">
-                                <b><i><span style="color:red;">NOTE: <span t-field="o.notes"/></span></i></b><br/>
-                            </div>
-                            <div class="col-xs-4">
-                                <br/>
-                            </div>
-                            <div class="col-xs-4 text-center">
-                                <strong>_________________________</strong> <br/>
-                                <p>Authorized Signature/Date</p>
-                            </div>
-                        </div> -->
 
                     </div>
                 </t>
@@ -359,10 +277,10 @@
                             <tr style="border-top:1px solid #000000;">
                                 <th style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"><strong>Item Code</strong></th>
                                 <th style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"><strong>Description</strong></th>
-                                <th style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"><strong>Quantity</strong></th>
+                                <th class="text-center" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"><strong>Quantity</strong></th>
                                 <th style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"><strong>UOM</strong></th>
-                                <th style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"><strong>Unit Price</strong></th>
-                                <th style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"><strong>Total Price</strong></th>
+                                <th class="text-right" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"><strong>Unit Price</strong></th>
+                                <th class="text-right" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"><strong>Total Price</strong></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -376,16 +294,16 @@
                                 <td width="45%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
                                     <span t-field="line.name"/>
                                 </td>
-                                <td width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
+                                <td class="text-center" width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
                                     <span t-esc="int(float(line.product_qty))"/>
                                 </td>
                                 <td width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
                                     <span>LOT</span>
                                 </td>
-                                <td width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
+                                <td class="text-right" width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
                                     <span t-field="line.price_unit" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
                                 </td>
-                                <td width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
+                                <td class="text-right" width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
                                     <span t-field="line.price_subtotal" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
                                 </td>
                             </tr>
@@ -421,7 +339,7 @@
                                 <td width="10%" style="border-style:solid;border-color:#808080;border-width:1px 1px 0px 1px;font-size:14px;">
                                     <span><b><i>Total </i></b></span>
                                 </td>
-                                <td width="10%" style="border-style:solid;border-color:#808080;border-width:1px 1px 0px 1px;font-size:14px;">
+                                <td class="text-right" width="10%" style="border-style:solid;border-color:#808080;border-width:1px 1px 0px 1px;font-size:14px;">
                                     <b><i><span t-field="o.amount_total" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/></i></b>
                                 </td>
                             </tr>
@@ -431,7 +349,7 @@
                                         <tr>
                                             <td width="25%" class="noborder" style="padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
                                                 <center>
-                                                    <b>Prepared By:</b><br/>
+                                                    <b>Prepared By:</b><br/><br/>
                                                     _________________________
                                                     <span t-field="o.create_uid.name"/><br/>
                                                     Name &amp; Signature
@@ -439,14 +357,14 @@
                                             </td>
                                             <td width="25%" class="noborder" style="padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
                                                 <center>
-                                                    <b>Approver 1:</b><br/>
+                                                    <b>Approver 1:</b><br/><br/>
                                                     _________________________<br/><br/>
                                                     Dept. Manager
                                                 </center>
                                             </td>
                                             <td width="25%" class="noborder" style="padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
                                                 <center>
-                                                    <b>Approver 2:</b><br/>
+                                                    <b>Approver 2:</b><br/><br/>
                                                     _________________________<br/>
                                                     J. Malijan <br/>
                                                     AVP - Finance &amp; Admin
@@ -454,7 +372,7 @@
                                             </td>
                                             <td width="25%" class="noborder" style="padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
                                                 <center>
-                                                    <b>Noted By:</b><br/>
+                                                    <b>Noted By:</b><br/><br/>
                                                     _________________________<br/>
                                                     A. RAMOS <br/>
                                                     President
@@ -467,94 +385,8 @@
                         </tbody>
                     </table>
 
-                    <!-- <table class="table table-condensed">
-                        <thead>
-                            <tr style="font-size:14px;">
-                                <th><strong>Item Code</strong></th>
-                                <th><strong>Part Number</strong></th>
-                                <th><strong>Quantity</strong></th>
-                                <th><strong>Description</strong></th>
-                                <th><strong>Unit Price</strong></th>
-                                <th><strong>Total Price</strong></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <t t-set="line_count" t-value="0"/>
-                            <tr style="font-size:14px;" t-foreach="o.order_line" t-as="line">
-                                <t t-set="line_count" t-value="line_count + 1"/>
-                                <td width="20%">
-                                    <span t-field="line.product_id.default_code"/>
-                                </td>
-                                <td width="20%">
-                                    <span t-field="line.product_id.name"/>
-                                </td>
-                                <td width="10%">
-                                    <span t-field="line.product_qty"/>
-                                </td>
-                                <td width="30%">
-                                     <span t-field="line.product_id.description_sale"/>
-                                </td>
-                                <td width="10%">
-                                    <span t-field="line.price_unit"/>
-                                </td>
-                                <td width="10%">
-                                    <span t-field="line.price_subtotal"/>
-                                </td>
-                            </tr>
-                            <t t-set="break_count" t-value="15 - line_count"/>
-                            <t t-if="break_count > 0">
-                                <t t-foreach="break_count" t-as="break">
-                                    <tr>
-                                        <td width="20%">
-                                            <br/>
-                                        </td>
-                                        <td width="20%">
-                                            <br/>
-                                        </td>
-                                        <td width="10%">
-                                            <br/>
-                                        </td>
-                                        <td width="30%">
-                                            <br/>
-                                        </td>
-                                        <td width="10%">
-                                            <br/>
-                                        </td>
-                                        <td width="10%">
-                                            <br/>
-                                        </td>
-                                    </tr>
-                                </t>
-                            </t>
-                            <tr style="font-size:14px;">
-                                <td width="80%">
-                                    <span t-field="o.notes"/>
-                                </td>
-                                <td width="10%">
-                                    <span style="color:red;"><b><i>Total </i></b></span>
-                                </td>
-                                <td width="10%">
-                                    <b><i><span t-field="o.amount_total" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/></i></b>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table> -->
-
                     <br/>
-
-                    <!-- <div class="row" style="font-size:14px;">
-                        <div class="col-xs-4">
-                            <b><i><span style="color:red;">NOTE: <span t-field="o.notes"/></span></i></b><br/>
-                        </div>
-                        <div class="col-xs-4">
-                            <br/>
-                        </div>
-                        <div class="col-xs-4 text-center">
-                            <strong>_________________________</strong> <br/>
-                            <p>Authorized Signature/Date</p>
-                        </div>
-                    </div> -->
-
+                   
                 </div>
             </t>
         </template>
