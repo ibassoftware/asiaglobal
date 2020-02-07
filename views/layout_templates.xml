@@ -356,12 +356,14 @@
                             <table class="list_table" style="border:none;font-size:12px" width="100%">
                                 <tr>
                                     <td class="noborder" valign="top" width="63%">
-                                        <span t-field="o.company_id.partner_id.street"/>, <span t-field="o.company_id.partner_id.street2"/>, <span t-field="o.company_id.partner_id.city"/>, <span t-field="o.company_id.partner_id.state_id.name"/>, <span t-field="o.company_id.partner_id.country_id.name"/>
-
+                                        <span t-field="o.company_id.partner_id.street"/>
+                                        <span t-if="o.company_id.partner_id.street2">, <span t-field="o.company_id.partner_id.street2"/></span>
+                                        <span t-if="o.company_id.partner_id.city">, <span t-field="o.company_id.partner_id.city"/></span>
+                                        <span t-if="o.company_id.partner_id.state_id">, <span t-field="o.company_id.partner_id.state_id.name"/></span><span t-if="o.company_id.partner_id.country_id">, <span t-field="o.company_id.partner_id.country_id.name"/></span>
                                     </td>
                                     <td class="noborder" valign="top" width="2%"></td>
                                     <td class="noborder" valign="top" width="35%">
-                                        Phone # 899-1801<br/>
+                                        Phone # 02-8899-1801<br/>
                                         www.asiaglobaltech.com
                                     </td>
                                 </tr>
