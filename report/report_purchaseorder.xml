@@ -18,28 +18,24 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="noborder" valign="top" width="46%" style="border-style:solid; border-color:#808080;border-width:0px 1px 1px 1px;padding-left:1.5em;padding-top:0.10em;">
-                                    <div style="vertical-align: middle;">                 
-                                        <span class="uppercase">
-                                            <b>
-                                                <span t-field="o.partner_id"/>
-                                            </b><br />
-                                        </span>
-                                        <address t-field="o.partner_id"
-                                        t-options='{"widget": "contact", "fields": ["address"], "no_marker": True}' />
-                                    </div>
+                                <td class="noborder" valign="middle" width="46%" style="border-style:solid; border-color:#808080;border-width:0px 1px 1px 1px;padding-left:1.5em;padding-top:0.10em;">
+                                    <span class="uppercase">
+                                        <b>
+                                            <span t-field="o.partner_id"/>
+                                        </b><br />
+                                    </span>
+                                    <address t-field="o.partner_id"
+                                    t-options='{"widget": "contact", "fields": ["address"], "no_marker": True}' />
                                 </td>
                                 <td class="noborder"  width="8%"></td>
-                                <td class="noborder" valign="top" width="46%" style="border-style:solid; border-color:#808080;border-width:0px 1px 1px 1px;padding-left:1.5em;padding-top:0.10em;" >
-                                    <div style="vertical-align: middle;">
-                                        <span class="uppercase">
-                                            <b>
-                                                <span t-field="o.company_id"/>
-                                            </b><br />
-                                        </span>
-                                        <address t-field="o.company_id.partner_id"
-                                        t-options='{"widget": "contact", "fields": ["address"], "no_marker": True}' />
-                                    </div>
+                                <td class="noborder" valign="middle" width="46%" style="border-style:solid; border-color:#808080;border-width:0px 1px 1px 1px;padding-left:1.5em;padding-top:0.10em;" >
+                                    <span class="uppercase">
+                                        <b>
+                                            <span t-field="o.company_id"/>
+                                        </b><br />
+                                    </span>
+                                    <address t-field="o.company_id.partner_id"
+                                    t-options='{"widget": "contact", "fields": ["address"], "no_marker": True}' />
                                 </td>
                             </tr>
                             <tr>
@@ -216,7 +212,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="noborder" valign="top" width="46%" style="border-style:solid; border-color:#808080;border-width:0px 1px 1px 1px;padding-left:1.5em;padding-top:0.10em;">                 
+                            <td class="noborder" valign="middle" width="46%" style="border-style:solid; border-color:#808080;border-width:0px 1px 1px 1px;padding-left:1.5em;padding-top:0.10em;">                 
                                 <span class="uppercase">
                                     <b>
                                         <span t-field="o.partner_id"/>
@@ -226,7 +222,7 @@
                                 t-options='{"widget": "contact", "fields": ["address"], "no_marker": True}' />
                             </td>
                             <td class="noborder"  width="8%"></td>
-                            <td class="noborder" valign="top" width="46%" style="border-style:solid; border-color:#808080;border-width:0px 1px 1px 1px;padding-left:1.5em;padding-top:0.10em;"  >
+                            <td class="noborder" valign="middle" width="46%" style="border-style:solid; border-color:#808080;border-width:0px 1px 1px 1px;padding-left:1.5em;padding-top:0.10em;"  >
                                 <span class="uppercase">
                                     <b>
                                         <span t-field="o.company_id"/>
