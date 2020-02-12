@@ -323,7 +323,7 @@
                                             <span><span t-esc="int(float(tax.amount))"/>%</span>
                                         </td>
                                         <td class="text-right" width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
-                                            <span t-field="line.price_tax" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                            <span t-esc="float((line.price_unit * tax.amount) / 100)" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
                                         </td>
                                     </tr>
                                 </t>
