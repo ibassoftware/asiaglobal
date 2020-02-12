@@ -260,7 +260,7 @@
 
         <template id="external_layout_purchase_quotation_asiaglobal_custom">
             <!-- <div t-attf-style="background-image:url('/chocovron/static/img/DR2.jpg');  no-repeat; background-size: cover;"> -->
-            <div class="header">
+            <div class="header" style="font-family: Tahoma !important;">
                 <table class="list_table" style="border:none;font-size:12px" width="100%">
                     <tr>
                         <td class="noborder" width="8%">
@@ -313,7 +313,7 @@
                
             </div>
 
-            <div class="article o_report_layout_standard">
+            <div class="article o_report_layout_standard" style="font-family: Tahoma !important;">
                 <t t-raw="0" />
             </div>
 
@@ -343,7 +343,7 @@
 
         <template id="external_layout_purchase_asiaglobal_custom">
             <!-- <div t-attf-style="background-image:url('/chocovron/static/img/DR2.jpg');  no-repeat; background-size: cover;"> -->
-            <div class="header">
+            <div class="header" style="font-family: Tahoma !important;">
                 <table class="list_table" style="border:none;font-size:12px" width="100%">
                     <tr>
                         <td class="noborder" width="8%">
@@ -399,11 +399,11 @@
                
             </div>
 
-            <div class="article o_report_layout_standard">
+            <div class="article o_report_layout_standard" style="font-family: Tahoma !important;">
                 <t t-raw="0" />
             </div>
 
-            <div class="footer">
+            <div class="footer" style="font-family: Tahoma,Verdana,Segoe,sans-serif !important;">
                 
             </div>
         <!-- </div> -->
