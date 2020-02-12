@@ -18,17 +18,17 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="noborder" valign="middle" width="46%" style="border-style:solid; border-color:#808080;border-width:0px 1px 1px 1px;padding-left:1.5em;padding-top:0.10em;">
-                                    <span class="uppercase" style="vertical-align: middle;">
+                                <td class="noborder" width="46%" style="border-style:solid; border-color:#808080;border-width:0px 1px 1px 1px;padding-left:1.5em;padding-top:0.10em;vertical-align: middle !important;">
+                                    <span class="uppercase">
                                         <b>
                                             <span t-field="o.partner_id"/>
                                         </b><br />
                                     </span>
-                                    <address style="vertical-align: middle;" t-field="o.partner_id"
+                                    <address t-field="o.partner_id"
                                     t-options='{"widget": "contact", "fields": ["address"], "no_marker": True}' />
                                 </td>
                                 <td class="noborder"  width="8%"></td>
-                                <td class="noborder" valign="middle" width="46%" style="border-style:solid; border-color:#808080;border-width:0px 1px 1px 1px;padding-left:1.5em;padding-top:0.10em;" >
+                                <td class="noborder" width="46%" style="border-style:solid; border-color:#808080;border-width:0px 1px 1px 1px;padding-left:1.5em;padding-top:0.10em;vertical-align: middle !important;" >
                                     <span class="uppercase">
                                         <b>
                                             <span t-field="o.company_id"/>
@@ -212,7 +212,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="noborder" valign="middle" width="46%" style="border-style:solid; border-color:#808080;border-width:0px 1px 1px 1px;padding-left:1.5em;padding-top:0.10em;">                 
+                            <td class="noborder" width="46%" style="border-style:solid; border-color:#808080;border-width:0px 1px 1px 1px;padding-left:1.5em;padding-top:0.10em;vertical-align: middle !important;">                 
                                 <span class="uppercase">
                                     <b>
                                         <span t-field="o.partner_id"/>
@@ -222,7 +222,7 @@
                                 t-options='{"widget": "contact", "fields": ["address"], "no_marker": True}' />
                             </td>
                             <td class="noborder"  width="8%"></td>
-                            <td class="noborder" valign="middle" width="46%" style="border-style:solid; border-color:#808080;border-width:0px 1px 1px 1px;padding-left:1.5em;padding-top:0.10em;"  >
+                            <td class="noborder" width="46%" style="border-style:solid; border-color:#808080;border-width:0px 1px 1px 1px;padding-left:1.5em;padding-top:0.10em;vertical-align: middle !important;">
                                 <span class="uppercase">
                                     <b>
                                         <span t-field="o.company_id"/>
@@ -281,28 +281,53 @@
                         </thead>
                         <tbody>
                             <t t-set="line_count" t-value="0"/>
-                            <tr style="font-size:14px;" t-foreach="o.order_line" t-as="line">
+                            <t t-foreach="o.order_line" t-as="line">
                                 <t t-set="line_count" t-value="line_count + 1"/>
-                                <td width="25%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
-                                    <!-- <span t-field="line.product_id.default_code"/> -->
-                                    <span t-field="line.product_id.default_code"/>
-                                </td>
-                                <td width="45%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
-                                    <span t-field="line.name"/>
-                                </td>
-                                <td class="text-center" width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
-                                    <span t-esc="int(float(line.product_qty))"/>
-                                </td>
-                                <td width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
-                                    <span>LOT</span>
-                                </td>
-                                <td class="text-right" width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
-                                    <span t-field="line.price_unit" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
-                                </td>
-                                <td class="text-right" width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
-                                    <span t-field="line.price_subtotal" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
-                                </td>
-                            </tr>
+                                <tr style="font-size:14px;">
+                                    <td width="25%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
+                                        <!-- <span t-field="line.product_id.default_code"/> -->
+                                        <span t-field="line.product_id.default_code"/>
+                                    </td>
+                                    <td width="45%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
+                                        <span t-field="line.name"/>
+                                    </td>
+                                    <td class="text-center" width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
+                                        <span t-esc="int(float(line.product_qty))"/>
+                                    </td>
+                                    <td width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
+                                        <span>LOT</span>
+                                    </td>
+                                    <td class="text-right" width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
+                                        <span t-field="line.price_unit" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                    </td>
+                                    <td class="text-right" width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
+                                        <span t-field="line.price_subtotal" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                    </td>
+                                </tr>
+                                <t t-foreach="line.taxes_id" t-as="tax">
+                                    <t t-set="line_count" t-value="line_count + 1"/>
+                                    <tr style="font-size:14px;">
+                                        <td width="25%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
+                                            <br/>
+                                        </td>
+                                        <td width="45%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
+                                            <span t-field="tax.name"/>
+                                        </td>
+                                        <td class="text-center" width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
+                                            <br/>
+                                        </td>
+                                        <td width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
+                                            <br/>
+                                        </td>
+                                        <td class="text-right" width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
+                                            <span><span t-esc="int(float(tax.amount))"/>%</span>
+                                        </td>
+                                        <td class="text-right" width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
+                                            <span t-field="line.price_tax" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </t>
                             <t t-set="break_count" t-value="15 - line_count"/>
                             <t t-if="break_count > 0">
                                 <t t-foreach="break_count" t-as="break">
