@@ -3,7 +3,6 @@
 		<template id="report_assets_common" name="Technical Service Assets Reports" inherit_id="web.report_assets_common">		
 			<xpath expr="//link[last()]" position="after">			
 				<link href="/asiaglobal/static/src/less/fonts.less" rel="stylesheet" type="text/less"/>
-            	<link href="/asiaglobal/static/src/less/variables.less" rel="stylesheet" type="text/less"/>
 			</xpath>	
 		</template>
 </odoo>
