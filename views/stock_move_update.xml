@@ -8,8 +8,11 @@
                 <field name="date"/>
                 <field name="reference"/>
                 <field name="product_id"/>
+                <field name="quantity_done"/>
+                <field name="remaining_qty" readonly="1"/>
                 <field name="price_unit"/>
                 <field name="value"/>
+                <field name="remaining_value"/>
                 <field name="state"/>
                 <field name="picking_type_id" invisible="1"/>
                 <field name="create_date" invisible="1"/>
@@ -24,7 +27,8 @@
         <field name="view_mode">tree</field>
         <field name="view_id" ref="stock_cost_view_tree"/>
         <field name="domain">[
-            ('picking_id.picking_type_code','=','outgoing')
+            ('picking_id.picking_type_code','=','outgoing'),
+            ('state','=','done')
             ]</field>
     </record>
 
@@ -32,6 +36,45 @@
         id="stock_cost_menu"
         name="Delivered Stock Adjustment"
         action="stock_cost_action"
+        parent="stock.menu_stock_warehouse_mgmt"
+        sequence="10"/>
+
+    <record id="stock_cost_view_tree_incoming" model="ir.ui.view">
+        <field name="name">stock.move.updater.view.tree_incoming</field>
+        <field name="model">stock.move</field>
+        <field name="arch" type="xml">
+            <tree string="Stock Value" create="false" editable="bottom">
+                <field name="date"/>
+                <field name="reference"/>
+                <field name="product_id"/>
+                <field name="quantity_done"/>
+                <field name="remaining_qty" readonly="1"/>
+                <field name="price_unit"/>
+                <field name="value"/>
+                <field name="remaining_value"/>
+                <field name="state"/>
+                <field name="picking_type_id" invisible="1"/>
+                <field name="create_date" invisible="1"/>
+                <field name="picking_type_id" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="stock_cost_action_incoming" model="ir.actions.act_window">
+        <field name="name">Stock Cost Adjustment - Incoming</field>
+        <field name="res_model">stock.move</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="stock_cost_view_tree"/>
+        <field name="domain">[
+            ('picking_id.picking_type_code','=','incoming'),
+            ('state','=','done')
+            ]</field>
+    </record>
+
+    <menuitem
+        id="stock_cost_menu_incoming"
+        name="Received Stock Adjustment"
+        action="stock_cost_action_incoming"
         parent="stock.menu_stock_warehouse_mgmt"
         sequence="10"/>
 </data>
