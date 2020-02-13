@@ -329,11 +329,7 @@
 
         <!-- START PURCHASE -->
         <template id="external_layout_purchase_asiaglobal">
-            <style type="text/css"> 
-                body {
-                    font-family: 'Tahoma Regular';
-                }
-            </style>
+
             <t t-if="not o and doc">
                 <t t-set="o" t-value="doc"/>
             </t>
@@ -351,7 +347,7 @@
 
         <template id="external_layout_purchase_asiaglobal_custom">
             <!-- <div t-attf-style="background-image:url('/chocovron/static/img/DR2.jpg');  no-repeat; background-size: cover;"> -->
-            <div class="header">
+            <div class="header custom_font">
                 <table class="list_table" style="border:none;font-size:12px" width="100%">
                     <tr>
                         <td class="noborder" width="8%">
@@ -407,11 +403,11 @@
                
             </div>
 
-            <div class="article o_report_layout_standard">
+            <div class="article o_report_layout_standard custom_font">
                 <t t-raw="0" />
             </div>
 
-            <div class="footer">
+            <div class="footer custom_font">
                 
             </div>
         <!-- </div> -->
