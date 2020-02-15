@@ -184,8 +184,13 @@ class AGSaleOrder(models.Model):
 		domain=[('is_principal','=',True), ]
 	)
 
-	opportunity_type = fields.Selection([('Indent', 'Indent'), ('forward', 'Forward Sale'), ('other', 'Other')],
-		default= "forward")
+	opportunity_type = fields.Selection([
+		('Indent', 'Indent'), 
+		('forward', 'Forward Sale'), 
+		('part', 'Part Sales'),
+		('service', 'Service'),
+		('other', 'Other'),
+		], default= "forward")
 
 	expected_gross_margin = fields.Float(
 		string='Expected Gross Margin (%)',
@@ -343,29 +348,7 @@ class AGTSaleOrderLine(models.Model):
 	    string='Category',
 	)
 
-	# @api.multi
-	# def write(self, vals):
-	# 	res = super(AGSaleOrder, self).write(vals)
-	# 	_logger.info('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
-	# 	if (self.state == 'sale'):
-	# 		won= self.env['asiaglobal.stages'].search([('name','=','Won')],limit=1).id
-	# 		_logger.info(won)
-	# 		vals['project_stage_id'] = won
-
-	# 	res = super(AGSaleOrder, self).write(vals)
-	# 		self.project_stage_id = won
-
-	# 	return res
-
-
-# class asiaglobal(models.Model):
-#     _name = 'asiaglobal.asiaglobal'
-
-#     name = fields.Char()
-#     value = fields.Integer()
-#     value2 = fields.Float(compute="_value_pc", store=True)
-#     description = fields.Text()
-#
-#     @api.depends('value')
-#     def _value_pc(self):
-#         self.value2 = float(self.value) / 100
+	# EXTEND TO USE CUSTOM SALES DECIMAL ACCURACY
+	price_unit = fields.Float(digits=dp.get_precision('Sale Product Price'))
+	
+	

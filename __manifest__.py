@@ -33,6 +33,7 @@
         'data/subscription_template.xml',
         'data/timesheet_data.xml',
         'data/job_order_data.xml',
+        'data/decimal_accuracy_data.xml',
         'views/assets.xml',
         'views/views.xml',
         'views/templates.xml',
