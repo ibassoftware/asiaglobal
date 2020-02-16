@@ -4,6 +4,7 @@ from odoo import models, fields, api
 import logging
 import re
 from odoo.exceptions import UserError, AccessError, ValidationError
+from odoo.addons import decimal_precision as dp
 
 _logger = logging.getLogger(__name__)
 
@@ -350,5 +351,5 @@ class AGTSaleOrderLine(models.Model):
 
 	# EXTEND TO USE CUSTOM SALES DECIMAL ACCURACY
 	price_unit = fields.Float(digits=dp.get_precision('Sale Product Price'))
-	
+
 	
