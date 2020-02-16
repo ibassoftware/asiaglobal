@@ -302,7 +302,8 @@
                                         <span t-field="line.price_unit"/>
                                     </td>
                                     <td class="text-right" width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
-                                        <span t-field="line.price_subtotal"/>
+                                        <!-- <span t-field="line.price_subtotal"/> -->
+                                         <span t-esc="float(line.price_subtotal)"/>
                                     </td>
                                 </tr>
                                 <t t-foreach="line.taxes_id" t-as="tax">
@@ -359,10 +360,18 @@
                                     <span t-field="o.notes"/>
                                 </td>
                                 <td width="10%" style="border-style:solid;border-color:#808080;border-width:1px 1px 0px 1px;font-size:14px;">
-                                    <span><b><i>Total <span class="text-right" t-field="o.currency_id.symbol"/></i></b></span>
+                                    <div class="col-xs-6">
+                                        <span><b><i>Total</i></b></span>
+                                    </div>
+                                    <div class="col-xs-6 text-right">
+                                        <span t-field="o.currency_id.symbol"/>
+                                    </div>
                                 </td>
                                 <td class="text-right" width="10%" style="border-style:solid;border-color:#808080;border-width:1px 1px 0px 1px;font-size:14px;">
-                                    <b><i><span t-field="o.amount_total" /></i></b>
+                                    <b><i>
+                                        <!-- <span t-field="o.amount_total" /> -->
+                                         <span t-esc="float(o.amount_total)"/>
+                                    </i></b>
                                 </td>
                             </tr>
                             <tr style="font-size:14px;">
