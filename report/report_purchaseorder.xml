@@ -364,7 +364,7 @@
                                         <span><b><i>Total</i></b></span>
                                     </div>
                                     <div class="col-xs-6 text-right">
-                                        <span t-field="o.currency_id.symbol"/>
+                                        <b><i><span t-field="o.currency_id.symbol"/></i></b>
                                     </div>
                                 </td>
                                 <td class="text-right" width="10%" style="border-style:solid;border-color:#808080;border-width:1px 1px 0px 1px;font-size:14px;">
