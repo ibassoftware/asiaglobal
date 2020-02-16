@@ -295,7 +295,8 @@
                                         <span t-esc="int(float(line.product_qty))"/>
                                     </td>
                                     <td width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
-                                        <span>LOT</span>
+                                        <!-- <span>LOT</span> -->
+                                        <span t-field="line.product_uom.name"/>
                                     </td>
                                     <td class="text-right" width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
                                         <span t-field="line.price_unit"/>
@@ -358,7 +359,7 @@
                                     <span t-field="o.notes"/>
                                 </td>
                                 <td width="10%" style="border-style:solid;border-color:#808080;border-width:1px 1px 0px 1px;font-size:14px;">
-                                    <span><b><i>Total <span t-field="o.currency_id.symbol"/></i></b></span>
+                                    <span><b><i>Total <span class="text-right" t-field="o.currency_id.symbol"/></i></b></span>
                                 </td>
                                 <td class="text-right" width="10%" style="border-style:solid;border-color:#808080;border-width:1px 1px 0px 1px;font-size:14px;">
                                     <b><i><span t-field="o.amount_total" /></i></b>
