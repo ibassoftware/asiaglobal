@@ -303,7 +303,7 @@
                                     </td>
                                     <td class="text-right" width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
                                         <!-- <span t-field="line.price_subtotal"/> -->
-                                         <span t-esc="float(line.price_subtotal)"/>
+                                        <span t-esc="'{0:,.2f}'.format(line.price_subtotal)" />
                                     </td>
                                 </tr>
                                 <t t-foreach="line.taxes_id" t-as="tax">
@@ -370,7 +370,7 @@
                                 <td class="text-right" width="10%" style="border-style:solid;border-color:#808080;border-width:1px 1px 0px 1px;font-size:14px;">
                                     <b><i>
                                         <!-- <span t-field="o.amount_total" /> -->
-                                         <span t-esc="float(o.amount_total)"/>
+                                        <span t-esc="'{0:,.2f}'.format(o.amount_total)" />
                                     </i></b>
                                 </td>
                             </tr>
