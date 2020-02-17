@@ -158,7 +158,7 @@
                                     </t>
                                 </t>
                                 <tr>
-                                    <td colspan="4" class="td_border"/>
+                                    <td colspan="4" class="td_border">
                                     </td>
                                     <td width="15%" class="td_border">
                                         <div class="col-xs-6">
@@ -232,16 +232,16 @@
                     <br/>
                     <table class="list_table" style="border:none;font-size:14px" width="100%">
                         <tr>
-                            <td class="noborder" valign="top" width="46%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;" >
+                            <td class="td_border" valign="top" width="46%">
                                 <b>Vendor</b>
                             </td>
                             <td class="noborder" width="8%"></td>
-                            <td class="noborder" valign="top" width="46%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;" >
+                            <td class="td_border" valign="top" width="46%">
                                 <b>Ship To</b>
                             </td>
                         </tr>
                         <tr>
-                            <td class="noborder" width="46%" style="border-style:solid; border-color:#808080;border-width:0px 1px 1px 1px;padding-left:1.5em;padding-top:0.5em;vertical-align: middle !important;">                 
+                            <td class="td_border" width="46%">                 
                                 <span class="uppercase">
                                     <b>
                                         <span t-field="o.partner_id"/>
@@ -251,7 +251,7 @@
                                 t-options='{"widget": "contact", "fields": ["address"], "no_marker": True}' />
                             </td>
                             <td class="noborder"  width="8%"></td>
-                            <td class="noborder" width="46%" style="border-style:solid; border-color:#808080;border-width:0px 1px 1px 1px;padding-left:1.5em;padding-top:0.5em;vertical-align: middle !important;">
+                            <td class="td_border" width="46%">
                                 <span class="uppercase">
                                     <b>
                                         <span t-field="o.company_id"/>
@@ -297,63 +297,61 @@
                         </tr>
                     </table>
 
-                    <table class="table table-condensed" style="font-size: 14px">
+                    <table style="border: 1px solid black;font-size:14px;" style="font-size: 14px">
                         <thead>
-                            <tr style="border-top:1px solid #000000;">
-                                <th width="20%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"><strong>Item Code</strong></th>
-                                <th width="35%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"><strong>Description</strong></th>
-                                <th width="10%" class="text-center" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"><strong>Quantity</strong></th>
-                                <th width="10%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"><strong>UOM</strong></th>
-                                <th width="15%" class="text-right" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"><strong>Unit Price</strong></th>
-                                <th width="10%" class="text-right" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;"><strong>Total Price</strong></th>
+                            <tr>
+                                <th width="20%" class="td_border"><strong>Item Code</strong></th>
+                                <th width="35%" class="td_border"><strong>Description</strong></th>
+                                <th width="10%" class="td_border text-center"><strong>Quantity</strong></th>
+                                <th width="10%" class="td_border"><strong>UOM</strong></th>
+                                <th width="15%" class="td_border text-right"><strong>Unit Price</strong></th>
+                                <th width="10%" class="td_border text-right"><strong>Total Price</strong></th>
                             </tr>
                         </thead>
                         <tbody>
                             <t t-set="line_count" t-value="0"/>
                             <t t-foreach="o.order_line" t-as="line">
                                 <t t-set="line_count" t-value="line_count + 1"/>
-                                <tr style="font-size:14px;">
-                                    <td width="20%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
-                                        <!-- <span t-field="line.product_id.default_code"/> -->
+                                <tr>
+                                    <td width="20%" class="td_border">
                                         <span t-field="line.product_id.default_code"/>
                                     </td>
-                                    <td width="35%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
+                                    <td width="35%" class="td_border">
                                         <span t-field="line.name"/>
                                     </td>
-                                    <td class="text-center" width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
+                                    <td  width="10%" class="td_border text-center">
                                         <span t-esc="int(float(line.product_qty))"/>
                                     </td>
-                                    <td width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
+                                    <td width="10%" class="td_border">
                                         <!-- <span>LOT</span> -->
                                         <span t-field="line.product_uom.name"/>
                                     </td>
-                                    <td class="text-right" width="15%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
+                                    <td width="15%" class="td_border text-right">
                                         <span t-field="line.price_unit"/>
                                     </td>
-                                    <td class="text-right" width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
-                                        <!-- <span t-field="line.price_subtotal"/> -->
+                                    <td width="10%" class="td_border text-right">
                                         <span t-esc="'{0:,.2f}'.format(line.price_subtotal)" />
                                     </td>
                                 </tr>
                                 <t t-foreach="line.taxes_id" t-as="tax">
                                     <t t-set="line_count" t-value="line_count + 1"/>
-                                    <tr style="font-size:14px;">
-                                        <td width="20%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
+                                    <tr>
+                                        <td width="20%" class="td_border">
                                             <br/>
                                         </td>
-                                        <td width="35%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
+                                        <td width="35%" class="td_border">
                                             <span t-field="tax.name"/>
                                         </td>
-                                        <td class="text-center" width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
+                                        <td width="10%" class="td_border text-center">
                                             <br/>
                                         </td>
-                                        <td width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
+                                        <td width="10%" class="td_border">
                                             <br/>
                                         </td>
-                                        <td class="text-right" width="15%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
+                                        <td width="15%" class="td_border text-right">
                                             <span><span t-esc="int(float(tax.amount))"/>%</span>
                                         </td>
-                                        <td class="text-right" width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
+                                        <td width="10%" class="td_border text-right">
                                             <span t-esc="float((line.price_unit * tax.amount) / 100)"/>
                                         </td>
                                     </tr>
@@ -363,32 +361,32 @@
                             <t t-if="break_count > 0">
                                 <t t-foreach="break_count" t-as="break">
                                     <tr>
-                                        <td width="20%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
+                                        <td width="20%" class="td_border">
                                             <br/>
                                         </td>
-                                        <td width="35%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
+                                        <td width="35%" class="td_border">
                                             <br/>
                                         </td>
-                                        <td width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
+                                        <td width="10%" class="td_border text-center">
                                             <br/>
                                         </td>
-                                        <td width="30%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
+                                        <td width="30%" class="td_border">
                                             <br/>
                                         </td>
-                                        <td width="15%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
+                                        <td width="15%" class="td_border text-right">
                                             <br/>
                                         </td>
-                                        <td width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;">
+                                        <td width="10%" class="td_border text-right">
                                             <br/>
                                         </td>
                                     </tr>
                                 </t>
                             </t>
                             <tr>
-                                <td colspan="4" style="border-style:solid;border-color:#808080;border-width:1px 1px 0px 1px;font-size:14px;">
+                                <td colspan="4" class="td_border">
                                     <span t-field="o.notes"/>
                                 </td>
-                                <td width="15%" style="border-style:solid;border-color:#808080;border-width:1px 1px 0px 1px;font-size:14px;">
+                                <td width="15%" class="td_border">
                                     <div class="col-xs-6">
                                         <span><b><i>Total</i></b></span>
                                     </div>
@@ -396,7 +394,7 @@
                                         <b><i><span t-field="o.currency_id.symbol"/></i></b>
                                     </div>
                                 </td>
-                                <td class="text-right" width="10%" style="border-style:solid;border-color:#808080;border-width:1px 1px 0px 1px;font-size:14px;">
+                                <td width="10%" class="td_border text-right">
                                     <b><i>
                                         <!-- <span t-field="o.amount_total" /> -->
                                         <span t-esc="'{0:,.2f}'.format(o.amount_total)" />
@@ -404,10 +402,10 @@
                                 </td>
                             </tr>
                             <tr style="font-size:14px;">
-                                <td colspan="6" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;">
-                                    <table class="list_table" style="border:none;font-size:14px" width="100%">
+                                <td colspan="6" class="td_border">
+                                    <table style="border:none;font-size:14px" width="100%">
                                         <tr>
-                                            <td width="25%" class="noborder" style="padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                                            <td width="25%" style="padding:0.5em;">
                                                 <center>
                                                     <b>Prepared By:</b><br/><br/>
                                                     _________________________
@@ -415,14 +413,14 @@
                                                     Name &amp; Signature
                                                 </center>
                                             </td>
-                                            <td width="25%" class="noborder" style="padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                                            <td width="25%" style="padding:0.5em;">
                                                 <center>
                                                     <b>Approver 1:</b><br/><br/>
                                                     _________________________<br/><br/>
                                                     Dept. Manager
                                                 </center>
                                             </td>
-                                            <td width="25%" class="noborder" style="padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                                            <td width="25%" style="padding:0.5em;">
                                                 <center>
                                                     <b>Approver 2:</b><br/><br/>
                                                     _________________________<br/>
@@ -430,7 +428,7 @@
                                                     AVP - Finance &amp; Admin
                                                 </center>
                                             </td>
-                                            <td width="25%" class="noborder" style="padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                                            <td width="25%" style="padding:0.5em;">
                                                 <center>
                                                     <b>Noted By:</b><br/><br/>
                                                     _________________________<br/>

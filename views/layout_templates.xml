@@ -301,12 +301,12 @@
                             </h3>
                             <table width="60%">
                                 <tr>
-                                    <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">Date</td>
-                                    <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">P.O. No.</td>
+                                    <td class="td_border">Date</td>
+                                    <td class="td_border">P.O. No.</td>
                                 </tr>
                                 <tr>
-                                    <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;"><span t-field="o.date_order" t-options='{"format": "yyyy-MM-dd"}'/></td>
-                                    <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;"><span t-field="o.name"/></td>
+                                    <td class="td_border"><span t-field="o.date_order" t-options='{"format": "yyyy-MM-dd"}'/></td>
+                                    <td class="td_border"><span t-field="o.name"/></td>
                                 </tr>
                             </table>
 
