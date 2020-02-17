@@ -350,6 +350,6 @@ class AGTSaleOrderLine(models.Model):
 	)
 
 	# EXTEND TO USE CUSTOM SALES DECIMAL ACCURACY
-	# price_unit = fields.Float(digits=dp.get_precision('Sale Product Price'))
+	price_unit = fields.Float(digits=dp.get_precision('Sale Product Price'))
 
 	

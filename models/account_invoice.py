@@ -15,9 +15,9 @@ class AccountInvoice(models.Model):
 				for pick in pickings:
 					delivery_receipt_no += '%s ,' % pick.name
 
-# class AccountInvoiceLine(models.Model):
-# 	_inherit = 'account.invoice.line'
+class AccountInvoiceLine(models.Model):
+	_inherit = 'account.invoice.line'
 
-# 	# EXTEND TO USE CUSTOM SALES DECIMAL ACCURACY
-# 	price_unit = fields.Float(digits=dp.get_precision('Sale Product Price'))
+	# EXTEND TO USE CUSTOM SALES DECIMAL ACCURACY
+	price_unit = fields.Float(digits=dp.get_precision('Sale Product Price'))
 
