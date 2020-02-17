@@ -9,16 +9,16 @@
                         <br/>
                         <table class="list_table" style="border:none;font-size:14px" width="100%">
                             <tr>
-                                <td class="noborder" valign="top" width="46%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;" >
+                                <td class="td_border" valign="top" width="46%">
                                     <b>Vendor</b>
                                 </td>
                                 <td class="noborder" width="8%"></td>
-                                <td class="noborder" valign="top" width="46%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;" >
+                                <td class="td_border" valign="top" width="46%" >
                                     <b>Ship To</b>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="noborder" width="46%" style="border-style:solid; border-color:#808080;border-width:0px 1px 1px 1px;padding-left:1.5em;padding-top:0.5em;vertical-align: middle !important;">
+                                <td class="td_border" width="46%">
                                     <span class="uppercase">
                                         <b>
                                             <span t-field="o.partner_id"/>
@@ -28,7 +28,7 @@
                                     t-options='{"widget": "contact", "fields": ["address"], "no_marker": True}' />
                                 </td>
                                 <td class="noborder"  width="8%"></td>
-                                <td class="noborder" width="46%" style="border-style:solid; border-color:#808080;border-width:0px 1px 1px 1px;padding-left:1.5em;padding-top:0.5em;vertical-align: middle !important;" >
+                                <td class="td_border" width="46%">
                                     <span class="uppercase">
                                         <b>
                                             <span t-field="o.company_id"/>
@@ -42,16 +42,16 @@
                                 <td class="noborder" valign="top" width="46%">
                                     <table class="table table-bordered">
                                         <tr>
-                                            <td width="20%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                                            <td width="20%" class="td_border">
                                                 <b>Terms</b>
                                             </td>
-                                            <td width="30%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                                            <td width="30%" class="td_border">
                                                 <span t-field="o.payment_term_id.name"/>
                                             </td>
-                                            <td width="20%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                                            <td width="20%" class="td_border">
                                                 <b>Dept.</b>
                                             </td>
-                                            <td width="30%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                                            <td width="30%" class="td_border">
                                                 <span t-field="o.department"/>
                                             </td>
                                         </tr>
@@ -61,10 +61,10 @@
                                 <td class="noborder" valign="top" width="46%">
                                     <table class="table table-bordered" width="100%">
                                         <tr>
-                                            <td width="30%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;" >
+                                            <td width="30%" class="td_border">
                                                 <b>Ship Via</b>
                                             </td>
-                                            <td width="70%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;" >
+                                            <td width="70%" class="td_border">
                                                 <span t-field="o.ship_via"/>
                                             </td>
                                         </tr>
@@ -74,7 +74,7 @@
                             </tr>
                         </table>
 
-                        <table style="border: 1px solid #808080;font-size:14px;" width="100%">
+                        <table style="border: 1px solid black;font-size:14px;" width="100%">
                             <thead>
                                 <tr>
                                     <th width="20%" class="td_border"><strong>Item Code</strong></th>
@@ -134,10 +134,10 @@
                                     </t>
                                 </t>
                                 <tr>
-                                    <td colspan="4" class="td_border">
+                                    <td colspan="4" class="td_border" style="border-top:1px solid black;">
                                         <span t-field="o.notes"/>
                                     </td>
-                                    <td width="15%" class="td_border">
+                                    <td width="15%" class="td_border" style="border-top:1px solid black;">
                                         <div class="col-xs-6">
                                             <span><b><i>Total</i></b></span>
                                         </div>
@@ -145,7 +145,7 @@
                                             <b><i><span t-field="o.currency_id.symbol"/></i></b>
                                         </div>
                                     </td>
-                                    <td class="td_border text-right" width="10%">
+                                    <td width="10%" class="td_border text-right" style="border-top:1px solid black;">
                                         <b><i>
                                             <!-- <span t-field="o.amount_total" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/> -->
                                             <span t-esc="'{0:,.2f}'.format(o.amount_total)" />
@@ -154,9 +154,9 @@
                                 </tr>
                                 <tr style="font-size:14px;">
                                     <td colspan="6" class="td_border">
-                                        <table class="list_table" style="border:none;font-size:14px" width="100%">
+                                        <table style="border:none;font-size:14px" width="100%">
                                             <tr>
-                                                <td width="25%">
+                                                <td width="25%" style="padding:0.5em;">
                                                     <center>
                                                         <b>Prepared By:</b><br/><br/>
                                                         _________________________
@@ -164,14 +164,14 @@
                                                         Name &amp; Signature
                                                     </center>
                                                 </td>
-                                                <td width="25%">
+                                                <td width="25%" style="padding:0.5em;">
                                                     <center>
                                                         <b>Approver 1:</b><br/><br/>
                                                         _________________________<br/><br/>
                                                         Dept. Manager
                                                     </center>
                                                 </td>
-                                                <td width="25%">
+                                                <td width="25%" style="padding:0.5em;">
                                                     <center>
                                                         <b>Approver 2:</b><br/><br/>
                                                         _________________________<br/>
@@ -179,7 +179,7 @@
                                                         AVP - Finance &amp; Admin
                                                     </center>
                                                 </td>
-                                                <td width="25%">
+                                                <td width="25%" style="padding:0.5em;">
                                                     <center>
                                                         <b>Noted By:</b><br/><br/>
                                                         _________________________<br/>
