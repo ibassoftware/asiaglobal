@@ -39,8 +39,8 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="noborder" valign="top" width="46%">
-                                    <table class="table table-bordered">
+                                <td class="td_border" valign="top" width="46%">
+                                    <table style="border:none;font-size:14px" width="100%">
                                         <tr>
                                             <td width="20%" class="td_border">
                                                 <b>Terms</b>
@@ -58,8 +58,8 @@
                                     </table>
                                 </td>
                                 <td class="noborder"  width="8%"></td>
-                                <td class="noborder" valign="top" width="46%">
-                                    <table class="table table-bordered" width="100%">
+                                <td class="td_border" valign="top" width="46%">
+                                    <table style="border:none;font-size:14px" width="100%">
                                         <tr>
                                             <td width="30%" class="td_border">
                                                 <b>Ship Via</b>
@@ -134,10 +134,9 @@
                                     </t>
                                 </t>
                                 <tr>
-                                    <td colspan="4" style="padding:0.5em;border-top:1px solid black;border-bottom:1px solid black;border-right: 1px solid black;border-left: 1px solid black;">
-                                        <span t-field="o.notes"/>
+                                    <td colspan="4" class="td_border"/>
                                     </td>
-                                    <td width="15%" style="padding:0.5em;border-top:1px solid black;border-bottom:1px solid black;border-right: 1px solid black;border-left: 1px solid black;">
+                                    <td width="15%" class="td_border">
                                         <div class="col-xs-6">
                                             <span><b><i>Total</i></b></span>
                                         </div>
@@ -145,7 +144,7 @@
                                             <b><i><span t-field="o.currency_id.symbol"/></i></b>
                                         </div>
                                     </td>
-                                    <td width="10%" class="text-right" style="padding:0.5em;border-top:1px solid black;border-bottom:1px solid black;border-right: 1px solid black;border-left: 1px solid black;">
+                                    <td width="10%" class="td_border text-right">
                                         <b><i>
                                             <!-- <span t-field="o.amount_total" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/> -->
                                             <span t-esc="'{0:,.2f}'.format(o.amount_total)" />
