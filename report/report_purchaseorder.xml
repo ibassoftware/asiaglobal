@@ -98,7 +98,7 @@
                                     <td width="10%" class="td_vertical_border text-center">
                                         <span t-esc="int(float(line.product_qty))"/>
                                     </td>
-                                    <td class="td_vertical_border" width="30%">
+                                    <td width="30%" class="td_vertical_border">
                                         <span t-field="line.name"/>
                                     </td>
                                     <td width="15%" class="td_vertical_border text-right">
@@ -111,26 +111,50 @@
                                 <t t-set="break_count" t-value="15 - line_count"/>
                                 <t t-if="break_count > 0">
                                     <t t-foreach="break_count" t-as="break">
-                                        <tr>
-                                            <td width="20%" class="td_vertical_border">
-                                                <br/>
-                                            </td>
-                                            <td width="15%" class="td_vertical_border">
-                                                <br/>
-                                            </td>
-                                            <td width="10%" class="td_vertical_border">
-                                                <br/>
-                                            </td>
-                                            <td width="30%" class="td_vertical_border">
-                                                <br/>
-                                            </td>
-                                            <td width="15%" class="td_vertical_border">
-                                                <br/>
-                                            </td>
-                                            <td width="10%" class="td_vertical_border">
-                                                <br/>
-                                            </td>
-                                        </tr>
+                                        <t t-if="break_count > 1">
+                                            <tr>
+                                                <td width="20%" class="td_vertical_border">
+                                                    <br/>
+                                                </td>
+                                                <td width="15%" class="td_vertical_border">
+                                                    <br/>
+                                                </td>
+                                                <td width="10%" class="td_vertical_border">
+                                                    <br/>
+                                                </td>
+                                                <td width="30%" class="td_vertical_border">
+                                                    <br/>
+                                                </td>
+                                                <td width="15%" class="td_vertical_border">
+                                                    <br/>
+                                                </td>
+                                                <td width="10%" class="td_vertical_border">
+                                                    <br/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                        <t t-else="">
+                                            <tr>
+                                                <td width="20%" style="padding:0.5em;border-top:1px solid transparent;border-bottom:1px solid black;border-right: 1px solid black;border-left: 1px solid black;">
+                                                    <br/>
+                                                </td>
+                                                <td width="15%" style="padding:0.5em;border-top:1px solid transparent;border-bottom:1px solid black;border-right: 1px solid black;border-left: 1px solid black;">
+                                                    <br/>
+                                                </td>
+                                                <td width="10%" style="padding:0.5em;border-top:1px solid transparent;border-bottom:1px solid black;border-right: 1px solid black;border-left: 1px solid black;">
+                                                    <br/>
+                                                </td>
+                                                <td width="30%" style="padding:0.5em;border-top:1px solid transparent;border-bottom:1px solid black;border-right: 1px solid black;border-left: 1px solid black;">
+                                                    <br/>
+                                                </td>
+                                                <td width="15%" style="padding:0.5em;border-top:1px solid transparent;border-bottom:1px solid black;border-right: 1px solid black;border-left: 1px solid black;">
+                                                    <br/>
+                                                </td>
+                                                <td width="10%" style="padding:0.5em;border-top:1px solid transparent;border-bottom:1px solid black;border-right: 1px solid black;border-left: 1px solid black;">
+                                                    <br/>
+                                                </td>
+                                            </tr>
+                                        </t>
                                     </t>
                                 </t>
                                 <tr>
