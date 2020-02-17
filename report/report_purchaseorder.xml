@@ -39,7 +39,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="td_border" valign="top" width="46%">
+                                <td class="noborder" valign="top" width="46%">
                                     <table style="border:none;font-size:14px" width="100%">
                                         <tr>
                                             <td width="20%" class="td_border">
@@ -58,7 +58,7 @@
                                     </table>
                                 </td>
                                 <td class="noborder"  width="8%"></td>
-                                <td class="td_border" valign="top" width="46%">
+                                <td class="noborder" valign="top" width="46%">
                                     <table style="border:none;font-size:14px" width="100%">
                                         <tr>
                                             <td width="30%" class="td_border">
@@ -111,52 +111,32 @@
                                 <t t-set="break_count" t-value="15 - line_count"/>
                                 <t t-if="break_count > 0">
                                     <t t-foreach="break_count" t-as="break">
-                                        <t t-if="break_count > 1">
-                                            <tr>
-                                                <td width="20%" class="td_vertical_border">
-                                                    <br/>
-                                                </td>
-                                                <td width="15%" class="td_vertical_border">
-                                                    <br/>
-                                                </td>
-                                                <td width="10%" class="td_vertical_border">
-                                                    <br/>
-                                                </td>
-                                                <td width="30%" class="td_vertical_border">
-                                                    <br/>
-                                                </td>
-                                                <td width="15%" class="td_vertical_border">
-                                                    <br/>
-                                                </td>
-                                                <td width="10%" class="td_vertical_border">
-                                                    <br/>
-                                                </td>
-                                            </tr>
-                                        </t>
-                                        <t t-else="">
-                                            <tr>
-                                                <td width="20%" style="padding:0.5em;border-top:1px solid transparent;border-bottom:1px solid black;border-right: 1px solid black;border-left: 1px solid black;">
-                                                    <br/>
-                                                </td>
-                                                <td width="15%" style="padding:0.5em;border-top:1px solid transparent;border-bottom:1px solid black;border-right: 1px solid black;border-left: 1px solid black;">
-                                                    <br/>
-                                                </td>
-                                                <td width="10%" style="padding:0.5em;border-top:1px solid transparent;border-bottom:1px solid black;border-right: 1px solid black;border-left: 1px solid black;">
-                                                    <br/>
-                                                </td>
-                                                <td width="30%" style="padding:0.5em;border-top:1px solid transparent;border-bottom:1px solid black;border-right: 1px solid black;border-left: 1px solid black;">
-                                                    <br/>
-                                                </td>
-                                                <td width="15%" style="padding:0.5em;border-top:1px solid transparent;border-bottom:1px solid black;border-right: 1px solid black;border-left: 1px solid black;">
-                                                    <br/>
-                                                </td>
-                                                <td width="10%" style="padding:0.5em;border-top:1px solid transparent;border-bottom:1px solid black;border-right: 1px solid black;border-left: 1px solid black;">
-                                                    <br/>
-                                                </td>
-                                            </tr>
-                                        </t>
+                                        <tr>
+                                            <td width="20%" class="td_vertical_border">
+                                                <br/>
+                                            </td>
+                                            <td width="15%" class="td_vertical_border">
+                                                <br/>
+                                            </td>
+                                            <td width="10%" class="td_vertical_border">
+                                                <br/>
+                                            </td>
+                                            <td width="30%" class="td_vertical_border">
+                                                <br/>
+                                            </td>
+                                            <td width="15%" class="td_vertical_border">
+                                                <br/>
+                                            </td>
+                                            <td width="10%" class="td_vertical_border">
+                                                <br/>
+                                            </td>
+                                        </tr>                                       
                                     </t>
                                 </t>
+                                <tr style="font-size:14px;">
+                                    <td colspan="6" class="td_border">
+                                    </td>
+                                </tr>
                                 <tr>
                                     <td colspan="4" class="td_border">
                                     </td>
@@ -230,7 +210,7 @@
                 <t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})" />
                 <div class="page">
                     <br/>
-                    <table class="list_table" style="border:none;font-size:14px" width="100%">
+                    <table style="border:none;font-size:14px" width="100%">
                         <tr>
                             <td class="td_border" valign="top" width="46%">
                                 <b>Vendor</b>
@@ -263,18 +243,18 @@
                         </tr>
                         <tr>
                             <td class="noborder" valign="top" width="46%">
-                                <table class="table table-bordered">
+                                <table style="border:none;font-size:14px" width="100%">
                                     <tr>
-                                        <td width="20%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                                        <td width="20%" class="td_border">
                                             <b>Terms</b>
                                         </td>
-                                        <td width="30%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                                        <td width="30%" class="td_border">
                                             <span t-field="o.payment_term_id.name"/>
                                         </td>
-                                        <td width="20%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                                        <td width="20%" class="td_border">
                                             <b>Dept.</b>
                                         </td>
-                                        <td width="30%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                                        <td width="30%" class="td_border">
                                             <span t-field="o.department"/>
                                         </td>
                                     </tr>
@@ -282,12 +262,12 @@
                             </td>
                             <td class="noborder"  width="8%"></td>
                             <td class="noborder" valign="top" width="46%">
-                                <table class="table table-bordered" width="100%">
+                                <table style="border:none;font-size:14px" width="100%">
                                     <tr>
-                                        <td width="30%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;" >
+                                        <td width="30%" class="td_border">
                                             <b>Ship Via</b>
                                         </td>
-                                        <td width="70%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;" >
+                                        <td width="70%" class="td_border">
                                             <span t-field="o.ship_via"/>
                                         </td>
                                     </tr>

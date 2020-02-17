@@ -39,7 +39,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="td_border" valign="top" width="46%">
+                                <td class="noborder" valign="top" width="46%">
                                     <table style="border:none;font-size:14px" width="100%">
                                         <tr>
                                             <td width="20%" class="td_border">
@@ -58,7 +58,7 @@
                                     </table>
                                 </td>
                                 <td class="noborder"  width="8%"></td>
-                                <td class="td_border" valign="top" width="46%">
+                                <td class="noborder" valign="top" width="46%">
                                     <table style="border:none;font-size:14px" width="100%">
                                         <tr>
                                             <td width="30%" class="td_border">
