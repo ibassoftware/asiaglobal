@@ -297,7 +297,7 @@
                         </tr>
                     </table>
 
-                    <table style="border: 1px solid black;font-size:14px;" style="font-size: 14px">
+                    <table style="border: 1px solid black;font-size:14px;">
                         <thead>
                             <tr>
                                 <th width="20%" class="td_border"><strong>Item Code</strong></th>
