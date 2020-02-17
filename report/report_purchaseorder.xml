@@ -77,12 +77,12 @@
                         <table class="list_table" style="border: 1px solid #808080;font-size:14px;" width="100%">
                             <thead>
                                 <tr>
-                                    <th style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding:0.5em;"><strong>Item Code</strong></th>
-                                    <th style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding:0.5em;"><strong>Part Number</strong></th>
-                                    <th class="text-center" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding:0.5em;"><strong>Quantity</strong></th>
-                                    <th style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding:0.5em;"><strong>Description</strong></th>
-                                    <th class="text-right" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding:0.5em;"><strong>Unit Price</strong></th>
-                                    <th class="text-right" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding:0.5em;"><strong>Total Price</strong></th>
+                                    <th width="20%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding:0.5em;"><strong>Item Code</strong></th>
+                                    <th width="15%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding:0.5em;"><strong>Part Number</strong></th>
+                                    <th width="10%" class="text-center" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding:0.5em;"><strong>Quantity</strong></th>
+                                    <th width="30%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding:0.5em;"><strong>Description</strong></th>
+                                    <th width="15%" class="text-right" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding:0.5em;"><strong>Unit Price</strong></th>
+                                    <th width="10%" class="text-right" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding:0.5em;"><strong>Total Price</strong></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -93,7 +93,7 @@
                                         <!-- <span t-field="line.product_id.default_code"/> -->
                                         <span t-field="line.product_id.default_code"/>
                                     </td>
-                                    <td width="20%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;padding:0.5em;">
+                                    <td width="15%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;padding:0.5em;">
                                         <!-- <span t-field="line.product_id.name"/> -->
                                         <span t-field="line.part_number"/>
                                     </td>
@@ -103,7 +103,7 @@
                                     <td width="30%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;padding:0.5em;">
                                         <span t-field="line.name"/>
                                     </td>
-                                    <td class="text-right" width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;padding:0.5em;">
+                                    <td class="text-right" width="15%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;padding:0.5em;">
                                         <span t-field="line.price_unit"/>
                                     </td>
                                     <td class="text-right" width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;padding:0.5em;">
@@ -118,7 +118,7 @@
                                             <td width="20%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;padding:0.5em;">
                                                 <br/>
                                             </td>
-                                            <td width="20%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;padding:0.5em;">
+                                            <td width="15%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;padding:0.5em;">
                                                 <br/>
                                             </td>
                                             <td width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;padding:0.5em;">
@@ -127,7 +127,7 @@
                                             <td width="30%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;padding:0.5em;">
                                                 <br/>
                                             </td>
-                                            <td width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;padding:0.5em;">
+                                            <td width="15%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;padding:0.5em;">
                                                 <br/>
                                             </td>
                                             <td width="10%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;padding:0.5em;">
@@ -140,7 +140,7 @@
                                     <td colspan="4" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;font-size:14px;padding:0.5em;">
                                         <span t-field="o.notes"/>
                                     </td>
-                                    <td width="10%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;font-size:14px;padding:0.5em;">
+                                    <td width="15%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;font-size:14px;padding:0.5em;">
                                         <div class="col-xs-6">
                                             <span><b><i>Total</i></b></span>
                                         </div>
