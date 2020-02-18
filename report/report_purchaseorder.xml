@@ -141,8 +141,9 @@
                                 </tr>
                                 <tr>
                                     <td colspan="4" class="td_border">
+                                        <span t-field="o.notes"/>
                                     </td>
-                                    <td class="td_border">
+                                    <td class="td_border" style="vertical-align: middle !important;">
                                         <div class="col-xs-6" style="padding:0 !important;">
                                             <span><b><i>Total</i></b></span>
                                         </div>
@@ -150,7 +151,7 @@
                                             <b><i><span t-field="o.currency_id.symbol"/></i></b>
                                         </div>
                                     </td>
-                                    <td class="td_border text-right">
+                                    <td class="td_border text-right" style="vertical-align: middle !important;">
                                         <b><i>
                                             <span t-esc="'{0:,.2f}'.format(o.amount_total)" />
                                         </i></b>
@@ -404,7 +405,7 @@
                                 <td colspan="4" class="td_border">
                                     <span t-field="o.notes"/>
                                 </td>
-                                <td class="td_border">
+                                <td class="td_border" style="vertical-align: middle !important;">
                                     <div class="col-xs-6" style="padding:0 !important;">
                                         <span><b><i>Total</i></b></span>
                                     </div>
@@ -412,7 +413,7 @@
                                         <b><i><span t-field="o.currency_id.symbol"/></i></b>
                                     </div>
                                 </td>
-                                <td class="td_border text-right">
+                                <td class="td_border text-right" style="vertical-align: middle !important;">
                                     <b><i>
                                         <!-- <span t-field="o.amount_total" /> -->
                                         <span t-esc="'{0:,.2f}'.format(o.amount_total)" />
