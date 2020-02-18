@@ -79,12 +79,12 @@
                         <table style="border: 1px solid black;font-size:14px;" width="100%">
                             <thead>
                                 <tr>
-                                    <th width="20%" class="td_border"><strong>Item Code</strong></th>
-                                    <th width="20%" class="td_border"><strong>Part Number</strong></th>
+                                    <th width="18%" class="td_border"><strong>Item Code</strong></th>
+                                    <th width="15%" class="td_border"><strong>Part Number</strong></th>
                                     <th width="10%" class="td_border text-center"><strong>Quantity</strong></th>
                                     <th width="30%" class="td_border"><strong>Description</strong></th>
-                                    <th width="10%" class="td_border text-right"><strong>Unit Price</strong></th>
-                                    <th width="10%" class="td_border text-right"><strong>Total Price</strong></th>
+                                    <th width="15%" class="td_border text-right"><strong>Unit Price</strong></th>
+                                    <th width="12%" class="td_border text-right"><strong>Total Price</strong></th>
                                 </tr>
                             </thead>
                             <tbody>
