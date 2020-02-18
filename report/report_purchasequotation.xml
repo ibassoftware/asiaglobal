@@ -74,6 +74,8 @@
                             </tr>
                         </table>
 
+                        <br/>
+
                         <table style="border: 1px solid black;font-size:14px;" width="100%">
                             <thead>
                                 <tr>
@@ -89,24 +91,24 @@
                                 <t t-set="line_count" t-value="0"/>
                                 <tr style="font-size:14px;" t-foreach="o.order_line" t-as="line">
                                     <t t-set="line_count" t-value="line_count + 1"/>
-                                    <td width="20%" class="td_border">
+                                    <td width="20%" class="td_vertical_border">
                                         <!-- <span t-field="line.product_id.default_code"/> -->
                                         <span t-field="line.product_id.name"/>
                                     </td>
-                                    <td width="20%" class="td_border">
+                                    <td width="20%" class="td_vertical_border">
                                         <!-- <span t-field="line.product_id.name"/> -->
                                         <span t-field="line.part_number"/>
                                     </td>
-                                    <td width="10%" class="td_border text-center">
+                                    <td width="10%" class="td_vertical_border text-center">
                                         <span t-esc="int(float(line.product_qty))"/>
                                     </td>
-                                    <td width="30%" class="td_border">
+                                    <td width="30%" class="td_vertical_border">
                                         <span t-field="line.product_id.description_sale"/>
                                     </td>
-                                    <td width="10%" class="td_border text-right">
+                                    <td width="10%" class="td_vertical_border text-right">
                                         <span t-field="line.price_unit"/>
                                     </td>
-                                    <td width="10%" class="td_border text-right">
+                                    <td width="10%" class="td_vertical_border text-right">
                                         <span t-esc="'{0:,.2f}'.format(line.price_subtotal)" />
                                     </td>
                                 </tr>
@@ -114,27 +116,31 @@
                                 <t t-if="break_count > 0">
                                     <t t-foreach="break_count" t-as="break">
                                         <tr>
-                                            <td width="20%" class="td_border">
+                                            <td width="20%" class="td_vertical_border">
                                                 <br/>
                                             </td>
-                                            <td width="20%" class="td_border">
+                                            <td width="20%" class="td_vertical_border">
                                                 <br/>
                                             </td>
-                                            <td width="10%" class="td_border">
+                                            <td width="10%" class="td_vertical_border">
                                                 <br/>
                                             </td>
-                                            <td width="30%" class="td_border">
+                                            <td width="30%" class="td_vertical_border">
                                                 <br/>
                                             </td>
-                                            <td width="10%" class="td_border">
+                                            <td width="10%" class="td_vertical_border">
                                                 <br/>
                                             </td>
-                                            <td width="10%" class="td_border">
+                                            <td width="10%" class="td_vertical_border">
                                                 <br/>
                                             </td>
                                         </tr>
                                     </t>
                                 </t>
+                                <tr style="font-size:14px;">
+                                    <td colspan="6" style="padding:0;border: 1px solid black;">
+                                    </td>
+                                </tr>
                                 <tr>
                                     <td colspan="4" class="td_border">
                                         <span t-field="o.notes"/>
