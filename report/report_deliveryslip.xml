@@ -6,22 +6,19 @@
 				<t t-call="asiaglobal.external_layout_agt_delivery">
 					<t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})" />
 					<!-- <div class="page" t-attf-style="background-image:url('/asiaglobal/static/src/img/bill.PNG');  no-repeat; background-size: cover;"> -->
-					<div class="page" style="font-size:12px">
-						<br/>
-	                    <br/>
-	                    <br/>
-	                    <br/>
-	                    <br/>
-	                    <br/>
+					<div class="page">
+						<span t-esc="datetime.datetime.strptime(o.scheduled_date, '%Y-%m-%d %H:%M:%S').strftime('%m/%d/%Y')" style="top: 40mm;left: 223mm;position:relative;width:100%;"/>
 
-						<div class="row">
+						<span t-field="o.partner_id.name" style="top: 45mm;left: 35mm;position:relative;width:100%;"/>
+
+						<!-- <div class="row">
 							<div class="col-xs-6 col-xs-offset-2">
 								<span t-field="o.partner_id.name"/>
 							</div>
 							<div class="col-xs-4" style="padding-left: 50px;">
 								<span t-esc="datetime.datetime.strptime(o.scheduled_date, '%Y-%m-%d %H:%M:%S').strftime('%m/%d/%Y')"/>
 							</div>
-						</div>
+						</div> -->
 
 						<div class="row">
 							<div class="col-xs-8 col-xs-offset-1">
