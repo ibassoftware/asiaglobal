@@ -18,7 +18,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="td_border" width="46%">
+                                <td class="td_border" width="46%" style="padding-left:1.5em !important;padding-top:0.5em !important;vertical-align: middle !important;">
                                     <span class="uppercase">
                                         <b>
                                             <span t-field="o.partner_id"/>
@@ -28,7 +28,7 @@
                                     t-options='{"widget": "contact", "fields": ["address"], "no_marker": True}' />
                                 </td>
                                 <td class="noborder"  width="8%"></td>
-                                <td class="td_border" width="46%">
+                                <td class="td_border" width="46%" style="padding-left:1.5em !important;padding-top:0.5em !important;vertical-align: middle !important;">
                                     <span class="uppercase">
                                         <b>
                                             <span t-field="o.company_id"/>
@@ -223,7 +223,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="td_border" width="46%">                 
+                            <td class="td_border" width="46%" style="padding-left:1.5em !important;padding-top:0.5em !important;vertical-align: middle !important;">                 
                                 <span class="uppercase">
                                     <b>
                                         <span t-field="o.partner_id"/>
@@ -233,7 +233,7 @@
                                 t-options='{"widget": "contact", "fields": ["address"], "no_marker": True}' />
                             </td>
                             <td class="noborder"  width="8%"></td>
-                            <td class="td_border" width="46%">
+                            <td class="td_border" width="46%" style="padding-left:1.5em !important;padding-top:0.5em !important;vertical-align: middle !important;">
                                 <span class="uppercase">
                                     <b>
                                         <span t-field="o.company_id"/>
