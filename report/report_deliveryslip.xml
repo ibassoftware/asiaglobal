@@ -6,18 +6,18 @@
 				<t t-call="asiaglobal.external_layout_agt_delivery">
 					<t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})" />
 					<!-- <div class="page" t-attf-style="background-image:url('/asiaglobal/static/src/img/bill.PNG');  no-repeat; background-size: cover;"> -->
-					<div class="page">
-						<span t-esc="datetime.datetime.strptime(o.scheduled_date, '%Y-%m-%d %H:%M:%S').strftime('%m/%d/%Y')" style="top: 30mm;left: 223mm;position:relative;width:100%;"/>
+					<div class="page" style="font-size:14px">
+						<span t-esc="datetime.datetime.strptime(o.scheduled_date, '%Y-%m-%d %H:%M:%S').strftime('%m/%d/%Y')" style="top: 33mm;left: 200mm;position:absolute;width:100%;"/>
 
-						<span t-field="o.sale_id.payment_term_id.name" style="top: 35mm;left: 223mm;position:relative;width:100%;"/>
+						<span t-field="o.sale_id.payment_term_id.name" style="top: 35mm;left: 200mm;position:absolute;width:100%;"/>
 
-						<span t-field="o.partner_id.name" style="top: 35mm;left: 30mm;position:relative;width:100%;"/>
+						<span t-field="o.partner_id.name" style="top: 37mm;left: 30mm;position:absolute;width:100%;"/>
 
-						<p style="top: 40mm;left: 25mm;position:relative;width:100%;">
+						<p style="top: 39mm;left: 25mm;position:absolute;width:100%;">
 							<span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/>
 						</p>
 
-						<span t-field="o.partner_id.vat" style="top: 45mm;left: 15mm;position:relative;width:100%;"/>
+						<span t-field="o.partner_id.vat" style="top: 41mm;left: 15mm;position:absolute;width:100%;"/>
 
 						<!-- <div class="row">
 							<div class="col-xs-6 col-xs-offset-2">
@@ -57,7 +57,7 @@
 						<br/> -->
 
 
-						<table class="table table-condensed" name="delivery_receipt_table">
+						<table class="table table-condensed" name="delivery_receipt_table" style="top: 51mm;position:relative;width:100%;">
 							<thead>
 								<tr>
 									<th></th>
