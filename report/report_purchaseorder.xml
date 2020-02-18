@@ -142,15 +142,15 @@
                                 <tr>
                                     <td colspan="4" class="td_border">
                                     </td>
-                                    <td class="td_border" style="padding:0 !important;">
-                                        <div class="col-xs-6">
+                                    <td class="td_border">
+                                        <div class="col-xs-6" style="padding:0 !important;">
                                             <span><b><i>Total</i></b></span>
                                         </div>
-                                        <div class="col-xs-6 text-right">
+                                        <div class="col-xs-6 text-right" style="padding:0 !important;">
                                             <b><i><span t-field="o.currency_id.symbol"/></i></b>
                                         </div>
                                     </td>
-                                    <td class="td_border text-right" style="padding:0 !important;">
+                                    <td class="td_border text-right">
                                         <b><i>
                                             <span t-esc="'{0:,.2f}'.format(o.amount_total)" />
                                         </i></b>
@@ -404,15 +404,15 @@
                                 <td colspan="4" class="td_border">
                                     <span t-field="o.notes"/>
                                 </td>
-                                <td class="td_border" style="padding:0 !important;">
-                                    <div class="col-xs-6">
+                                <td class="td_border">
+                                    <div class="col-xs-6" style="padding:0 !important;">
                                         <span><b><i>Total</i></b></span>
                                     </div>
-                                    <div class="col-xs-6 text-right">
+                                    <div class="col-xs-6 text-right" style="padding:0 !important;">
                                         <b><i><span t-field="o.currency_id.symbol"/></i></b>
                                     </div>
                                 </td>
-                                <td class="td_border text-right" style="padding:0 !important;">
+                                <td class="td_border text-right">
                                     <b><i>
                                         <!-- <span t-field="o.amount_total" /> -->
                                         <span t-esc="'{0:,.2f}'.format(o.amount_total)" />

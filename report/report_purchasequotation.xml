@@ -91,24 +91,22 @@
                                 <t t-set="line_count" t-value="0"/>
                                 <tr style="font-size:14px;" t-foreach="o.order_line" t-as="line">
                                     <t t-set="line_count" t-value="line_count + 1"/>
-                                    <td width="20%" class="td_vertical_border">
-                                        <!-- <span t-field="line.product_id.default_code"/> -->
+                                    <td class="td_vertical_border">
                                         <span t-field="line.product_id.name"/>
                                     </td>
-                                    <td width="20%" class="td_vertical_border">
-                                        <!-- <span t-field="line.product_id.name"/> -->
+                                    <td class="td_vertical_border">
                                         <span t-field="line.part_number"/>
                                     </td>
-                                    <td width="10%" class="td_vertical_border text-center">
+                                    <td class="td_vertical_border text-center">
                                         <span t-esc="int(float(line.product_qty))"/>
                                     </td>
-                                    <td width="30%" class="td_vertical_border">
+                                    <td class="td_vertical_border">
                                         <span t-field="line.product_id.description_sale"/>
                                     </td>
-                                    <td width="10%" class="td_vertical_border text-right">
+                                    <td class="td_vertical_border text-right">
                                         <span t-field="line.price_unit"/>
                                     </td>
-                                    <td width="10%" class="td_vertical_border text-right">
+                                    <td class="td_vertical_border text-right">
                                         <span t-esc="'{0:,.2f}'.format(line.price_subtotal)" />
                                     </td>
                                 </tr>
@@ -116,22 +114,22 @@
                                 <t t-if="break_count > 0">
                                     <t t-foreach="break_count" t-as="break">
                                         <tr>
-                                            <td width="20%" class="td_vertical_border">
+                                            <td class="td_vertical_border">
                                                 <br/>
                                             </td>
-                                            <td width="20%" class="td_vertical_border">
+                                            <td class="td_vertical_border">
                                                 <br/>
                                             </td>
-                                            <td width="10%" class="td_vertical_border">
+                                            <td class="td_vertical_border">
                                                 <br/>
                                             </td>
-                                            <td width="30%" class="td_vertical_border">
+                                            <td class="td_vertical_border">
                                                 <br/>
                                             </td>
-                                            <td width="10%" class="td_vertical_border">
+                                            <td class="td_vertical_border">
                                                 <br/>
                                             </td>
-                                            <td width="10%" class="td_vertical_border">
+                                            <td class="td_vertical_border">
                                                 <br/>
                                             </td>
                                         </tr>
@@ -145,24 +143,54 @@
                                     <td colspan="4" class="td_border">
                                         <span t-field="o.notes"/>
                                     </td>
-                                    <td width="10%" class="td_border">
-                                        <div class="col-xs-6">
+                                    <td class="td_border">
+                                        <div class="col-xs-6" style="padding:0 !important;">
                                             <span><b><i>Total</i></b></span>
                                         </div>
-                                        <div class="col-xs-6 text-right">
+                                        <div class="col-xs-6 text-right" style="padding:0 !important;">
                                             <b><i><span t-field="o.currency_id.symbol"/></i></b>
                                         </div>
                                     </td>
-                                    <td width="10%" class="td_border text-right">
+                                    <td class="td_border text-right">
                                         <b><i>
-                                            <!-- <span t-field="o.amount_total" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/> -->
                                             <span t-esc="'{0:,.2f}'.format(o.amount_total)" />
                                         </i></b>
                                     </td>
                                 </tr>
                                 <tr style="font-size:14px;">
                                     <td colspan="6" class="td_border">
-                                        <table style="border:none;font-size:14px" width="100%">
+                                        <div class="col-xs-3" style="padding:0.5em;">
+                                            <center>
+                                                <b>Prepared By:</b><br/><br/>
+                                                _________________________
+                                                <span t-field="o.create_uid.name"/><br/>
+                                                Name &amp; Signature
+                                            </center>
+                                        </div>
+                                        <div class="col-xs-3" style="padding:0.5em;">
+                                            <center>
+                                                <b>Approver 1:</b><br/><br/>
+                                                _________________________<br/><br/>
+                                                Dept. Manager
+                                            </center>
+                                        </div>
+                                        <div class="col-xs-3" style="padding:0.5em;">
+                                            <center>
+                                                <b>Approver 2:</b><br/><br/>
+                                                _________________________<br/>
+                                                J. Malijan <br/>
+                                                AVP - Finance &amp; Admin
+                                            </center>
+                                        </div>
+                                        <div class="col-xs-3" style="padding:0.5em;">
+                                            <center>
+                                                <b>Noted By:</b><br/><br/>
+                                                _________________________<br/>
+                                                A. RAMOS <br/>
+                                                President
+                                            </center>
+                                        </div>
+                                        <!-- <table style="border:none;font-size:14px" width="100%">
                                             <tr>
                                                 <td width="25%" style="padding:0.5em;">
                                                     <center>
@@ -196,7 +224,7 @@
                                                     </center>
                                                 </td>
                                             </tr>
-                                        </table>
+                                        </table> -->
                                     </td>
                                 </tr>
                             </tbody>
