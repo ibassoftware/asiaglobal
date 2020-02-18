@@ -52,6 +52,18 @@
         />
 
         <report 
+            id="agt_stock_delivery_slip"
+            model="stock.picking"
+            string="Delivery Slip"
+            report_type="qweb-pdf"
+            name="asiaglobal.agt_report_stock_delivery"
+            file="asiaglobal.agt_report_stock_delivery"
+            menu="True"
+            paperformat="asiaglobal.paperformat_report_agt_stock_delivery"
+            
+        />
+
+        <report 
             id="agt_account_invoice"
             model="account.invoice"
             string="Billing Invoice"
