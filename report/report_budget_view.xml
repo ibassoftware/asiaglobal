@@ -4,7 +4,7 @@
 
 		<record id="action_report_account_budget" model="ir.actions.act_window">
 			<field name="name">Budget Analysis</field>
-			<field name="res_model">accout.budget.report</field>
+			<field name="res_model">account.budget.report</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">pivot</field>
 			<field name="view_id"></field>  <!-- force empty -->
