@@ -20,7 +20,8 @@ class AccountBudgetReport(models.Model):
 
 	def _select(self):
 		select_str = """
-			SELECT l.name as name,
+			SELECT min(l.id) as id,
+				l.name as name,
 				l.date as date,
 				l.amount as amount_actual
 		"""
