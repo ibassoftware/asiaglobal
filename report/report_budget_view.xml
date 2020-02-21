@@ -7,7 +7,7 @@
 			<field name="model">account.budget.report</field>
 			<field name="arch" type="xml">
 				<pivot string="Sales Analysis" disable_linking="True">
-					<field name="general_budget_id" type="col"/>
+					<field name="name" type="row"/>
 					<field name="date" interval="month" type="col"/>
 					<field name="amount_actual" type="measure"/>
 				</pivot>

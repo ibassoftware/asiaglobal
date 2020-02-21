@@ -22,8 +22,7 @@ class AccountBudgetReport(models.Model):
 		select_str = """
 			SELECT l.name as name,
 				l.date as date,
-				l.amount as amount_actual,
-				t.uom_id as product_uom
+				l.amount as amount_actual
 		"""
 		return select_str
 
