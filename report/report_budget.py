@@ -2,7 +2,7 @@ from odoo import tools
 from odoo import api, fields, models
 
 class AccountBudgetReport(models.Model):
-	_name = "accout.budget.report"
+	_name = "account.budget.report"
 	_description = "Budget Analysis"
 	_auto = False
 	_rec_name = 'date'
