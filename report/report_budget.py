@@ -43,7 +43,4 @@ class AccountBudgetReport(models.Model):
 	def init(self):
 		# self._table = sale_report
 		tools.drop_view_if_exists(self.env.cr, self._table)
-		self.env.cr.execute("""CREATE or REPLACE VIEW %s as (
-			%s
-			FROM ( %s )
-			)""" % (self._table, self._select(), self._from()))
+		self.env.cr.execute("""CREATE or REPLACE VIEW %s as ( %s FROM %s )""" % (self._table, self._select(), self._from()))
