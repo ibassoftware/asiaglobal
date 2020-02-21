@@ -55,7 +55,6 @@
         'views/purchase_order_views.xml',
         'views/stock_picking_views.xml',
         'views/stock_account_views.xml',
-        'views/service_menu.xml',
         'views/stock_move_update.xml',
         'report/report_quotation_service.xml',
         'report/service_report.xml',
@@ -71,8 +70,8 @@
         'report/report_account_payable_voucher.xml',
         'report/report_budget_view.xml',
         'report/report.xml',
+        'views/service_menu.xml',
         'wizard/maintenance_jo_views.xml',
-
     ],
     # only loaded in demonstration mode
     'demo': [
