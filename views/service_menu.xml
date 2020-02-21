@@ -125,7 +125,7 @@
 		<!-- ACCOUNT -->
 		<menuitem id="menu_report_account_budget"
 			name="Budget Analysis"
-			action="action_report_account_budget"
+			action="asiaglobal.action_report_account_budget"
 			parent="account.account_reports_management_menu"
 			sequence="21"/>
 
