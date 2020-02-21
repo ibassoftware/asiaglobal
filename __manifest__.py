@@ -20,8 +20,8 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','crm','sale_management', 'purchase','hr', 'hr_expense', 'helpdesk', 'sales_team', 'account_reports',
-    'sale','sale_crm', 'mail', 'sale_subscription', 'product', 'stock', 'stock_account'],
+    'depends': ['base','crm', 'sale_management', 'purchase','hr', 'hr_expense', 'helpdesk', 'sales_team', 'account_reports',
+    'sale','sale_crm', 'mail', 'sale_subscription', 'product', 'stock', 'stock_account', 'account'],
 
     # always loaded
     'data': [
