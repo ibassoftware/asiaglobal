@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<record id="action_report_account_budget" model="ir.actions.act_window">
+			<field name="name">Budget Analysis</field>
+			<field name="res_model">accout.budget.report</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">pivot</field>
+			<field name="view_id"></field>  <!-- force empty -->
+			<!-- <field name="search_view_id" ref="view_order_product_search"/> -->
+			<!-- <field name="context">{'search_default_Sales':1, 'group_by_no_leaf':1,'group_by':[]}</field> -->
+			<field name="help">This report performs analysis on your account budget and analytic account entries.</field>
+		</record>
+
+	</data>
+</odoo>
