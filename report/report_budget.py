@@ -18,3 +18,32 @@ class AccountBudgetReport(models.Model):
 	variance_percent = fields.Integer(string='Percentage of Variance')
 	analytic_line_id = fields.Many2one('account.analytic.line', string='Analytic Line')
 
+	def _select(self):
+		select_str = """
+			SELECT l.name as name,
+				l.date as date,
+				l.amount as amount_actual,
+				t.uom_id as product_uom
+		"""
+		return select_str
+
+	def _from(self):
+		from_str = """
+				account_analytic_line l
+		"""
+		return from_str
+
+	# def _group_by(self):
+	# 	group_by_str = """
+	# 		GROUP BY l.date,
+	# 	"""
+	# 	return group_by_str
+
+	@api.model_cr
+	def init(self):
+		# self._table = sale_report
+		tools.drop_view_if_exists(self.env.cr, self._table)
+		self.env.cr.execute("""CREATE or REPLACE VIEW %s as (
+			%s
+			FROM ( %s )
+			)""" % (self._table, self._select(), self._from()))
