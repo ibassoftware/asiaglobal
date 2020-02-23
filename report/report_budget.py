@@ -27,7 +27,7 @@ class AccountBudgetReport(models.Model):
 				l.name as name,
 				l.date as date,
 				l.amount as amount_actual, 
-				l.analytic_account_id as analytic_account_id,
+				cbl.analytic_account_id as analytic_account_id,
 				cb.id as crossovered_budget_id,
 				bp.id as general_budget_id,
 				cbl.planned_amount as amount_budget,
