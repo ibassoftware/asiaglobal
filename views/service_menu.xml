@@ -126,7 +126,7 @@
 		<menuitem id="menu_report_account_budget"
 			name="Budget Analysis"
 			action="asiaglobal.action_report_account_budget"
-			parent="account.account_reports_management_menu"
+			parent="account.menu_finance_reports"
 			sequence="21" groups="account.group_account_user"/>
 
 </odoo>
