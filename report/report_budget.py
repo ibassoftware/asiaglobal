@@ -51,10 +51,6 @@ class AccountBudgetReport(models.Model):
 				l.name,
 				l.date,
 				l.amount,
-				cbl.analytic_account_id,
-				cb.id,
-				bp.id,
-				cbl.planned_amount
 		"""
 		return group_by_str
 
