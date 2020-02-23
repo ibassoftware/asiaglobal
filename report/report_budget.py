@@ -50,7 +50,7 @@ class AccountBudgetReport(models.Model):
 			GROUP BY l.id,
 				l.name,
 				l.date,
-				l.amount,
+				l.amount
 		"""
 		return group_by_str
 
