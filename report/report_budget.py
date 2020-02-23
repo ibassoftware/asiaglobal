@@ -20,6 +20,8 @@ class AccountBudgetReport(models.Model):
 	analytic_line_id = fields.Many2one('account.analytic.line', string='Analytic Line')
 
 	def _select(self):
+		# crossovered_budget = self.env['crossovered.budget'].search([('state','=','validate')])
+		# account_ids = crossovered_budget.mapped('general_budget_id').mapped('account_ids').ids
 		select_str = """
 			SELECT l.id as id,
 				l.name as name,
@@ -37,7 +39,7 @@ class AccountBudgetReport(models.Model):
 	def _from(self):
 		from_str = """
 			account_analytic_line l
-				left join crossovered_budget_lines cbl on (cbl.analytic_account_id=l.analytic_account_id)
+				left join crossovered_budget_lines cbl on (cbl.analytic_account_id=l.id)
 				left join crossovered_budget cb on (cb.id=cbl.crossovered_budget_id)
 				left join account_budget_post bp on (bp.id=cbl.general_budget_id)
 		"""
