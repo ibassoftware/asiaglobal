@@ -45,14 +45,21 @@ class AccountBudgetReport(models.Model):
 		"""
 		return from_str
 
-	# def _group_by(self):
-	# 	group_by_str = """
-	# 		GROUP BY l.date,
-	# 	"""
-	# 	return group_by_str
+	def _group_by(self):
+		group_by_str = """
+			GROUP BY l.id,
+				l.name,
+				l.date,
+				l.amount,
+				cbl.analytic_account_id,
+				cb.id,
+				bp.id,
+				cbl.planned_amount
+		"""
+		return group_by_str
 
 	@api.model_cr
 	def init(self):
 		# self._table = sale_report
 		tools.drop_view_if_exists(self.env.cr, self._table)
-		self.env.cr.execute("""CREATE or REPLACE VIEW %s as ( %s FROM %s )""" % (self._table, self._select(), self._from()))
+		self.env.cr.execute("""CREATE or REPLACE VIEW %s as ( %s FROM %s )""" % (self._table, self._select(), self._from(), self._group_by()))
