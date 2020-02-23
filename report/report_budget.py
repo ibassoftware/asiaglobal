@@ -30,7 +30,7 @@ class AccountBudgetReport(models.Model):
 				bp.id as general_budget_id,
 				cbl.planned_amount as amount_budget,
 				sum(cbl.planned_amount - l.amount) as variance,
-				sum(l.amount / cbl.planned_amount * 100) as variance_percent,
+				sum(l.amount / cbl.planned_amount * 100) as variance_percent
 		"""
 		return select_str
 
