@@ -11,6 +11,7 @@ class AccountBudgetReport(models.Model):
 	name = fields.Char()
 	date = fields.Date()
 	general_budget_id = fields.Many2one('account.budget.post')
+	crossovered_budget_id = fields.Many2one('crossovered.budget')
 	analytic_account_id = fields.Many2one('account.analytic.account', string='Analytic Account')
 	amount_budget = fields.Float(string='Budget')
 	amount_actual = fields.Float(string='Actual')
@@ -23,13 +24,22 @@ class AccountBudgetReport(models.Model):
 			SELECT l.id as id,
 				l.name as name,
 				l.date as date,
-				l.amount as amount_actual
+				l.amount as amount_actual, 
+				l.analytic_account_id as analytic_account_id,
+				cb.id as crossovered_budget_id,
+				bp.id as general_budget_id,
+				cbl.planned_amount as amount_budget,
+				sum(cbl.planned_amount - l.amount) as variance,
+				sum(l.amount / cbl.planned_amount * 100) as variance_percent,
 		"""
 		return select_str
 
 	def _from(self):
 		from_str = """
-				account_analytic_line l
+			account_analytic_line l
+				left join crossovered_budget_lines cbl on (cbl.analytic_account_id=l.analytic_account_id)
+				left join crossovered_budget cb on (cb.id=cbl.crossovered_budget_id)
+				left join account_budget_post bp on (bp.id=cbl.general_budget_id)
 		"""
 		return from_str
 
