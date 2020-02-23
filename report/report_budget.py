@@ -50,7 +50,11 @@ class AccountBudgetReport(models.Model):
 			GROUP BY l.id,
 				l.name,
 				l.date,
-				l.amount
+				l.amount,
+				cbl.analytic_account_id,
+				cb.id,
+				bp.id,
+				cbl.planned_amount
 		"""
 		return group_by_str
 
