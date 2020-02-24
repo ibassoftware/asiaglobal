@@ -7,7 +7,8 @@
                 <t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})" />
                 <!-- <div class="page" t-attf-style="background-image:url('/asiaglobal/static/src/img/bill.PNG');  no-repeat; background-size: cover;"> -->
                 <div class="page" style="font-size:12px">
-                	<br/>
+                    <span t-field="o.date_invoice" style="top: 33mm;left: 200mm;position:relative;width:100%;"/>
+                	<!-- <br/>
                     <br/>
                     <br/>
                     <br/>
@@ -15,13 +16,10 @@
                     <br/>
 
                     <div class="row">
-                        <!-- SOLD TO -->
                         <div class="col-xs-5">
                         </div>
-                        <!-- SHIP TO -->
                         <div class="col-xs-5">
                         </div>
-                        <!-- BILL TO -->
                         <div class="col-xs-2">
                             <span t-field="o.date_invoice"/>
                             <br/>
@@ -30,26 +28,37 @@
                     </div>
 
                    <br/>
-                   <br/>
+                   <br/> -->
 
-                   <div class="row">
-                        <!-- SOLD TO -->
+                   <div class="col-xs-4" style="top: 43mm;left: 9mm;position:relative;width:100%;">
+                        <span t-field="o.partner_id.name"/><br/>
+                        <span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/><br/>
+                        <span t-field="o.partner_id.vat"/>
+                    </div>
+                    <div class="col-xs-4" style="top: 43mm;left: 108mm;position:relative;width:100%;">
+                        <span t-field="o.partner_id.name"/><br/>
+                        <span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/>
+                    </div>
+                    <div class="col-xs-4" style="top: 43mm;left: 207mm;position:relative;width:100%;">
+                        <span t-field="o.partner_id.name"/><br/>
+                        <span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/>
+                    </div>
+
+                   <!-- <div class="row">
                         <div class="col-xs-5" style="padding-left: 50px;padding-right: 0px;">
                             <span t-field="o.partner_id.name"/><br/>
                             <span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/><br/>
                             <span t-field="o.partner_id.vat"/>
                         </div>
-                        <!-- SHIP TO -->
                         <div class="col-xs-4" style="padding-left: 0px;">
                             <span t-field="o.partner_id.name"/><br/>
                             <span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/>
                         </div>
-                        <!-- BILL TO -->
                         <div class="col-xs-3" style="padding-left: 0px;">
                             <span t-field="o.partner_id.name"/><br/>
                             <span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="row">
                         <!-- BUS STYLE -->
