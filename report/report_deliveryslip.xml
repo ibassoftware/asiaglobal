@@ -6,119 +6,76 @@
 				<t t-call="asiaglobal.external_layout_agt_delivery">
 					<t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})" />
 					<!-- <div class="page" t-attf-style="background-image:url('/asiaglobal/static/src/img/bill.PNG');  no-repeat; background-size: cover;"> -->
-					<div class="page" style="font-size:12px">
-						<span t-esc="datetime.datetime.strptime(o.scheduled_date, '%Y-%m-%d %H:%M:%S').strftime('%m/%d/%Y')" style="top: 33mm;left: 200mm;position:relative;width:100%;"/>
-
-						<span t-field="o.sale_id.payment_term_id.name" style="top: 35mm;left: 200mm;position:relative;width:100%;"/>
-
-						<span t-field="o.partner_id.name" style="top: 37mm;left: 30mm;position:relative;width:100%;"/>
-
-						<p style="top: 40mm;left: 25mm;position:relative;width:100%;">
-							<span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/>
-						</p>
-
-						<span t-field="o.partner_id.vat" style="top: 43mm;left: 15mm;position:relative;width:100%;"/>
-
-						<!-- <div class="row">
-							<div class="col-xs-6 col-xs-offset-2">
-								<span t-field="o.partner_id.name"/>
-							</div>
-							<div class="col-xs-4" style="padding-left: 50px;">
-								<span t-esc="datetime.datetime.strptime(o.scheduled_date, '%Y-%m-%d %H:%M:%S').strftime('%m/%d/%Y')"/>
-							</div>
-						</div> -->
-
-						<!-- <div class="row">
-							<div class="col-xs-8 col-xs-offset-1">
-								<span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/>
-							</div>
-							<div class="col-xs-2 col-xs-offset-1">
-								<span t-field="o.sale_id.payment_term_id.name"/>
-							</div>
-						</div> -->
-
-						<!-- <div class="row">
-							<div class="col-xs-7 col-xs-offset-1">
-								<span t-field="o.partner_id.vat"/>
-							</div>
-							<div class="col-xs-3 col-xs-offset-1">
-							</div>
-						</div> -->
-
-						<!-- <div class="row">
-							<div class="col-xs-6 col-xs-offset-2">
-							</div>
-							<div class="col-xs-3 col-xs-offset-1">
-							</div>
-						</div>			
-
-						<br/>
-						<br/>
-						<br/> -->
-
-
-						<table class="table table-condensed" name="delivery_receipt_table" style="top: 53mm;position:relative;width:100%;">
-							<thead>
-								<tr>
-									<th></th>
-									<th></th>
-									<th></th>
-									<th></th>
-									<th></th>
-								</tr>
-							</thead>
-							<tbody>
-								<t t-set="line_count" t-value="0"/>
-								<tr t-foreach="o.move_lines" t-as="move">
-									<t t-set="line_count" t-value="line_count + 1"/>
-									<td width="5%" style="border-top: 0px;"></td>
-									<td width="15%" style="border-top: 0px;">
-										<span t-field="move.product_id.default_code"/>
-									</td>
-									<td width="15%" style="border-top: 0px;">
-										<span t-field="move.quantity_done" />
-									</td>
-									<td width="12%" style="border-top: 0px;">
-										<span t-field="move.product_uom.name" />
-									</td>
-									<td width="53%" style="border-top: 0px;">
-										<span t-field="move.name"/>
-									</td>
-								</tr>
-								<t t-set="break_count" t-value="17 - line_count"/>
-								<t t-if="break_count > 0">
-									<t t-foreach="break_count" t-as="break">
-										<tr>
-											<td width="5%" style="border-top: 0px;">
-												<br/>
-											</td>
-											<td width="15%" style="border-top: 0px;">
-												<br/>
-											</td>
-											<td width="15%" style="border-top: 0px;">
-												<br/>
-											</td>
-											<td width="12%" class="text-center" style="border-top: 0px;">
-												<br/>
-											</td>
-											<td width="53%" class="text-center" style="border-top: 0px;">
-												<br/>
-											</td>
-										</tr>
-									</t>
-								</t>
-							</tbody>
-						</table>
-
-						<!-- <br/> -->
-
-						<!-- <div class="row">
-							<div class="col-xs-11 col-xs-offset-1">
-								<span t-field="o.remarks"/>
-							</div>
-						</div> -->
-						<span t-field="o.remarks" style="top: 170mm;left: 30mm;position:relative;width:100%;"/>
-					</div>
+					<div class="page" style="font-size:15px">
+		                <span t-esc="datetime.datetime.strptime(o.scheduled_date, '%Y-%m-%d %H:%M:%S').strftime('%m/%d/%Y')" style="top: 35mm;left: 200mm;position:relative;width:100%;"/>
+		                <span t-field="o.sale_id.payment_term_id.name" style="top: 37mm;left: 200mm;position:relative;width:100%;"/>
+		                <span t-field="o.partner_id.name" style="top: 39mm;left: 30mm;position:relative;width:100%;"/>
+		                <p style="top: 41mm;left: 25mm;position:relative;width:100%;">
+		                    <span t-field="o.partner_id.street"/>
+		                    <span t-field="o.partner_id.street2"/>
+		                    <span t-field="o.partner_id.city"/>
+		                </p>
+		                <span t-field="o.partner_id.vat" style="top: 43mm;left: 15mm;position:relative;width:100%;"/>
+		                <!-- <div class="row"><div class="col-xs-6 col-xs-offset-2"><span t-field="o.partner_id.name"/></div><div class="col-xs-4" style="padding-left: 50px;"><span t-esc="datetime.datetime.strptime(o.scheduled_date, '%Y-%m-%d %H:%M:%S').strftime('%m/%d/%Y')"/></div></div> -->
+		                <!-- <div class="row"><div class="col-xs-8 col-xs-offset-1"><span t-field="o.partner_id.street"/><span t-field="o.partner_id.street2"/><span t-field="o.partner_id.city"/></div><div class="col-xs-2 col-xs-offset-1"><span t-field="o.sale_id.payment_term_id.name"/></div></div> -->
+		                <!-- <div class="row"><div class="col-xs-7 col-xs-offset-1"><span t-field="o.partner_id.vat"/></div><div class="col-xs-3 col-xs-offset-1"></div></div> -->
+		                <!-- <div class="row"><div class="col-xs-6 col-xs-offset-2"></div><div class="col-xs-3 col-xs-offset-1"></div></div><br/><br/><br/> -->
+		                <table class="table table-condensed" name="delivery_receipt_table" style="top: 70mm;position:relative;width:100%;">
+		                    <thead>
+		                        <tr>
+		                            <th></th>
+		                            <th></th>
+		                            <th></th>
+		                            <th></th>
+		                            <th></th>
+		                        </tr>
+		                    </thead>
+		                    <tbody>
+		                        <t t-set="line_count" t-value="0"/>
+		                        <tr t-foreach="o.move_lines" t-as="move">
+		                            <t t-set="line_count" t-value="line_count + 1"/>
+		                            <td width="5%" style="border-top: 0px;"></td>
+		                            <td width="15%" style="border-top: 0px;">
+		                                <span t-field="move.product_id.default_code"/>
+		                            </td>
+		                            <td width="15%" style="border-top: 0px;">
+		                                <span t-field="move.quantity_done" />
+		                            </td>
+		                            <td width="12%" style="border-top: 0px;">
+		                                <span t-field="move.product_uom.name" />
+		                            </td>
+		                            <td width="53%" style="border-top: 0px;">
+		                                <span t-field="move.name"/>
+		                            </td>
+		                        </tr>
+		                        <t t-set="break_count" t-value="17 - line_count"/>
+		                        <t t-if="break_count > 0">
+		                            <t t-foreach="break_count" t-as="break">
+		                                <tr>
+		                                    <td width="5%" style="border-top: 0px;">
+		                                        <br/>
+		                                    </td>
+		                                    <td width="15%" style="border-top: 0px;">
+		                                        <br/>
+		                                    </td>
+		                                    <td width="15%" style="border-top: 0px;">
+		                                        <br/>
+		                                    </td>
+		                                    <td width="12%" class="text-center" style="border-top: 0px;">
+		                                        <br/>
+		                                    </td>
+		                                    <td width="53%" class="text-center" style="border-top: 0px;">
+		                                        <br/>
+		                                    </td>
+		                                </tr>
+		                            </t>
+		                        </t>
+		                    </tbody>
+		                </table>
+		                <!-- <br/> -->
+		                <!-- <div class="row"><div class="col-xs-11 col-xs-offset-1"><span t-field="o.remarks"/></div></div> -->
+		                <span t-field="o.remarks" style="top: 170mm;left: 30mm;position:relative;width:100%;"/>
+		            </div>
 				</t>
 			</xpath>
 		</template>
