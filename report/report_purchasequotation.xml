@@ -141,7 +141,8 @@
                                 </tr>
                                 <tr>
                                     <td colspan="4" class="td_border">
-                                        <span t-field="o.notes"/>
+                                        <!-- <span t-field="o.notes"/> -->
+                                        <p t-field="o.notes" style="white-space: normal;word-break: break-word;"/>
                                     </td>
                                     <td class="td_border" style="vertical-align: middle !important;">
                                         <div class="col-xs-6" style="padding:0 !important;">
@@ -162,7 +163,7 @@
                                         <div class="col-xs-3" style="padding:0.5em;">
                                             <center>
                                                 <b>Prepared By:</b><br/><br/>
-                                                _________________________
+                                                _________________________<br/>
                                                 <span t-field="o.create_uid.name"/><br/>
                                                 Name &amp; Signature
                                             </center>
