@@ -79,8 +79,8 @@
                         <table style="border: 1px solid black;font-size:14px;" width="100%">
                             <thead>
                                 <tr>
-                                    <th width="18%" class="td_border"><strong>Item Code</strong></th>
-                                    <th width="15%" class="td_border"><strong>Part Number</strong></th>
+                                    <th width="18%" class="td_border text-center"><strong>Item Code</strong></th>
+                                    <th width="15%" class="td_border text-center"><strong>Part Number</strong></th>
                                     <th width="10%" class="td_border text-center"><strong>Quantity</strong></th>
                                     <th width="30%" class="td_border"><strong>Description</strong></th>
                                     <th width="15%" class="td_border text-right"><strong>Unit Price</strong></th>
@@ -91,10 +91,10 @@
                                 <t t-set="line_count" t-value="0"/>
                                 <tr style="font-size:14px;" t-foreach="o.order_line" t-as="line">
                                     <t t-set="line_count" t-value="line_count + 1"/>
-                                    <td class="td_vertical_border">
+                                    <td class="td_vertical_border text-center">
                                         <span t-field="line.product_id.default_code"/>
                                     </td>
-                                    <td class="td_vertical_border">
+                                    <td class="td_vertical_border text-center">
                                         <span t-field="line.part_number"/>
                                     </td>
                                     <td class="td_vertical_border text-center">
@@ -159,6 +159,10 @@
                                     </td>
                                 </tr>
                                 <tr style="font-size:14px;">
+                                    <td colspan="6" style="padding:0;border: 1px solid black;">
+                                    </td>
+                                </tr>
+                                <!-- <tr style="font-size:14px;">
                                     <td colspan="6" class="td_border">
                                         <div class="col-xs-3" style="padding:0.5em;">
                                             <center>
@@ -191,43 +195,8 @@
                                                 President
                                             </center>
                                         </div>
-                                        <!-- <table style="border:none;font-size:14px" width="100%">
-                                            <tr>
-                                                <td width="25%" style="padding:0.5em;">
-                                                    <center>
-                                                        <b>Prepared By:</b><br/><br/>
-                                                        _________________________
-                                                        <span t-field="o.create_uid.name"/><br/>
-                                                        Name &amp; Signature
-                                                    </center>
-                                                </td>
-                                                <td width="25%" style="padding:0.5em;">
-                                                    <center>
-                                                        <b>Approver 1:</b><br/><br/>
-                                                        _________________________<br/><br/>
-                                                        Dept. Manager
-                                                    </center>
-                                                </td>
-                                                <td width="25%" style="padding:0.5em;">
-                                                    <center>
-                                                        <b>Approver 2:</b><br/><br/>
-                                                        _________________________<br/>
-                                                        J. Malijan <br/>
-                                                        AVP - Finance &amp; Admin
-                                                    </center>
-                                                </td>
-                                                <td width="25%" style="padding:0.5em;">
-                                                    <center>
-                                                        <b>Noted By:</b><br/><br/>
-                                                        _________________________<br/>
-                                                        A. RAMOS <br/>
-                                                        President
-                                                    </center>
-                                                </td>
-                                            </tr>
-                                        </table> -->
                                     </td>
-                                </tr>
+                                </tr> -->
                             </tbody>
                         </table>
 
@@ -316,7 +285,7 @@
                     <table style="border: 1px solid black;font-size:14px;">
                         <thead>
                             <tr>
-                                <th width="18%" class="td_border"><strong>Item Code</strong></th>
+                                <th width="18%" class="td_border text-center"><strong>Item Code</strong></th>
                                 <th width="35%" class="td_border"><strong>Description</strong></th>
                                 <th width="10%" class="td_border text-center"><strong>Quantity</strong></th>
                                 <th width="10%" class="td_border"><strong>UOM</strong></th>
@@ -329,7 +298,7 @@
                             <t t-foreach="o.order_line" t-as="line">
                                 <t t-set="line_count" t-value="line_count + 1"/>
                                 <tr>
-                                    <td class="td_vertical_border">
+                                    <td class="td_vertical_border text-center">
                                         <span t-field="line.product_id.default_code"/>
                                     </td>
                                     <td class="td_vertical_border">
