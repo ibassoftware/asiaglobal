@@ -132,7 +132,7 @@
         <record id="paperformat_report_purchase_custom" model="report.paperformat">
             <field name="name">Report Purchase Custom</field>
             <field name="default" eval="False" />
-            <field name="format">Letter</field>
+            <field name="format">A4</field>
             <field name="orientation">Portrait</field>
             <field name="margin_top">40</field>
             <field name="margin_bottom">40</field>
