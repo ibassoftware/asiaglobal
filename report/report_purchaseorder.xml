@@ -76,7 +76,7 @@
 
                         <br/>
 
-                        <table style="border: 1px solid black;font-size:14px;height:700px;" width="100%">
+                        <table style="border: 1px solid black;font-size:14px;height:650px;" width="100%">
                             <thead>
                                 <tr>
                                     <th width="18%" class="td_border text-center"><strong>Item Code</strong></th>
@@ -217,8 +217,6 @@
                             </tbody>
                         </table>
 
-                        <br/>
-
                     </div>
                 </t>
             </xpath>
@@ -299,7 +297,7 @@
 
                     <br/>
 
-                    <table style="border: 1px solid black;font-size:14px;height:700px;" width="100%">
+                    <table style="border: 1px solid black;font-size:14px;height:650px;" width="100%">
                         <thead>
                             <tr>
                                 <th width="18%" class="td_border text-center"><strong>Item Code</strong></th>
@@ -465,8 +463,6 @@
                             </tr>
                         </tbody>
                     </table>
-
-                    <br/>
                    
                 </div>
             </t>
