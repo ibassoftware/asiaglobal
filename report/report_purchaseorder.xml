@@ -76,7 +76,7 @@
 
                         <br/>
 
-                        <table style="border: 1px solid black;font-size:14px;" width="100%">
+                        <table style="border: 1px solid black;font-size:14px;height:700px;" width="100%">
                             <thead>
                                 <tr>
                                     <th width="18%" class="td_border text-center"><strong>Item Code</strong></th>
@@ -135,13 +135,12 @@
                                         </tr>                                       
                                     </t>
                                 </t>
-                                <tr style="font-size:14px;">
+                                <!-- <tr style="font-size:14px;">
                                     <td colspan="6" style="padding:0;border: 1px solid black;">
                                     </td>
                                 </tr>
                                 <tr>
                                     <td colspan="4" class="td_border">
-                                        <!-- <span t-field="o.notes"/> -->
                                         <p t-field="o.notes" style="white-space: normal;word-break: break-word;"/>
                                     </td>
                                     <td class="td_border" style="vertical-align: middle !important;">
@@ -157,7 +156,7 @@
                                             <span t-esc="'{0:,.2f}'.format(o.amount_total)" />
                                         </i></b>
                                     </td>
-                                </tr>
+                                </tr> -->
                                 <!-- <tr style="font-size:14px;">
                                     <td colspan="6" class="td_border">
                                         <div class="col-xs-3" style="padding:0.5em;">
@@ -193,6 +192,28 @@
                                         </div>
                                     </td>
                                 </tr> -->
+                            </tbody>
+                        </table>
+                        <table style="border: 1px solid black;font-size:14px;" width="100%">
+                            <tbody>
+                                <tr>
+                                    <td colspan="4" class="td_border" width="73%">
+                                        <p t-field="o.notes" style="white-space: normal;word-break: break-word;"/>
+                                    </td>
+                                    <td class="td_border" style="vertical-align: middle !important;" width="15%">
+                                        <div class="col-xs-6" style="padding:0 !important;">
+                                            <span><b><i>Total</i></b></span>
+                                        </div>
+                                        <div class="col-xs-6 text-right" style="padding:0 !important;">
+                                            <b><i><span t-field="o.currency_id.symbol"/></i></b>
+                                        </div>
+                                    </td>
+                                    <td class="td_border text-right" style="vertical-align: middle !important;" width="12%">
+                                        <b><i>
+                                            <span t-esc="'{0:,.2f}'.format(o.amount_total)"/>
+                                        </i></b>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
 
@@ -278,7 +299,7 @@
 
                     <br/>
 
-                    <table style="border: 1px solid black;font-size:14px;" width="100%">
+                    <table style="border: 1px solid black;font-size:14px;height:700px;" width="100%">
                         <thead>
                             <tr>
                                 <th width="18%" class="td_border text-center"><strong>Item Code</strong></th>
@@ -363,7 +384,7 @@
                                     </tr>
                                 </t>
                             </t>
-                            <tr style="font-size:14px;">
+                           <!--  <tr style="font-size:14px;">
                                 <td colspan="6" style="padding:0;border: 1px solid black;">
                                 </td>
                             </tr>
@@ -384,7 +405,7 @@
                                         <span t-esc="'{0:,.2f}'.format(o.amount_total)" />
                                     </i></b>
                                 </td>
-                            </tr>
+                            </tr> -->
                             <!-- <tr style="font-size:14px;">
                                 <td colspan="6" class="td_border">
                                     <div class="col-xs-3" style="padding:0.5em;">
@@ -420,6 +441,28 @@
                                     </div>
                                 </td>
                             </tr> -->
+                        </tbody>
+                    </table>
+                    <table style="border: 1px solid black;font-size:14px;" width="100%">
+                        <tbody>
+                            <tr>
+                                <td colspan="4" class="td_border" width="73%">
+                                    <p t-field="o.notes" style="white-space: normal;word-break: break-word;"/>
+                                </td>
+                                <td class="td_border" style="vertical-align: middle !important;" width="15%">
+                                    <div class="col-xs-6" style="padding:0 !important;">
+                                        <span><b><i>Total</i></b></span>
+                                    </div>
+                                    <div class="col-xs-6 text-right" style="padding:0 !important;">
+                                        <b><i><span t-field="o.currency_id.symbol"/></i></b>
+                                    </div>
+                                </td>
+                                <td class="td_border text-right" style="vertical-align: middle !important;" width="12%">
+                                    <b><i>
+                                        <span t-esc="'{0:,.2f}'.format(o.amount_total)"/>
+                                    </i></b>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
 
