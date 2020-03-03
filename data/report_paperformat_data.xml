@@ -128,5 +128,19 @@
             <field name="header_spacing">15</field>
             <field name="dpi">90</field>
         </record>
+
+        <record id="paperformat_report_purchase_custom" model="report.paperformat">
+            <field name="name">Report Purchase Custom</field>
+            <field name="default" eval="False" />
+            <field name="format">Letter</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">40</field>
+            <field name="margin_bottom">40</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">35</field>
+            <field name="dpi">90</field>
+        </record>
     </data>
 </odoo>

@@ -130,7 +130,8 @@
             report_type="qweb-pdf"
             name="asiaglobal.asiaglobal_report_purchase_local"
             file="asiaglobal.asiaglobal_report_purchase_local"
-            menu="True"            
+            menu="True"
+            paperformat="asiaglobal.paperformat_report_purchase_custom"            
         />
 
         <report 
