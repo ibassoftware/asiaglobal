@@ -322,6 +322,49 @@
             </div>
 
             <div class="footer custom_font">
+                <table style="border: 1px solid black;font-size:14px;" width="100%">
+                    <tbody>
+                        <tr style="font-size:14px;">
+                            <td colspan="6" style="padding:0;border: 1px solid black;">
+                            </td>
+                        </tr>
+                        <tr style="font-size:14px;">
+                            <td colspan="6" class="td_border">
+                                <div class="col-xs-3" style="padding:0.5em;">
+                                    <center>
+                                        <b>Prepared By:</b><br/><br/>
+                                        _________________________<br/>
+                                        <span t-field="o.create_uid.name"/><br/>
+                                        Name &amp; Signature
+                                    </center>
+                                </div>
+                                <div class="col-xs-3" style="padding:0.5em;">
+                                    <center>
+                                        <b>Approver 1:</b><br/><br/>
+                                        _________________________<br/><br/>
+                                        Dept. Manager
+                                    </center>
+                                </div>
+                                <div class="col-xs-3" style="padding:0.5em;">
+                                    <center>
+                                        <b>Approver 2:</b><br/><br/>
+                                        _________________________<br/>
+                                        J. Malijan <br/>
+                                        AVP - Finance &amp; Admin
+                                    </center>
+                                </div>
+                                <div class="col-xs-3" style="padding:0.5em;">
+                                    <center>
+                                        <b>Noted By:</b><br/><br/>
+                                        _________________________<br/>
+                                        A. RAMOS <br/>
+                                        President
+                                    </center>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
                 <div class="text-center">
                     Page <span class="page"/>
                 </div>
