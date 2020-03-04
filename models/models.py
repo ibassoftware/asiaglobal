@@ -280,6 +280,16 @@ class AGSaleOrder(models.Model):
 			if (self.expected_gross_value <= self.team_id.maximum_gross_value and self.expected_gross_margin >= self.team_id.minimum_gross_margin):
 				self.state = "approved"
 				return
+
+		if (self.opportunity_type == "part"):
+			if (self.expected_gross_value <= self.team_id.maximum_gross_value_part and self.expected_gross_margin >= self.team_id.minimum_gross_margin_part):
+				self.state = "approved"
+				return
+
+		if (self.opportunity_type == "service"):
+			if (self.expected_gross_value <= self.team_id.maximum_gross_value_service and self.expected_gross_margin >= self.team_id.minimum_gross_margin_service):
+				self.state = "approved"
+				return
 		
 
 		# if (self.team_id.name == "HEQD" and self.sale_type == "unit"
