@@ -11,6 +11,10 @@
        				<field name="maximum_gross_value"/>
        				<field name="minimum_gross_margin_forward"/>
        				<field name="maximum_gross_value_forward"/>
+       				<field name="minimum_gross_margin_part"/>
+       				<field name="maximum_gross_value_part"/>
+       				<field name="minimum_gross_margin_service"/>
+       				<field name="maximum_gross_value_service"/>
      	  		 </xpath>
 
 			</field>
