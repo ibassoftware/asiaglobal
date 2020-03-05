@@ -110,7 +110,7 @@
                                         <span t-esc="'{0:,.2f}'.format(line.price_subtotal)" />
                                     </td>
                                 </tr>
-                                <t t-set="break_count" t-value="17 - line_count"/>
+                                <!-- <t t-set="break_count" t-value="17 - line_count"/>
                                 <t t-if="break_count > 0">
                                     <t t-foreach="break_count" t-as="break">
                                         <tr>
@@ -134,7 +134,21 @@
                                             </td>
                                         </tr>                                       
                                     </t>
-                                </t>
+                                </t> -->
+                                <tr style="font-size:14px;height:100%">
+                                    <td class="td_vertical_bottom_border">
+                                    </td>
+                                    <td class="td_vertical_bottom_border">
+                                    </td>
+                                    <td class="td_vertical_bottom_border">
+                                    </td>
+                                    <td class="td_vertical_bottom_border">
+                                    </td>
+                                    <td class="td_vertical_bottom_border">
+                                    </td>
+                                    <td class="td_vertical_bottom_border">
+                                    </td>
+                                </tr>
                                 <!-- <tr style="font-size:14px;">
                                     <td colspan="6" style="padding:0;border: 1px solid black;">
                                     </td>
@@ -357,7 +371,7 @@
                                     </tr>
                                 </t>
                             </t>
-                            <t t-set="break_count" t-value="17 - line_count"/>
+                            <!-- <t t-set="break_count" t-value="17 - line_count"/>
                             <t t-if="break_count > 0">
                                 <t t-foreach="break_count" t-as="break">
                                     <tr>
@@ -381,7 +395,21 @@
                                         </td>
                                     </tr>
                                 </t>
-                            </t>
+                            </t> -->
+                            <tr style="font-size:14px;height:100%">
+                                <td class="td_vertical_bottom_border">
+                                </td>
+                                <td class="td_vertical_bottom_border">
+                                </td>
+                                <td class="td_vertical_bottom_border">
+                                </td>
+                                <td class="td_vertical_bottom_border">
+                                </td>
+                                <td class="td_vertical_bottom_border">
+                                </td>
+                                <td class="td_vertical_bottom_border">
+                                </td>
+                            </tr>
                            <!--  <tr style="font-size:14px;">
                                 <td colspan="6" style="padding:0;border: 1px solid black;">
                                 </td>
