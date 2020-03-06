@@ -76,7 +76,7 @@
 
                         <br/>
 
-                        <table style="border: 1px solid black;font-size:14px;height:650px;" width="100%">
+                        <table style="border: 1px solid black;font-size:14px;height:705px;page-break-after:auto;" width="100%">
                             <thead>
                                 <tr>
                                     <th width="18%" class="td_border text-center"><strong>Item Code</strong></th>
@@ -87,46 +87,76 @@
                                     <th width="12%" class="td_border text-center"><strong>Total Price</strong></th>
                                 </tr>
                             </thead>
+                            <tfoot>
+                                <tr style="font-size:14px;">
+                                    <td colspan="6" style="padding:0;border: 1px solid black;">
+                                    </td>
+                                </tr>
+                            </tfoot>
                             <tbody>
                                 <t t-set="line_count" t-value="0"/>
-                                <tr style="font-size:14px;" t-foreach="o.order_line" t-as="line">
+                                <tr style="font-size:14px;page-break-inside:avoid;page-break-after:auto;" t-foreach="o.order_line" t-as="line">
                                     <t t-set="line_count" t-value="line_count + 1"/>
-                                    <td class="td_vertical_border text-center">
+                                    <td class="td_vertical_border text-center" style="page-break-inside:avoid;page-break-after:auto;">
                                         <!-- <span t-field="line.product_id.name"/> -->
                                         <span t-field="line.product_id.default_code"/>
                                     </td>
-                                    <td class="td_vertical_border text-center">
+                                    <td class="td_vertical_border text-center" style="page-break-inside:avoid;page-break-after:auto;">
                                         <span t-field="line.part_number"/>
                                     </td>
-                                    <td class="td_vertical_border text-center">
+                                    <td class="td_vertical_border text-center" style="page-break-inside:avoid;page-break-after:auto;">
                                         <span t-esc="int(float(line.product_qty))"/>
                                     </td>
-                                    <td class="td_vertical_border text-center">
+                                    <td class="td_vertical_border text-center" style="page-break-inside:avoid;page-break-after:auto;">
                                         <!-- <span t-field="line.product_id.description_sale"/> -->
                                         <span t-field="line.name"/>
                                     </td>
-                                    <td class="td_vertical_border text-center">
+                                    <td class="td_vertical_border text-center" style="page-break-inside:avoid;page-break-after:auto;">
                                         <span t-field="line.price_unit"/>
                                     </td>
-                                    <td class="td_vertical_border text-center">
+                                    <td class="td_vertical_border text-center" style="page-break-inside:avoid;page-break-after:auto;">
                                         <span t-esc="'{0:,.2f}'.format(line.price_subtotal)" />
                                     </td>
                                 </tr>
-                                <!-- <t t-if="line_count >= 15">
-                                    <div style="page-break-after: always;"/>
+                                <!-- <t t-if="line_count >= 17">
+                                    <div style="page-break-after: a;"/>
                                 </t> -->
-                                <tr style="font-size:14px;height:100%;">
-                                    <td class="td_vertical_bottom_border">
+                                <tr style="font-size:14px;height:100%;page-break-inside:avoid;page-break-after:auto;">
+                                    <td class="td_vertical_bottom_border" style="page-break-inside:avoid;page-break-after:auto;">
+                                        <br/>
                                     </td>
-                                    <td class="td_vertical_bottom_border">
+                                    <td class="td_vertical_bottom_border" style="page-break-inside:avoid;page-break-after:auto;">
+                                        <br/>
                                     </td>
-                                    <td class="td_vertical_bottom_border">
+                                    <td class="td_vertical_bottom_border" style="page-break-inside:avoid;page-break-after:auto;">
+                                        <br/>
                                     </td>
-                                    <td class="td_vertical_bottom_border">
+                                    <td class="td_vertical_bottom_border" style="page-break-inside:avoid;page-break-after:auto;">
+                                        <br/>
                                     </td>
-                                    <td class="td_vertical_bottom_border">
+                                    <td class="td_vertical_bottom_border" style="page-break-inside:avoid;page-break-after:auto;">
+                                        <br/>
                                     </td>
-                                    <td class="td_vertical_bottom_border">
+                                    <td class="td_vertical_bottom_border" style="page-break-inside:avoid;page-break-after:auto;">
+                                        <br/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4" class="td_border" width="73%">
+                                        <p t-field="o.notes" style="white-space: normal;word-break: break-word;"/>
+                                    </td>
+                                    <td class="td_border" style="vertical-align: middle !important;" width="15%">
+                                        <div class="col-xs-6" style="padding:0 !important;">
+                                            <span><b><i>Total</i></b></span>
+                                        </div>
+                                        <div class="col-xs-6 text-right" style="padding:0 !important;">
+                                            <b><i><span t-field="o.currency_id.symbol"/></i></b>
+                                        </div>
+                                    </td>
+                                    <td class="td_border text-right" style="vertical-align: middle !important;" width="12%">
+                                        <b><i>
+                                            <span t-esc="'{0:,.2f}'.format(o.amount_total)"/>
+                                        </i></b>
                                     </td>
                                 </tr>
                                 <!-- <t t-set="break_count" t-value="17 - line_count"/>
@@ -214,7 +244,7 @@
                                 </tr> -->
                             </tbody>
                         </table>
-                        <table style="border: 1px solid black;font-size:14px;" width="100%">
+                        <!-- <table style="border: 1px solid black;font-size:14px;" width="100%">
                             <tbody>
                                 <tr>
                                     <td colspan="4" class="td_border" width="73%">
@@ -235,7 +265,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table> -->
                        
                     </div>
                 </t>
