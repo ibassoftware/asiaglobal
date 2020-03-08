@@ -14,3 +14,11 @@ class StockMove(models.Model):
 			record.product_id_code = record.product_id.default_code
 			record.product_id_partno = record.product_id.name
 			record.product_id_description = record.product_id.description_sale
+
+class StockMoveLine(models.Model):
+	_inherit = "stock.move.line"
+
+	value = fields.Float(related="move_id.value", copy=False)
+	remaining_qty = fields.Float(related="move_id.remaining_qty", copy=False)
+	remaining_value = fields.Float(related="move_id.remaining_value", copy=False)
+	price_unit = fields.Float(related="move_id.price_unit", string='Unit Price', copy=False)
