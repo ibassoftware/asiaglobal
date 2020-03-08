@@ -77,5 +77,40 @@
         action="stock_cost_action_incoming"
         parent="stock.menu_stock_warehouse_mgmt"
         sequence="10"/>
+
+
+    <!-- STOCK MOVE LINE  -->
+    <record id="view_move_line_form_extend" model="ir.ui.view">
+        <field name="name">stock.move.line.form.extend</field>
+        <field name="model">stock.move.line</field>
+        <field name="inherit_id" ref="stock.view_move_line_form"/>
+        <field name="arch" type="xml">
+          <xpath expr="//form" position="attributes">
+            <attribute name="edit">1</attribute>
+          </xpath>
+          <xpath expr="//form/sheet/group[1]" position="after">
+            <group string="Move Valuation">
+              <field name="price_unit"/>
+              <field name="value"/>
+              <field name="remaining_qty" readonly="1"/>
+              <field name="remaining_value" readonly="0"/>
+            </group>
+          </xpath>
+        </field>
+    </record>
+
+    <record id="view_move_line_tree_extend" model="ir.ui.view">
+        <field name="name">stock.move.line.tree.extend</field>
+        <field name="model">stock.move.line</field>
+        <field name="inherit_id" ref="stock.view_move_line_tree"/>
+        <field name="arch" type="xml">
+          <xpath expr="//field[@name='product_uom_id']" position="after">
+              <field name="price_unit"/>
+              <field name="value"/>
+              <field name="remaining_qty"/>
+              <field name="remaining_value"/>
+          </xpath>
+        </field>
+    </record>
 </data>
 </odoo>
