@@ -386,6 +386,9 @@
 							<field name="new_stock_value" attrs="{'invisible': [('override_stock_value', '!=', True)]}" widget="monetary" groups="stock.group_stock_manager"/>
 						</group>
 					</xpath>
+					<xpath expr="//header" position="inside">
+						<button string="Compute Cost" type="object" name="_compute_stock_value" groups="base.group_no_one"/>
+					</xpath>
 			</field>
 		</record>
 
