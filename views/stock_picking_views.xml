@@ -11,7 +11,7 @@
                     <field name="product_id_code" />
                     <field name="product_id_partno" string="Material Number"/>
                     <field name="product_id_description" />
-                    <field neme="location"/>
+                    <field name="location"/>
                 </xpath>
                 <xpath expr="//field[@name='partner_id']" position="after">
                     <field name="location" invisible="1"/>
