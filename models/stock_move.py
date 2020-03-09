@@ -6,6 +6,7 @@ class StockMove(models.Model):
 	product_id_code = fields.Char(string='Item Code', compute='_get_product_details')
 	product_id_partno =  fields.Char(string='Part Number', compute='_get_product_details')
 	product_id_description = fields.Char(string='Description', compute='_get_product_details')
+	location = fields.Char()
 
 	@api.multi
 	@api.depends('product_id')
