@@ -387,7 +387,7 @@
 						</group>
 					</xpath>
 					<xpath expr="//header" position="inside">
-						<button string="Compute Cost" type="object" name="_compute_stock_value" groups="base.group_no_one"/>
+						<button string="Compute Cost" type="object" name="compute_stock_value" groups="base.group_no_one" class="btn-danger"/>
 					</xpath>
 			</field>
 		</record>

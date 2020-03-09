@@ -17,6 +17,11 @@ class ProductProduct(models.Model):
 				product.stock_value = product.new_stock_value
 		return result
 
+	@api.multi
+	def compute_stock_value(self):
+		for product in self:
+			product._compute_stock_value()
+
 class ProductTemplate(models.Model):
 	_inherit = 'product.template'
 
