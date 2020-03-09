@@ -112,5 +112,19 @@
           </xpath>
         </field>
     </record>
+
+    <record id="view_move_tree_extend" model="ir.ui.view">
+        <field name="name">stock.move.tree.extend</field>
+        <field name="model">stock.move</field>
+        <field name="inherit_id" ref="stock.stock_move_tree"/>
+        <field name="arch" type="xml">
+          <xpath expr="//field[@name='date_expected']" position="after">
+              <field name="price_unit" groups="base.group_no_one"/>
+              <field name="value" groups="base.group_no_one"/>
+              <field name="remaining_qty" groups="base.group_no_one"/>
+              <field name="remaining_value" groups="base.group_no_one"/>
+          </xpath>
+        </field>
+    </record>
 </data>
 </odoo>
