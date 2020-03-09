@@ -92,7 +92,7 @@
                                             <span t-field="move.state"/>
                                         </td>
                                         <td style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;">
-                                            <span t-field="o.location"/>
+                                            <span t-field="move.location"/>
                                         </td>
                                     </tr>
                                     <t t-set="line_count" t-value="line_count + 1"/>
