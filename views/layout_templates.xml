@@ -334,7 +334,7 @@
                                     <center>
                                         <b>Prepared By:</b><br/><br/>
                                         _________________________<br/>
-                                        <span t-field="o.create_uid.name"/><br/>
+                                        <span t-field="o.prepared_by.name"/><br/>
                                         Name &amp; Signature
                                     </center>
                                 </div>
@@ -465,7 +465,7 @@
                                     <center>
                                         <b>Prepared By:</b><br/><br/>
                                         _________________________<br/>
-                                        <span t-field="o.create_uid.name"/><br/>
+                                        <span t-field="o.prepared_by.name"/><br/>
                                         Name &amp; Signature
                                     </center>
                                 </div>
