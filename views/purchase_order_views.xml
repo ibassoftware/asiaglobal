@@ -10,7 +10,7 @@
                 <xpath expr="//field[@name='date_order']" position="after">
                     <field name="department" />
                     <field name="ship_via" />
-                    <field name="prepared_by" attrs="{'readonly':[('state','!=','draft')]}" />
+                    <field name="prepared_by" attrs="{'readonly':[('state','!=','draft')]}" options="{'no_quick_create':True,'no_create_edit':True,'no_open': True,}" />
                 </xpath>
                 <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="after">
                     <field name="part_number" />
