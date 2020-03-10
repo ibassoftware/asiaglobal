@@ -12,8 +12,12 @@ from odoo.addons import decimal_precision as dp
 class PurchaseOrder(models.Model):
 	_inherit = 'purchase.order'
 
+	def _get_default_user(self):
+		return self.env.user
+
 	department = fields.Char(compute='_get_analytic_tags')
 	ship_via = fields.Char(string='Ship Via')
+	prepared_by = fields.Many2one('res.users', string='Prepared By', track_visibility='onchange', default=_get_default_user)
 
 	@api.multi
 	def _get_analytic_tags(self):
