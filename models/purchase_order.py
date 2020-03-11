@@ -17,7 +17,7 @@ class PurchaseOrder(models.Model):
 
 	department = fields.Char(compute='_get_analytic_tags')
 	ship_via = fields.Char(string='Ship Via')
-	prepared_by = fields.Many2one('res.users', string='Prepared By', track_visibility='onchange', default=_get_default_user)
+	prepared_by = fields.Many2one('res.users', string='Responsible', track_visibility='onchange', default=_get_default_user)
 
 	@api.multi
 	def _get_analytic_tags(self):
