@@ -95,24 +95,24 @@
                             </tfoot>
                             <tbody>
                                 <t t-set="line_count" t-value="0"/>
-                                <tr style="font-size:14px;page-break-inside:avoid;page-break-after:auto;" t-foreach="o.order_line" t-as="line">
+                                <tr style="font-size:14px;" t-foreach="o.order_line" t-as="line">
                                     <t t-set="line_count" t-value="line_count + 1"/>
-                                    <td class="td_vertical_border text-center" style="page-break-inside:avoid;page-break-after:auto;">
+                                    <td class="td_vertical_border text-center">
                                         <span t-field="line.product_id.default_code"/>
                                     </td>
-                                    <td class="td_vertical_border text-center" style="page-break-inside:avoid;page-break-after:auto;">
+                                    <td class="td_vertical_border text-center">
                                         <span t-field="line.part_number"/>
                                     </td>
-                                    <td class="td_vertical_border text-center" style="page-break-inside:avoid;page-break-after:auto;">
+                                    <td class="td_vertical_border text-center">
                                         <span t-esc="int(float(line.product_qty))"/>
                                     </td>
-                                    <td class="td_vertical_border text-center" style="page-break-inside:avoid;page-break-after:auto;">
+                                    <td class="td_vertical_border text-center">
                                         <span t-field="line.name"/>
                                     </td>
-                                    <td class="td_vertical_border text-center" style="page-break-inside:avoid;page-break-after:auto;">
+                                    <td class="td_vertical_border text-center">
                                         <span t-field="line.price_unit"/>
                                     </td>
-                                    <td class="td_vertical_border text-center" style="page-break-inside:avoid;page-break-after:auto;">
+                                    <td class="td_vertical_border text-center">
                                         <span t-esc="'{0:,.2f}'.format(line.price_subtotal)" />
                                     </td>
                                 </tr>
@@ -357,46 +357,46 @@
                             <t t-set="line_count" t-value="0"/>
                             <t t-foreach="o.order_line" t-as="line">
                                 <t t-set="line_count" t-value="line_count + 1"/>
-                                <tr style="font-size:14px;page-break-inside:avoid;page-break-after:auto;">
-                                    <td class="td_vertical_border text-center" style="page-break-inside:avoid;page-break-after:auto;">
+                                <tr style="font-size:14px;">
+                                    <td class="td_vertical_border text-center">
                                         <span t-field="line.product_id.default_code"/>
                                     </td>
-                                    <td class="td_vertical_border text-center" style="page-break-inside:avoid;page-break-after:auto;">
+                                    <td class="td_vertical_border text-center">
                                         <span t-field="line.name"/>
                                     </td>
-                                    <td class="td_vertical_border text-center" style="page-break-inside:avoid;page-break-after:auto;">
+                                    <td class="td_vertical_border text-center">
                                         <span t-esc="int(float(line.product_qty))"/>
                                     </td>
-                                    <td class="td_vertical_border text-center" style="page-break-inside:avoid;page-break-after:auto;">
+                                    <td class="td_vertical_border text-center">
                                         <!-- <span>LOT</span> -->
                                         <span t-field="line.product_uom.name"/>
                                     </td>
-                                    <td class="td_vertical_border text-center" style="page-break-inside:avoid;page-break-after:auto;">
+                                    <td class="td_vertical_border text-center">
                                         <span t-field="line.price_unit"/>
                                     </td>
-                                    <td class="td_vertical_border text-center" style="page-break-inside:avoid;page-break-after:auto;">
+                                    <td class="td_vertical_border text-center">
                                         <span t-esc="'{0:,.2f}'.format(line.price_subtotal)" />
                                     </td>
                                 </tr>
                                 <t t-foreach="line.taxes_id" t-as="tax">
                                     <t t-set="line_count" t-value="line_count + 1"/>
                                     <tr>
-                                        <td class="td_vertical_border text-center" style="page-break-inside:avoid;page-break-after:auto;">
+                                        <td class="td_vertical_border text-center">
                                             <br/>
                                         </td>
-                                        <td class="td_vertical_border text-center" style="page-break-inside:avoid;page-break-after:auto;">
+                                        <td class="td_vertical_border text-center">
                                             <span t-field="tax.name"/>
                                         </td>
-                                        <td class="td_vertical_border text-center" style="page-break-inside:avoid;page-break-after:auto;">
+                                        <td class="td_vertical_border text-center">
                                             <br/>
                                         </td>
-                                        <td class="td_vertical_border text-center" style="page-break-inside:avoid;page-break-after:auto;">
+                                        <td class="td_vertical_border text-center">
                                             <br/>
                                         </td>
-                                        <td class="td_vertical_border text-center" style="page-break-inside:avoid;page-break-after:auto;">
+                                        <td class="td_vertical_border text-center">
                                             <span><span t-esc="int(float(tax.amount))"/>%</span>
                                         </td>
-                                        <td class="td_vertical_border text-center" style="page-break-inside:avoid;page-break-after:auto;">
+                                        <td class="td_vertical_border text-center">
                                             <span t-esc="float((line.price_unit * tax.amount) / 100)"/>
                                         </td>
                                     </tr>
