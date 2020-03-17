@@ -13,6 +13,9 @@
                        <!-- <field string="Equipments" name="equipment_count" widget="statinfo"/>
                    </button> -->
                 </div>
+                <xpath expr="//field[@name='category_id']" position="after">
+                    <field name="bus_style"/>
+                </xpath>
             </field>
         </record>
 

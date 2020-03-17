@@ -4,6 +4,7 @@ class ResPartner(models.Model):
 	_inherit = 'res.partner'
 
 	equipment_ids = fields.One2many('asiaglobal.equipment_profile','customer', string='Equipments')
+	bus_style = fields.Char(string='Business Style')
 
 	@api.multi
 	def name_get(self):
