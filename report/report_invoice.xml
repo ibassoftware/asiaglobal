@@ -30,19 +30,22 @@
                    <br/>
                    <br/> -->
 
-                   <div class="col-xs-4" style="top: 43mm;left: 9mm;position:relative;width:100%;">
+                   <div class="col-xs-4" style="top: 43mm;left: 9mm;position:absolute;width:100%;">
                         <span t-field="o.partner_id.name"/><br/>
-                        <span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/><br/>
+                        <span t-field="o.partner_id.street"/><br/>
+                        <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/><br/>
                         <span t-field="o.partner_id.vat"/> <br/>
                         <span t-field="o.partner_id.bus_style"/>
                     </div>
-                    <div class="col-xs-4" style="top: 43mm;left: 108mm;position:relative;width:100%;">
+                    <div class="col-xs-4" style="top: 43mm;left: 108mm;position:absolute;width:100%;">
                         <span t-field="o.partner_id.name"/><br/>
-                        <span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/>
+                        <span t-field="o.partner_id.street"/><br/>
+                        <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/>
                     </div>
-                    <div class="col-xs-4" style="top: 43mm;left: 207mm;position:relative;width:100%;">
+                    <div class="col-xs-4" style="top: 43mm;left: 207mm;position:absolute;width:100%;">
                         <span t-field="o.partner_id.name"/><br/>
-                        <span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/><br/>
+                        <span t-field="o.partner_id.street"/><br/>
+                        <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/><br/>
                         <span t-field="o.partner_id.vat"/> <br/>
                         <span t-field="o.partner_id.bus_style"/>
                     </div>
