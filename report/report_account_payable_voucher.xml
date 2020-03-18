@@ -291,7 +291,7 @@
                             </td>
                             <td class="noborder text-center" valign="top" width="15%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
                                 <!-- <b><span t-field="o.account_move_id.amount"/></b> -->
-                                <b><span t-esc="'{0:,.2f}'.format(o.move_id.amount)" /></b>
+                                <b><span t-esc="'{0:,.2f}'.format(o.account_move_id.amount)" /></b>
                             </td>
                         </tr>
                     </table>
