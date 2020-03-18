@@ -14,7 +14,7 @@
                    </button> -->
                 </div>
                 <xpath expr="//field[@name='category_id']" position="after">
-                    <field name="bus_style"/>
+                    <field name="bus_style" invisible="1"/>
                 </xpath>
             </field>
         </record>

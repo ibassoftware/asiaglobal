@@ -5,6 +5,7 @@ class AccountInvoice(models.Model):
 	_inherit = 'account.invoice'
 
 	delivery_receipt_no = fields.Char(string='Delivery Receipt No.', compute='_get_deliveries')
+	bus_style = fields.Char(string='Business Style')
 
 	@api.multi
 	def _get_deliveries(self):

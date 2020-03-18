@@ -37,7 +37,7 @@
                         <span t-field="o.partner_id.street"/><br/>
                         <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/><br/>
                         <span t-field="o.partner_id.vat"/> <br/>
-                        <span t-field="o.partner_id.bus_style"/>
+                        <span t-field="o.bus_style"/>
                     </div>
                     <div style="top: 70mm;left: 148mm;position:absolute;width:100%;">
                         <span t-field="o.partner_id.name"/><br/>
@@ -49,7 +49,7 @@
                         <span t-field="o.partner_id.street"/><br/>
                         <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/><br/>
                         <span t-field="o.partner_id.vat"/> <br/>
-                        <span t-field="o.partner_id.bus_style"/>
+                        <span t-field="o.bus_style"/>
                     </div>
 
                    <!-- <div class="row">
@@ -138,6 +138,26 @@
                                 </td>
                                 <td width="15%" class="text-center" style="border-top: 0px;">
                                     <span t-field="l.price_subtotal" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                </td>
+                            </tr>
+                            <tr t-foreach="o.tax_line_ids" t-as="l">
+                                <t t-set="line_count" t-value="line_count + 1"/>
+                                <td width="5%" style="border-top: 0px;"></td>
+                                <td width="12%" style="border-top: 0px;">
+                                    <br/>
+                                </td>
+                                <td width="10%" style="border-top: 0px;">
+                                    <br/>
+                                </td>
+                                <td width="33%" class="text-center" style="border-top: 0px;"><span t-field="l.name"/></td>
+                                <td width="10%" class="text-center" style="border-top: 0px;">
+                                    <span t-field="l.display_name"/>
+                                </td>
+                                <td width="15%" class="text-center" style="border-top: 0px;">
+                                    <br/>
+                                </td>
+                                <td width="15%" class="text-center" style="border-top: 0px;">
+                                    <span t-field="l.amount_total" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
                                 </td>
                             </tr>
                             <t t-set="break_count" t-value="17 - line_count"/>
@@ -272,7 +292,7 @@
                             <span t-field="o.partner_id.name"/><br/>
                             <span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/><br/>
                             <span t-field="o.partner_id.vat"/> <br/>
-                            <span t-field="o.partner_id.bus_style"/>
+                            <span t-field="o.bus_style"/>
                         </div>
                         <!-- SHIP TO -->
                         <div class="col-xs-4" style="padding-left: 0px;">
@@ -284,7 +304,7 @@
                             <span t-field="o.partner_id.name"/><br/>
                             <span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/><br/>
                             <span t-field="o.partner_id.vat"/> <br/>
-                            <span t-field="o.partner_id.bus_style"/>
+                            <span t-field="o.bus_style"/>
                         </div>
                     </div>
 
