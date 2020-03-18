@@ -14,7 +14,7 @@
                         <span t-if="o.date_done" t-esc="datetime.datetime.strptime(o.date_done, '%Y-%m-%d %H:%M:%S').strftime('%B %d, %Y')"/> -->
                     </center>
                     <br/>
-                    <table class="list_table" style="border: 1px solid #808080;height:705px;page-break-after:auto;" width="100%" cellspacing="0">
+                    <table class="list_table" style="border: 1px solid #808080;height:805px;page-break-after:auto;" width="100%" cellspacing="0">
                         <tr>
                             <td colspan="2" rowspan="2" class="noborder" valign="top" width="70%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
                                 <b>PAYEE: </b> <span t-field="o.partner_id.name"/>
@@ -181,7 +181,7 @@
                         <span t-if="o.date_done" t-esc="datetime.datetime.strptime(o.date_done, '%Y-%m-%d %H:%M:%S').strftime('%B %d, %Y')"/> -->
                     </center>
                     <br/>
-                    <table class="list_table" style="border: 1px solid #808080;height:705px;page-break-after:auto;" width="100%" cellspacing="0">
+                    <table class="list_table" style="border: 1px solid #808080;height:805px;page-break-after:auto;" width="100%" cellspacing="0">
                         <tr>
                             <td colspan="2" rowspan="2" class="noborder" valign="top" width="70%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
                                 <b>PAYEE: </b> <span t-field="o.employee_id.name"/>
