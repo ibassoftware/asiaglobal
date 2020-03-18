@@ -4,7 +4,7 @@
         <template id="report_account_payable_voucher_document">
             <t t-call="asiaglobal.external_layout_account_payable_voucher">
                 <t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})"/>
-                <div class="page">
+                <div class="page" style="font-size:12px;">
                     <br/>
                     <center>
                         <h3>
@@ -14,7 +14,7 @@
                         <span t-if="o.date_done" t-esc="datetime.datetime.strptime(o.date_done, '%Y-%m-%d %H:%M:%S').strftime('%B %d, %Y')"/> -->
                     </center>
                     <br/>
-                    <table class="list_table" style="border: 1px solid #808080;font-size:14px" width="100%" cellspacing="0">
+                    <table class="list_table" style="border: 1px solid #808080;height:705px;page-break-after:auto;" width="100%" cellspacing="0">
                         <tr>
                             <td colspan="2" rowspan="2" class="noborder" valign="top" width="70%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
                                 <b>PAYEE: </b> <span t-field="o.partner_id.name"/>
@@ -29,7 +29,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="4" class="noborder text-center" valign="top" width="100%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                            <td colspan="4" class="noborder" valign="top" width="100%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
                                 <b>PARTICULARS</b><br/>
                                 <span t-field="o.reference"/> <span t-field="o.name"/>
                             </td>
@@ -66,14 +66,16 @@
                                     <span t-field="move.analytic_account_id.name"/>
                                 </td>
                                 <td class="noborder text-right" valign="top" width="15%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;border-bottom:none;border-top:none;">
-                                    <span t-field="move.debit"/>
+                                    <!-- <span t-field="move.debit"/> -->
+                                    <span t-esc="'{0:,.2f}'.format(move.debit)" />
                                 </td>
                                 <td class="noborder text-right" valign="top" width="15%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;border-bottom:none;border-top:none;">
-                                    <span t-field="move.credit"/>
+                                    <!-- <span t-field="move.credit"/> -->
+                                    <span t-esc="'{0:,.2f}'.format(move.credit)" />
                                 </td>
                             </tr>
                         </t>
-                        <t t-set="break_count" t-value="15 - line_count"/>
+                        <!-- <t t-set="break_count" t-value="15 - line_count"/>
                         <t t-if="break_count > 0">
                             <t t-foreach="break_count" t-as="break">
                                 <tr>
@@ -88,21 +90,33 @@
                                     </td>
                                 </tr>
                             </t>
-                        </t>
+                        </t> -->
+                        <tr style="height:100%;page-break-inside:avoid;page-break-after:auto;">
+                            <td colspan="2" class="noborder text-center" valign="top" width="70%" style="border:0;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                                <br/>
+                            </td>
+                            <td class="noborder text-center" valign="top" width="15%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;border-bottom:none;border-top:none;">
+                                <br/>
+                            </td>
+                            <td class="noborder text-center" valign="top" width="15%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;border-bottom:none;border-top:none;">
+                                <br/>
+                            </td>
+                        </tr>
                         <tr>
                             <td colspan="2" class="noborder text-right" valign="top" width="70%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
                                 <b>TOTAL AMOUNT PAYABLE </b> <!-- <span t-field="o.currency_id.name"/> -->
                             </td>
                             <td class="noborder text-center" valign="top" width="15%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
-                                <b></b>
+                                <b><span t-field="o.currency_id.symbol"/></b>
                             </td>
                             <td class="noborder text-center" valign="top" width="15%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
-                                <b><span t-field="o.move_id.amount"/></b>
+                                <!-- <b><span t-field="o.move_id.amount"/></b> -->
+                                <b><span t-esc="'{0:,.2f}'.format(o.move_id.amount)" /></b>
                             </td>
                         </tr>
                     </table>
-                    <br/>
-                    <table class="list_table" style="border:none;font-size:14px" width="100%">
+                    <!-- <br/> -->
+                    <!-- <table class="list_table" style="border:none;font-size:14px" width="100%">
                         <tr>
                             <td class="noborder" valign="top" width="25%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
                                 <b>PREPARED BY: </b>
@@ -141,7 +155,7 @@
                                 </center>
                             </td>
                         </tr>
-                    </table>
+                    </table> -->
                 </div>
             </t> 
         </template>
@@ -157,7 +171,7 @@
         <!-- START APV IN EXPENSE -->
         <template id="report_account_payable_voucher_expense_document">
             <t t-call="asiaglobal.external_layout_account_payable_voucher">
-                <div class="page">
+                <div class="page" style="font-size:12px;">
                     <br/>
                     <center>
                         <h3>
@@ -167,7 +181,7 @@
                         <span t-if="o.date_done" t-esc="datetime.datetime.strptime(o.date_done, '%Y-%m-%d %H:%M:%S').strftime('%B %d, %Y')"/> -->
                     </center>
                     <br/>
-                    <table class="list_table" style="border: 1px solid #808080;font-size:14px" width="100%" cellspacing="0">
+                    <table class="list_table" style="border: 1px solid #808080;height:705px;page-break-after:auto;" width="100%" cellspacing="0">
                         <tr>
                             <td colspan="2" rowspan="2" class="noborder" valign="top" width="70%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
                                 <b>PAYEE: </b> <span t-field="o.employee_id.name"/>
@@ -183,7 +197,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="4" class="noborder text-center" valign="top" width="100%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                            <td colspan="4" class="noborder" valign="top" width="100%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
                                 <b>PARTICULARS</b><br/>
                                 <!-- <span t-field="o.reference"/> -->
                                 <t t-set="expense_count" t-value="0"/>
@@ -232,14 +246,16 @@
                                     <span t-field="move.analytic_account_id.name"/>
                                 </td>
                                 <td class="noborder text-right" valign="top" width="15%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;border-bottom:none;border-top:none;">
-                                    <span t-field="move.debit"/>
+                                    <!-- <span t-field="move.debit"/> -->
+                                    <span t-esc="'{0:,.2f}'.format(move.debit)" />
                                 </td>
                                 <td class="noborder text-right" valign="top" width="15%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;border-bottom:none;border-top:none;">
-                                    <span t-field="move.credit"/>
+                                    <!-- <span t-field="move.credit"/> -->
+                                    <span t-esc="'{0:,.2f}'.format(move.credit)" />
                                 </td>
                             </tr>
                         </t>
-                        <t t-set="break_count" t-value="15 - line_count"/>
+                        <!-- <t t-set="break_count" t-value="15 - line_count"/>
                         <t t-if="break_count > 0">
                             <t t-foreach="break_count" t-as="break">
                                 <tr>
@@ -254,21 +270,33 @@
                                     </td>
                                 </tr>
                             </t>
-                        </t>
+                        </t> -->
+                        <tr style="height:100%;page-break-inside:avoid;page-break-after:auto;">
+                            <td colspan="2" class="noborder text-center" valign="top" width="70%" style="border:0;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                                <br/>
+                            </td>
+                            <td class="noborder text-center" valign="top" width="15%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;border-bottom:none;border-top:none;">
+                                <br/>
+                            </td>
+                            <td class="noborder text-center" valign="top" width="15%" style="border-style:solid;border-color:#808080;border-width:0px 1px 0px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;border-bottom:none;border-top:none;">
+                                <br/>
+                            </td>
+                        </tr>
                         <tr>
                             <td colspan="2" class="noborder text-right" valign="top" width="70%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
                                 <b>TOTAL AMOUNT PAYABLE </b> <!-- <span t-field="o.currency_id.name"/> -->
                             </td>
                             <td class="noborder text-center" valign="top" width="15%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
-                                <b></b>
+                                <b><span t-field="o.currency_id.symbol"/></b>
                             </td>
                             <td class="noborder text-center" valign="top" width="15%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
-                                <b><span t-field="o.account_move_id.amount"/></b>
+                                <!-- <b><span t-field="o.account_move_id.amount"/></b> -->
+                                <b><span t-esc="'{0:,.2f}'.format(o.move_id.amount)" /></b>
                             </td>
                         </tr>
                     </table>
-                    <br/>
-                    <table class="list_table" style="border:none;font-size:14px" width="100%">
+                    <!-- <br/>
+                    <table class="list_table" style="border:none;" width="100%">
                         <tr>
                             <td class="noborder" valign="top" width="25%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
                                 <b>PREPARED BY: </b>
@@ -307,7 +335,7 @@
                                 </center>
                             </td>
                         </tr>
-                    </table>
+                    </table> -->
                 </div>
             </t> 
         </template>

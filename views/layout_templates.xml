@@ -601,20 +601,93 @@
         </template>
 
         <template id="external_layout_account_payable_voucher_custom">
-            <div class="header">
-                <table class="list_table" style="border:none;font-size:12px" width="100%">
+            <div class="header custom_font">
+                <!-- <table class="list_table" style="border:none;font-size:12px" width="100%">
                     <tr>
                         <img t-if="o.company_id.logo" t-att-src="'data:image/png;base64,%s' % to_text(o.company_id.logo)" width="200" height="60"/>
+                    </tr>
+                </table> -->
+                <table class="list_table" style="border:none;font-size:12px" width="100%">
+                    <tr>
+                        <td class="noborder" width="8%">
+                            <br/>
+                            <img src="/asiaglobal/static/src/img/logo_a.PNG" height="45" width="50" />
+                        </td>
+                        <td class="noborder" width="43%">
+                            <!-- <img t-if="o.company_id.logo" t-att-src="'data:image/png;base64,%s' % to_text(o.company_id.logo)" width="60" height="60"/> -->
+                            <br/>
+                            <b><h4 style="color:red;">AsiaGlobal Technologies, Inc.</h4></b>
+
+                            <table class="list_table" style="border:none;font-size:12px" width="100%">
+                                <tr>
+                                    <td class="noborder" valign="top" width="63%">
+                                        <span t-field="o.company_id.partner_id.street"/>
+                                        <span t-if="o.company_id.partner_id.street2">, <span t-field="o.company_id.partner_id.street2"/></span>
+                                        <span t-if="o.company_id.partner_id.city">, <span t-field="o.company_id.partner_id.city"/></span>
+                                        <span t-if="o.company_id.partner_id.state_id">, <span t-field="o.company_id.partner_id.state_id.name"/></span><span t-if="o.company_id.partner_id.country_id">, <span t-field="o.company_id.partner_id.country_id.name"/></span>
+                                    </td>
+                                    <td class="noborder" valign="top" width="2%"></td>
+                                    <td class="noborder" valign="top" width="35%">
+                                        Phone # 02-8899-1801<br/>
+                                        www.asiaglobaltech.com
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td class="noborder" width="8%">
+                        </td>
+                        <td class="noborder" width="41%" align="right" style="vertical-align: top;">
+                            <br/>
+                        </td>
                     </tr>
                 </table>
             </div>
 
-            <div class="article o_report_layout_standard">
+            <div class="article o_report_layout_standard custom_font">
                 <t t-raw="0" />
             </div>
 
-            <div class="footer">
-                
+            <div class="footer custom_font">
+                <table class="list_table" style="border:none;font-size:14px" width="100%">
+                    <tr>
+                        <td class="noborder" valign="top" width="25%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                            <b>PREPARED BY: </b>
+                            <br/>
+                            <br/>
+                            <center>
+                                <span>__________________________</span><br/>
+                                <span>AP Assistant</span>
+                            </center>
+                        </td>
+                        <td class="noborder" valign="top" width="25%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                            <b>CHECKED BY: </b>
+                            <br/>
+                            <br/>
+                            <center>
+                                <span>__________________________</span><br/>
+                                <span>Jr. Accounting Manager</span>
+                            </center>
+                        </td>
+                        <td class="noborder" valign="top" width="25%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                            <b>NOTED BY: </b>
+                            <br/>
+                            <br/>
+                            <center>
+                                <span>__________________________</span><br/>
+                                <span>AVP - Finance &amp; Admin</span>
+                            </center>
+                        </td>
+                        <td class="noborder" valign="top" width="25%" style="border-style:solid;border-color:#808080;border-width:1px 1px 1px 1px;padding-left:0.5em;padding-top:0.5em;padding-right:0.5em;padding-bottom:0.5em;">
+                            <b>APPROVED BY: </b>
+                            <br/>
+                            <br/>
+                            <center>
+                                <span>__________________________</span><br/>
+                                <span>President</span>
+                            </center>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </template>
         <!-- END START ACCOUNT PAYABLE VOUCHER -->
