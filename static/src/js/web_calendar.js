@@ -237,12 +237,46 @@ odoo.define('asiaglobal.CalendarController', function (require) {
                 context.default_name = event.data.data.title || null;
                 var options = _.extend({}, this.options, event.options, {context: context});
                 
-                this.create_lead(event, context, options)
-                    .then(function () {
-                        self.quick.destroy();
-                        self.quick = null;
-                        self.reload();
-                    });
+                // this.create_lead(event, context, options)
+                //     .then(function () {
+                //         self.quick.destroy();
+                //         self.quick = null;
+                //         self.reload();
+                //     });
+
+                new dialogs.FormViewDialog(self, {
+                    res_model: 'crm.lead',
+                    context: context,
+                    title: 'Create: Prospects',
+                    disable_multiple_selection: true,
+                    on_saved: function (lead_id) {
+                        if (event.data.on_save) {
+                            event.data.on_save();
+                        }
+
+                        // Create activity (model, record_id, description, deadline)
+                        self._create_activity('crm.lead', lead_id.data.id, lead_id.data.name, deadline);
+
+                        self.model.createRecord(event)
+                            .then(function () {
+                                self.quick.destroy();
+                                self.quick = null;
+                                self.reload();
+                            })
+                            .fail(function (error, errorEvent) {
+                                // This will occurs if there are some more fields required
+                                // Preventdefaulting the error event will prevent the traceback window
+                                errorEvent.preventDefault();
+                                event.data.options.disableQuickCreate = true;
+                                event.data.data.on_save = self.quick.destroy.bind(self.quick);
+                                self._onOpenCreate(event.data);
+                            })
+                            .always(function () {
+                                self.quickCreating = false;
+                            });
+
+                    },
+                }).open();
 
             } 
 
