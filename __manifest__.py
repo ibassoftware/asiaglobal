@@ -21,7 +21,7 @@
 
     # any module necessary for this one to work correctly
     'depends': ['base','crm', 'sale_management', 'purchase','hr', 'hr_expense', 'helpdesk', 'sales_team', 'account_reports',
-    'sale','sale_crm', 'mail', 'sale_subscription', 'product', 'stock', 'stock_account', 'account', 'account_budget'],
+    'sale','sale_crm', 'mail', 'sale_subscription', 'product', 'stock', 'stock_account', 'account', 'account_budget', 'calendar'],
 
     # always loaded
     'data': [
@@ -57,6 +57,8 @@
         'views/stock_account_views.xml',
         'views/stock_move_update.xml',
         'views/account_invoice_view.xml',
+        'views/calendar_views.xml',
+        'views/hr_expense_views.xml',
         'report/report_quotation_service.xml',
         'report/service_report.xml',
         'report/report_job_order.xml',
@@ -74,6 +76,11 @@
         'views/service_menu.xml',
         'wizard/maintenance_jo_views.xml',
     ],
+
+    'qweb': [
+        'static/src/xml/web_calendar.xml',
+    ],
+
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',

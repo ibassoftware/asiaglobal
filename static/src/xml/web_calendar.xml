@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+	<t t-extend="CalendarView.quick_create">
+		<t t-jquery=".form-group" t-operation="before">
+			<div class="form-group">
+				<label for="type" class="control-label">Type:</label>
+				<select id="type" class="o_input" name="type" t-att-value="widget.dataTemplate.type or None"> 
+					<option value="new">New</option>
+					<option value="existing">Existing</option> 
+					<option value="other">Others</option>
+				</select>
+			</div>
+			<div class="form-group" id="partner_id_section">
+				<label for="partner_id" class="control-label">Customer:</label>
+				<select id="partner_id" class="o_input" name="partner_id">
+					<option>
+						<span>Select Partner</span>
+					</option>
+					<t t-foreach="widget.dataTemplate.partner_id or None" t-as="partner">
+						<option t-att-value="partner.id">
+							<t t-esc="partner.name"/> 
+						</option>
+					</t>
+				</select>
+			</div>
+			<div class="form-group" id="project_id_section">
+				<label for="project_id" class="control-label">Project List:</label>
+				<select id="project_id" class="o_input" name="project_id">
+					<option>
+						<span>Select Project List</span>
+					</option>
+					<t t-foreach="widget.dataTemplate.project_id or None" t-as="project">
+						<option t-att-value="project.id">
+							<t t-esc="project.name"/> 
+						</option>
+					</t>
+				</select>
+			</div>
+		</t>
+	</t>
+</templates>

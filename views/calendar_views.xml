@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_calendar_event_calendar_extend" model="ir.ui.view">
+            <field name="name">calendar.event.calendar.extend</field>
+            <field name="model">calendar.event</field>
+            <field name="inherit_id" ref="calendar.view_calendar_event_calendar"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="before">
+                    <field name="type"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_calendar_event_form_extend" model="ir.ui.view">
+            <field name="name">calendar.event.form.extend</field>
+            <field name="model">calendar.event</field>
+            <field name="inherit_id" ref="calendar.view_calendar_event_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='categ_ids']" position="before">
+                    <field name="type"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_calendar_event_form_popup_extend" model="ir.ui.view">
+            <field name="name">calendar.event.form.popup.extend</field>
+            <field name="model">calendar.event</field>
+            <field name="inherit_id" ref="calendar.view_calendar_event_form_popup"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='location']" position="before">
+                    <field name="type"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

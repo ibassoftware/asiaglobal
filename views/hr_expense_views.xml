@@ -1,0 +1,28 @@
+<odoo>
+	<data>
+
+		<record id="view_hr_expense_sheet_form_extend" model="ir.ui.view">
+            <field name="name">hr.expense.sheet.form.extend</field>
+            <field name="model">hr.expense.sheet</field>
+            <field name="inherit_id" ref="hr_expense.view_hr_expense_sheet_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='expense_line_ids']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','in',['approve','done','post'])]}</attribute>
+                </xpath>
+            </field>
+        </record>
+
+		<record id="view_hr_expense_sheet_manager_form_extend" model="ir.ui.view">
+            <field name="name">hr.expense.sheet.manager.form.extend</field>
+            <field name="model">hr.expense.sheet</field>
+            <field name="inherit_id" ref="hr_expense.view_hr_expense_sheet_form"/>
+             <field name="groups_id" eval="[(6, 0, [ref('hr_expense.group_hr_expense_user'),ref('hr_expense.group_hr_expense_manager')])]"/>
+             <field name="arch" type="xml">
+                <xpath expr="//field[@name='expense_line_ids']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','in',['done','post'])]}</attribute>
+                </xpath>
+            </field>
+        </record>
+
+	</data>
+</odoo>

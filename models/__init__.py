@@ -24,3 +24,7 @@ from . import stock_move
 from . import stock_picking
 
 from . import product
+
+from . import calendar
+
+from . import hr_expense
