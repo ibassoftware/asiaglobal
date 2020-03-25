@@ -34,7 +34,7 @@ odoo.define('asiaglobal.CalendarQuickCreate', function (require) {
 
             this.$('#type').click(function(event){
                 var type = self.$('#type').val();
-                console.log(type);
+                // console.log(type);
                 if(type != 'existing'){
                     self.$('#partner_id_section').hide();
                     self.$('#project_id_section').hide();
@@ -47,10 +47,10 @@ odoo.define('asiaglobal.CalendarQuickCreate', function (require) {
 
             this.$('#partner_id').click(function(event){
                 var partner_id = parseInt(self.$('#partner_id option:selected').val());
-                console.log(partner_id);
+                // console.log(partner_id);
                 if(!isNaN(partner_id)){
                     var domain = [['partner_id','=',partner_id]];
-                    console.log(domain);
+                    // console.log(domain);
                     rpc.query({
                         model: 'sale.order',
                         method: 'search_read',
@@ -230,8 +230,8 @@ odoo.define('asiaglobal.CalendarController', function (require) {
             var start_date = event.data.data.start || null;
             var deadline = start_date.clone().add(7, 'days');
 
-            console.log('TEST');
-            console.log(type);
+            // console.log('TEST');
+            // console.log(type);
 
             if (type === 'new') {
                 context.default_name = event.data.data.title || null;
@@ -282,14 +282,14 @@ odoo.define('asiaglobal.CalendarController', function (require) {
 
             else if (type === 'existing') {
                 var partner_id = parseInt(self.$('#partner_id option:selected').val());
-                console.log(partner_id);
+                // console.log(partner_id);
                 // console.log(QuickCreate);
                 // var project_id = parseInt(self.$('#project_id option:selected').val());
                 var project_id = event.data.data.project_id || null;
                 var model = 'sale.order';
                 var domain = [['model','=',model]];
-                console.log('EXISTING!');
-                console.log(project_id);
+                // console.log('EXISTING!');
+                // console.log(project_id);
 
                 new dialogs.FormViewDialog(self, {
                     res_model: model,
@@ -435,8 +435,8 @@ odoo.define('asiaglobal.CalendarController', function (require) {
                 args: [domain, ['id','name','customer']],
             })
             .then(function(partners){
-                console.log("YEAH");
-                console.log(partners);
+                // console.log("YEAH");
+                // console.log(partners);
                 self.partners = partners;
             });
         },
@@ -450,8 +450,8 @@ odoo.define('asiaglobal.CalendarController', function (require) {
                 args: [[], ['id','name']],
             })
             .then(function(projects){
-                console.log("YEAH2");
-                console.log(projects);
+                // console.log("YEAH2");
+                // console.log(projects);
                 self.projects = projects;
             });
         },
@@ -520,9 +520,9 @@ odoo.define('asiaglobal.CalendarController', function (require) {
                     method: 'create',
                     args: [args],
                 })
-                .then(function(activity_id){
-                    console.log("YEADYEAH");
-                });
+                // .then(function(activity_id){
+                //     console.log("YEADYEAH");
+                // });
 
             });
             
