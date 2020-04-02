@@ -6,5 +6,5 @@ class StockInventory(models.Model):
 	@api.multi
 	def inv_adj_account_entry_move(self):
 		for move in self.move_ids:
-			if not move.account_move_ids:
+			if not move.account_move_ids and move.value != 0:
 				move.with_context(force_period_date=move.date)._account_entry_move()
