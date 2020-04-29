@@ -17,7 +17,7 @@ class AccountBudgetReport(models.Model):
 	amount_actual = fields.Float(string='Actual')
 	variance = fields.Float()
 	variance_percent = fields.Integer(string='Percentage of Variance')
-	analytic_line_id = fields.Many2one('account.analytic.line', string='Analytic Line')
+	# analytic_line_id = fields.Many2one('account.analytic.line', string='Analytic Line')
 
 	def _select(self):
 		# crossovered_budget = self.env['crossovered.budget'].search([('state','=','validate')])
@@ -27,19 +27,19 @@ class AccountBudgetReport(models.Model):
 				l.name as name,
 				l.date as date,
 				l.amount as amount_actual, 
-				cbl.analytic_account_id as analytic_account_id,
+				l.account_id as analytic_account_id,
 				cb.id as crossovered_budget_id,
 				bp.id as general_budget_id,
-				cbl.planned_amount as amount_budget,
-				sum(cbl.planned_amount - l.amount) as variance,
-				sum(l.amount / cbl.planned_amount * 100) as variance_percent
+				sum(cbl.planned_amount) as amount_budget,
+				sum(l.amount - cbl.planned_amount) as variance,
+				sum((l.amount - cbl.planned_amount) / cbl.planned_amount * 100) as variance_percent
 		"""
 		return select_str
 
 	def _from(self):
 		from_str = """
 			account_analytic_line l
-				left join crossovered_budget_lines cbl on (cbl.analytic_account_id=l.id)
+				left join crossovered_budget_lines cbl on (cbl.analytic_account_id=l.account_id)
 				left join crossovered_budget cb on (cb.id=cbl.crossovered_budget_id)
 				left join account_budget_post bp on (bp.id=cbl.general_budget_id)
 		"""
@@ -51,10 +51,9 @@ class AccountBudgetReport(models.Model):
 				l.name,
 				l.date,
 				l.amount,
-				cbl.analytic_account_id,
+				l.account_id,
 				cb.id,
-				bp.id,
-				cbl.planned_amount
+				bp.id
 		"""
 		return group_by_str
 
