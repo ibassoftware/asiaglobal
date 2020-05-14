@@ -104,7 +104,9 @@ class JobMaterialRequestForm(models.Model):
 					'name': target_list.product_id.name,
 					'product_uom': target_list.product_id.uom_id.id,
 					'location_id': self.location_id_2.id,
-					'location_dest_id': self.destination_id.id
+					'location_dest_id': self.destination_id.id,
+					'analytic_account_id': target_list.analytic_account_id.id,
+					'analytic_id': target_list.analytic_account_id.id
 				})
 
 				target_list.stock_move_id = new_id.id
@@ -147,6 +149,8 @@ class JobMaterialRequestFormLine(models.Model):
 
 	stock_move_id = fields.Many2one('stock.move', string='Stock Move')
 	line_cost = fields.Float(string='Cost', related='stock_move_id.value')
+
+	analytic_account_id = fields.Many2one('account.analytic.account', 'Analytic Account', help="The analytic account related to a sales order.", copy=False)
 
 	@api.onchange('product_id')
 	def set_product_details(self):
