@@ -6,7 +6,7 @@
             <t t-call="asiaglobal.external_layout_agt_account_invoice">
                 <t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})" />
                 <!-- <div class="page" t-attf-style="background-image:url('/asiaglobal/static/src/img/bill.PNG');  no-repeat; background-size: cover;"> -->
-                <div class="page" style="font-size:18px">
+                <div class="page" style="font-size:20px">
                     <span t-field="o.date_invoice" style="top: 42mm;left: 330mm;position:absolute;width:100%;"/>
 
 
@@ -224,7 +224,7 @@
             <t t-call="asiaglobal.external_layout_agt_account_invoice">
                 <t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})" />
                 <!-- <div class="page" t-attf-style="background-image:url('/asiaglobal/static/src/img/bill.PNG');  no-repeat; background-size: cover;"> -->
-                <div class="page" style="font-size:18px">
+                <div class="page" style="font-size:20px">
                     <span t-field="o.date_invoice" style="top: 42mm;left: 330mm;position:absolute;width:100%;"/>
                    
 
