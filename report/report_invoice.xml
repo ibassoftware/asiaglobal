@@ -17,10 +17,10 @@
                     <div style="top: 77mm;left: 30mm;position:absolute;width:100%;">
                         <strong><p style="width:425px; height:50px;"><span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/></p></strong>
                     </div>
-                    <div style="top: 91mm;left: 35mm;position:absolute;width:100%;">
+                    <div style="top: 91mm;left: 35mm;position:absolute;width:100%;font-size:18px;">
                         <strong><span t-field="o.partner_id.vat"/></strong><br/>
                     </div>
-                    <div style="top: 98mm;left: 48mm;position:absolute;width:100%;">
+                    <div style="top: 98mm;left: 48mm;position:absolute;width:100%;font-size:18px;">
                         <strong><p style="width:425px; height:50px;font-size:18px;"><span t-field="o.bus_style"/></p></strong>
                     </div>
 
@@ -28,7 +28,7 @@
                     <div style="top: 65mm;left: 160mm;position:absolute;width:100%;">
                         <strong><p style="width:425px; height:50px;"><span t-field="o.partner_id.name"/></p></strong>
                     </div>
-                    <div style="top: 77mm;left: 150mm;position:absolute;width:100%;">
+                    <div style="top: 77mm;left: 150mm;position:absolute;width:100%;font-size:18px;">
                         <strong><p style="width:425px; height:50px;"><span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/></p></strong>
                     </div>
 
@@ -36,12 +36,12 @@
                     <div style="top: 65mm;left: 270mm;position:absolute;width:100%;">
                         <strong><p style="width:425px; height:50px;"><span t-field="o.partner_id.name"/></p></strong>
                     </div>
-                    <div style="top: 77mm;left: 270mm;position:absolute;width:100%;">
+                    <div style="top: 77mm;left: 270mm;position:absolute;width:100%;font-size:18px;">
                         <strong><p style="width:425px; height:50px;"><span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/></p></strong>
                     </div>
-                    <div style="top: 91mm;left: 270mm;position:absolute;width:100%;">
+                    <div style="top: 91mm;left: 270mm;position:absolute;width:100%;font-size:18px;">
                         <strong><span t-field="o.partner_id.vat"/></strong><br/>
-                        <strong><p style="width:425px; height:50px;font-size:18px;"><span t-field="o.bus_style"/></p></strong>
+                        <strong><p style="width:425px; height:50px;"><span t-field="o.bus_style"/></p></strong>
                     </div>
 
 
@@ -220,21 +220,18 @@
                     <div style="top: 72mm;left: 42mm;position:absolute;width:100%;">
                         <strong><p style="width:425px; height:50px;"><span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/></p></strong><br/>
                     </div>
-                    <!-- <div style="top: 79mm;left: 30mm;position:absolute;width:100%;">
-                        <strong><span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/></strong><br/>
-                    </div> -->
-                    <div style="top: 86mm;left: 35mm;position:absolute;width:100%;">
+                    <div style="top: 86mm;left: 35mm;position:absolute;width:100%;font-size:18px;">
                         <strong><span t-field="o.partner_id.vat"/></strong><br/>
                     </div>
-                    <div style="top: 93mm;left: 48mm;position:absolute;width:100%;">
-                        <strong><p style="width:425px; height:50px;font-size:18px;"><span t-field="o.bus_style"/></p></strong>
+                    <div style="top: 93mm;left: 48mm;position:absolute;width:100%;font-size:18px;">
+                        <strong><p style="width:425px; height:50px;"><span t-field="o.bus_style"/></p></strong>
                     </div>
 
                     <!-- SHIP TO -->
                     <div style="top: 60mm;left: 160mm;position:absolute;width:100%;">
                         <strong><p style="width:425px; height:50px;"><span t-field="o.partner_id.name"/></p></strong><br/>
                     </div>
-                    <div style="top: 72mm;left: 150mm;position:absolute;width:100%;">
+                    <div style="top: 72mm;left: 150mm;position:absolute;width:100%;font-size:18px;">
                         <strong><p style="width:425px; height:50px;"><span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/></p></strong>
                     </div>
 
@@ -242,10 +239,10 @@
                     <div style="top: 60mm;left: 270mm;position:absolute;width:100%;">
                         <strong><p style="width:425px; height:50px;"><span t-field="o.partner_id.name"/></p></strong><br/>
                     </div>
-                    <div style="top: 72mm;left: 270mm;position:absolute;width:100%;">
+                    <div style="top: 72mm;left: 270mm;position:absolute;width:100%;font-size:18px;">
                         <strong><p style="width:425px; height:50px;"><span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/></p></strong>
                     </div>
-                    <div style="top: 86mm;left: 270mm;position:absolute;width:100%;">
+                    <div style="top: 86mm;left: 270mm;position:absolute;width:100%;font-size:18px;">
                         <strong><span t-field="o.partner_id.vat"/></strong><br/>
                         <strong><p style="width:425px; height:50px;font-size:18px;"><span t-field="o.bus_style"/></p></strong>
                     </div>
