@@ -10,23 +10,15 @@
                     <strong><span t-field="o.date_invoice" style="top: 42mm;left: 330mm;position:absolute;width:100%;"/></strong>
 
 
-                   <!-- <div style="top: 65mm;left: 30mm;position:absolute;width:100%;">
-                        <span t-field="o.partner_id.name"/><br/>
-                        <span t-field="o.partner_id.street"/><br/>
-                        <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/><br/>
-                        <span t-field="o.partner_id.vat"/> <br/>
-                        <span t-field="o.bus_style"/>
-                    </div> -->
-
                     <!-- CHARGED TO -->
                     <div style="top: 65mm;left: 50mm;position:absolute;width:100%;">
-                        <strong><p style="width:375px; height:50px;"><span t-field="o.partner_id.name"/></p></strong>
+                        <strong><p style="width:425px; height:50px;"><span t-field="o.partner_id.name"/></p></strong>
                     </div>
                     <!-- <div style="top: 77mm;left: 42mm;position:absolute;width:100%;">
                         <strong><p style="width:375px; height:50px;"><span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/></p></strong>
                     </div> -->
                     <div style="top: 77mm;left: 30mm;position:absolute;width:100%;">
-                        <strong><p style="width:375px; height:50px;"><span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/></p></strong>
+                        <strong><p style="width:425px; height:50px;"><span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/></p></strong>
                     </div>
                     <!-- <div style="top: 84mm;left: 30mm;position:absolute;width:100%;">
                         <strong><span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/></strong><br/>
@@ -35,20 +27,20 @@
                         <strong><span t-field="o.partner_id.vat"/></strong><br/>
                     </div>
                     <div style="top: 98mm;left: 48mm;position:absolute;width:100%;">
-                        <strong><p style="width:375px; height:50px;"><span t-field="o.bus_style"/></p></strong>
+                        <strong><p style="width:425px; height:50px;"><span t-field="o.bus_style"/></p></strong>
                     </div>
 
                     <!-- SHIP TO -->
                     <div style="top: 65mm;left: 160mm;position:absolute;width:100%;">
-                        <strong><p style="width:375px; height:50px;"><span t-field="o.partner_id.name"/></p></strong>
+                        <strong><p style="width:425px; height:50px;"><span t-field="o.partner_id.name"/></p></strong>
                     </div>
                     <div style="top: 77mm;left: 150mm;position:absolute;width:100%;">
-                        <strong><p style="width:375px; height:50px;"><span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/></p></strong>
+                        <strong><p style="width:425px; height:50px;"><span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/></p></strong>
                     </div>
 
                     <!-- BILL TO -->
                     <div style="top: 65mm;left: 270mm;position:absolute;width:100%;">
-                        <strong><p style="width:375px; height:50px;"><span t-field="o.partner_id.name"/></p></strong>
+                        <strong><p style="width:425px; height:50px;"><span t-field="o.partner_id.name"/></p></strong>
                     </div>
                     <div style="top: 77mm;left: 270mm;position:absolute;width:100%;">
                         <strong><span t-field="o.partner_id.street"/></strong><br/>
