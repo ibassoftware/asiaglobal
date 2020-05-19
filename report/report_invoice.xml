@@ -14,20 +14,14 @@
                     <div style="top: 65mm;left: 50mm;position:absolute;width:100%;">
                         <strong><p style="width:425px; height:50px;"><span t-field="o.partner_id.name"/></p></strong>
                     </div>
-                    <!-- <div style="top: 77mm;left: 42mm;position:absolute;width:100%;">
-                        <strong><p style="width:375px; height:50px;"><span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/></p></strong>
-                    </div> -->
                     <div style="top: 77mm;left: 30mm;position:absolute;width:100%;">
                         <strong><p style="width:425px; height:50px;"><span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/></p></strong>
                     </div>
-                    <!-- <div style="top: 84mm;left: 30mm;position:absolute;width:100%;">
-                        <strong><span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/></strong><br/>
-                    </div> -->
                     <div style="top: 91mm;left: 35mm;position:absolute;width:100%;">
                         <strong><span t-field="o.partner_id.vat"/></strong><br/>
                     </div>
                     <div style="top: 98mm;left: 48mm;position:absolute;width:100%;">
-                        <strong><p style="width:425px; height:50px;"><span t-field="o.bus_style"/></p></strong>
+                        <strong><p style="width:425px; height:50px;font-size:18px;"><span t-field="o.bus_style"/></p></strong>
                     </div>
 
                     <!-- SHIP TO -->
@@ -43,10 +37,9 @@
                         <strong><p style="width:425px; height:50px;"><span t-field="o.partner_id.name"/></p></strong>
                     </div>
                     <div style="top: 77mm;left: 270mm;position:absolute;width:100%;">
-                        <strong><span t-field="o.partner_id.street"/></strong><br/>
-                        <strong><span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/></strong><br/>
+                        <strong><p style="width:425px; height:50px;"><span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/></p></strong><br/>
                         <strong><span t-field="o.partner_id.vat"/></strong><br/>
-                        <strong><span t-field="o.bus_style" style="font-size:18px"/></strong>
+                        <strong><p style="width:425px; height:50px;font-size:18px;"><span t-field="o.bus_style"/></p></strong>
                     </div>
 
 
@@ -64,10 +57,6 @@
                             <br/>
                         </div>
                     </div>
-
-                    <!-- <br/>
-                    <br/>
-                    <br/> -->
 
                     <!-- Is there a discount on at least one line? -->
                     <t t-set="display_discount" t-value="any([l.discount for l in o.invoice_line_ids])"/>
@@ -236,7 +225,7 @@
                         <strong><span t-field="o.partner_id.vat"/></strong><br/>
                     </div>
                     <div style="top: 93mm;left: 48mm;position:absolute;width:100%;">
-                        <strong><p style="width:425px; height:50px;"><span t-field="o.bus_style"/></p></strong>
+                        <strong><p style="width:425px; height:50px;font-size:18px;"><span t-field="o.bus_style"/></p></strong>
                     </div>
 
                     <!-- SHIP TO -->
@@ -253,10 +242,9 @@
                         <strong><p style="width:425px; height:50px;"><span t-field="o.partner_id.name"/></p></strong><br/>
                     </div>
                     <div style="top: 60mm;left: 270mm;position:absolute;width:100%;">
-                        <strong><span t-field="o.partner_id.street"/></strong><br/> 
-                        <strong><span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/></strong><br/>
+                        <strong><p style="width:425px; height:50px;"><span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/></p></strong><br/>
                         <strong><span t-field="o.partner_id.vat"/></strong><br/>
-                        <strong><span t-field="o.bus_style" style="font-size:18px"/></strong>
+                        <strong><p style="width:425px; height:50px;font-size:18px;"><span t-field="o.bus_style"/></p></strong>
                     </div>
 
                     <div class="row" style="top: 130mm;position:absolute;width:100%;font-size:18px;">
