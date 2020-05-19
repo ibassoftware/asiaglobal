@@ -20,16 +20,16 @@
                     <div style="top: 65mm;left: 40mm;position:absolute;width:100%;">
                         <span t-field="o.partner_id.name"/><br/>
                     </div>
-                    <div style="top: 65mm;left: 37mm;position:absolute;width:100%;">
+                    <div style="top: 72mm;left: 37mm;position:absolute;width:100%;">
                         <span t-field="o.partner_id.street"/><br/>
                     </div>
-                    <div style="top: 65mm;left: 30mm;position:absolute;width:100%;">
+                    <div style="top: 79mm;left: 30mm;position:absolute;width:100%;">
                         <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/><br/>
                     </div>
-                    <div style="top: 65mm;left: 33mm;position:absolute;width:100%;">
+                    <div style="top: 86mm;left: 33mm;position:absolute;width:100%;">
                         <span t-field="o.partner_id.vat"/> <br/>
                     </div>
-                    <div style="top: 65mm;left: 38mm;position:absolute;width:100%;">
+                    <div style="top: 93mm;left: 38mm;position:absolute;width:100%;">
                         <span t-field="o.bus_style"/>
                     </div>
                     <div style="top: 65mm;left: 150mm;position:absolute;width:100%;">
@@ -223,16 +223,16 @@
                     <div style="top: 65mm;left: 40mm;position:absolute;width:100%;">
                         <span t-field="o.partner_id.name"/><br/>
                     </div>
-                    <div style="top: 65mm;left: 37mm;position:absolute;width:100%;">
+                    <div style="top: 72mm;left: 37mm;position:absolute;width:100%;">
                         <span t-field="o.partner_id.street"/><br/>
                     </div>
-                    <div style="top: 65mm;left: 30mm;position:absolute;width:100%;">
+                    <div style="top: 79mm;left: 30mm;position:absolute;width:100%;">
                         <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/><br/>
                     </div>
-                    <div style="top: 65mm;left: 33mm;position:absolute;width:100%;">
+                    <div style="top: 86mm;left: 33mm;position:absolute;width:100%;">
                         <span t-field="o.partner_id.vat"/> <br/>
                     </div>
-                    <div style="top: 65mm;left: 38mm;position:absolute;width:100%;">
+                    <div style="top: 93mm;left: 38mm;position:absolute;width:100%;">
                         <span t-field="o.bus_style"/>
                     </div>
                     <div style="top: 65mm;left: 150mm;position:absolute;width:100%;">
