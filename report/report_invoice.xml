@@ -43,7 +43,7 @@
                         <strong><p style="width:375px; height:50px;"><span t-field="o.partner_id.name"/></p></strong>
                     </div>
                     <div style="top: 77mm;left: 150mm;position:absolute;width:100%;">
-                        <strong><p style="width:375px; height:50px;"><span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/></strong>
+                        <strong><p style="width:375px; height:50px;"><span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/></p></strong>
                     </div>
 
                     <!-- BILL TO -->
