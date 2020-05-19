@@ -46,11 +46,11 @@
                         <strong><span t-field="o.partner_id.street"/></strong><br/>
                         <strong><span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/></strong><br/>
                         <strong><span t-field="o.partner_id.vat"/></strong><br/>
-                        <strong><span t-field="o.bus_style"/></strong>
+                        <strong><span t-field="o.bus_style" style="font-size:18px"/></strong>
                     </div>
 
 
-                    <div class="row" style="top: 130mm;position:absolute;width:100%;">
+                    <div class="row" style="top: 130mm;position:absolute;width:100%; font-size:18px;">
                         <div class="col-xs-3 col-xs-offset-1">
                             <strong><span t-field="o.user_id.name"/></strong>
                         </div>
@@ -224,7 +224,7 @@
                     
                     <!-- CHARGED TO -->
                     <div style="top: 60mm;left: 50mm;position:absolute;width:100%;">
-                        <strong><p style="width:350px; height:50px;"><span t-field="o.partner_id.name"/></p></strong><br/>
+                        <strong><p style="width:425px; height:50px;"><span t-field="o.partner_id.name"/></p></strong><br/>
                     </div>
                     <div style="top: 72mm;left: 42mm;position:absolute;width:100%;">
                         <strong><span t-field="o.partner_id.street"/></strong><br/>
@@ -236,12 +236,12 @@
                         <strong><span t-field="o.partner_id.vat"/></strong><br/>
                     </div>
                     <div style="top: 93mm;left: 48mm;position:absolute;width:100%;">
-                        <strong><p style="width:350px; height:50px;"><span t-field="o.bus_style"/></p></strong>
+                        <strong><p style="width:425px; height:50px;"><span t-field="o.bus_style"/></p></strong>
                     </div>
 
                     <!-- SHIP TO -->
                     <div style="top: 60mm;left: 160mm;position:absolute;width:100%;">
-                        <strong><p style="width:350px; height:50px;"><span t-field="o.partner_id.name"/></p></strong><br/>
+                        <strong><p style="width:425px; height:50px;"><span t-field="o.partner_id.name"/></p></strong><br/>
                     </div>
                     <div style="top: 72mm;left: 150mm;position:absolute;width:100%;">
                         <strong><span t-field="o.partner_id.street"/></strong><br/>
@@ -250,14 +250,16 @@
 
                     <!-- BILL TO -->
                     <div style="top: 60mm;left: 270mm;position:absolute;width:100%;">
-                        <strong><span t-field="o.partner_id.name"/></strong><br/>
+                        <strong><p style="width:425px; height:50px;"><span t-field="o.partner_id.name"/></p></strong><br/>
+                    </div>
+                    <div style="top: 60mm;left: 270mm;position:absolute;width:100%;">
                         <strong><span t-field="o.partner_id.street"/></strong><br/> 
                         <strong><span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/></strong><br/>
                         <strong><span t-field="o.partner_id.vat"/></strong><br/>
-                        <strong><span t-field="o.bus_style"/></strong>
+                        <strong><span t-field="o.bus_style" style="font-size:18px"/></strong>
                     </div>
 
-                    <div class="row" style="top: 130mm;position:absolute;width:100%;">
+                    <div class="row" style="top: 130mm;position:absolute;width:100%;font-size:18px;">
                         <!-- SALESMAN -->
                         <div class="col-xs-3 col-xs-offset-1">
                             <strong><p t-field="o.user_id.name"/></strong>
