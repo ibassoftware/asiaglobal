@@ -20,7 +20,7 @@
 
                     <!-- CHARGED TO -->
                     <div style="top: 65mm;left: 50mm;position:absolute;width:100%;">
-                        <strong><p style="width:300px; height:50px;"><span t-field="o.partner_id.name"/></p></strong><br/>
+                        <strong><p style="width:350px; height:50px;"><span t-field="o.partner_id.name"/></p></strong><br/>
                     </div>
                     <div style="top: 77mm;left: 42mm;position:absolute;width:100%;">
                         <strong><span t-field="o.partner_id.street"/></strong><br/>
@@ -32,7 +32,7 @@
                         <strong><span t-field="o.partner_id.vat"/></strong><br/>
                     </div>
                     <div style="top: 98mm;left: 48mm;position:absolute;width:100%;">
-                        <strong><span t-field="o.bus_style"/></strong>
+                        <strong><p style="width:350px; height:50px;"><span t-field="o.bus_style"/></p></strong>
                     </div>
 
                     <!-- SHIP TO -->
@@ -228,7 +228,7 @@
                     
                     <!-- CHARGED TO -->
                     <div style="top: 60mm;left: 50mm;position:absolute;width:100%;">
-                        <strong><p style="width:100px; height:50px;"><span t-field="o.partner_id.name"/></p></strong><br/>
+                        <strong><p style="width:350px; height:50px;"><span t-field="o.partner_id.name"/></p></strong><br/>
                     </div>
                     <div style="top: 72mm;left: 42mm;position:absolute;width:100%;">
                         <strong><span t-field="o.partner_id.street"/></strong><br/>
@@ -240,43 +240,43 @@
                         <strong><span t-field="o.partner_id.vat"/></strong><br/>
                     </div>
                     <div style="top: 93mm;left: 48mm;position:absolute;width:100%;">
-                        <strong><span t-field="o.bus_style"/></strong>
+                        <strong><p style="width:350px; height:50px;"><span t-field="o.bus_style"/></p></strong>
                     </div>
 
                     <!-- SHIP TO -->
                     <div style="top: 60mm;left: 160mm;position:absolute;width:100%;">
-                        <strong><p style="width:100px; height:50px;"><span t-field="o.partner_id.name"/></p></strong><br/>
+                        <strong><p style="width:350px; height:50px;"><span t-field="o.partner_id.name"/></p></strong><br/>
                     </div>
                     <div style="top: 72mm;left: 150mm;position:absolute;width:100%;">
-                        <span t-field="o.partner_id.street"/><br/>
-                        <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/>
+                        <strong><span t-field="o.partner_id.street"/></strong><br/>
+                        <strong><span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/></strong>
                     </div>
 
                     <!-- BILL TO -->
                     <div style="top: 60mm;left: 270mm;position:absolute;width:100%;">
-                        <span t-field="o.partner_id.name"/><br/>
-                        <span t-field="o.partner_id.street"/><br/> 
-                        <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/><br/>
-                        <span t-field="o.partner_id.vat"/> <br/>
-                        <span t-field="o.bus_style"/>
+                        <strong><span t-field="o.partner_id.name"/></strong><br/>
+                        <strong><span t-field="o.partner_id.street"/></strong><br/> 
+                        <strong><span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/></strong><br/>
+                        <strong><span t-field="o.partner_id.vat"/></strong><br/>
+                        <strong><span t-field="o.bus_style"/></strong>
                     </div>
 
                     <div class="row" style="top: 130mm;position:absolute;width:100%;">
                         <!-- SALESMAN -->
                         <div class="col-xs-3 col-xs-offset-1">
-                            <p t-field="o.user_id.name"/>
+                            <strong><p t-field="o.user_id.name"/></strong>
                         </div>
                         <!-- REFERENCE -->
                         <div class="col-xs-3 col-xs-offset-1">
-                            <p t-field="o.name"/>
+                            <strong><p t-field="o.name"/></strong>
                         </div>
                         <!-- PAYMENT TERMS -->
                         <div class="col-xs-2">
-                            <p t-field="o.payment_term_id.name"/>
+                            <strong><p t-field="o.payment_term_id.name"/></strong>
                         </div>
                         <!-- DELIVERY RECEIPT NO -->
                         <div class="col-xs-2">
-                            <p t-field="o.delivery_receipt_manual_no"/>
+                            <strong><p t-field="o.delivery_receipt_manual_no"/></strong>
                         </div>
                     </div>
 
@@ -305,22 +305,22 @@
                                 <t t-set="line_count" t-value="line_count + 1"/>
                                 <td width="5%" style="border-top: 0px;"></td>
                                 <td width="10%" style="border-top: 0px;">
-                                    <span t-field="l.quantity"/>
+                                    <strong><span t-field="l.quantity"/></strong>
                                 </td>
                                 <td width="8%" style="border-top: 0px;">
-                                    <span t-field="l.uom_id" />
+                                    <strong><span t-field="l.uom_id" /></strong>
                                 </td>
                                 <td width="37%" style="border-top: 0px;">
-                                    <span t-field="l.name"/>
+                                    <strong><span t-field="l.name"/></strong>
                                 </td>
                                 <td width="10%" class="text-center" style="border-top: 0px;">
                                     <!-- <span t-field="l.product_id.default_code"/> -->
                                 </td>
                                 <td width="15%" class="text-center" style="border-top: 0px;">
-                                    <span t-field="l.price_unit"/>
+                                    <strong><span t-field="l.price_unit"/></strong>
                                 </td>
                                 <td width="15%" class="text-center" style="border-top: 0px;">
-                                    <span t-field="l.price_subtotal" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                    <strong><span t-field="l.price_subtotal" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/></strong>
                                 </td>
                             </tr>
                             <tr t-foreach="o.tax_line_ids" t-as="l">
@@ -340,10 +340,10 @@
                                     <br/>
                                 </td>
                                 <td width="15%" class="text-center" style="border-top: 0px;">
-                                    <span t-esc="'{0:,.2f}'.format(l.amount_total)" />
+                                    <strong><span t-esc="'{0:,.2f}'.format(l.amount_total)" /></strong>
                                 </td>
                                 <td width="15%" class="text-center" style="border-top: 0px;">
-                                    <span t-field="l.amount_total" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                    <strong><span t-field="l.amount_total" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/></strong>
                                 </td>
                             </tr>
                         </tbody>
@@ -358,7 +358,7 @@
                                 <td width="12%" style="border-top: 0px;"><br/></td>
                                 <td width="10%" style="border-top: 0px;"><br/><br/></td>
                                 <td width="33%" class="text-center" style="border-top: 0px;">
-                                    <span t-field="o.comment"/>
+                                    <strong><span t-field="o.comment"/></strong>
                                 </td>
                                 <td width="10%" class="text-center" style="border-top: 0px;"><br/></td>
                                 <td width="15%" class="text-center" style="border-top: 0px;"><br/></td>
