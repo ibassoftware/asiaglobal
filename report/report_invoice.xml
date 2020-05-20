@@ -217,7 +217,7 @@
                     <div style="top: 60mm;left: 50mm;position:absolute;width:100%;">
                         <strong><p style="width:415px; height:50px;"><span t-field="o.partner_id.name"/></p></strong><br/>
                     </div>
-                    <div style="top: 72mm;left: 42mm;position:absolute;width:100%;">
+                    <div style="top: 72mm;left: 42mm;position:absolute;width:100%;font-size:18px;">
                         <strong><p style="width:425px; height:50px;"><span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/></p></strong><br/>
                     </div>
                     <div style="top: 86mm;left: 35mm;position:absolute;width:100%;font-size:18px;">
