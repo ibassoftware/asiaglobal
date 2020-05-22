@@ -14,22 +14,22 @@
                     <div style="top: 65mm;left: 50mm;position:absolute;width:100%;">
                         <p style="width:400px; height:50px;"><span t-field="o.partner_id.name"/></p>
                     </div>
-                    <div style="top: 79mm;left: 30mm;position:absolute;width:100%;font-size:20px;">
+                    <div style="top: 79mm;left: 34mm;position:absolute;width:100%;font-size:20px;">
                         <p style="width:425px; height:50px;"><span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/></p>
                     </div>
-                    <div style="top: 93mm;left: 35mm;position:absolute;width:100%;font-size:20px;">
+                    <div style="top: 93mm;left: 37mm;position:absolute;width:100%;font-size:20px;">
                         <span t-field="o.partner_id.vat"/><br/>
                     </div>
-                    <div style="top: 100mm;left: 48mm;position:absolute;width:100%;font-size:20px;">
+                    <div style="top: 100mm;left: 50mm;position:absolute;width:100%;font-size:20px;">
                         <p style="width:425px; height:50px;font-size:20px;"><span t-field="o.bus_style"/></p>
                     </div>
 
                     <!-- SHIP TO -->
                     <div style="top: 65mm;left: 160mm;position:absolute;width:100%;">
-                        <p style="width:400px; height:50px;"><span t-field="o.partner_id.name"/></p>
+                        <p style="width:400px; height:50px;"><span t-field="o.partner_shipping_id.name"/></p>
                     </div>
                     <div style="top: 79mm;left: 160mm;position:absolute;width:100%;font-size:20px;">
-                        <p style="width:400px; height:50px;"><span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/></p>
+                        <p style="width:400px; height:50px;"><span t-field="o.partner_shipping_id.street"/> <span t-field="o.partner_shipping_id.street2"/> <span t-field="o.partner_shipping_id.city"/></p>
                     </div>
 
                     <!-- BILL TO -->
@@ -45,7 +45,7 @@
                     </div>
 
 
-                    <div class="row" style="top: 130mm;position:absolute;width:100%; font-size:20px;">
+                    <!-- <div class="row" style="top: 130mm;position:absolute;width:100%; font-size:20px;">
                         <div class="col-xs-3 col-xs-offset-1">
                             <span t-field="o.user_id.name"/>
                         </div>
@@ -58,6 +58,22 @@
                         <div class="col-xs-2">
                             <br/>
                         </div>
+                    </div> -->
+
+                    <div style="top: 130mm;left: 37mm;position:absolute;width:400px;">
+                        <span t-field="o.user_id.name"/>
+                    </div>
+
+                    <div style="top: 130mm;left: 160mm;position:absolute;width:400px">
+                        <span t-field="o.name"/>
+                    </div>
+
+                    <div style="top: 130mm;left: 270mm;position:absolute;width:400px">
+                        <span t-field="o.payment_term_id.name"/>
+                    </div>
+
+                    <div style="top: 130mm;left: 330mm;position:absolute;width:400px">
+                        <span t-field="o.delivery_receipt_manual_no"/>
                     </div>
 
                     <!-- Is there a discount on at least one line? -->
@@ -220,19 +236,19 @@
                     <div style="top: 74mm;left: 42mm;position:absolute;width:100%;font-size:20px;">
                         <p style="width:425px; height:50px;"><span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/></p><br/>
                     </div>
-                    <div style="top: 88mm;left: 35mm;position:absolute;width:100%;font-size:20px;">
+                    <div style="top: 88mm;left: 37mm;position:absolute;width:100%;font-size:20px;">
                         <span t-field="o.partner_id.vat"/><br/>
                     </div>
-                    <div style="top: 95mm;left: 48mm;position:absolute;width:100%;font-size:20px;">
+                    <div style="top: 95mm;left: 50mm;position:absolute;width:100%;font-size:20px;">
                         <p style="width:425px; height:50px;"><span t-field="o.bus_style"/></p>
                     </div>
 
                     <!-- SHIP TO -->
                     <div style="top: 60mm;left: 160mm;position:absolute;width:100%;">
-                        <p style="width:400px; height:50px;"><span t-field="o.partner_id.name"/></p><br/>
+                        <p style="width:400px; height:50px;"><span t-field="o.partner_shipping_id.name"/></p><br/>
                     </div>
                     <div style="top: 74mm;left: 160mm;position:absolute;width:100%;font-size:20px;">
-                        <p style="width:400px; height:50px;"><span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/></p>
+                        <p style="width:400px; height:50px;"><span t-field="o.partner_shipping_id.street"/> <span t-field="o.partner_shipping_id.street2"/> <span t-field="o.partner_shipping_id.city"/></p>
                     </div>
 
                     <!-- BILL TO -->
@@ -247,28 +263,38 @@
                         <p style="width:425px; height:50px;font-size:20px;"><span t-field="o.bus_style"/></p>
                     </div>
 
-                    <div class="row" style="top: 130mm;position:absolute;width:100%;font-size:20px;">
-                        <!-- SALESMAN -->
+                    <!-- <div class="row" style="top: 130mm;position:absolute;width:100%;font-size:20px;">
                         <div class="col-xs-3 col-xs-offset-1">
                             <p t-field="o.user_id.name"/>
                         </div>
-                        <!-- REFERENCE -->
                         <div class="col-xs-3 col-xs-offset-1">
                             <p t-field="o.name"/>
                         </div>
-                        <!-- PAYMENT TERMS -->
                         <div class="col-xs-2">
                             <p t-field="o.payment_term_id.name"/>
                         </div>
-                        <!-- DELIVERY RECEIPT NO -->
                         <div class="col-xs-2">
                             <p t-field="o.delivery_receipt_manual_no"/>
                         </div>
+                    </div> -->
+
+                    <div style="top: 126mm;left: 37mm;position:absolute;width:400px;">
+                        <span t-field="o.user_id.name"/>
                     </div>
 
-                    <!-- <br/>
-                    <br/>
-                    <br/> -->
+                    <div style="top: 126mm;left: 160mm;position:absolute;width:400px">
+                        <span t-field="o.name"/>
+                    </div>
+
+                    <div style="top: 126mm;left: 270mm;position:absolute;width:400px">
+                        <span t-field="o.payment_term_id.name"/>
+                    </div>
+
+                    <div style="top: 126mm;left: 330mm;position:absolute;width:400px">
+                        <span t-field="o.delivery_receipt_manual_no"/>
+                    </div>
+
+                   
 
                     <!-- Is there a discount on at least one line? -->
                     <t t-set="display_discount" t-value="any([l.discount for l in o.invoice_line_ids])"/>
