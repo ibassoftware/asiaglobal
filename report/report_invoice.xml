@@ -14,13 +14,13 @@
                     <div style="top: 65mm;left: 50mm;position:absolute;width:100%;">
                         <p style="width:400px; height:50px;"><span t-field="o.partner_id.name"/></p>
                     </div>
-                    <div style="top: 79mm;left: 34mm;position:absolute;width:100%;font-size:20px;">
+                    <div style="top: 79mm;left: 35mm;position:absolute;width:100%;font-size:20px;">
                         <p style="width:425px; height:50px;"><span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/></p>
                     </div>
-                    <div style="top: 93mm;left: 37mm;position:absolute;width:100%;font-size:20px;">
+                    <div style="top: 93mm;left: 38mm;position:absolute;width:100%;font-size:20px;">
                         <span t-field="o.partner_id.vat"/><br/>
                     </div>
-                    <div style="top: 100mm;left: 50mm;position:absolute;width:100%;font-size:20px;">
+                    <div style="top: 100mm;left: 51mm;position:absolute;width:100%;font-size:20px;">
                         <p style="width:425px; height:50px;font-size:20px;"><span t-field="o.bus_style"/></p>
                     </div>
 
@@ -60,19 +60,19 @@
                         </div>
                     </div> -->
 
-                    <div style="top: 130mm;left: 37mm;position:absolute;width:400px;">
+                    <div style="top: 130mm;left: 37mm;position:absolute;width:400px;text-center">
                         <span t-field="o.user_id.name"/>
                     </div>
 
-                    <div style="top: 130mm;left: 160mm;position:absolute;width:400px">
+                    <div style="top: 130mm;left: 160mm;position:absolute;width:400px;text-center">
                         <span t-field="o.name"/>
                     </div>
 
-                    <div style="top: 130mm;left: 270mm;position:absolute;width:400px">
+                    <div style="top: 130mm;left: 270mm;position:absolute;width:400px;text-center">
                         <span t-field="o.payment_term_id.name"/>
                     </div>
 
-                    <div style="top: 130mm;left: 330mm;position:absolute;width:400px">
+                    <div style="top: 130mm;left: 330mm;position:absolute;width:400px;text-center">
                         <span t-field="o.delivery_receipt_manual_no"/>
                     </div>
 
@@ -278,19 +278,19 @@
                         </div>
                     </div> -->
 
-                    <div style="top: 126mm;left: 37mm;position:absolute;width:400px;">
+                    <div style="top: 126mm;left: 37mm;position:absolute;width:400px;text-center">
                         <span t-field="o.user_id.name"/>
                     </div>
 
-                    <div style="top: 126mm;left: 160mm;position:absolute;width:400px">
+                    <div style="top: 126mm;left: 160mm;position:absolute;width:400px;text-center">
                         <span t-field="o.name"/>
                     </div>
 
-                    <div style="top: 126mm;left: 270mm;position:absolute;width:400px">
+                    <div style="top: 126mm;left: 270mm;position:absolute;width:400px;text-center">
                         <span t-field="o.payment_term_id.name"/>
                     </div>
 
-                    <div style="top: 126mm;left: 330mm;position:absolute;width:400px">
+                    <div style="top: 126mm;left: 330mm;position:absolute;width:400px;text-center">
                         <span t-field="o.delivery_receipt_manual_no"/>
                     </div>
 
