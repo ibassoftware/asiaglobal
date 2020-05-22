@@ -60,7 +60,7 @@
                         </div>
                     </div> -->
 
-                    <div style="top: 130mm;left: 37mm;position:absolute;width:400px;text-center">
+                    <div style="top: 130mm;left: 47mm;position:absolute;width:400px;text-center">
                         <span t-field="o.user_id.name"/>
                     </div>
 
@@ -68,7 +68,7 @@
                         <span t-field="o.name"/>
                     </div>
 
-                    <div style="top: 130mm;left: 270mm;position:absolute;width:400px;text-center">
+                    <div style="top: 130mm;left: 275mm;position:absolute;width:400px;text-center">
                         <span t-field="o.payment_term_id.name"/>
                     </div>
 
@@ -278,7 +278,7 @@
                         </div>
                     </div> -->
 
-                    <div style="top: 126mm;left: 37mm;position:absolute;width:400px;text-center">
+                    <div style="top: 126mm;left: 47mm;position:absolute;width:400px;text-center">
                         <span t-field="o.user_id.name"/>
                     </div>
 
@@ -286,7 +286,7 @@
                         <span t-field="o.name"/>
                     </div>
 
-                    <div style="top: 126mm;left: 270mm;position:absolute;width:400px;text-center">
+                    <div style="top: 126mm;left: 275mm;position:absolute;width:400px;text-center">
                         <span t-field="o.payment_term_id.name"/>
                     </div>
 
