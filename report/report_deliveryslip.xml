@@ -6,26 +6,36 @@
 				<t t-call="asiaglobal.external_layout_agt_delivery">
 					<t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})" />
 					<!-- <div class="page" t-attf-style="background-image:url('/asiaglobal/static/src/img/bill.PNG');  no-repeat; background-size: cover;"> -->
-					<div class="page" style="font-size:15px">
-						<div style="top: 40mm;left: 30mm;position:relative;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
+					<div class="page" style="font-size:22px">
+						<!-- SECTION 1 -->
+						<div style="top: 40mm;left: 30mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
 							<span t-field="o.partner_id.name"/>
 						</div>
-						<div style="top: 46mm;left: 25mm;position:relative;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
+						<div style="top: 46mm;left: 25mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
 							<span t-field="o.partner_id.street"/><span t-field="o.partner_id.street2"/><span t-field="o.partner_id.city"/>
 						</div>
-						<div style="top: 48mm;left: 15mm;position:relative;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
+						<div style="top: 52mm;left: 15mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
 							<span t-field="o.partner_id.vat" />
 						</div>
 
-						<div style="top: 40mm;left: 200mm;position:relative;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
+						<!-- SECTION 2 -->
+						<div style="top: 40mm;left: 200mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
 							<span t-esc="datetime.datetime.strptime(o.scheduled_date, '%Y-%m-%d %H:%M:%S').strftime('%m/%d/%Y')" />
 						</div>
 
-						<div style="top: 46mm;left: 200mm;position:relative;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
-							<span t-field="o.sale_id.payment_term_id.name" />
+						<div style="top: 46mm;left: 200mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
+							<span t-field="o.payment_terms" />
+						</div>
+
+						<div style="top: 52mm;left: 200mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
+							<span t-field="o.invoice_no" />
+						</div>
+
+						<div style="top: 58mm;left: 200mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
+							<span t-field="o.purchase_no" />
 						</div>
 		                
-		                <table class="table table-condensed" name="delivery_receipt_table" style="top: 70mm;position:relative;width:100%;">
+		                <table class="table table-condensed" name="delivery_receipt_table" style="top: 70mm;position:absolute;width:100%;">
 		                    <thead>
 		                        <tr>
 		                            <th></th>

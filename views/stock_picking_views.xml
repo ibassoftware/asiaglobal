@@ -24,6 +24,11 @@
                     <field name="validated_by" />
                     <field name="date_done" />
                 </xpath>
+                <xpath expr="//field[@name='priority']" position="after">
+                    <field name="payment_terms" />
+                    <field name="invoice_no" />
+                    <field name="purchase_no" />
+                </xpath>
             </field>
         </record>
 
