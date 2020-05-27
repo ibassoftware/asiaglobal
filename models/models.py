@@ -94,6 +94,9 @@ class AGTSalesActivity(models.Model):
 			message |= record.message_ids[0]
 
 		# Add handling here
+		feedback_message = ""
+		if self.feedback:
+			feedback_message = cleanhtml(self.feedback)
 		if (self.res_model_id.model == 'sale.order'):
 			self.env['asiaglobal.sales_report'].create({
 				'sale_order_id':self.sale_order_id.id,
@@ -102,7 +105,7 @@ class AGTSalesActivity(models.Model):
 				'team_id': self.sale_order_id.team_id.id,
 				'project_description': self.project_description,
 				'activity_summary': self.summary,
-				'feedback': cleanhtml(self.feedback),
+				'feedback': feedback_message,
 				'user_id': self.env.uid
 				})
 		self.unlink()
