@@ -14,7 +14,7 @@
 						<div style="top: 69mm;left: 35mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
 							<span t-field="o.partner_id.street"/><span t-field="o.partner_id.street2"/><span t-field="o.partner_id.city"/>
 						</div>
-						<div style="top: 76mm;left: 30mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
+						<div style="top: 78mm;left: 30mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
 							<span t-field="o.partner_id.vat" />
 						</div>
 
@@ -27,15 +27,15 @@
 							<span t-field="o.payment_terms" />
 						</div>
 
-						<div style="top: 76mm;left: 270mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
+						<div style="top: 78mm;left: 270mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
 							<span t-field="o.invoice_no" />
 						</div>
 
-						<div style="top: 83mm;left: 270mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
+						<div style="top: 87mm;left: 270mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
 							<span t-field="o.purchase_no" />
 						</div>
 		                
-		                <table class="table table-condensed" name="delivery_receipt_table" style="top: 150mm;position:absolute;width:100%;">
+		                <table class="table table-condensed" name="delivery_receipt_table" style="top: 140mm;position:absolute;width:100%;">
 		                    <thead>
 		                        <tr>
 		                            <th></th>
