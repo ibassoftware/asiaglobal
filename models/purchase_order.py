@@ -80,9 +80,7 @@ class PurchaseOrderLine(models.Model):
 
 	@api.multi
 	def _prepare_stock_moves(self, picking):
-		_logger.info("HELLO")
 		result = super(PurchaseOrderLine, self)._prepare_stock_moves(picking)
-		_logger.info(result)
 		result[0]['analytic_account_id'] = self.account_analytic_id.id
 		return result
 			
