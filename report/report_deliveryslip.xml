@@ -8,30 +8,30 @@
 					<!-- <div class="page" t-attf-style="background-image:url('/asiaglobal/static/src/img/bill.PNG');  no-repeat; background-size: cover;"> -->
 					<div class="page" style="font-size:22px">
 						<!-- SECTION 1 -->
-						<div style="top: 62mm;left: 70mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
+						<div style="top: 62mm;left: 72mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
 							<span t-field="o.partner_id.name"/>
 						</div>
-						<div style="top: 71mm;left: 42mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
+						<div style="top: 71mm;left: 44mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
 							<span t-field="o.partner_id.street"/><span t-field="o.partner_id.street2"/><span t-field="o.partner_id.city"/>
 						</div>
-						<div style="top: 80mm;left: 33mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
+						<div style="top: 80mm;left: 35mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
 							<span t-field="o.partner_id.vat" />
 						</div>
 
 						<!-- SECTION 2 -->
-						<div style="top: 60mm;left: 290mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
+						<div style="top: 60mm;left: 295mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
 							<span t-esc="datetime.datetime.strptime(o.scheduled_date, '%Y-%m-%d %H:%M:%S').strftime('%m/%d/%Y')" />
 						</div>
 
-						<div style="top: 69mm;left: 285mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
+						<div style="top: 69mm;left: 290mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
 							<span t-field="o.payment_terms" />
 						</div>
 
-						<div style="top: 78mm;left: 293mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
+						<div style="top: 78mm;left: 298mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
 							<span t-field="o.invoice_no" />
 						</div>
 
-						<div style="top: 87mm;left: 290mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
+						<div style="top: 87mm;left: 295mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
 							<span t-field="o.purchase_no" />
 						</div>
 		                
