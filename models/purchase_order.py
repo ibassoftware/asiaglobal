@@ -9,6 +9,9 @@ from odoo.tools.misc import formatLang
 from odoo.addons.base.res.res_partner import WARNING_MESSAGE, WARNING_HELP
 from odoo.addons import decimal_precision as dp
 
+import logging
+_logger = logging.getLogger(__name__)
+
 class PurchaseOrder(models.Model):
 	_inherit = 'purchase.order'
 
@@ -74,5 +77,12 @@ class PurchaseOrderLine(models.Model):
 		
 
 		return result
-		
+
+	@api.multi
+	def _prepare_stock_moves(self, picking):
+		_logger.info("HELLO")
+		result = super(PurchaseOrderLine, self)._prepare_stock_moves(picking)
+		_logger.info(result)
+		result[0]['analytic_account_id'] = self.account_analytic_id.id
+		return result
 			
