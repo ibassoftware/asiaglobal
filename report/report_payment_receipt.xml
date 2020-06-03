@@ -43,7 +43,7 @@
             </xpath> -->
 
             <xpath expr="//div[@class='page']" position="replace">
-                <div class="page">
+                <div class="page" style="color:black;">
                     <br/>
                     <br/>
                     <br/>

@@ -8,34 +8,34 @@
 					<!-- <div class="page" t-attf-style="background-image:url('/asiaglobal/static/src/img/bill.PNG');  no-repeat; background-size: cover;"> -->
 					<div class="page" style="font-size:22px">
 						<!-- SECTION 1 -->
-						<div style="top: 60mm;left: 60mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
+						<div style="top: 62mm;left: 70mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
 							<span t-field="o.partner_id.name"/>
 						</div>
-						<div style="top: 69mm;left: 35mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
+						<div style="top: 71mm;left: 42mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
 							<span t-field="o.partner_id.street"/><span t-field="o.partner_id.street2"/><span t-field="o.partner_id.city"/>
 						</div>
-						<div style="top: 78mm;left: 30mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
+						<div style="top: 80mm;left: 33mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
 							<span t-field="o.partner_id.vat" />
 						</div>
 
 						<!-- SECTION 2 -->
-						<div style="top: 60mm;left: 280mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
+						<div style="top: 60mm;left: 290mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
 							<span t-esc="datetime.datetime.strptime(o.scheduled_date, '%Y-%m-%d %H:%M:%S').strftime('%m/%d/%Y')" />
 						</div>
 
-						<div style="top: 69mm;left: 280mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
+						<div style="top: 69mm;left: 285mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
 							<span t-field="o.payment_terms" />
 						</div>
 
-						<div style="top: 78mm;left: 280mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
+						<div style="top: 78mm;left: 293mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
 							<span t-field="o.invoice_no" />
 						</div>
 
-						<div style="top: 87mm;left: 280mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
+						<div style="top: 87mm;left: 290mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
 							<span t-field="o.purchase_no" />
 						</div>
 		                
-		                <table class="table table-condensed" name="delivery_receipt_table" style="top: 135mm;position:absolute;width:100%;">
+		                <table class="table table-condensed" name="delivery_receipt_table" style="top: 130mm;position:absolute;width:100%;">
 		                    <thead>
 		                        <tr>
 		                            <th></th>
@@ -49,17 +49,17 @@
 		                        <t t-set="line_count" t-value="0"/>
 		                        <tr t-foreach="o.move_lines" t-as="move">
 		                            <t t-set="line_count" t-value="line_count + 1"/>
-		                            <td width="3%" style="border-top: 0px;"></td>
-		                            <td width="12%" style="border-top: 0px;">
+		                            <td width="5%" style="border-top: 0px;"></td>
+		                            <td width="15%" style="border-top: 0px;">
 		                                <span t-field="move.product_id.default_code"/>
 		                            </td>
-		                            <td width="12%" style="border-top: 0px;">
+		                            <td width="15%" style="border-top: 0px;">
 		                                <span t-field="move.quantity_done" />
 		                            </td>
-		                            <td width="12%" style="border-top: 0px;">
+		                            <td width="15%" style="border-top: 0px;">
 		                                <span t-field="move.product_uom.name" />
 		                            </td>
-		                            <td width="60%" style="border-top: 0px;">
+		                            <td width="50%" style="border-top: 0px;">
 		                                <span t-field="move.name"/>
 		                            </td>
 		                        </tr>
@@ -67,19 +67,19 @@
 		                        <t t-if="break_count > 0">
 		                            <t t-foreach="break_count" t-as="break">
 		                                <tr>
-		                                    <td width="3%" style="border-top: 0px;">
+		                                    <td width="5%" style="border-top: 0px;">
 		                                        <br/>
 		                                    </td>
-		                                    <td width="12%" style="border-top: 0px;">
+		                                    <td width="15%" style="border-top: 0px;">
 		                                        <br/>
 		                                    </td>
-		                                    <td width="12%" style="border-top: 0px;">
+		                                    <td width="15%" style="border-top: 0px;">
 		                                        <br/>
 		                                    </td>
-		                                    <td width="12%" class="text-center" style="border-top: 0px;">
+		                                    <td width="15%" class="text-center" style="border-top: 0px;">
 		                                        <br/>
 		                                    </td>
-		                                    <td width="60%" class="text-center" style="border-top: 0px;">
+		                                    <td width="50%" class="text-center" style="border-top: 0px;">
 		                                        <br/>
 		                                    </td>
 		                                </tr>
