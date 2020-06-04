@@ -24,5 +24,17 @@
             </field>
         </record>
 
+        <record id="hr_expense_form_view_extend" model="ir.ui.view">
+            <field name="name">hr.expense.form.extend</field>
+            <field name="model">hr.expense</field>
+            <field name="inherit_id" ref="hr_expense.hr_expense_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='unit_amount']" position="attributes">
+                    <attribute name="widget"></attribute>
+                    <attribute name="options">{}</attribute>
+                </xpath>
+            </field>
+        </record>
+
 	</data>
 </odoo>

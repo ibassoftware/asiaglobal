@@ -38,7 +38,11 @@ class PurchaseOrder(models.Model):
 class PurchaseOrderLine(models.Model):
 	_inherit = 'purchase.order.line'
 
+	# NEW FIELDS
 	part_number = fields.Char()
+
+	# OVERRIDE
+	price_unit = fields.Float(digits=dp.get_precision('Sale Product Price'))
 
 	@api.onchange('product_id')
 	def onchange_product_id(self):

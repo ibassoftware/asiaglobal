@@ -1,4 +1,5 @@
 from odoo import models, fields, api, _ 
+from odoo.addons import decimal_precision as dp
 
 class SaleOrder(models.Model):
 	_inherit = 'sale.order'
@@ -16,3 +17,8 @@ class SaleOrder(models.Model):
 
 	# OVERRIDE
 	validity_date = fields.Date(states={'draft': [('readonly', False)], 'manager_approval': [('readonly', False)], 'admin_approval': [('readonly', False)], 'approved': [('readonly', False)], 'sent': [('readonly', False)]},)
+
+class SaleOrderLine(models.Model):
+	_inherit = 'sale.order.line'
+
+	price_unit = fields.Float(digits=dp.get_precision('Sale Product Price'))
