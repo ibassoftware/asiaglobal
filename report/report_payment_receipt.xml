@@ -97,7 +97,7 @@
                         <br/>
                         <div class="row">
                             <div class="pull-right" style="margin-right: 50px;">
-                                <strong><span>Payment Received By:</span></strong><br/>
+                                <strong><p>Payment Received By:</p></strong><br/>
                                 <span>Name:</span><br/>
                                 <span>Signature:</span><br/>
                                 <span>Date:</span>
@@ -107,19 +107,19 @@
                         <div class="row">
                             <div class="col-xs-3">
                                 <center>
-                                    <span>_________________________</span><br/>
+                                    <span>_______________________</span><br/>
                                     <span>SPC</span>
                                 </center>
                             </div>
                             <div class="col-xs-3">
                                 <center>
-                                    <span>_________________________</span><br/>
+                                    <span>_______________________</span><br/>
                                     <span>JTM</span>
                                 </center>
                             </div>
                             <div class="col-xs-3">
                                 <center>
-                                    <span>_________________________</span><br/>
+                                    <span>_______________________</span><br/>
                                     <span>AVR</span>
                                 </center>
                             </div>
