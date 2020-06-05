@@ -322,10 +322,10 @@
                                 <td width="9%" style="border-top: 0px;">
                                     <span t-field="l.uom_id" />
                                 </td>
-                                <td width="36%" style="border-top: 0px;">
+                                <td width="41%" style="border-top: 0px;">
                                     <span t-field="l.name"/>
                                 </td>
-                                <td width="10%" class="text-center" style="border-top: 0px;">
+                                <td width="5%" class="text-center" style="border-top: 0px;">
                                     <!-- <span t-field="l.product_id.default_code"/> -->
                                 </td>
                                 <td width="15%" class="text-center" style="border-top: 0px;">
@@ -344,10 +344,10 @@
                                 <td width="9%" style="border-top: 0px;">
                                     <br/>
                                 </td>
-                                <td width="36%" style="border-top: 0px;">
+                                <td width="41%" style="border-top: 0px;">
                                     <span t-field="l.name"/>
                                 </td>
-                                <td width="10%" class="text-center" style="border-top: 0px;">
+                                <td width="5%" class="text-center" style="border-top: 0px;">
                                     <!-- <span t-field="l.display_name"/> -->
                                     <br/>
                                 </td>
