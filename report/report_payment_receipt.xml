@@ -96,8 +96,8 @@
                         </div>
                         <br/>
                         <div class="row">
-                            <div class="pull-right" style="margin-right: 50px;">
-                                <strong><p>Payment Received By:</p></strong><br/>
+                            <div class="pull-right" style="margin-right: 75px;">
+                                <strong><span>Payment Received By:</span></strong><br/>
                                 <span>Name:</span><br/>
                                 <span>Signature:</span><br/>
                                 <span>Date:</span>
