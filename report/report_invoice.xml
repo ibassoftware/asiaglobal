@@ -103,7 +103,7 @@
                                 	<span t-field="l.uom_id" />
                                 </td>
                                 <td width="36%" style="border-top: 0px;">
-                                    <span t-field="l.name"/>
+                                    <span t-field="l.description_name"/>
                                 </td>
                                 <td width="13%" class="text-center" style="border-top: 0px;">
                                     <!-- <span t-field="l.product_id.default_code"/> -->
@@ -323,7 +323,8 @@
                                     <span t-field="l.uom_id" />
                                 </td>
                                 <td width="41%" style="border-top: 0px;">
-                                    <span t-field="l.name" style="white-space: nowrap;display: inline-block;"/>
+                                    <!-- <span t-field="l.name" style="white-space: nowrap;display: inline-block;"/> -->
+                                    <span t-field="l.description_name"/>
                                 </td>
                                 <td width="5%" class="text-center" style="border-top: 0px;">
                                     <!-- <span t-field="l.product_id.default_code"/> -->

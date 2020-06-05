@@ -18,6 +18,9 @@
                         </group>
                     </group>
                 </xpath>
+                <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='name']" position="after">
+                    <field name="description_name" invisible="1"/>
+                </xpath>
             </field>
         </record>
 

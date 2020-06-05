@@ -29,6 +29,14 @@ class AccountInvoice(models.Model):
 class AccountInvoiceLine(models.Model):
 	_inherit = 'account.invoice.line'
 
+	@api.multi
+	def _get_description(self):
+		for record in self:
+			description_name = ''
+			if record.name:
+				description_name = record.name.replace('\n', ' ')
+			record.description_name = description_name
+
 	# EXTEND TO USE CUSTOM SALES DECIMAL ACCURACY
 	price_unit = fields.Float(digits=dp.get_precision('Sale Product Price'))
-
+	description_name = fields.Text(compute='_get_description')
