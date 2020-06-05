@@ -96,7 +96,16 @@
                         </div>
                         <br/>
                         <div class="row">
-                            <div class="pull-right" style="margin-right: 75px;">
+                            <div class="col-xs-3">
+                                <br/>
+                            </div>
+                            <div class="col-xs-3">
+                                <br/>
+                            </div>
+                            <div class="col-xs-3">
+                                <br/>
+                            </div>
+                            <div class="col-xs-3">
                                 <strong><span>Payment Received By:</span></strong><br/>
                                 <span>Name:</span><br/>
                                 <span>Signature:</span><br/>
@@ -125,7 +134,7 @@
                             </div>
                             <div class="col-xs-3">
                                 <br/>
-                             </div>
+                            </div>
                         </div>
                     </div>
                 </t>
