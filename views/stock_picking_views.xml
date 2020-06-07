@@ -13,6 +13,9 @@
                     <field name="product_id_description" />
                     <field name="location"/>
                 </xpath>
+                <xpath expr="//field[@name='move_lines']/tree/field[@name='product_uom']" position="after">
+                    <field name="has_landed_cost" />
+                </xpath>
                 <xpath expr="//field[@name='partner_id']" position="after">
                     <field name="location" invisible="1"/>
                 </xpath>
@@ -28,6 +31,7 @@
                     <field name="payment_terms" />
                     <field name="invoice_no" />
                     <field name="purchase_no" />
+                    <field name="jmrf_id" />
                 </xpath>
             </field>
         </record>

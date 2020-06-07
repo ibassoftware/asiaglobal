@@ -5,10 +5,21 @@ from odoo import models, fields, api, _
 class StockMove(models.Model):
 	_inherit = 'stock.move'
 
+	@api.multi
+	def _get_landed_cost(self):
+		for record in self:
+			has_landed_cost = False
+			landed_cost_line = self.env['stock.valuation.adjustment.lines'].search([('move_id','=',record.id)])
+			for line in landed_cost_line:
+				if line.cost_id.state in ['validate','done']:
+					has_landed_cost = True
+			record.has_landed_cost = has_landed_cost
+
 	product_id_code = fields.Char(string='Item Code', compute='_get_product_details')
 	product_id_partno =  fields.Char(string='Part Number', compute='_get_product_details')
 	product_id_description = fields.Char(string='Description', compute='_get_product_details')
 	location = fields.Char()
+	has_landed_cost = fields.Boolean(string='Landed Cost', compute="_get_landed_cost")
 
 	@api.multi
 	@api.depends('product_id')

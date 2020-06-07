@@ -10,6 +10,7 @@ class StockPicking(models.Model):
 	payment_terms = fields.Char(string='Payment Terms', compute='_get_invoice_details')
 	invoice_no = fields.Char(string='Invoice No.', compute='_get_invoice_details')
 	purchase_no = fields.Char(string='P.O No.', compute='_get_invoice_details')
+	jmrf_id = fields.Many2one('asiaglobal.job_material_request_form', string="Job / Material Request Form", copy=False)
 
 	@api.multi
 	def button_validate(self):

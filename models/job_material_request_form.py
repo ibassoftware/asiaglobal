@@ -83,7 +83,7 @@ class JobMaterialRequestForm(models.Model):
 
 		self.update(values)
 
-	stock_picking_id = fields.Many2one('stock.picking', string='Transfer')
+	stock_picking_id = fields.Many2one('stock.picking', string='Transfer', copy=False)
 	
 	def create_material_transfer(self):
 		for rec in self:
@@ -92,7 +92,8 @@ class JobMaterialRequestForm(models.Model):
 				'picking_type_id': self.picking_id.id,
 				'location_id': self.location_id_2.id,
 				'location_dest_id': self.destination_id.id,
-				'origin': self.name
+				'origin': self.name,
+				'jmrf_id': self.id,
 			}) 
 
 			for target_list in self.line_ids:

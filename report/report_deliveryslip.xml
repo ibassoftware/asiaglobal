@@ -9,10 +9,20 @@
 					<div class="page" style="font-size:22px">
 						<!-- SECTION 1 -->
 						<div style="top: 62mm;left: 85mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
-							<span t-field="o.partner_id.name"/>
+							<t t-if="not o.partner_id and o.jmrf_id">
+								<span t-field="o.jmrf_id.customer_id.name"/>
+							</t>
+							<t t-else="">
+								<span t-field="o.partner_id.name"/>
+							</t>
 						</div>
 						<div style="top: 71mm;left: 55mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
-							<span t-field="o.partner_id.street"/><span t-field="o.partner_id.street2"/><span t-field="o.partner_id.city"/>
+							<t t-if="not o.partner_id and o.jmrf_id">
+								<span t-field="o.jmrf_id.location_id.street"/><span t-field="o.jmrf_id.location_id.street2"/><span t-field="o.jmrf_id.location_id.city"/>
+							</t>
+							<t t-else="">
+								<span t-field="o.partner_id.street"/><span t-field="o.partner_id.street2"/><span t-field="o.partner_id.city"/>
+							</t>
 						</div>
 						<div style="top: 80mm;left: 45mm;position:absolute;width:100%;padding-top:0.5em;padding-bottom:0.5em;">
 							<span t-field="o.partner_id.vat" />
