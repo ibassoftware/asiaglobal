@@ -14,8 +14,6 @@ class StockMove(models.Model):
 			move_ids = self.env['stock.move'].search([('state','=','done'),('remaining_qty','>',0)])
 			for move in move_ids:
 				if move.location_id.usage == 'supplier' and move.location_dest_id.usage == 'internal':
-					_logger.info('OLA')
-					_logger.info(move.id)
 					landed_cost_line = self.env['stock.valuation.adjustment.lines'].search([('move_id','=',move.id)])
 					for line in landed_cost_line:
 						if line.cost_id.state in ['validate','done']:
@@ -26,7 +24,7 @@ class StockMove(models.Model):
 	product_id_partno =  fields.Char(string='Part Number', compute='_get_product_details')
 	product_id_description = fields.Char(string='Description', compute='_get_product_details')
 	location = fields.Char()
-	has_landed_cost = fields.Boolean(string='Landed Cost', compute="_get_landed_cost")
+	has_landed_cost = fields.Boolean(string='With LC?', compute="_get_landed_cost")
 
 	@api.multi
 	@api.depends('product_id')
