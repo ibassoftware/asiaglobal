@@ -1,6 +1,8 @@
 from odoo import models, fields, api, _ 
 
 # from collections import defaultdict
+import logging
+_logger = logging.getLogger(__name__)
 
 class StockMove(models.Model):
 	_inherit = 'stock.move'
@@ -9,10 +11,15 @@ class StockMove(models.Model):
 	def _get_landed_cost(self):
 		for record in self:
 			has_landed_cost = False
-			landed_cost_line = self.env['stock.valuation.adjustment.lines'].search([('move_id','=',record.id)])
-			for line in landed_cost_line:
-				if line.cost_id.state in ['validate','done']:
-					has_landed_cost = True
+			move_ids = self.env['stock.move'].search([('state','=','done'),('remaining_qty','>',0)])
+			for move in move_ids:
+				if move.location_id.usage == 'supplier' and move.location_dest_id.usage == 'internal':
+					_logger.info('OLA')
+					_logger.info(move.id)
+					landed_cost_line = self.env['stock.valuation.adjustment.lines'].search([('move_id','=',move.id)])
+					for line in landed_cost_line:
+						if line.cost_id.state in ['validate','done']:
+							has_landed_cost = True
 			record.has_landed_cost = has_landed_cost
 
 	product_id_code = fields.Char(string='Item Code', compute='_get_product_details')
