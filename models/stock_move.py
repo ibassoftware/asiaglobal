@@ -11,7 +11,7 @@ class StockMove(models.Model):
 	def _get_landed_cost(self):
 		for record in self:
 			has_landed_cost = False
-			move_ids = self.env['stock.move'].search([('state','=','done'),('remaining_qty','>',0)])
+			move_ids = self.env['stock.move'].search([('product_id','=',record.product_id.id),('state','=','done'),('remaining_qty','>',0)])
 			for move in move_ids:
 				if move.location_id.usage == 'supplier' and move.location_dest_id.usage == 'internal':
 					landed_cost_line = self.env['stock.valuation.adjustment.lines'].search([('move_id','=',move.id)])
