@@ -296,10 +296,10 @@
                                     <!-- <span t-field="l.name" style="white-space: nowrap;display: inline-block;"/> -->
                                     <span t-field="l.description_name"/>
                                 </td>
-                                <td width="2%" class="text-center" style="border-top: 0px;">
+                                <td width="5%" class="text-center" style="border-top: 0px;">
                                     <!-- <span t-field="l.product_id.default_code"/> -->
                                 </td>
-                                <td width="13%" class="text-center" style="border-top: 0px;">
+                                <td width="15%" class="text-center" style="border-top: 0px;">
                                     <!-- <span t-field="l.price_unit"/> -->
                                     <span t-esc="'{0:,.2f}'.format(l.price_unit)"/>
                                 </td>
@@ -319,11 +319,11 @@
                                 <td width="41%" style="border-top: 0px;">
                                     <span t-field="l.name"/>
                                 </td>
-                                <td width="2%" class="text-center" style="border-top: 0px;">
+                                <td width="5%" class="text-center" style="border-top: 0px;">
                                     <!-- <span t-field="l.display_name"/> -->
                                     <br/>
                                 </td>
-                                <td width="13%" class="text-center" style="border-top: 0px;">
+                                <td width="15%" class="text-center" style="border-top: 0px;">
                                     <span t-esc="'{0:,.2f}'.format(l.amount_total)" />
                                 </td>
                                 <td width="15%" class="text-center" style="border-top: 0px;">
