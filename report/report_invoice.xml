@@ -44,22 +44,6 @@
                         <p style="width:425px; height:50px;"><span t-field="o.bus_style"/></p>
                     </div>
 
-
-                    <!-- <div class="row" style="top: 130mm;position:absolute;width:100%; font-size:20px;">
-                        <div class="col-xs-3 col-xs-offset-1">
-                            <span t-field="o.user_id.name"/>
-                        </div>
-                        <div class="col-xs-3 col-xs-offset-1">
-                            <span t-field="o.name"/>
-                        </div>
-                        <div class="col-xs-2">
-                            <span t-field="o.payment_term_id.name"/>
-                        </div>
-                        <div class="col-xs-2">
-                            <br/>
-                        </div>
-                    </div> -->
-
                     <div style="top: 130mm;left: 47mm;position:absolute;width:400px;text-center">
                         <span t-field="o.user_id.name"/>
                     </div>
@@ -109,7 +93,8 @@
                                     <!-- <span t-field="l.product_id.default_code"/> -->
                                 </td>
                                 <td width="12%" class="text-center" style="border-top: 0px;">
-                                    <span t-field="l.price_unit"/>
+                                    <!-- <span t-field="l.price_unit"/> -->
+                                    <span t-esc="'{0:,.2f}'.format(l.price_unit)"/>
                                 </td>
                                 <td width="15%" class="text-center" style="border-top: 0px;">
                                     <span t-field="l.price_subtotal" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
@@ -263,21 +248,6 @@
                         <p style="width:425px; height:50px;font-size:20px;"><span t-field="o.bus_style"/></p>
                     </div>
 
-                    <!-- <div class="row" style="top: 130mm;position:absolute;width:100%;font-size:20px;">
-                        <div class="col-xs-3 col-xs-offset-1">
-                            <p t-field="o.user_id.name"/>
-                        </div>
-                        <div class="col-xs-3 col-xs-offset-1">
-                            <p t-field="o.name"/>
-                        </div>
-                        <div class="col-xs-2">
-                            <p t-field="o.payment_term_id.name"/>
-                        </div>
-                        <div class="col-xs-2">
-                            <p t-field="o.delivery_receipt_manual_no"/>
-                        </div>
-                    </div> -->
-
                     <div style="top: 126mm;left: 47mm;position:absolute;width:400px;text-center">
                         <span t-field="o.user_id.name"/>
                     </div>
@@ -299,7 +269,7 @@
                     <!-- Is there a discount on at least one line? -->
                     <t t-set="display_discount" t-value="any([l.discount for l in o.invoice_line_ids])"/>
 
-                    <table class="table table-condensed" name="invoice_line_table" style="top: 173mm;position:absolute;">
+                    <table class="table table-condensed" name="invoice_line_table" style="top: 165mm;position:absolute;">
                         <thead>
                             <tr>
                                 <th></th>
@@ -326,11 +296,12 @@
                                     <!-- <span t-field="l.name" style="white-space: nowrap;display: inline-block;"/> -->
                                     <span t-field="l.description_name"/>
                                 </td>
-                                <td width="5%" class="text-center" style="border-top: 0px;">
+                                <td width="2%" class="text-center" style="border-top: 0px;">
                                     <!-- <span t-field="l.product_id.default_code"/> -->
                                 </td>
-                                <td width="15%" class="text-center" style="border-top: 0px;">
-                                    <span t-field="l.price_unit"/>
+                                <td width="13%" class="text-center" style="border-top: 0px;">
+                                    <!-- <span t-field="l.price_unit"/> -->
+                                    <span t-esc="'{0:,.2f}'.format(l.price_unit)"/>
                                 </td>
                                 <td width="15%" class="text-center" style="border-top: 0px;">
                                     <span t-field="l.price_subtotal" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
@@ -348,11 +319,11 @@
                                 <td width="41%" style="border-top: 0px;">
                                     <span t-field="l.name"/>
                                 </td>
-                                <td width="5%" class="text-center" style="border-top: 0px;">
+                                <td width="2%" class="text-center" style="border-top: 0px;">
                                     <!-- <span t-field="l.display_name"/> -->
                                     <br/>
                                 </td>
-                                <td width="15%" class="text-center" style="border-top: 0px;">
+                                <td width="13%" class="text-center" style="border-top: 0px;">
                                     <span t-esc="'{0:,.2f}'.format(l.amount_total)" />
                                 </td>
                                 <td width="15%" class="text-center" style="border-top: 0px;">
