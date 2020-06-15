@@ -279,6 +279,7 @@
                                 <th></th>
                                 <th></th>
                                 <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody class="invoice_tbody">
@@ -299,12 +300,15 @@
                                 <td width="5%" class="text-center" style="border-top: 0px;">
                                     <!-- <span t-field="l.product_id.default_code"/> -->
                                 </td>
-                                <td width="17%" class="text-right" style="border-top: 0px;">
+                                <td width="12%" class="text-right" style="border-top: 0px;">
                                     <!-- <span t-field="l.price_unit"/> -->
                                     <span t-esc="'{0:,.2f}'.format(l.price_unit)"/>
                                 </td>
-                                <td width="13%" class="text-right" style="border-top: 0px;">
+                                <td width="15%" class="text-right" style="border-top: 0px;">
                                     <span t-field="l.price_subtotal" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                </td>
+                                <td width="3%" style="border-top: 0px;">
+                                    <!-- <span t-field="l.product_id.default_code"/> -->
                                 </td>
                             </tr>
                             <tr t-foreach="o.tax_line_ids" t-as="l">
@@ -323,11 +327,14 @@
                                     <!-- <span t-field="l.display_name"/> -->
                                     <br/>
                                 </td>
-                                <td width="17%" class="text-right" style="border-top: 0px;">
+                                <td width="12%" class="text-right" style="border-top: 0px;">
                                     <span t-esc="'{0:,.2f}'.format(l.amount_total)" />
                                 </td>
-                                <td width="13%" class="text-right" style="border-top: 0px;">
+                                <td width="15%" class="text-right" style="border-top: 0px;">
                                     <span t-field="l.amount_total" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                </td>
+                                <td width="3%" style="border-top: 0px;">
+                                    <!-- <span t-field="l.product_id.default_code"/> -->
                                 </td>
                             </tr>
                         </tbody>
