@@ -39,6 +39,9 @@ class SaleOrderLine(models.Model):
 		name = product.default_code
 		if product.description_sale:
 			name += '\n' + product.description_sale
+		# If no description and item code
+		if not name:
+			name = product.name
 		vals['name'] = name
 		self.update(vals)
 		return result
