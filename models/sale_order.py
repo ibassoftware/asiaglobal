@@ -36,7 +36,7 @@ class SaleOrderLine(models.Model):
 			pricelist=self.order_id.pricelist_id.id,
 			uom=self.product_uom.id
 		)
-		name = product.default_code
+		name = product.default_code or ''
 		if product.description_sale:
 			name += '\n' + product.description_sale
 		# If no description and item code
