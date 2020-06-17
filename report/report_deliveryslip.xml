@@ -70,7 +70,12 @@
 		                                <span t-field="move.product_uom.name" />
 		                            </td>
 		                            <td width="50%" style="border-top: 0px;">
-		                                <span t-field="move.name"/>
+		                            	<t t-if="o.jmrf_id">
+		                            		<span t-field="move.product_id_description"/>
+		                            	</t>
+		                            	<t t-else="">
+		                                	<span t-field="move.name"/>
+		                                </t>
 		                            </td>
 		                        </tr>
 		                        <t t-set="break_count" t-value="17 - line_count"/>
