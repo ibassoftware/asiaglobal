@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="ckus_check_extend" inherit_id="l10n_us_check_printing.ckus_check">
+            <xpath expr="//div[@class='ckus_check']" position="replace">
+                <div class="ckus_check">
+                    <!-- <div class="sequence_number" t-if="page['sequence_number']" t-esc="page['sequence_number']" /> -->
+                    <div class="ckus_date" t-esc="page['payment_date']" style="top: 0.37in;left: 6.13in;" />
+                    <div class="ckus_amount" style="top: 0.60in;left: 6.35in;">
+                        <t t-esc="page['amount']"/>
+                    </div>
+                    <div class="ckus_payee_name" t-esc="page['partner_name']" style="top: 0.70in; left: 1.30in; font-size: 13px;" />
+                    <div class="ckus_amount_in_word" t-esc="page['amount_in_word']" style="top: 0.95in; left: 1.15in; font-weight: normal; font-size: 13px"/>
+                </div>
+            </xpath>
+        </template>
+
+        <template id="ckus_stub_extend" inherit_id="l10n_us_check_printing.ckus_stub">
+            <xpath expr="//div[@t-attf-class='ckus_stub ckus_stub_{{ stub_num }}']" position="replace">
+            </xpath>
+        </template>
+
+    </data>
+</odoo>

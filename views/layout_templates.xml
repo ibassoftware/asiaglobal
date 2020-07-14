@@ -205,7 +205,7 @@
               
             </div> -->
 
-            <div class="article o_report_layout_standard">
+            <div class="article o_report_layout_standard custom_font">
                 <t t-raw="0" />
             </div>
 

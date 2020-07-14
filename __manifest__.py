@@ -21,7 +21,8 @@
 
     # any module necessary for this one to work correctly
     'depends': ['base','crm', 'sale_management', 'purchase','hr', 'hr_expense', 'helpdesk', 'sales_team', 'account_reports',
-    'sale','sale_crm', 'mail', 'sale_subscription', 'product', 'stock', 'stock_account', 'account', 'account_budget', 'calendar', 'stock_analytic', 'ibas_agt'],
+    'sale','sale_crm', 'mail', 'sale_subscription', 'product', 'stock', 'stock_account', 'account', 'account_budget', 'calendar', 'stock_analytic', 'ibas_agt', 
+    'account_check_printing', 'l10n_us_check_printing'],
 
     # always loaded
     'data': [
@@ -73,6 +74,7 @@
         'report/report_deliveryslip.xml',
         'report/report_account_payable_voucher.xml',
         'report/report_budget_view.xml',
+        'report/report_print_check_views.xml',
         'report/report.xml',
         'views/service_menu.xml',
         'wizard/maintenance_jo_views.xml',

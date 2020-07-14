@@ -11,35 +11,35 @@
 
 
                     <!-- CHARGED TO -->
-                    <div style="top: 65mm;left: 50mm;position:absolute;width:100%;">
+                    <div style="top: 63mm;left: 50mm;position:absolute;width:100%;">
                         <p style="width:400px; height:50px;"><span t-field="o.partner_id.name"/></p>
                     </div>
-                    <div style="top: 79mm;left: 35mm;position:absolute;width:100%;font-size:20px;">
+                    <div style="top: 77mm;left: 35mm;position:absolute;width:100%;font-size:21px;">
                         <p style="width:425px; height:50px;"><span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/></p>
                     </div>
-                    <div style="top: 93mm;left: 38mm;position:absolute;width:100%;font-size:20px;">
+                    <div style="top: 92mm;left: 38mm;position:absolute;width:100%;font-size:21px;">
                         <span t-field="o.partner_id.vat"/><br/>
                     </div>
-                    <div style="top: 100mm;left: 51mm;position:absolute;width:100%;font-size:20px;">
-                        <p style="width:425px; height:50px;font-size:20px;"><span t-field="o.bus_style"/></p>
+                    <div style="top: 100mm;left: 51mm;position:absolute;width:100%;font-size:21px;">
+                        <p style="width:425px; height:50px;font-size:21px;"><span t-field="o.bus_style"/></p>
                     </div>
 
                     <!-- SHIP TO -->
-                    <div style="top: 65mm;left: 160mm;position:absolute;width:100%;">
+                    <div style="top: 63mm;left: 160mm;position:absolute;width:100%;">
                         <p style="width:400px; height:50px;"><span t-field="o.partner_id.name"/></p>
                     </div>
-                    <div style="top: 79mm;left: 160mm;position:absolute;width:100%;font-size:20px;">
+                    <div style="top: 77mm;left: 160mm;position:absolute;width:100%;font-size:21px;">
                         <p style="width:400px; height:50px;"><span t-field="o.partner_shipping_id.street"/> <span t-field="o.partner_shipping_id.street2"/> <span t-field="o.partner_shipping_id.city"/></p>
                     </div>
 
                     <!-- BILL TO -->
-                    <div style="top: 65mm;left: 270mm;position:absolute;width:100%;">
+                    <div style="top: 63mm;left: 270mm;position:absolute;width:100%;">
                         <p style="width:425px; height:50px;"><span t-field="o.partner_id.name"/></p>
                     </div>
-                    <div style="top: 79mm;left: 270mm;position:absolute;width:100%;font-size:20px;">
+                    <div style="top: 77mm;left: 270mm;position:absolute;width:100%;font-size:21px;">
                         <p style="width:425px; height:50px;"><span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/></p>
                     </div>
-                    <div style="top: 93mm;left: 270mm;position:absolute;width:100%;font-size:20px;">
+                    <div style="top: 92mm;left: 270mm;position:absolute;width:100%;font-size:21px;">
                         <span t-field="o.partner_id.vat"/><br/>
                         <p style="width:425px; height:50px;"><span t-field="o.bus_style"/></p>
                     </div>
@@ -63,7 +63,7 @@
                     <!-- Is there a discount on at least one line? -->
                     <t t-set="display_discount" t-value="any([l.discount for l in o.invoice_line_ids])"/>
 
-                    <table class="table table-condensed" name="invoice_line_table" style="top: 173mm;position:absolute;">
+                    <table class="table table-condensed" name="invoice_line_table" style="top: 173mm;position:absolute;font-size:24px;">
                         <thead>
                             <tr>
                                 <th></th>
@@ -126,7 +126,7 @@
                         </tbody>
                     </table>
 
-                    <table class="table table-condensed" style="top: 357mm;position:absolute;">
+                    <table class="table table-condensed" style="top: 354mm;position:absolute;font-size:24px;">
                         <thead>
                         </thead>
                         <tbody class="invoice_tbody">
@@ -218,13 +218,13 @@
                     <div style="top: 60mm;left: 50mm;position:absolute;width:100%;">
                         <p style="width:400px; height:50px;"><span t-field="o.partner_id.name"/></p><br/>
                     </div>
-                    <div style="top: 74mm;left: 42mm;position:absolute;width:100%;font-size:20px;">
+                    <div style="top: 74mm;left: 42mm;position:absolute;width:100%;font-size:21px;">
                         <p style="width:425px; height:50px;"><span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/></p><br/>
                     </div>
-                    <div style="top: 88mm;left: 37mm;position:absolute;width:100%;font-size:20px;">
+                    <div style="top: 88mm;left: 37mm;position:absolute;width:100%;font-size:21px;">
                         <span t-field="o.partner_id.vat"/><br/>
                     </div>
-                    <div style="top: 95mm;left: 50mm;position:absolute;width:100%;font-size:20px;">
+                    <div style="top: 95mm;left: 50mm;position:absolute;width:100%;font-size:21px;">
                         <p style="width:425px; height:50px;"><span t-field="o.bus_style"/></p>
                     </div>
 
@@ -232,7 +232,7 @@
                     <div style="top: 60mm;left: 160mm;position:absolute;width:100%;">
                         <p style="width:400px; height:50px;"><span t-field="o.partner_id.name"/></p><br/>
                     </div>
-                    <div style="top: 74mm;left: 160mm;position:absolute;width:100%;font-size:20px;">
+                    <div style="top: 74mm;left: 160mm;position:absolute;width:100%;font-size:21px;">
                         <p style="width:400px; height:50px;"><span t-field="o.partner_shipping_id.street"/> <span t-field="o.partner_shipping_id.street2"/> <span t-field="o.partner_shipping_id.city"/></p>
                     </div>
 
@@ -240,12 +240,12 @@
                     <div style="top: 60mm;left: 270mm;position:absolute;width:100%;">
                         <p style="width:425px; height:50px;"><span t-field="o.partner_id.name"/></p><br/>
                     </div>
-                    <div style="top: 74mm;left: 270mm;position:absolute;width:100%;font-size:20px;">
+                    <div style="top: 74mm;left: 270mm;position:absolute;width:100%;font-size:21px;">
                         <p style="width:425px; height:50px;"><span t-field="o.partner_id.street"/> <span t-field="o.partner_id.street2"/> <span t-field="o.partner_id.city"/></p>
                     </div>
-                    <div style="top: 88mm;left: 270mm;position:absolute;width:100%;font-size:20px;">
+                    <div style="top: 88mm;left: 270mm;position:absolute;width:100%;font-size:21px;">
                         <span t-field="o.partner_id.vat"/><br/>
-                        <p style="width:425px; height:50px;font-size:20px;"><span t-field="o.bus_style"/></p>
+                        <p style="width:425px; height:50px;font-size:21px;"><span t-field="o.bus_style"/></p>
                     </div>
 
                     <div style="top: 126mm;left: 47mm;position:absolute;width:400px;text-center">
@@ -269,7 +269,7 @@
                     <!-- Is there a discount on at least one line? -->
                     <t t-set="display_discount" t-value="any([l.discount for l in o.invoice_line_ids])"/>
 
-                    <table class="table table-condensed" name="invoice_line_table" style="top: 163mm;position:absolute;">
+                    <table class="table table-condensed" name="invoice_line_table" style="top: 163mm;position:absolute;font-size:24px;">
                         <thead>
                             <tr>
                                 <th></th>
@@ -340,7 +340,7 @@
                         </tbody>
                     </table>
 
-                    <table class="table table-condensed" style="top: 388mm;position:absolute;">
+                    <table class="table table-condensed" style="top: 385mm;position:absolute;font-size:24px;">
                         <thead>
                         </thead>
                         <tbody class="invoice_tbody">

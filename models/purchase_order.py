@@ -85,6 +85,8 @@ class PurchaseOrderLine(models.Model):
 	@api.multi
 	def _prepare_stock_moves(self, picking):
 		result = super(PurchaseOrderLine, self)._prepare_stock_moves(picking)
-		result[0]['analytic_account_id'] = self.account_analytic_id.id
+		if result and self.account_analytic_id:
+			# result[0]['analytic_account_id'] = self.account_analytic_id.id
+			result[0].update({'analytic_account_id': self.account_analytic_id.id})
 		return result
 			
