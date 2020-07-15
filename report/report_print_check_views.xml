@@ -6,7 +6,7 @@
             <xpath expr="//div[@class='ckus_check']" position="replace">
                 <div class="ckus_check">
                     <!-- <div class="sequence_number" t-if="page['sequence_number']" t-esc="page['sequence_number']" /> -->
-                    <div class="ckus_date" t-esc="page['payment_date']" style="top: 0.37in;left: 6.13in;" />
+                    <div class="ckus_date" t-esc="datetime.datetime.strptime(page['payment_date'], '%m/%d/%Y').strftime('%B %d, %Y')" style="top: 0.37in;left: 6.13in;" />
                     <div class="ckus_amount" style="top: 0.60in;left: 6.35in;">
                         <t t-esc="page['amount']"/>
                     </div>

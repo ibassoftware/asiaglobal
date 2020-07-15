@@ -23,11 +23,12 @@ class AccountPayment(models.Model):
 					whole = whole + "and " + decimal_no + '/100'
 			whole = whole.replace(',','')
 			rec.amount_in_words = whole.upper() + " ONLY"
+			rec.check_amount_in_words = whole.upper() + " ONLY"
 
-	@api.model
-	def compute_check_amount_in_words(self):
-		for record in self.search([]):
-			if not record.check_amount_in_words:
-				check_amount_in_words = record.currency_id.amount_to_text(record.amount)
-				record.check_amount_in_words = check_amount_in_words
+	# @api.model
+	# def compute_check_amount_in_words(self):
+	# 	for record in self.search([]):
+	# 		if not record.check_amount_in_words:
+	# 			check_amount_in_words = record.currency_id.amount_to_text(record.amount)
+	# 			record.check_amount_in_words = check_amount_in_words
 
