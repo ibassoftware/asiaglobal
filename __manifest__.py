@@ -61,6 +61,7 @@
         'views/calendar_views.xml',
         'views/hr_expense_views.xml',
         'views/stock_inventory_views.xml',
+        'views/account_payment_view.xml',
         'report/report_quotation_service.xml',
         'report/service_report.xml',
         'report/report_job_order.xml',
