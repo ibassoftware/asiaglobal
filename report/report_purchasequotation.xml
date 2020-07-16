@@ -111,11 +111,11 @@
                                         <!-- <span t-field="line.product_id.description_sale"/> -->
                                         <span t-field="line.name"/>
                                     </td>
-                                    <td class="td_vertical_border text-center" style="page-break-inside:avoid;page-break-after:auto;">
+                                    <td class="td_vertical_border text-right" style="page-break-inside:avoid;page-break-after:auto;">
                                         <!-- <span t-field="line.price_unit"/> -->
                                         <span t-esc="'{0:,.2f}'.format(line.price_unit)" />
                                     </td>
-                                    <td class="td_vertical_border text-center" style="page-break-inside:avoid;page-break-after:auto;">
+                                    <td class="td_vertical_border text-right" style="page-break-inside:avoid;page-break-after:auto;">
                                         <span t-esc="'{0:,.2f}'.format(line.price_subtotal)" />
                                     </td>
                                 </tr>

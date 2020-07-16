@@ -32,3 +32,6 @@ class AccountPayment(models.Model):
 	# 			check_amount_in_words = record.currency_id.amount_to_text(record.amount)
 	# 			record.check_amount_in_words = check_amount_in_words
 
+	# Override to remove asterisk
+	def fill_line(self, amount_str):
+		return amount_str
