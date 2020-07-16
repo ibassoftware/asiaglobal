@@ -110,7 +110,8 @@
                                         <span t-field="line.name"/>
                                     </td>
                                     <td class="td_vertical_border text-center" style="page-break-inside:avoid;page-break-after:auto;">
-                                        <span t-field="line.price_unit"/>
+                                        <!-- <span t-field="line.price_unit"/> -->
+                                        <span t-esc="'{0:,.2f}'.format(line.price_unit)" />
                                     </td>
                                     <td class="td_vertical_border text-center" style="page-break-inside:avoid;page-break-after:auto;">
                                         <span t-esc="'{0:,.2f}'.format(line.price_subtotal)" />
@@ -371,10 +372,11 @@
                                         <!-- <span>LOT</span> -->
                                         <span t-field="line.product_uom.name"/>
                                     </td>
-                                    <td class="td_vertical_border text-center" style="page-break-inside:avoid;page-break-after:auto;">
-                                        <span t-field="line.price_unit"/>
+                                    <td class="td_vertical_border" style="page-break-inside:avoid;page-break-after:auto;text-align:justify;">
+                                        <!-- <span t-field="line.price_unit"/> -->
+                                        <span t-esc="'{0:,.2f}'.format(line.price_unit)" />
                                     </td>
-                                    <td class="td_vertical_border text-center" style="page-break-inside:avoid;page-break-after:auto;">
+                                    <td class="td_vertical_border" style="page-break-inside:avoid;page-break-after:auto;text-align:justify;">
                                         <span t-esc="'{0:,.2f}'.format(line.price_subtotal)" />
                                     </td>
                                 </tr>
@@ -393,11 +395,12 @@
                                         <td class="td_vertical_border text-center" style="page-break-inside:avoid;page-break-after:auto;">
                                             <br/>
                                         </td>
-                                        <td class="td_vertical_border text-center" style="page-break-inside:avoid;page-break-after:auto;">
+                                        <td class="td_vertical_border" style="page-break-inside:avoid;page-break-after:auto;text-align:justify;">
                                             <span><span t-esc="int(float(tax.amount))"/>%</span>
                                         </td>
-                                        <td class="td_vertical_border text-center" style="page-break-inside:avoid;page-break-after:auto;">
-                                            <span t-esc="float((line.price_unit * tax.amount) / 100)"/>
+                                        <td class="td_vertical_border" style="page-break-inside:avoid;page-break-after:auto;text-align:justify;">
+                                            <!-- <span t-esc="float((line.price_unit * tax.amount) / 100)"/> -->
+                                            <span t-esc="'{0:,.2f}'.format(float((line.price_unit * tax.amount) / 100))" />
                                         </td>
                                     </tr>
                                 </t>
