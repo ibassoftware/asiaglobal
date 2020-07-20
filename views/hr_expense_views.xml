@@ -1,6 +1,18 @@
 <odoo>
 	<data>
 
+        <record id="view_hr_expense_sheet_tree_extend" model="ir.ui.view">
+            <field name="name">hr.expense.sheet.tree.extend</field>
+            <field name="model">hr.expense.sheet</field>
+            <field name="inherit_id" ref="hr_expense.view_hr_expense_sheet_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                   <field name="payment_date"/>
+                   <field name="memo"/>
+                </xpath>
+            </field>
+        </record>
+
 		<record id="view_hr_expense_sheet_form_extend" model="ir.ui.view">
             <field name="name">hr.expense.sheet.form.extend</field>
             <field name="model">hr.expense.sheet</field>
@@ -9,6 +21,17 @@
                 <xpath expr="//field[@name='expense_line_ids']" position="attributes">
                     <attribute name="attrs">{'readonly':[('state','in',['approve','done','post'])]}</attribute>
                 </xpath>
+
+               <xpath expr="//notebook" position="inside">
+                    <page string="Payments">
+                        <group>
+                        <field name="account_move_id"/>
+                        <field name="payment_date"/>
+                        <field name="memo"/>
+                        </group>
+                    </page>
+                </xpath>
+                
             </field>
         </record>
 
