@@ -17,7 +17,7 @@ class AccountRegisterPayments(models.TransientModel):
 			decimal_no = str(self.amount).split(".")[1]
 			if len(decimal_no) == 1:
 				decimal_no = decimal_no + "0"
-		if decimal_no:
+			if decimal_no:
 				whole = whole + "and " + decimal_no + '/100'
 		whole = whole.replace(',','')
 		self.check_amount_in_words = whole.upper() + " ONLY"
@@ -46,7 +46,7 @@ class AccountPayment(models.Model):
 				decimal_no = str(rec.amount).split(".")[1]
 				if len(decimal_no) == 1:
 					decimal_no = decimal_no + "0"
-			if decimal_no:
+				if decimal_no:
 					whole = whole + "and " + decimal_no + '/100'
 			whole = whole.replace(',','')
 			# rec.amount_in_words = whole.upper() + " ONLY"
