@@ -7,21 +7,20 @@ _logger = logging.getLogger(__name__)
 class AccountRegisterPayments(models.TransientModel):
 	_inherit = "account.register.payments"
 
-	# @api.multi
-	# @api._onchange_amount('amount','currency_id')
-	# def _onchange_amount(self):
-	# 	for rec in self:
-	# 		whole = num2words(int(rec.amount)) + ' Pesos '
-	# 		whole = whole.replace(' and ',' ')
-	# 		if "." in str(rec.amount): # quick check if it is decimal
-	# 			decimal_no = str(rec.amount).split(".")[1]
-	# 			if len(decimal_no) == 1:
-	# 				decimal_no = decimal_no + "0"
-	# 		if decimal_no:
-	# 				whole = whole + "and " + decimal_no + '/100'
-	# 		whole = whole.replace(',','')
-	# 		# rec.amount_in_words = whole.upper() + " ONLY"
-	# 		rec.check_amount_in_words = whole.upper() + " ONLY"
+	@api.multi
+	@api._onchange_amount('amount')
+	def _onchange_amount(self):
+		for rec in self:
+			whole = num2words(int(rec.amount)) + ' Pesos '
+			whole = whole.replace(' and ',' ')
+			if "." in str(rec.amount): # quick check if it is decimal
+				decimal_no = str(rec.amount).split(".")[1]
+				if len(decimal_no) == 1:
+					decimal_no = decimal_no + "0"
+			if decimal_no:
+					whole = whole + "and " + decimal_no + '/100'
+			whole = whole.replace(',','')
+			rec.check_amount_in_words = whole.upper() + " ONLY"
 
 	def _prepare_payment_vals(self, invoices):
 		res = super(AccountRegisterPayments, self)._prepare_payment_vals(invoices)
@@ -36,21 +35,21 @@ class AccountPayment(models.Model):
 
 	amount_in_words = fields.Char(string='Amount In Words', compute='_onchange_amount')
 
-	# @api.multi
-	# @api._onchange_amount('amount','currency_id')
-	# def _onchange_amount(self):
-	# 	for rec in self:
-	# 		whole = num2words(int(rec.amount)) + ' Pesos '
-	# 		whole = whole.replace(' and ',' ')
-	# 		if "." in str(rec.amount): # quick check if it is decimal
-	# 			decimal_no = str(rec.amount).split(".")[1]
-	# 			if len(decimal_no) == 1:
-	# 				decimal_no = decimal_no + "0"
-	# 		if decimal_no:
-	# 				whole = whole + "and " + decimal_no + '/100'
-	# 		whole = whole.replace(',','')
-	# 		# rec.amount_in_words = whole.upper() + " ONLY"
-	# 		rec.check_amount_in_words = whole.upper() + " ONLY"
+	@api.multi
+	@api._onchange_amount('amount','currency_id')
+	def _onchange_amount(self):
+		for rec in self:
+			whole = num2words(int(rec.amount)) + ' Pesos '
+			whole = whole.replace(' and ',' ')
+			if "." in str(rec.amount): # quick check if it is decimal
+				decimal_no = str(rec.amount).split(".")[1]
+				if len(decimal_no) == 1:
+					decimal_no = decimal_no + "0"
+			if decimal_no:
+					whole = whole + "and " + decimal_no + '/100'
+			whole = whole.replace(',','')
+			# rec.amount_in_words = whole.upper() + " ONLY"
+			rec.check_amount_in_words = whole.upper() + " ONLY"
 
 	@api.multi
 	def compute_check_amount_in_words(self):
