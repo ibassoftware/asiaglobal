@@ -13,9 +13,47 @@
                 </xpath>
 
                 <xpath expr="//field[@name='journal_id']" position="before">
-                    <field name="amount_in_words">Amount in Words</field>
+                    <field name="amount_in_words" invisible="1"/>
                 </xpath>
 
+            </field>
+        </record>
+
+        <record id="view_account_payment_form_inherited_extend" model="ir.ui.view">
+            <field name="name">account.payment.form.inherited.extend</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account_check_printing.view_account_payment_form_inherited" />
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='check_amount_in_words']" position="attributes">
+                    <attribute name="attrs">{}</attribute>
+                    <attribute name="groups"></attribute>
+                </xpath>
+
+            </field>
+        </record>
+
+        <record id="view_account_payment_invoice_form_inherited_extend" model="ir.ui.view">
+            <field name="name">account.payment.invoice.form.inherited.extend</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account_check_printing.view_account_payment_invoice_form_inherited" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='check_amount_in_words']" position="attributes">
+                    <attribute name="attrs">{}</attribute>
+                    <attribute name="groups"></attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_account_payment_from_invoices_inherited_extend" model="ir.ui.view">
+            <field name="name">account.register.payments.wizard.inherited.extend</field>
+            <field name="model">account.register.payments</field>
+            <field name="inherit_id" ref="account_check_printing.view_account_payment_from_invoices_inherited" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='check_amount_in_words']" position="attributes">
+                    <attribute name="attrs">{}</attribute>
+                    <attribute name="groups"></attribute>
+                </xpath>
             </field>
         </record>
 
