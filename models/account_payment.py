@@ -43,7 +43,11 @@ class AccountPayment(models.Model):
 			whole = num2words(int(rec.amount)) + ' Pesos '
 			whole = whole.replace(' and ',' ')
 			if "." in str(rec.amount): # quick check if it is decimal
+				_logger.info("YOW")
+				_logger.info(rec.amount)
+
 				decimal_no = str(rec.amount).split(".")[1]
+				_logger.info(decimal_no)
 				if len(decimal_no) == 1:
 					decimal_no = decimal_no + "0"
 				if decimal_no:
